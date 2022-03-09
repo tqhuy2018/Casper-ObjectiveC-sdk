@@ -1,10 +1,3 @@
-//
-//  CasperSDKObjectiveC.h
-//  CasperSDKObjectiveC
-//
-//  Created by Hien on 09/03/2022.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for CasperSDKObjectiveC.

@@ -11,6 +11,7 @@
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
 		9095582527D833D0001AE414 /* CasperSDKObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095582427D833D0001AE414 /* CasperSDKObjectiveCTests.m */; };
 		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9095583427D87615001AE414 /* HttpHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095583327D87615001AE414 /* HttpHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
 		9095581F27D833D0001AE414 /* CasperSDKObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasperSDKObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9095582427D833D0001AE414 /* CasperSDKObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CasperSDKObjectiveCTests.m; sourceTree = "<group>"; };
+		9095583227D87583001AE414 /* HttpHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpHandler.h; sourceTree = "<group>"; };
+		9095583327D87615001AE414 /* HttpHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 			children = (
 				9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */,
 				9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */,
+				9095583227D87583001AE414 /* HttpHandler.h */,
+				9095583327D87615001AE414 /* HttpHandler.m */,
 			);
 			path = CasperSDKObjectiveC;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9095583427D87615001AE414 /* HttpHandler.m in Sources */,
 				9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
