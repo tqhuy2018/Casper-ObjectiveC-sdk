@@ -1,3 +1,3 @@
-# CSPR-Swift-SDK
+# CSPR-ObjectiveC-SDK
 
 Hello!
