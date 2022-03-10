@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "HttpHandler.h"
 #import "GetStateRootHash.h"
+#import "GetPeerList.h"
 @interface CasperSDKObjectiveCTests : XCTestCase
 
 @end
@@ -54,7 +55,8 @@
                                                                                                         options:kNilOptions
                                                                                                                 error:nil];
         
-
+        GetPeerList * gpl = [[GetPeerList alloc] init];
+        [gpl fromJsonToPeerList : forJSONObject];
         NSLog(@"One of these might exist - object: %@ \n ", forJSONObject);
 
     }];
