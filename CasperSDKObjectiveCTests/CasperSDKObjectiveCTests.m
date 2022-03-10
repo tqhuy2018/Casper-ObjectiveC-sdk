@@ -1,6 +1,6 @@
 #import <XCTest/XCTest.h>
 #import "HttpHandler.h"
-
+#import "GetStateRootHash.h"
 @interface CasperSDKObjectiveCTests : XCTestCase
 
 @end
@@ -53,7 +53,7 @@
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data
                                                                                                         options:kNilOptions
                                                                                                                 error:nil];
-         
+        
 
         NSLog(@"One of these might exist - object: %@ \n ", forJSONObject);
 
@@ -96,7 +96,8 @@
         NSArray *forJSONArray = [NSJSONSerialization JSONObjectWithData:data
                                                                                                         options:kNilOptions
                                                                                                           error:nil];
-
+        GetStateRootHash * gsrh = [[GetStateRootHash alloc] init];
+        [gsrh fromJsonToStateRootHash: forJSONObject ];
         NSLog(@"One of these might exist - object: %@ \n array: %@", forJSONObject, forJSONArray);
 
     }];
