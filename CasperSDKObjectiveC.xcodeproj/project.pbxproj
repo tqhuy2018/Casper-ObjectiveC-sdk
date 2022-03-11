@@ -14,6 +14,8 @@
 		9095583427D87615001AE414 /* HttpHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095583327D87615001AE414 /* HttpHandler.m */; };
 		9095583827D8AE3D001AE414 /* BlockIdentifider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095583727D8AE3D001AE414 /* BlockIdentifider.m */; };
 		9095583B27D8C545001AE414 /* CasperSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095583A27D8C545001AE414 /* CasperSDK.m */; };
+		909616E427DAE35B00F9BB95 /* PeerEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 909616E327DAE35B00F9BB95 /* PeerEntry.m */; };
+		909616E827DAE4E700F9BB95 /* GetPeerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 909616E727DAE4E700F9BB95 /* GetPeerResult.m */; };
 		90A317A427D9BCE300585B89 /* GetStateRootHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A317A327D9BCE300585B89 /* GetStateRootHash.m */; };
 		90A317FE27DA007700585B89 /* GetPeerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A317FD27DA007700585B89 /* GetPeerList.m */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,10 @@
 		9095583727D8AE3D001AE414 /* BlockIdentifider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockIdentifider.m; sourceTree = "<group>"; };
 		9095583927D8C536001AE414 /* CasperSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDK.h; sourceTree = "<group>"; };
 		9095583A27D8C545001AE414 /* CasperSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CasperSDK.m; sourceTree = "<group>"; };
+		909616E227DAE35100F9BB95 /* PeerEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeerEntry.h; sourceTree = "<group>"; };
+		909616E327DAE35B00F9BB95 /* PeerEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeerEntry.m; sourceTree = "<group>"; };
+		909616E627DAE4DA00F9BB95 /* GetPeerResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPeerResult.h; sourceTree = "<group>"; };
+		909616E727DAE4E700F9BB95 /* GetPeerResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResult.m; sourceTree = "<group>"; };
 		90A317A227D9BCD500585B89 /* GetStateRootHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStateRootHash.h; sourceTree = "<group>"; };
 		90A317A327D9BCE300585B89 /* GetStateRootHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHash.m; sourceTree = "<group>"; };
 		90A317FC27DA006B00585B89 /* GetPeerList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPeerList.h; sourceTree = "<group>"; };
@@ -108,14 +114,26 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				909616E527DAE4AD00F9BB95 /* GetPeerList */,
 				9095583627D8AE2F001AE414 /* BlockIdentifier.h */,
 				9095583727D8AE3D001AE414 /* BlockIdentifider.m */,
 				90A317A227D9BCD500585B89 /* GetStateRootHash.h */,
 				90A317A327D9BCE300585B89 /* GetStateRootHash.m */,
-				90A317FC27DA006B00585B89 /* GetPeerList.h */,
-				90A317FD27DA007700585B89 /* GetPeerList.m */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		909616E527DAE4AD00F9BB95 /* GetPeerList */ = {
+			isa = PBXGroup;
+			children = (
+				90A317FC27DA006B00585B89 /* GetPeerList.h */,
+				90A317FD27DA007700585B89 /* GetPeerList.m */,
+				909616E227DAE35100F9BB95 /* PeerEntry.h */,
+				909616E327DAE35B00F9BB95 /* PeerEntry.m */,
+				909616E627DAE4DA00F9BB95 /* GetPeerResult.h */,
+				909616E727DAE4E700F9BB95 /* GetPeerResult.m */,
+			);
+			path = GetPeerList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +249,9 @@
 				9095583B27D8C545001AE414 /* CasperSDK.m in Sources */,
 				9095583827D8AE3D001AE414 /* BlockIdentifider.m in Sources */,
 				90A317FE27DA007700585B89 /* GetPeerList.m in Sources */,
+				909616E827DAE4E700F9BB95 /* GetPeerResult.m in Sources */,
 				90A317A427D9BCE300585B89 /* GetStateRootHash.m in Sources */,
+				909616E427DAE35B00F9BB95 /* PeerEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9T97Q4ATZ2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -414,7 +434,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9T97Q4ATZ2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

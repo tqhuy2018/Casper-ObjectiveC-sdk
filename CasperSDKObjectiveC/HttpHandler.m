@@ -17,8 +17,7 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"Yay, done! Check for errors in response!");
-
+       
         NSHTTPURLResponse *asHTTPResponse = (NSHTTPURLResponse *) response;
         NSLog(@"The response is: %@", asHTTPResponse);
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data
