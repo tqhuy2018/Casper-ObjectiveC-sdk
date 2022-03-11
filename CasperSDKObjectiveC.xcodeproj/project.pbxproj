@@ -16,6 +16,7 @@
 		9095583B27D8C545001AE414 /* CasperSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095583A27D8C545001AE414 /* CasperSDK.m */; };
 		909616E427DAE35B00F9BB95 /* PeerEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 909616E327DAE35B00F9BB95 /* PeerEntry.m */; };
 		909616E827DAE4E700F9BB95 /* GetPeerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 909616E727DAE4E700F9BB95 /* GetPeerResult.m */; };
+		909616EA27DB0A8C00F9BB95 /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 909616E927DB0A8C00F9BB95 /* GetStateRootHashTest.m */; };
 		90A317A427D9BCE300585B89 /* GetStateRootHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A317A327D9BCE300585B89 /* GetStateRootHash.m */; };
 		90A317FE27DA007700585B89 /* GetPeerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A317FD27DA007700585B89 /* GetPeerList.m */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		909616E327DAE35B00F9BB95 /* PeerEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeerEntry.m; sourceTree = "<group>"; };
 		909616E627DAE4DA00F9BB95 /* GetPeerResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPeerResult.h; sourceTree = "<group>"; };
 		909616E727DAE4E700F9BB95 /* GetPeerResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResult.m; sourceTree = "<group>"; };
+		909616E927DB0A8C00F9BB95 /* GetStateRootHashTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHashTest.m; sourceTree = "<group>"; };
 		90A317A227D9BCD500585B89 /* GetStateRootHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStateRootHash.h; sourceTree = "<group>"; };
 		90A317A327D9BCE300585B89 /* GetStateRootHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHash.m; sourceTree = "<group>"; };
 		90A317FC27DA006B00585B89 /* GetPeerList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPeerList.h; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9095582427D833D0001AE414 /* CasperSDKObjectiveCTests.m */,
+				909616E927DB0A8C00F9BB95 /* GetStateRootHashTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909616EA27DB0A8C00F9BB95 /* GetStateRootHashTest.m in Sources */,
 				9095582527D833D0001AE414 /* CasperSDKObjectiveCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,8 +9,10 @@ typedef NS_ENUM(NSInteger,USE_BLOCK_TYPE) {
 @interface BlockIdentifier:NSObject
 @property NSString * blockHash;
 @property UInt64 blockHeight;
+@property USE_BLOCK_TYPE blockType;
 -(void) assignBlockHashWithParam:(NSString*) bHash;
 -(void) assignBlockHeigthtWithParam:(UInt64) bHeight;
+-(NSString*) toJsonStringWithMethodName:(NSString*) methodName;
 @end
 
 #endif /* BlockIdentifier_h */

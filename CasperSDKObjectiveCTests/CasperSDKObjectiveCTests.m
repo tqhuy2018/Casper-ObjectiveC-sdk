@@ -3,6 +3,7 @@
 #import "GetStateRootHash.h"
 #import "GetPeerList.h"
 #import "GetPeerResult.h"
+#import "BlockIdentifier.h"
 
 @interface CasperSDKObjectiveCTests : XCTestCase
 
@@ -60,6 +61,9 @@
            // [session closeWithCompletionHandler:nil];
         }];
     printf("Handler request end");
+}
+- (void) testGetStateRootHashWithBlockIdentifier:(BlockIdentifier*) bi {
+    
 }
 - (void) testGetStateRootHash {
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"document open"];
