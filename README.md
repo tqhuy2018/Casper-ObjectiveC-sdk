@@ -25,4 +25,4 @@ In the menu bar of XCode, hit Product->Test to test the SDK.
 
 -  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
 
--  [Get Peer List](./Docs/Help.md#ii-get-network-peers-list)
+-  [Get Peer List](./Docs/Help.md##ii-get-peers-list)
