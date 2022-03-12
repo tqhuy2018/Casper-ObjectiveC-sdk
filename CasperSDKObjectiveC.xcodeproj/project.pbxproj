@@ -28,6 +28,8 @@
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
 		9079791127DC96BB00B69B4E /* CasperSDKObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
+		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
+		9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791B27DCBE8300B69B4E /* PeersMap.m */; };
 		9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */; };
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
 		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +68,10 @@
 		9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDKObjectiveCTests.m; sourceTree = "<group>"; };
 		9079791327DC9F8300B69B4E /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
+		9079791727DCBCFC00B69B4E /* GetStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStatusResult.h; sourceTree = "<group>"; };
+		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
+		9079791A27DCBE7700B69B4E /* PeersMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeersMap.h; sourceTree = "<group>"; };
+		9079791B27DCBE8300B69B4E /* PeersMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeersMap.m; sourceTree = "<group>"; };
 		9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CasperSDKObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
@@ -97,6 +103,15 @@
 				9079791327DC9F8300B69B4E /* Help.md */,
 			);
 			path = Docs;
+			sourceTree = "<group>";
+		};
+		9079791627DCBCE100B69B4E /* GetStatus */ = {
+			isa = PBXGroup;
+			children = (
+				9079791727DCBCFC00B69B4E /* GetStatusResult.h */,
+				9079791827DCBD0900B69B4E /* GetStatusResult.m */,
+			);
+			path = GetStatus;
 			sourceTree = "<group>";
 		};
 		9095580B27D833D0001AE414 = {
@@ -145,6 +160,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				9079791627DCBCE100B69B4E /* GetStatus */,
 				907978F827DC966100B69B4E /* BlockIdentifider.m */,
 				907978FB27DC966100B69B4E /* BlockIdentifier.h */,
 				907978FA27DC966100B69B4E /* CasperErrorMessage.h */,
@@ -167,6 +183,8 @@
 				907978ED27DC963E00B69B4E /* GetPeerResult.m */,
 				907978EE27DC963E00B69B4E /* PeerEntry.h */,
 				907978EF27DC963E00B69B4E /* PeerEntry.m */,
+				9079791A27DCBE7700B69B4E /* PeersMap.h */,
+				9079791B27DCBE8300B69B4E /* PeersMap.m */,
 			);
 			path = GetPeerList;
 			sourceTree = "<group>";
@@ -290,7 +308,9 @@
 			files = (
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
+				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValue.m in Sources */,
+				9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
@@ -374,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -430,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -471,7 +491,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -506,7 +526,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
