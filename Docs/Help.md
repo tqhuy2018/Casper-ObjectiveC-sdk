@@ -45,13 +45,34 @@ The task is done in file "GetStateRootHash.h" and "GetStateRootHash.m"
 #### 1. Method declaration
 
 ```ObjectiveC
-        +(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
++(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
 ```
-Input: NSString represents the json parameter needed to send along with the POST method to Casper server
+Input: NSString represents the json parameter needed to send along with the POST method to Casper server. This parameter is build based on the BlockIdentifier.
+
+When call this method to get the state root hash, you need to declare a BlockIdentifier object and then assign the height or hash or just none to the BlockIdentifier. Then the BlockIdentifier is transfer to the jsonString parameter. The whole sequence can be seen as the following code:
+1. Declare a BlockIdentifier and assign its value
+```ObjectiveC
+    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+    bi.blockType = USE_NONE;
+    
+    //or you can set the block attribute like this
+    
+    //bi.blockType = USE_BLOCK_HASH;
+   // [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+   
+   or like this
+   
+   //bi.blockType = USE_BLOCK_HEIGHT;
+   // [bi assignBlockHeigthtWithParam:12345];
+   
+   //then you generate the jsonString to call the getStateRootHashWithJsonParam function
+    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+```
+
 Output: the actual output is retrive within the function body
 
 ```ObjectiveC
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
+[HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
 ```
 From this the other method is called
 
@@ -62,6 +83,8 @@ From this the other method is called
 This function return the state_root_hash value.
 
 In Unit test, the GetStateRootHash is done within the following sequence:
+
+
 
 #### 2. Input & Output: 
 
