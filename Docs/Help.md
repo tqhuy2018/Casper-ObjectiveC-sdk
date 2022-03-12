@@ -68,8 +68,12 @@ When call this method to get the state root hash, you need to declare a BlockIde
    //then you generate the jsonString to call the getStateRootHashWithJsonParam function
     NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
 ```
+2. Use the jsonString to call the function:
 
-Output: the actual output is retrive within the function body
++(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
+
+
+Output: the actual output is retrieved within the function body of getStateRootHashWithJsonParam function:
 
 ```ObjectiveC
 [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
@@ -82,7 +86,10 @@ From this the other method is called
 
 This function return the state_root_hash value.
 
-In Unit test, the GetStateRootHash is done within the following sequence:
+#### In Unit test, the GetStateRootHash is done within the following sequence:
+
+Declare a BlockIdentifier and assign its atributes
+
 
 
 
