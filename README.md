@@ -18,6 +18,8 @@ Download or clone the code from github, then open it with Xcode.
 
 * Configure the Minimum MacOS and IOS version for Package and Test Target:
 
+Check your configuration is the same as below for the SDK in Xcode.
+
 In TARGETS section of Xcode, choose "CasperSDKObjectiveC". Hit "Build Settings" tab in the Target menu, seach for "macOS Development Target", then choose "macOS 10.15" from the Dropdown list, like in this image:
 <img width="1126" alt="Screen Shot 2022-03-12 at 22 09 58" src="https://user-images.githubusercontent.com/94465107/158023543-d7cdff7b-98f0-45fa-b36e-a268a78f66af.png">
 
@@ -36,8 +38,16 @@ The default configuration for both "CasperSDKObjectiveC" and "CasperSDKObjective
 <img width="866" alt="Screen Shot 2022-03-12 at 22 05 58" src="https://user-images.githubusercontent.com/94465107/158023400-c21e1b89-20c3-4533-85ec-b6aa6c4711cd.png">
 
 In the menu bar of XCode, hit Product->Build to build the SDK.
+<img width="1397" alt="Screen Shot 2022-03-12 at 22 15 08" src="https://user-images.githubusercontent.com/94465107/158023727-264cd412-762e-40de-b52b-29b0b682af94.png">
+
 
 In the menu bar of XCode, hit Product->Test to test the SDK.
+<img width="1406" alt="Screen Shot 2022-03-12 at 22 16 44" src="https://user-images.githubusercontent.com/94465107/158023788-ea87de66-687e-41c6-9469-78881e48f2be.png">
+
+You will see the Log information about List Peer and State root hash for the 2 RPC method. (Press "Cmd + Shift + Y" to show the Log if you don't see it)
+
+
+
 
 # Documentation for classes and methods
 
