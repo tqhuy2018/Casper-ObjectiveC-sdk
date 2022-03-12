@@ -63,6 +63,7 @@
 		9079790927DC96AA00B69B4E /* CasperSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDK.m; sourceTree = "<group>"; };
 		9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHashTest.m; sourceTree = "<group>"; };
 		9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDKObjectiveCTests.m; sourceTree = "<group>"; };
+		9079791327DC9F8300B69B4E /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CasperSDKObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
@@ -88,9 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9079791227DC9F5A00B69B4E /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				9079791327DC9F8300B69B4E /* Help.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		9095580B27D833D0001AE414 = {
 			isa = PBXGroup;
 			children = (
+				9079791227DC9F5A00B69B4E /* Docs */,
 				9095581727D833D0001AE414 /* CasperSDKObjectiveC */,
 				9095582327D833D0001AE414 /* CasperSDKObjectiveCTests */,
 				9095581627D833D0001AE414 /* Products */,

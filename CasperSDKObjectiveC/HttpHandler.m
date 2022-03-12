@@ -5,12 +5,18 @@
 #import "GetStateRootHash.h"
 #import "GetPeerResult.h"
 @implementation HttpHandler
--(void) handleRequestWithParam:(NSString*) jsonString andRPCMethod:(NSString*) rpcMethod {
-    self.casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+static NSString* casperURL;
++ (NSString*) casperURL
+{ @synchronized(self) { return casperURL; } }
++ (void) setCasperURL:(NSString*)val
+{ @synchronized(self) { casperURL = val; } }
+
++(void) handleRequestWithParam:(NSString*) jsonString andRPCMethod:(NSString*) rpcMethod {
+    HttpHandler.casperURL =  @"https://node-clarity-testnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
-    [request setURL:[NSURL URLWithString:self.casperURL]];
+    [request setURL:[NSURL URLWithString:HttpHandler.casperURL]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];
@@ -33,6 +39,5 @@
         }
        }];
     [task resume];
-    printf("Handler request end");
 }
 @end
