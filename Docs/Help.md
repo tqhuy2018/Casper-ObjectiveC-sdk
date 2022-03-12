@@ -12,7 +12,7 @@ The calling the RPC follow this sequence:
 
 - Handle the data sent back from Casper server for the POST request. Depends on the RPC method call, the corresponding json data is sent back in type of [String:Value] form. The task of the SDK is to parse this json data and put in correct data type built for each RPC method.
 
-Here is the RPC methods need to be implemented, in which for M1 is the first 2 methods:
+## List of RPC methods:
 
 1) Get state root hash (chain_get_state_root_hash)
 
