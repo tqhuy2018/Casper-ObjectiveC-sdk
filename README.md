@@ -19,11 +19,13 @@ Download or clone the code from github, then open it with Xcode.
 * Configure the Minimum MacOS and IOS version for Package and Test Target:
 
 In TARGETS section of Xcode, choose "CasperSDKObjectiveC". Hit "Build Settings" tab in the Target menu, seach for "macOS Development Target", then choose "macOS 10.15" from the Dropdown list, like in this image:
-<img width="1129" alt="Screen Shot 2022-03-12 at 22 08 09" src="https://user-images.githubusercontent.com/94465107/158023467-81e5f205-a791-4278-927c-ce0294eae84b.png">
+<img width="1126" alt="Screen Shot 2022-03-12 at 22 09 58" src="https://user-images.githubusercontent.com/94465107/158023543-d7cdff7b-98f0-45fa-b36e-a268a78f66af.png">
+
 
 In TARGETS section of Xcode, choose "CasperSDKObjectiveCTests". Hit "Build Settings" tab in the Target menu, seach for "macOS Development Target", then choose "macOS 10.15" from the Dropdown list, like in this image:
 
-<img width="1125" alt="Screen Shot 2022-03-12 at 22 07 59" src="https://user-images.githubusercontent.com/94465107/158023480-01fa56f1-1692-4adc-9548-45c93701ec21.png">
+<img width="1127" alt="Screen Shot 2022-03-12 at 22 10 15" src="https://user-images.githubusercontent.com/94465107/158023549-1216b6f8-7245-4ccf-a810-6f08b5d49446.png">
+
 
 * Configure "Signing & Capabilities"
 
