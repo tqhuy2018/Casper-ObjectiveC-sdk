@@ -168,3 +168,19 @@ From the POST request, the json data is retrieved and stored in forJSONObject va
 GetPeerResult * gpr = [[GetPeerResult alloc] init];
         gpr = [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
 ```
+
+From this you can Log out the retrieved information, such as the following code Log out total peer and print address and node id for each peer.
+
+```ObjectiveC
+NSLog(@"Get peer result api_version:%@",gpr.api_version);
+NSLog(@"Get peer result, total peer entry:%lu",[gpr.PeersMap count]);
+NSLog(@"List of peer printed out:");
+NSInteger totalPeer = [gpr.PeersMap count];
+NSInteger  counter = 1;
+for (int i = 0 ; i < totalPeer;i ++) {
+    PeerEntry * pe = [[PeerEntry alloc] init];
+    pe = [gpr.PeersMap objectAtIndex:i];
+    NSLog(@"Peer number %lu address:%@ and node id:%@",counter,pe.address,pe.nodeID);
+    counter = counter + 1;
+}
+```
