@@ -21,7 +21,7 @@ In the menu bar of XCode, hit Product->Test to test the SDK.
 
 # Documentation for classes and methods
 
-* [List of classes and methods](./Docs/Help.md)
+* [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
 
 -  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
 
