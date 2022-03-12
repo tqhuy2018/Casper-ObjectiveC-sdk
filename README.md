@@ -12,8 +12,11 @@ The SDK use ObjectiveC 2.0 and support device running IOS from 10.0, MacOS from 
 
 ## Build and test
 To test the project you need to have a Mac with Mac OS and XCode 13 or above to build and run the test.
+
 Download or clone the code from github, then open it with Xcode.
+
 In the menu bar of XCode, hit Product->Build to build the SDK.
+
 In the menu bar of XCode, hit Product->Test to test the SDK.
 
 # Documentation for classes and methods
