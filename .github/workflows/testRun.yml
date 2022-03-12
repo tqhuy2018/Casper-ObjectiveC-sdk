@@ -30,4 +30,4 @@ jobs:
           xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
       - name: Test
         run: |
-        bundle exec xcpretty;
+        xcbeautify
