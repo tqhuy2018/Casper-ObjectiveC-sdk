@@ -6,6 +6,7 @@
 @property NSMutableArray * PeersMap;
 -(void) setupWithApiVersion:(NSString*) apiVersion andPeerMap:(NSMutableArray*) peerMapList;
 +(GetPeerResult*) fromJsonObjToGetPeerResult:(NSDictionary*) jsonDict;
++(void) getPeerResultWithJsonParam:(NSString*) jsonString;
 @end
 
 #endif 

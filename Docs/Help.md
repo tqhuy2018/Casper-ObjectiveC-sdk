@@ -47,6 +47,9 @@ The task is done in file "GetStateRootHash.h" and "GetStateRootHash.m"
 ```ObjectiveC
 +(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
 ```
+
+#### 2. Input & Output: 
+
 Input: NSString represents the json parameter needed to send along with the POST method to Casper server. This parameter is build based on the BlockIdentifier.
 
 When call this method to get the state root hash, you need to declare a BlockIdentifier object and then assign the height or hash or just none to the BlockIdentifier. Then the BlockIdentifier is transfer to the jsonString parameter. The whole sequence can be seen as the following code:
@@ -70,8 +73,9 @@ When call this method to get the state root hash, you need to declare a BlockIde
 ```
 2. Use the jsonString to call the function:
 
+```ObjectiveC
 +(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
-
+```
 
 Output: the actual output is retrieved within the function body of getStateRootHashWithJsonParam function:
 
@@ -86,83 +90,81 @@ From this the other method is called
 
 This function return the state_root_hash value.
 
-#### In Unit test, the GetStateRootHash is done within the following sequence:
+#### 3. The Unit test file for GetStateRootHash is in file "GetStateRootHashTest.m". 
 
-Declare a BlockIdentifier and assign its atributes
+In Unit test, the GetStateRootHash is done within the following sequence:
 
+1. Declare a BlockIdentifier and assign its atributes
 
-
-
-#### 2. Input & Output: 
-
-
-
-Base on the input, the folowing output is possible:
-
-- Input: Hash(block_hash) with correct block_hash of a block, Output: the state root hash of the block with the specific hash of the input
-
-- Input: Hash(block_hash) with wrong block_hash or non-exist block_hash, Output: the state root hash of the latest block
-
-- Input: Height(block_height) with correct block_height, Output: the state root hash of the block with the specific height of the input 
-
-- Input: Height(block_height) with wrong block_height, such as the value is too big, Output: A block not found Error is thrown.
-
-#### 3. Method flow detail:
-
-- input getStateRootHashParam of type GetStateRootHashParam will be used to make json data for post method 
-
-```swift
-let data = JsonConversion.fromBlockIdentifierToJsonData(input: getStateRootHashParam.block_identifier, method: .chainGetStateRootHash)
+```ObjectiveC
+    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+    bi.blockType = USE_NONE;
+    
+    //or you can set the block attribute like this
+    
+    //bi.blockType = USE_BLOCK_HASH;
+   // [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+   
+   or like this
+   
+   //bi.blockType = USE_BLOCK_HEIGHT;
+   // [bi assignBlockHeigthtWithParam:12345];
+   
+   //then you generate the jsonString to call the getStateRootHashWithJsonParam function
+    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
 ```
+2. Call the function to get the state root hash
 
-- Then json data will be sent to the  httpHandler object of HttpHandler class with the method call and json data just generated.
-
-```swift
-httpHandler.handleRequest(method: methodCall, params: data)
-```
-
-In the handleRequest function the state root hash is retrieved by running this code line
-
-```swift
-let stateRootHash = try GetStateRootHash.getStateRootHash(from: responseJSON);
+```ObjectiveC
+[self getStateRootHashWithJsonParam:jsonString];
 ```
 
 ### II. Get network peers list  
 
+The task is done in file "GetPeerResult.h" and "GetPeerResult.m"
+
 #### 1. Method declaration
 
-```swift
-public func getPeers()
+```ObjectiveC
++(void) getPeerResultWithJsonParam:(NSString*) jsonString;
 ```
 
 #### 2. Input & Output: 
 
-- Input: None
+Input: NSString represents the json parameter needed to send along with the POST method to Casper server. This string is just simple as:
+
+```ObjectiveC
+{"params" : [],"id" : 1,"method":"info_get_peers","jsonrpc" : "2.0"}
+```
+
+The code under  function handler the getting of peerlist
+
+```ObjectiveC
+[HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_PEERS];
+```
+
+From this, in HttpHandler class, the retrieve of PeerEntry List is done with this function:
+
+```ObjectiveC
++(GetPeerResult*) fromJsonObjToGetPeerResult:(NSDictionary*) jsonDict;
+```
 
 - Output: List of peer defined in class GetPeersResult, which contain a list of PeerEntry - a class contain of nodeId and address.
 
+#### 3. The Unit test file for GetPeerResult is in file "GetPeerResultTest.m"
 
-#### 3. Method flow detail:
+The steps in doing the test.
 
-- Call to  httpHandler object of HttpHandler class.
+1.Declare the json parameter to send to POST request
 
-```swift
-httpHandler.handleRequest(method: methodCall, params: data)
+```ObjectiveC
+NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_peers\",\"jsonrpc\" : \"2.0\"}";
 ```
+From the POST request, the json data is retrieved and stored in forJSONObject variable.
 
-In the handleRequest function the peer list is retrieved by running this code line
+2. Get GetPeerResult from the forJSONObject variable
 
-```swift
-let getPeer:GetPeersResult = try GetPeers.getPeers(from: responseJSON)
+```ObjectiveC
+GetPeerResult * gpr = [[GetPeerResult alloc] init];
+        gpr = [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
 ```
-
-You can then retrieve all the peer through the getPeer object (of class GetPeersResult), for example this following code log out all retrieved peers:
-
-```swift
-let peerEntries:[PeerEntry] = getPeer.getPeerMap().getPeerEntryList()
-for peerEntry in peerEntries {
-    NSLog("Peer address:\(peerEntry.address)")
-    NSLog("Peer id:\(peerEntry.nodeID)")
-}
-```
-
