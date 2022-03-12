@@ -8,7 +8,7 @@ SDK  to streamline the 3rd party ObjectiveC client integration processes. Such 3
 
 ## System requirement
 
-The SDK use ObjectiveC 2.0 and support device running IOS from 11.0, MacOS from 10.15, WatchOS from 5.3, tvOS from 12.3
+The SDK use ObjectiveC 2.0 and support device running IOS from 12.0, MacOS from 10.15, WatchOS from 5.3, tvOS from 12.3
 
 ## Build and test
 
