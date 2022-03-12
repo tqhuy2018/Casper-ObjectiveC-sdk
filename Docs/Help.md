@@ -119,7 +119,7 @@ In Unit test, the GetStateRootHash is done within the following sequence:
 [self getStateRootHashWithJsonParam:jsonString];
 ```
 
-### II. Get network peers list  
+### II. Get Peers List  
 
 The task is done in file "GetPeerResult.h" and "GetPeerResult.m"
 
