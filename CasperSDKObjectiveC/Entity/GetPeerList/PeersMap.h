@@ -2,7 +2,8 @@
 #define PeersMap_h
 #import "PeerEntry.h"
 @interface PeersMap
-@property NSMutableArray * listPeerEntry
+@property NSMutableArray * listPeerEntry;
+
 @end
 
 #endif 

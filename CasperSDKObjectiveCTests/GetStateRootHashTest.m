@@ -1,11 +1,8 @@
-
-
 #import <XCTest/XCTest.h>
 #import "BlockIdentifier.h"
 #import "GetStateRootHash.h"
 #import "CasperErrorMessage.h"
 #import "ConstValues.h"
-
 @interface GetStateRootHashTest : XCTestCase
 
 @end
