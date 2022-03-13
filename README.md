@@ -55,4 +55,4 @@ You will see the Log information about List Peer and State root hash for the 2 R
 
 -  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
 
--  [Get Peer List](./Docs/Help.md##ii-get-peers-list)
+-  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
