@@ -5,7 +5,8 @@
  This class parse the Json string respresents the GetPeerResult class, then return back a GetPeerResult as result
  */
 @interface GetPeerList:NSObject
--(GetPeerResult*) fromJsonToPeerList:(NSDictionary*) nsData;
+-(GetPeerResult*) fromJsonToGetPeerResult:(NSDictionary*) nsData;
++(NSMutableArray*) fromJsonToPeerMap:(NSDictionary*) nsData;
 @end
 
 

@@ -4,6 +4,7 @@
 #import "ConstValues.h"
 #import "GetStateRootHash.h"
 #import "GetPeerResult.h"
+#import "GetStatusResult.h"
 @implementation HttpHandler
 static NSString* casperURL;
 + (NSString*) casperURL
@@ -33,6 +34,8 @@ static NSString* casperURL;
                NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
             } else if (rpcMethod == CASPER_RPC_METHOD_INFO_GET_PEERS) {
                 GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
+            } else if (rpcMethod == CASPER_RPC_METHOD_INFO_GET_STATUS) {
+                GetStatusResult * gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
             }
         } else {
             NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);

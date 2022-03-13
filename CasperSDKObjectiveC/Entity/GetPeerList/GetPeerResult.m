@@ -12,7 +12,7 @@
 +(GetPeerResult*) fromJsonObjToGetPeerResult:(NSDictionary*) forJSONObject {
     GetPeerList * gpl = [[GetPeerList alloc] init];
     GetPeerResult * gpr = [[GetPeerResult alloc] init];
-    gpr = [gpl fromJsonToPeerList : forJSONObject];
+    gpr = [gpl fromJsonToGetPeerResult : forJSONObject];
     return gpr;
 }
 +(void) getPeerResultWithJsonParam:(NSString*) jsonString {
