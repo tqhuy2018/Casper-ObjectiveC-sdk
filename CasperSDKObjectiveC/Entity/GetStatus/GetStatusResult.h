@@ -13,7 +13,12 @@
 @property NextUpgrade * next_upgrade;
 @property NSString * build_version;
 @property NSString * uptime;
+@property bool is_last_added_block_info_exists;
+@property bool is_next_upgrade_exists;
+@property bool is_our_public_signing_key_exists;
+@property bool is_round_length_exists;
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict;
+-(void) logInfo;
 @end
 
 #endif

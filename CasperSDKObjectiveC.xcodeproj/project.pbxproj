@@ -178,6 +178,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				9095D97527DE0DD800D58545 /* GetBlockTransfers */,
 				9079791627DCBCE100B69B4E /* GetStatus */,
 				907978F827DC966100B69B4E /* BlockIdentifider.m */,
 				907978FB27DC966100B69B4E /* BlockIdentifier.h */,
@@ -190,6 +191,13 @@
 				909616E527DAE4AD00F9BB95 /* GetPeerList */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		9095D97527DE0DD800D58545 /* GetBlockTransfers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GetBlockTransfers;
 			sourceTree = "<group>";
 		};
 		909616E527DAE4AD00F9BB95 /* GetPeerList */ = {

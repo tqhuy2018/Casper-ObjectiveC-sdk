@@ -25,7 +25,7 @@
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         GetStatusResult * gsr = [[GetStatusResult alloc] init];
         gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
-        NSLog(@"grs api_version: %@",gsr.api_version);
+        [gsr logInfo];
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
