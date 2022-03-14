@@ -9,7 +9,7 @@
 
 @implementation GetStateRootHashTest
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
-    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get_state_root_hash"];
+    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get state root hash"];
     NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];

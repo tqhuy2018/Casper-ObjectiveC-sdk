@@ -11,7 +11,7 @@
 
 - (void) getBlockTransfersResultWithJsonString:(NSString*) jsonString {
     return;
-    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get peer list"];
+    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get block transfers"];
     NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -42,6 +42,7 @@
         }];
 }
 - (void) testGetBlockTransfersResult {
+    return;
     //Test 1: get state root hash without sending parameter
     //expected result: latest block state root hash
     UInt64 height = 104;
