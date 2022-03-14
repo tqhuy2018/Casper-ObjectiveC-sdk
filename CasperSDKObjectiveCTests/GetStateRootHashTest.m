@@ -39,7 +39,7 @@
         }];
 }
 
-- (void) testGetStateRootHashNoParam {
+- (void) testGetStateRootHash {
     //Test 1: get state root hash without sending parameter
     //expected result: latest block state root hash
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
@@ -72,15 +72,6 @@
     [bi assignBlockHashWithParam:@"ccccb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
     NSString * jsonString5 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
     [self getStateRootHashWithJsonParam:jsonString5];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-   
 }
 
 @end

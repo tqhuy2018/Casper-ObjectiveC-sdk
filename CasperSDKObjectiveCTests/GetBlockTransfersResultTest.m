@@ -6,11 +6,11 @@
 
 @implementation GetBlockTransfersResultTest
 
-- (void) testGetBlockTransfersResult {
+- (void) testGetBlockTransfersResultWithJsonString:(NSString*) jsonString {
     return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get peer list"];
     NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
-    NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_status\",\"jsonrpc\" : \"2.0\"}";
+   // NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_status\",\"jsonrpc\" : \"2.0\"}";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
