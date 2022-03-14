@@ -17,6 +17,6 @@
 @property bool is_id_exists;
 +(Transfer*) fromJsonDictToTransfer:(NSDictionary*) jsonDict;
 +(NSMutableArray*) fromJsonDictToTransferList:(NSArray*) nsArray;
+-(void) logInfo;
 @end
-
 #endif

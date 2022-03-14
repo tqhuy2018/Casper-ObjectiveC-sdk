@@ -3,9 +3,12 @@
 #import "U512Class.h"
 @implementation Transfer
 +(NSMutableArray*) fromJsonDictToTransferList:(NSArray*) nsArray {
-    NSMutableArray * ret = [[NSMutableArray alloc] init];
-    
-    return ret;
+    NSMutableArray * listTransfer = [[NSMutableArray alloc]init];
+    for (id obj in nsArray) {
+        Transfer * oneTransfer = [Transfer fromJsonDictToTransfer:obj];
+        [listTransfer addObject:oneTransfer];
+    }
+    return listTransfer;
 }
 +(Transfer *) fromJsonDictToTransfer:(NSDictionary*) jsonDict {
     Transfer * ret = [[Transfer alloc] init];
@@ -29,5 +32,23 @@
         ret.is_id_exists = false;
     }
     return ret;
+}
+-(void) logInfo {
+    NSLog(@"Transfer amount: %@",self.amount.itsValue);
+    NSLog(@"Transfer deploy hash: %@",self.deploy_hash);
+    NSLog(@"Transfer from: %@",self.from);
+    NSLog(@"Transfer gas: %@",self.gas.itsValue);
+    if(self.is_id_exists) {
+        NSLog(@"Transfer id:%llu",self.id);
+    } else {
+        NSLog(@"Transfer id: <null>");
+    }
+    NSLog(@"Transfer source: %@",self.source);
+    NSLog(@"Transfer target: %@",self.target);
+    if(self.is_to_exists) {
+        NSLog(@"Transfer to: %@",self.to);
+    } else {
+        NSLog(@"Transfer to: <null>");
+    }
 }
 @end
