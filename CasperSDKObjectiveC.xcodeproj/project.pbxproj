@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288C27E0D3F200D00892 /* GetDeployResult.m */; };
+		9076289027E0D43B00D00892 /* Deploy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288F27E0D43B00D00892 /* Deploy.m */; };
+		9076289327E0D53500D00892 /* DeployHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289227E0D53500D00892 /* DeployHeader.m */; };
+		9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289627E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m */; };
+		9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289927E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m */; };
+		9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289C27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m */; };
+		907628A027E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289F27E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m */; };
+		907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628A227E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m */; };
+		907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */; };
+		907628A927E0DE3300D00892 /* NamedArg.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628A827E0DE3300D00892 /* NamedArg.m */; };
+		907628AB27E0E19D00D00892 /* GetDeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628AA27E0E19D00D00892 /* GetDeployTest.m */; };
 		907978F027DC963E00B69B4E /* GetPeerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978EA27DC963E00B69B4E /* GetPeerList.h */; };
 		907978F127DC963E00B69B4E /* GetPeerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978EB27DC963E00B69B4E /* GetPeerList.m */; };
 		907978F227DC963E00B69B4E /* GetPeerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978EC27DC963E00B69B4E /* GetPeerResult.h */; };
@@ -68,6 +79,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9076288B27E0D3E800D00892 /* GetDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployResult.h; sourceTree = "<group>"; };
+		9076288C27E0D3F200D00892 /* GetDeployResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployResult.m; sourceTree = "<group>"; };
+		9076288E27E0D43300D00892 /* Deploy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deploy.h; sourceTree = "<group>"; };
+		9076288F27E0D43B00D00892 /* Deploy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deploy.m; sourceTree = "<group>"; };
+		9076289127E0D52B00D00892 /* DeployHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeployHeader.h; sourceTree = "<group>"; };
+		9076289227E0D53500D00892 /* DeployHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeployHeader.m; sourceTree = "<group>"; };
+		9076289527E0D66300D00892 /* ExecutableDeployItem_ModuleBytes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_ModuleBytes.h; sourceTree = "<group>"; };
+		9076289627E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_ModuleBytes.m; sourceTree = "<group>"; };
+		9076289827E0D7C200D00892 /* ExecutableDeployItem_StoredContractByHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_StoredContractByHash.h; sourceTree = "<group>"; };
+		9076289927E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_StoredContractByHash.m; sourceTree = "<group>"; };
+		9076289B27E0D95200D00892 /* ExecutableDeployItem_StoredContractByName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_StoredContractByName.h; sourceTree = "<group>"; };
+		9076289C27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_StoredContractByName.m; sourceTree = "<group>"; };
+		9076289E27E0D9BF00D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_StoredVersionedContractByHash.h; sourceTree = "<group>"; };
+		9076289F27E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_StoredVersionedContractByHash.m; sourceTree = "<group>"; };
+		907628A127E0DA1100D00892 /* ExecutableDeployItem_StoredVersionedContractByName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_StoredVersionedContractByName.h; sourceTree = "<group>"; };
+		907628A227E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_StoredVersionedContractByName.m; sourceTree = "<group>"; };
+		907628A427E0DAE000D00892 /* ExecutableDeployItem_Transfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem_Transfer.h; sourceTree = "<group>"; };
+		907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem_Transfer.m; sourceTree = "<group>"; };
+		907628A727E0DE2100D00892 /* NamedArg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedArg.h; sourceTree = "<group>"; };
+		907628A827E0DE3300D00892 /* NamedArg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamedArg.m; sourceTree = "<group>"; };
+		907628AA27E0E19D00D00892 /* GetDeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployTest.m; sourceTree = "<group>"; };
 		907978EA27DC963E00B69B4E /* GetPeerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPeerList.h; sourceTree = "<group>"; };
 		907978EB27DC963E00B69B4E /* GetPeerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPeerList.m; sourceTree = "<group>"; };
 		907978EC27DC963E00B69B4E /* GetPeerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPeerResult.h; sourceTree = "<group>"; };
@@ -160,6 +192,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9076288A27E0D3CE00D00892 /* GetDeploy */ = {
+			isa = PBXGroup;
+			children = (
+				9076289427E0D65300D00892 /* ExecutableDeployItem */,
+				9076288B27E0D3E800D00892 /* GetDeployResult.h */,
+				9076288C27E0D3F200D00892 /* GetDeployResult.m */,
+				9076288E27E0D43300D00892 /* Deploy.h */,
+				9076288F27E0D43B00D00892 /* Deploy.m */,
+				9076289127E0D52B00D00892 /* DeployHeader.h */,
+				9076289227E0D53500D00892 /* DeployHeader.m */,
+				907628A727E0DE2100D00892 /* NamedArg.h */,
+				907628A827E0DE3300D00892 /* NamedArg.m */,
+			);
+			path = GetDeploy;
+			sourceTree = "<group>";
+		};
+		9076289427E0D65300D00892 /* ExecutableDeployItem */ = {
+			isa = PBXGroup;
+			children = (
+				9076289527E0D66300D00892 /* ExecutableDeployItem_ModuleBytes.h */,
+				9076289627E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m */,
+				9076289827E0D7C200D00892 /* ExecutableDeployItem_StoredContractByHash.h */,
+				9076289927E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m */,
+				9076289B27E0D95200D00892 /* ExecutableDeployItem_StoredContractByName.h */,
+				9076289C27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m */,
+				9076289E27E0D9BF00D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.h */,
+				9076289F27E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m */,
+				907628A127E0DA1100D00892 /* ExecutableDeployItem_StoredVersionedContractByName.h */,
+				907628A227E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m */,
+				907628A427E0DAE000D00892 /* ExecutableDeployItem_Transfer.h */,
+				907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */,
+			);
+			path = ExecutableDeployItem;
+			sourceTree = "<group>";
+		};
 		9079791227DC9F5A00B69B4E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +317,7 @@
 				9095D97327DDFB0400D58545 /* GetStatusTest.m */,
 				9095D98927DE3E1E00D58545 /* GetBlockTransfersResultTest.m */,
 				9096E4A827E00A4B0076E634 /* GetBlockTest.m */,
+				907628AA27E0E19D00D00892 /* GetDeployTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -257,6 +325,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				9076288A27E0D3CE00D00892 /* GetDeploy */,
 				9096E4AA27E0846F0076E634 /* Utils */,
 				9092A24927DF391B00D0361C /* GetBlock */,
 				9095D97C27DE0F7200D58545 /* CommonClasses */,
@@ -444,18 +513,24 @@
 			files = (
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
+				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValue.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
+				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
+				907628A027E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m in Sources */,
 				9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */,
 				9092A26127DF3FED00D0361C /* ValidatorWeight.m in Sources */,
+				9076289027E0D43B00D00892 /* Deploy.m in Sources */,
 				9092A26427DF450C00D0361C /* Reward.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
+				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,
 				9095D97827DE0E5000D58545 /* GetBlockTransfersResult.m in Sources */,
 				9092A25B27DF3C7300D0361C /* JsonBlockBody.m in Sources */,
+				9076289327E0D53500D00892 /* DeployHeader.m in Sources */,
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
@@ -464,13 +539,17 @@
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
 				9096E4AD27E084890076E634 /* Utils.m in Sources */,
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
+				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
+				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
+				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,
 				907978F327DC963E00B69B4E /* GetPeerResult.m in Sources */,
 				9095D97B27DE0F3600D58545 /* Transfer.m in Sources */,
 				9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */,
 				9079790527DC966100B69B4E /* GetStateRootHash.m in Sources */,
+				9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */,
 				9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */,
 				9079790027DC966100B69B4E /* BlockIdentifider.m in Sources */,
 			);
@@ -485,6 +564,7 @@
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
 				9096E4A927E00A4B0076E634 /* GetBlockTest.m in Sources */,
+				907628AB27E0E19D00D00892 /* GetDeployTest.m in Sources */,
 				9095D98A27DE3E1E00D58545 /* GetBlockTransfersResultTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
