@@ -11,7 +11,6 @@
 @end
 
 @implementation GetPeerResultTest
-
 - (void) testGetPeerList {
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get peer list"];
     NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";

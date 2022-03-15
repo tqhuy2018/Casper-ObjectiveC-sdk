@@ -5,6 +5,7 @@
 @property NSString * proposer;
 @property NSMutableArray * transfer_hashes;//list of DeployHash - string
 +(JsonBlockBody*) fromJsonDictToJsonBlockBody:(NSDictionary *) fromDict;
+-(void) logInfo;
 @end
 
 #endif

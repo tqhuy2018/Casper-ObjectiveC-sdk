@@ -5,6 +5,7 @@
 @property NSMutableArray * inactive_validators;//List of PublicKey
 @property NSMutableArray * rewards;//List of Reward
 +(JsonEraReport*) fromJsonDictToJsonEraReport:(NSDictionary *) fromDict;
+-(void) logInfo;
 @end
 
 #endif
