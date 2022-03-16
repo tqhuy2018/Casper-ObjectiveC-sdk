@@ -41,6 +41,15 @@
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
 		9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791B27DCBE8300B69B4E /* PeersMap.m */; };
+		908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */; };
+		908A6A4227E2236500D850AD /* CLParsedPU512.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4127E2236500D850AD /* CLParsedPU512.m */; };
+		908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4427E2238E00D850AD /* CLParsedPU256.m */; };
+		908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4727E223A400D850AD /* CLParsedPU64.m */; };
+		908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4A27E2261300D850AD /* CLParsedPInt32.m */; };
+		908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */; };
+		908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */; };
+		908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */; };
+		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24B27DF393B00D0361C /* GetBlockResult.m */; };
 		9092A24F27DF398700D0361C /* JsonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24E27DF398700D0361C /* JsonBlock.m */; };
 		9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A25127DF3A6100D0361C /* JsonBlockHeader.m */; };
@@ -53,6 +62,16 @@
 		9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */; };
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
 		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90955F1027E14C0E00F0FE7A /* CLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F0F27E14C0E00F0FE7A /* CLValue.m */; };
+		90955F1327E14C6900F0FE7A /* CLType.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F1227E14C6900F0FE7A /* CLType.m */; };
+		90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F1527E14CCE00F0FE7A /* CLTypeList.m */; };
+		90955F1927E14FD200F0FE7A /* CLTypeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F1827E14FD200F0FE7A /* CLTypeMap.m */; };
+		90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F1C27E15B4B00F0FE7A /* CLTypeOption.m */; };
+		90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2027E15CA000F0FE7A /* CLParsed.m */; };
+		90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2327E15F6E00F0FE7A /* CLParsedPBool.m */; };
+		90955F2727E1680900F0FE7A /* CLParsedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2627E1680900F0FE7A /* CLParsedList.m */; };
+		90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2927E1A50A00F0FE7A /* CLParsedPString.m */; };
+		90955F2D27E1A57400F0FE7A /* CLParsedMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2C27E1A57400F0FE7A /* CLParsedMap.m */; };
 		9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095D96B27DDEE7A00D58545 /* MinimalBlockInfo.m */; };
 		9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095D96E27DDF2CA00D58545 /* ActivationPoint.m */; };
 		9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095D97127DDF59400D58545 /* NextUpgrade.m */; };
@@ -126,6 +145,24 @@
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
 		9079791A27DCBE7700B69B4E /* PeersMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeersMap.h; sourceTree = "<group>"; };
 		9079791B27DCBE8300B69B4E /* PeersMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeersMap.m; sourceTree = "<group>"; };
+		908A6A3D27E222A100D850AD /* CLParsedTuple1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedTuple1.h; sourceTree = "<group>"; };
+		908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedTuple1.m; sourceTree = "<group>"; };
+		908A6A4027E2235700D850AD /* CLParsedPU512.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPU512.h; sourceTree = "<group>"; };
+		908A6A4127E2236500D850AD /* CLParsedPU512.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPU512.m; sourceTree = "<group>"; };
+		908A6A4327E2238300D850AD /* CLParsedPU256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPU256.h; sourceTree = "<group>"; };
+		908A6A4427E2238E00D850AD /* CLParsedPU256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPU256.m; sourceTree = "<group>"; };
+		908A6A4627E2239800D850AD /* CLParsedPU64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPU64.h; sourceTree = "<group>"; };
+		908A6A4727E223A400D850AD /* CLParsedPU64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPU64.m; sourceTree = "<group>"; };
+		908A6A4927E2260500D850AD /* CLParsedPInt32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPInt32.h; sourceTree = "<group>"; };
+		908A6A4A27E2261300D850AD /* CLParsedPInt32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPInt32.m; sourceTree = "<group>"; };
+		908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonExecutionResult.h; sourceTree = "<group>"; };
+		908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonExecutionResult.m; sourceTree = "<group>"; };
+		908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionResult_Failure.h; sourceTree = "<group>"; };
+		908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionResult_Failure.m; sourceTree = "<group>"; };
+		908A6A5227E229E500D850AD /* ExecutionResult_Success.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionResult_Success.h; sourceTree = "<group>"; };
+		908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionResult_Success.m; sourceTree = "<group>"; };
+		908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem.h; sourceTree = "<group>"; };
+		908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem.m; sourceTree = "<group>"; };
 		9092A24A27DF393400D0361C /* GetBlockResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBlockResult.h; sourceTree = "<group>"; };
 		9092A24B27DF393B00D0361C /* GetBlockResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBlockResult.m; sourceTree = "<group>"; };
 		9092A24D27DF397D00D0361C /* JsonBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonBlock.h; sourceTree = "<group>"; };
@@ -148,6 +185,26 @@
 		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
 		9095581F27D833D0001AE414 /* CasperSDKObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasperSDKObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90955F0E27E14C0100F0FE7A /* CLValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLValue.h; sourceTree = "<group>"; };
+		90955F0F27E14C0E00F0FE7A /* CLValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLValue.m; sourceTree = "<group>"; };
+		90955F1127E14C6100F0FE7A /* CLType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLType.h; sourceTree = "<group>"; };
+		90955F1227E14C6900F0FE7A /* CLType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLType.m; sourceTree = "<group>"; };
+		90955F1427E14CC100F0FE7A /* CLTypeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTypeList.h; sourceTree = "<group>"; };
+		90955F1527E14CCE00F0FE7A /* CLTypeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLTypeList.m; sourceTree = "<group>"; };
+		90955F1727E14FC800F0FE7A /* CLTypeMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTypeMap.h; sourceTree = "<group>"; };
+		90955F1827E14FD200F0FE7A /* CLTypeMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLTypeMap.m; sourceTree = "<group>"; };
+		90955F1B27E15B3C00F0FE7A /* CLTypeOption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTypeOption.h; sourceTree = "<group>"; };
+		90955F1C27E15B4B00F0FE7A /* CLTypeOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLTypeOption.m; sourceTree = "<group>"; };
+		90955F1F27E15C9400F0FE7A /* CLParsed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsed.h; sourceTree = "<group>"; };
+		90955F2027E15CA000F0FE7A /* CLParsed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsed.m; sourceTree = "<group>"; };
+		90955F2227E15F6200F0FE7A /* CLParsedPBool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPBool.h; sourceTree = "<group>"; };
+		90955F2327E15F6E00F0FE7A /* CLParsedPBool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPBool.m; sourceTree = "<group>"; };
+		90955F2527E1680000F0FE7A /* CLParsedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedList.h; sourceTree = "<group>"; };
+		90955F2627E1680900F0FE7A /* CLParsedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedList.m; sourceTree = "<group>"; };
+		90955F2827E1A4FF00F0FE7A /* CLParsedPString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPString.h; sourceTree = "<group>"; };
+		90955F2927E1A50A00F0FE7A /* CLParsedPString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPString.m; sourceTree = "<group>"; };
+		90955F2B27E1A56800F0FE7A /* CLParsedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedMap.h; sourceTree = "<group>"; };
+		90955F2C27E1A57400F0FE7A /* CLParsedMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedMap.m; sourceTree = "<group>"; };
 		9095D96A27DDEE6B00D58545 /* MinimalBlockInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinimalBlockInfo.h; sourceTree = "<group>"; };
 		9095D96B27DDEE7A00D58545 /* MinimalBlockInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinimalBlockInfo.m; sourceTree = "<group>"; };
 		9095D96D27DDF2BB00D58545 /* ActivationPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivationPoint.h; sourceTree = "<group>"; };
@@ -204,6 +261,12 @@
 				9076289227E0D53500D00892 /* DeployHeader.m */,
 				907628A727E0DE2100D00892 /* NamedArg.h */,
 				907628A827E0DE3300D00892 /* NamedArg.m */,
+				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
+				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
+				908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */,
+				908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */,
+				908A6A5227E229E500D850AD /* ExecutionResult_Success.h */,
+				908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */,
 			);
 			path = GetDeploy;
 			sourceTree = "<group>";
@@ -223,6 +286,8 @@
 				907628A227E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m */,
 				907628A427E0DAE000D00892 /* ExecutableDeployItem_Transfer.h */,
 				907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */,
+				908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */,
+				908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */,
 			);
 			path = ExecutableDeployItem;
 			sourceTree = "<group>";
@@ -325,6 +390,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				90955F0D27E14BED00F0FE7A /* CLValue */,
 				9076288A27E0D3CE00D00892 /* GetDeploy */,
 				9096E4AA27E0846F0076E634 /* Utils */,
 				9092A24927DF391B00D0361C /* GetBlock */,
@@ -342,6 +408,59 @@
 				909616E527DAE4AD00F9BB95 /* GetPeerList */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		90955F0D27E14BED00F0FE7A /* CLValue */ = {
+			isa = PBXGroup;
+			children = (
+				90955F1E27E15C7B00F0FE7A /* CLParsed */,
+				90955F1A27E15B2700F0FE7A /* CLType */,
+				90955F0E27E14C0100F0FE7A /* CLValue.h */,
+				90955F0F27E14C0E00F0FE7A /* CLValue.m */,
+			);
+			path = CLValue;
+			sourceTree = "<group>";
+		};
+		90955F1A27E15B2700F0FE7A /* CLType */ = {
+			isa = PBXGroup;
+			children = (
+				90955F1127E14C6100F0FE7A /* CLType.h */,
+				90955F1227E14C6900F0FE7A /* CLType.m */,
+				90955F1427E14CC100F0FE7A /* CLTypeList.h */,
+				90955F1527E14CCE00F0FE7A /* CLTypeList.m */,
+				90955F1727E14FC800F0FE7A /* CLTypeMap.h */,
+				90955F1827E14FD200F0FE7A /* CLTypeMap.m */,
+				90955F1B27E15B3C00F0FE7A /* CLTypeOption.h */,
+				90955F1C27E15B4B00F0FE7A /* CLTypeOption.m */,
+			);
+			path = CLType;
+			sourceTree = "<group>";
+		};
+		90955F1E27E15C7B00F0FE7A /* CLParsed */ = {
+			isa = PBXGroup;
+			children = (
+				90955F1F27E15C9400F0FE7A /* CLParsed.h */,
+				90955F2027E15CA000F0FE7A /* CLParsed.m */,
+				90955F2527E1680000F0FE7A /* CLParsedList.h */,
+				90955F2627E1680900F0FE7A /* CLParsedList.m */,
+				90955F2B27E1A56800F0FE7A /* CLParsedMap.h */,
+				90955F2C27E1A57400F0FE7A /* CLParsedMap.m */,
+				90955F2227E15F6200F0FE7A /* CLParsedPBool.h */,
+				90955F2327E15F6E00F0FE7A /* CLParsedPBool.m */,
+				90955F2827E1A4FF00F0FE7A /* CLParsedPString.h */,
+				90955F2927E1A50A00F0FE7A /* CLParsedPString.m */,
+				908A6A4627E2239800D850AD /* CLParsedPU64.h */,
+				908A6A4727E223A400D850AD /* CLParsedPU64.m */,
+				908A6A4327E2238300D850AD /* CLParsedPU256.h */,
+				908A6A4427E2238E00D850AD /* CLParsedPU256.m */,
+				908A6A4027E2235700D850AD /* CLParsedPU512.h */,
+				908A6A4127E2236500D850AD /* CLParsedPU512.m */,
+				908A6A3D27E222A100D850AD /* CLParsedTuple1.h */,
+				908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */,
+				908A6A4927E2260500D850AD /* CLParsedPInt32.h */,
+				908A6A4A27E2261300D850AD /* CLParsedPInt32.m */,
+			);
+			path = CLParsed;
 			sourceTree = "<group>";
 		};
 		9095D97527DE0DD800D58545 /* GetBlockTransfers */ = {
@@ -511,7 +630,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90955F1927E14FD200F0FE7A /* CLTypeMap.m in Sources */,
+				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
+				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
@@ -521,11 +643,17 @@
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
+				908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */,
+				90955F2D27E1A57400F0FE7A /* CLParsedMap.m in Sources */,
+				908A6A4227E2236500D850AD /* CLParsedPU512.m in Sources */,
 				907628A027E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m in Sources */,
 				9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */,
 				9092A26127DF3FED00D0361C /* ValidatorWeight.m in Sources */,
 				9076289027E0D43B00D00892 /* Deploy.m in Sources */,
+				90955F1027E14C0E00F0FE7A /* CLValue.m in Sources */,
 				9092A26427DF450C00D0361C /* Reward.m in Sources */,
+				90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */,
+				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
 				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,
 				9095D97827DE0E5000D58545 /* GetBlockTransfersResult.m in Sources */,
@@ -533,23 +661,33 @@
 				9076289327E0D53500D00892 /* DeployHeader.m in Sources */,
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
+				90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */,
+				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
+				908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
 				9096E4AD27E084890076E634 /* Utils.m in Sources */,
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
 				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
+				90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
+				908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */,
 				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
+				90955F2727E1680900F0FE7A /* CLParsedList.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,
+				908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */,
 				907978F327DC963E00B69B4E /* GetPeerResult.m in Sources */,
+				908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */,
 				9095D97B27DE0F3600D58545 /* Transfer.m in Sources */,
 				9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */,
 				9079790527DC966100B69B4E /* GetStateRootHash.m in Sources */,
 				9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */,
+				908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */,
+				90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */,
 				9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */,
 				9079790027DC966100B69B4E /* BlockIdentifider.m in Sources */,
 			);
