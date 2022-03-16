@@ -50,6 +50,7 @@
 		908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */; };
 		908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */; };
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
+		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
 		9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24B27DF393B00D0361C /* GetBlockResult.m */; };
 		9092A24F27DF398700D0361C /* JsonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24E27DF398700D0361C /* JsonBlock.m */; };
 		9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A25127DF3A6100D0361C /* JsonBlockHeader.m */; };
@@ -163,6 +164,8 @@
 		908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionResult_Success.m; sourceTree = "<group>"; };
 		908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem.h; sourceTree = "<group>"; };
 		908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem.m; sourceTree = "<group>"; };
+		908A6A5827E234FC00D850AD /* GetDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployParams.h; sourceTree = "<group>"; };
+		908A6A5927E23A9600D850AD /* GetDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployParams.m; sourceTree = "<group>"; };
 		9092A24A27DF393400D0361C /* GetBlockResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBlockResult.h; sourceTree = "<group>"; };
 		9092A24B27DF393B00D0361C /* GetBlockResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBlockResult.m; sourceTree = "<group>"; };
 		9092A24D27DF397D00D0361C /* JsonBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonBlock.h; sourceTree = "<group>"; };
@@ -252,21 +255,23 @@
 		9076288A27E0D3CE00D00892 /* GetDeploy */ = {
 			isa = PBXGroup;
 			children = (
-				9076289427E0D65300D00892 /* ExecutableDeployItem */,
-				9076288B27E0D3E800D00892 /* GetDeployResult.h */,
-				9076288C27E0D3F200D00892 /* GetDeployResult.m */,
 				9076288E27E0D43300D00892 /* Deploy.h */,
 				9076288F27E0D43B00D00892 /* Deploy.m */,
 				9076289127E0D52B00D00892 /* DeployHeader.h */,
 				9076289227E0D53500D00892 /* DeployHeader.m */,
-				907628A727E0DE2100D00892 /* NamedArg.h */,
-				907628A827E0DE3300D00892 /* NamedArg.m */,
-				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
-				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
+				9076289427E0D65300D00892 /* ExecutableDeployItem */,
 				908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */,
 				908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */,
 				908A6A5227E229E500D850AD /* ExecutionResult_Success.h */,
 				908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */,
+				908A6A5827E234FC00D850AD /* GetDeployParams.h */,
+				908A6A5927E23A9600D850AD /* GetDeployParams.m */,
+				9076288B27E0D3E800D00892 /* GetDeployResult.h */,
+				9076288C27E0D3F200D00892 /* GetDeployResult.m */,
+				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
+				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
+				907628A727E0DE2100D00892 /* NamedArg.h */,
+				907628A827E0DE3300D00892 /* NamedArg.m */,
 			);
 			path = GetDeploy;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
+				908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */,
 				908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,

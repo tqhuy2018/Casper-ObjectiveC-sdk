@@ -6,5 +6,6 @@
 @property Deploy * deploy;
 @property NSMutableArray * execution_results;
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 #endif 

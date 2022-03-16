@@ -8,4 +8,8 @@
     ret.deploy = [Deploy fromJsonDictToDeploy:fromDict[@"deploy"]];
     return ret;
 }
+-(void) logInfo {
+    NSLog(@"GetDeployResult, api_version:%@",self.api_version);
+    [self.deploy logInfo];
+}
 @end

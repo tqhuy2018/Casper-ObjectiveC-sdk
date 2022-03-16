@@ -10,7 +10,8 @@
 #import "CLParsedList.h"
 #import "CLParsedPString.h"
 #import "CLParsedMap.h"
-
+#import "GetDeployResult.h"
+#import "GetDeployParams.h"
 @interface GetDeployTest : XCTestCase
 
 @end
@@ -37,7 +38,9 @@
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
-            
+            GetDeployResult * ret = [[GetDeployResult alloc] init];
+            ret = [GetDeployResult fromJsonDictToGetDeployResult:forJSONObject[@"result"]];
+            [ret logInfo];
         } else {
             NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
         }
@@ -49,6 +52,11 @@
         }];
 }
 - (void) testGetDeploy {
+    return;
+    GetDeployParams * gpr = [[GetDeployParams alloc] init];
+    gpr.deploy_hash = @"777253965d76166caba6a4b861a2b4f0bfdfa8bfd46abbcf48f6a1b2cdff02f4";
+    NSString * jsonString = [gpr generatePostParam];
+    [self getDeploy:jsonString];
     return;
     //List(Map(String,String)) alloc
     //Method 1
@@ -125,6 +133,7 @@
     //for value
     [list3.arrayValue addObject:map];
     [list3 logInfo];
+    
 }
 
 @end
