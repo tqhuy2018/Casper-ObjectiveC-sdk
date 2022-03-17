@@ -1,8 +1,11 @@
 #ifndef ExecutableDeployItem_ModuleBytes_h
 #define ExecutableDeployItem_ModuleBytes_h
+#import "RuntimeArgs.h"
 @interface ExecutableDeployItem_ModuleBytes:NSObject
-@property NSMutableArray * args;//NamedArg list
+@property RuntimeArgs * args;//NamedArg list
+@property NSString * module_bytes;
 +(ExecutableDeployItem_ModuleBytes*) fromJsonDictToObj:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif

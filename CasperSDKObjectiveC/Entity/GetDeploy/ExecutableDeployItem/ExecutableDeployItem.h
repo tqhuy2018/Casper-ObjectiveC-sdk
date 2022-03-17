@@ -5,6 +5,8 @@
 @property NSString * itsType;
 ///This property only hold 1 item, which can be 1 among the 6 value of the enum of ExecutableDeployItem
 @property NSMutableArray * itsValue;
++(ExecutableDeployItem*) fromJsonDictToExecutableDeployItem:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif

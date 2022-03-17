@@ -1,9 +1,10 @@
 #ifndef ExecutableDeployItem_Transfer_h
 #define ExecutableDeployItem_Transfer_h
-
+#import "RuntimeArgs.h"
 @interface ExecutableDeployItem_Transfer:NSObject
-@property NSMutableArray * args;//NamedArg list
+@property RuntimeArgs * args;
 +(ExecutableDeployItem_Transfer*) fromJsonDictToObj:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif 

@@ -3,7 +3,6 @@
 @implementation CLTypeList
 -(void) logInfo {
     [super logInfo];
-    NSLog(@"DONE for LIST");
 }
 -(id)init {
     if ( self = [super init] ) {

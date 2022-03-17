@@ -27,7 +27,7 @@
 		907978FE27DC966100B69B4E /* ConstValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978F627DC966100B69B4E /* ConstValues.h */; };
 		907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978F727DC966100B69B4E /* CasperErrorMessage.m */; };
 		9079790027DC966100B69B4E /* BlockIdentifider.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978F827DC966100B69B4E /* BlockIdentifider.m */; };
-		9079790127DC966100B69B4E /* ConstValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978F927DC966100B69B4E /* ConstValue.m */; };
+		9079790127DC966100B69B4E /* ConstValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978F927DC966100B69B4E /* ConstValues.m */; };
 		9079790227DC966100B69B4E /* CasperErrorMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978FA27DC966100B69B4E /* CasperErrorMessage.h */; };
 		9079790327DC966100B69B4E /* BlockIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978FB27DC966100B69B4E /* BlockIdentifier.h */; };
 		9079790427DC966100B69B4E /* GetStateRootHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978FC27DC966100B69B4E /* GetStateRootHash.h */; };
@@ -51,6 +51,7 @@
 		908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */; };
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
+		908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */; };
 		9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24B27DF393B00D0361C /* GetBlockResult.m */; };
 		9092A24F27DF398700D0361C /* JsonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24E27DF398700D0361C /* JsonBlock.m */; };
 		9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A25127DF3A6100D0361C /* JsonBlockHeader.m */; };
@@ -129,7 +130,7 @@
 		907978F627DC966100B69B4E /* ConstValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstValues.h; sourceTree = "<group>"; };
 		907978F727DC966100B69B4E /* CasperErrorMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperErrorMessage.m; sourceTree = "<group>"; };
 		907978F827DC966100B69B4E /* BlockIdentifider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockIdentifider.m; sourceTree = "<group>"; };
-		907978F927DC966100B69B4E /* ConstValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstValue.m; sourceTree = "<group>"; };
+		907978F927DC966100B69B4E /* ConstValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstValues.m; sourceTree = "<group>"; };
 		907978FA27DC966100B69B4E /* CasperErrorMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasperErrorMessage.h; sourceTree = "<group>"; };
 		907978FB27DC966100B69B4E /* BlockIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockIdentifier.h; sourceTree = "<group>"; };
 		907978FC27DC966100B69B4E /* GetStateRootHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStateRootHash.h; sourceTree = "<group>"; };
@@ -166,6 +167,8 @@
 		908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem.m; sourceTree = "<group>"; };
 		908A6A5827E234FC00D850AD /* GetDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployParams.h; sourceTree = "<group>"; };
 		908A6A5927E23A9600D850AD /* GetDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployParams.m; sourceTree = "<group>"; };
+		908E6D3427E2BD45003C17CC /* RuntimeArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeArgs.h; sourceTree = "<group>"; };
+		908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeArgs.m; sourceTree = "<group>"; };
 		9092A24A27DF393400D0361C /* GetBlockResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBlockResult.h; sourceTree = "<group>"; };
 		9092A24B27DF393B00D0361C /* GetBlockResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBlockResult.m; sourceTree = "<group>"; };
 		9092A24D27DF397D00D0361C /* JsonBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonBlock.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */,
 				908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */,
 				908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */,
+				908E6D3427E2BD45003C17CC /* RuntimeArgs.h */,
+				908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */,
 			);
 			path = ExecutableDeployItem;
 			sourceTree = "<group>";
@@ -406,7 +411,7 @@
 				907978FB27DC966100B69B4E /* BlockIdentifier.h */,
 				907978FA27DC966100B69B4E /* CasperErrorMessage.h */,
 				907978F727DC966100B69B4E /* CasperErrorMessage.m */,
-				907978F927DC966100B69B4E /* ConstValue.m */,
+				907978F927DC966100B69B4E /* ConstValues.m */,
 				907978F627DC966100B69B4E /* ConstValues.h */,
 				907978FC27DC966100B69B4E /* GetStateRootHash.h */,
 				907978FD27DC966100B69B4E /* GetStateRootHash.m */,
@@ -644,7 +649,7 @@
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
-				9079790127DC966100B69B4E /* ConstValue.m in Sources */,
+				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
@@ -682,6 +687,7 @@
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
 				908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */,
 				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
+				908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
 				90955F2727E1680900F0FE7A /* CLParsedList.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,

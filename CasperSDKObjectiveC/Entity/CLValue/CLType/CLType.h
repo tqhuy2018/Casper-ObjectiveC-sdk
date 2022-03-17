@@ -11,6 +11,11 @@
 @property bool is_innerType1_exists;
 @property bool is_innerType2_exists;
 @property bool is_innerType3_exists;
+-(bool) isCLTypePrimitive;
+-(NSString*) getItsType;
++(CLType*) fromObjToCLType:(NSObject*) fromObj;
++(CLType*) fromObjToCompoundCLType:(NSDictionary*) fromDict;
++(CLType*) fromObjToPrimitiveCLType:(NSObject*) fromObj;
 -(void) logInfo;
 @end
 

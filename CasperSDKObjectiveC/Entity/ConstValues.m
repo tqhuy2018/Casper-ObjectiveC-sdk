@@ -13,3 +13,29 @@ NSString *const CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM = @"state_get_dictio
 NSString *const CASPER_RPC_METHOD_STATE_GET_BALANCE = @"state_get_balance";
 NSString *const CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO = @"state_get_auction_info";
 NSString *const CASPER_RPC_METHOD_ACCOUNT_PUT_DEPLOY = @"put_deploy";
+
+//CLType
+ NSString *const CLTYPE_BOOL    = @"bool";
+ NSString *const CLTYPE_I32     = @"I32";
+ NSString *const CLTYPE_I64     = @"I64";
+ NSString *const CLTYPE_U8      = @"U8";
+ NSString *const CLTYPE_U32     = @"U32";
+ NSString *const CLTYPE_U64     = @"U64";
+ NSString *const CLTYPE_U128    = @"U128";
+ NSString *const CLTYPE_U256    = @"U256";
+ NSString *const CLTYPE_U512    = @"U512";
+ NSString *const CLTYPE_UNIT    = @"Unit";
+ NSString *const CLTYPE_STRING  = @"String";
+ NSString *const CLTYPE_KEY     = @"Key";
+ NSString *const CLTYPE_UREF    = @"URef";
+ NSString *const CLTYPE_PUBLICKEY = @"PublicKey";
+ NSString *const CLTYPE_OPTION  = @"Option";
+ NSString *const CLTYPE_LIST    = @"List";
+ NSString *const CLTYPE_BYTEARRAY = @"ByteArray";
+ NSString *const CLTYPE_RESULT  = @"Result";
+ NSString *const CLTYPE_MAP     = @"Map";
+ NSString *const CLTYPE_TUPLE1  = @"Tuple1";
+ NSString *const CLTYPE_TUPLE2  = @"Tuple2";
+ NSString *const CLTYPE_TUPLE3  = @"Tuple3";
+ NSString *const CLTYPE_ANY     = @"Any";
+

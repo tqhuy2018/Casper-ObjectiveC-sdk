@@ -54,7 +54,8 @@
 - (void) testGetDeploy {
     return;
     GetDeployParams * gpr = [[GetDeployParams alloc] init];
-    gpr.deploy_hash = @"777253965d76166caba6a4b861a2b4f0bfdfa8bfd46abbcf48f6a1b2cdff02f4";
+   // gpr.deploy_hash = @"777253965d76166caba6a4b861a2b4f0bfdfa8bfd46abbcf48f6a1b2cdff02f4";
+    gpr.deploy_hash = @"afab485f7534d593bf9e30ae34e003d6faf81819a983048b972dbbb4ff441ecc";
     NSString * jsonString = [gpr generatePostParam];
     [self getDeploy:jsonString];
     return;
