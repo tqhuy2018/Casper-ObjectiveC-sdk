@@ -6,7 +6,7 @@
 @property NSString * bytes;
 @property CLType * cl_type;
 @property CLParsed * parsed;
-+(CLValue*) fromJsonDictToCLParsed:(NSDictionary*) fromDict;
++(CLValue*) fromJsonDictToCLValue:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end
 

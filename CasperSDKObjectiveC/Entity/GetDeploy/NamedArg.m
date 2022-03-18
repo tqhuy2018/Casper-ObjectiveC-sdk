@@ -5,7 +5,7 @@
     NamedArg * ret = [[NamedArg alloc] init];
     ret.itsName = (NSString *)[fromArray firstObject];
     NSDictionary * clValueDict = (NSDictionary*) [fromArray objectAtIndex:1];
-    ret.itsCLValue = [CLValue fromJsonDictToCLParsed:clValueDict];
+    ret.itsCLValue = [CLValue fromJsonDictToCLValue:clValueDict];
     return  ret;
 }
 -(void) logInfo {

@@ -51,3 +51,22 @@ NSString *const EDI_STORED_VERSIONED_CONTRACT_BY_HASH   = @"StoredVersionedContr
 NSString *const EDI_STORED_VERSIONED_CONTRACT_BY_NAME   = @"StoredVersionedContractByName";
 NSString *const EDI_TRANSFER                            = @"Transfer";
 
+//Transform
+NSString *const TRANSFORM_IDENTITY                  = @"TransformIdentity";
+NSString *const TRANSFORM_WRITE_CLVALUE             = @"TransformWriteCLValue";
+NSString *const TRANSFORM_WRITE_ACCOUNT             = @"TransformWriteAccount";
+NSString *const TRANSFORM_WRITE_CONTRACT_WASM       = @"TransformWriteContractWasm";
+NSString *const TRANSFORM_WRITE_CONTRACT            = @"TransformWriteContract";
+NSString *const TRANSFORM_WRITE_CONTRACT_PACKAGE    = @"TransformWriteContractPackage";
+NSString *const TRANSFORM_WRITE_DEPLOY_INFO         = @"TransformWriteDeployInfo";
+NSString *const TRANSFORM_WRITE_ERA_INFO            = @"TransformWriteEraInfo";
+NSString *const TRANSFORM_WRITE_TRANSFER            = @"TransformWriteTransfer";
+NSString *const TRANSFORM_WRITE_BID                 = @"TransformWriteBid";
+NSString *const TRANSFORM_WRITE_WITHDRAW            = @"TransformWriteWithdraw";
+NSString *const TRANSFORM_ADD_INT32                 = @"TranformAddInt32";
+NSString *const TRANSFORM_ADD_UINT64                = @"TransformAddUInt64";
+NSString *const TRANSFORM_ADD_UINT128               = @"TransformAddUInt128";
+NSString *const TRANSFORM_ADD_UINT256               = @"TransformAddUInt256";
+NSString *const TRANSFORM_ADD_UINT512               = @"TransformAddUInt512";
+NSString *const TRANSFORM_ADD_KEYS                  = @"TranformAddKeys";
+NSString *const TRANSFORM_FAILURE                   = @"TransformFailure";

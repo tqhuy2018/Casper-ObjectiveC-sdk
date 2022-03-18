@@ -90,6 +90,11 @@
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
 		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
 		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
+		90CAF5C427E4C7E700AAA913 /* Transform_RawString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */; };
+		90CAF5C727E4C85500AAA913 /* Transform_WriteCLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C627E4C85500AAA913 /* Transform_WriteCLValue.m */; };
+		90CAF5CA27E4CBBD00AAA913 /* Transform_WriteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */; };
+		90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */; };
+		90CAF5D027E4CF2C00AAA913 /* DeployInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +248,28 @@
 		90CAF5BC27E4A55A00AAA913 /* Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
 		90CAF5BE27E4A64D00AAA913 /* TransformEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformEntry.h; sourceTree = "<group>"; };
 		90CAF5BF27E4A65300AAA913 /* TransformEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformEntry.m; sourceTree = "<group>"; };
+		90CAF5C227E4C71400AAA913 /* Transform_RawString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_RawString.h; sourceTree = "<group>"; };
+		90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_RawString.m; sourceTree = "<group>"; };
+		90CAF5C527E4C81600AAA913 /* Transform_WriteCLValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteCLValue.h; sourceTree = "<group>"; };
+		90CAF5C627E4C85500AAA913 /* Transform_WriteCLValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteCLValue.m; sourceTree = "<group>"; };
+		90CAF5C827E4CB9800AAA913 /* Transform_WriteAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteAccount.h; sourceTree = "<group>"; };
+		90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteAccount.m; sourceTree = "<group>"; };
+		90CAF5CB27E4CDE500AAA913 /* Transform_WriteDeployInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteDeployInfo.h; sourceTree = "<group>"; };
+		90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteDeployInfo.m; sourceTree = "<group>"; };
+		90CAF5CE27E4CE6100AAA913 /* DeployInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeployInfo.h; sourceTree = "<group>"; };
+		90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeployInfo.m; sourceTree = "<group>"; };
+		90CAF5D227E4D08A00AAA913 /* SeigniorageAllocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation.h; sourceTree = "<group>"; };
+		90CAF5D327E4D0B500AAA913 /* SeigniorageAllocation_Validator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation_Validator.h; sourceTree = "<group>"; };
+		90CAF5D427E4D0C600AAA913 /* SeigniorageAllocation_Delegator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation_Delegator.h; sourceTree = "<group>"; };
+		90CAF5D527E4D24A00AAA913 /* EraInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraInfo.h; sourceTree = "<group>"; };
+		90CAF5D627E4D43000AAA913 /* Transform_WriteEraInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteEraInfo.h; sourceTree = "<group>"; };
+		90CAF5D727E4D44900AAA913 /* Transform_WriteTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteTransfer.h; sourceTree = "<group>"; };
+		90CAF5D827E4D45D00AAA913 /* Transform_WriteBid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteBid.h; sourceTree = "<group>"; };
+		90CAF5D927E4D46A00AAA913 /* Transform_WriteWithdraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteWithdraw.h; sourceTree = "<group>"; };
+		90CAF5DA27E4D52200AAA913 /* Transform_AddNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddNumber.h; sourceTree = "<group>"; };
+		90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddKeys.h; sourceTree = "<group>"; };
+		90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedKey.h; sourceTree = "<group>"; };
+		90CAF5DD27E4D74700AAA913 /* Transfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transfer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +557,7 @@
 		90CAF5B727E4A08500AAA913 /* JsonExecutionResult */ = {
 			isa = PBXGroup;
 			children = (
+				90CAF5D127E4CFA700AAA913 /* TransformOtherObjects */,
 				90CAF5C127E4AC5F00AAA913 /* TransformEnum */,
 				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
 				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
@@ -550,8 +578,37 @@
 		90CAF5C127E4AC5F00AAA913 /* TransformEnum */ = {
 			isa = PBXGroup;
 			children = (
+				90CAF5C227E4C71400AAA913 /* Transform_RawString.h */,
+				90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */,
+				90CAF5C527E4C81600AAA913 /* Transform_WriteCLValue.h */,
+				90CAF5C627E4C85500AAA913 /* Transform_WriteCLValue.m */,
+				90CAF5C827E4CB9800AAA913 /* Transform_WriteAccount.h */,
+				90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */,
+				90CAF5CB27E4CDE500AAA913 /* Transform_WriteDeployInfo.h */,
+				90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */,
+				90CAF5D627E4D43000AAA913 /* Transform_WriteEraInfo.h */,
+				90CAF5D727E4D44900AAA913 /* Transform_WriteTransfer.h */,
+				90CAF5D827E4D45D00AAA913 /* Transform_WriteBid.h */,
+				90CAF5D927E4D46A00AAA913 /* Transform_WriteWithdraw.h */,
+				90CAF5DA27E4D52200AAA913 /* Transform_AddNumber.h */,
+				90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */,
 			);
 			path = TransformEnum;
+			sourceTree = "<group>";
+		};
+		90CAF5D127E4CFA700AAA913 /* TransformOtherObjects */ = {
+			isa = PBXGroup;
+			children = (
+				90CAF5CE27E4CE6100AAA913 /* DeployInfo.h */,
+				90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */,
+				90CAF5D227E4D08A00AAA913 /* SeigniorageAllocation.h */,
+				90CAF5D327E4D0B500AAA913 /* SeigniorageAllocation_Validator.h */,
+				90CAF5D427E4D0C600AAA913 /* SeigniorageAllocation_Delegator.h */,
+				90CAF5D527E4D24A00AAA913 /* EraInfo.h */,
+				90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */,
+				90CAF5DD27E4D74700AAA913 /* Transfer.h */,
+			);
+			path = TransformOtherObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -683,6 +740,7 @@
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
+				90CAF5D027E4CF2C00AAA913 /* DeployInfo.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
 				908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */,
@@ -696,6 +754,7 @@
 				9092A26427DF450C00D0361C /* Reward.m in Sources */,
 				90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */,
 				90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */,
+				90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */,
 				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
@@ -705,10 +764,12 @@
 				9076289327E0D53500D00892 /* DeployHeader.m in Sources */,
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
+				90CAF5CA27E4CBBD00AAA913 /* Transform_WriteAccount.m in Sources */,
 				90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */,
 				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
+				90CAF5C427E4C7E700AAA913 /* Transform_RawString.m in Sources */,
 				908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */,
 				908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
@@ -726,6 +787,7 @@
 				90955F2727E1680900F0FE7A /* CLParsedList.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,
 				908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */,
+				90CAF5C727E4C85500AAA913 /* Transform_WriteCLValue.m in Sources */,
 				907978F327DC963E00B69B4E /* GetPeerResult.m in Sources */,
 				908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */,
 				9095D97B27DE0F3600D58545 /* Transfer.m in Sources */,
