@@ -3,16 +3,9 @@
 #import "ConstValues.h"
 @implementation CLType
 -(void) logInfo {
-    NSLog(@"CLType is %@",_itsType);
-    if (self.is_innerType1_exists) {
-        [self.innerType1 logInfo];
-    }
-    if (self.is_innerType2_exists) {
-        [self.innerType2 logInfo];
-    }
-    if (self.is_innerType3_exists) {
-        [self.innerType3 logInfo];
-    }
+    NSString * type = [self getItsType];
+    NSLog(@"CLType:%@",type);
+    return;
 }
 +(CLType*) fromObjToCompoundCLType:(NSDictionary*) fromDict {
     CLType * ret = [[CLType alloc] init];
@@ -31,7 +24,7 @@
     } else if (!(fromDict[@"Map"] == nil)) {
         ret.itsType = CLTYPE_MAP;
         NSDictionary * mapsElement = (NSDictionary*) fromDict[@"Map"];
-        NSLog(@"MapElement:%@",mapsElement);
+       // NSLog(@"MapElement:%@",mapsElement);
         ret.innerType1 = [[CLType alloc] init];
         ret.innerType2 = [[CLType alloc] init];
         ret.innerType1 = [CLType fromObjToCLType: (NSObject*) mapsElement[@"key"]];
@@ -41,7 +34,7 @@
     }else if (!(fromDict[@"Result"] == nil)) {
         ret.itsType = CLTYPE_RESULT;
         NSDictionary * resultElement = (NSDictionary*) fromDict[@"Result"];
-        NSLog(@"Result Element:%@",resultElement);
+        //NSLog(@"Result Element:%@",resultElement);
         ret.innerType1 = [[CLType alloc] init];
         ret.innerType2 = [[CLType alloc] init];
         ret.innerType1 = [CLType fromObjToCLType: (NSObject*) resultElement[@"ok"]];
@@ -95,6 +88,37 @@
 }
 -(NSString*) getItsType {
     NSString * ret = @"";
+    if([self isCLTypePrimitive]) {
+        ret = self.itsType;
+    } else if (self.itsType == CLTYPE_LIST) {
+        NSString * innerTypeStr = [self.innerType1 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"List{%@}",innerTypeStr];
+    } else if (self.itsType == CLTYPE_MAP) {
+        NSString * innterType1Str = [self.innerType1 getItsType];
+        NSString * innterType2Str = [self.innerType2 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Map{key:%@,value:%@}",innterType1Str,innterType2Str];
+    } else if (self.itsType == CLTYPE_OPTION) {
+        NSString * innerType = [self.innerType1 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Option{%@}",innerType];
+    } else if (self.itsType == CLTYPE_TUPLE1) {
+        NSString * innerType = [self.innerType1 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Tuple1{%@}",innerType];
+    } else if (self.itsType == CLTYPE_TUPLE2) {
+        NSString * innerType1 = [self.innerType1 getItsType];
+        NSString * innerType2 = [self.innerType2 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Tuple2{%@,%@}",innerType1,innerType2];
+    } else if (self.itsType == CLTYPE_TUPLE3) {
+        NSString * innerType1 = [self.innerType1 getItsType];
+        NSString * innerType2 = [self.innerType2 getItsType];
+        NSString * innerType3 = [self.innerType2 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Tuple3{%@,%@,%@}",innerType1,innerType2,innerType3];
+    } else if (self.itsType == CLTYPE_BYTEARRAY) {
+        ret = @"ByteArray";
+    } else if (self.itsType == CLTYPE_RESULT) {
+        NSString * innerType1 = [self.innerType1 getItsType];
+        NSString * innerType2 = [self.innerType2 getItsType];
+        ret = [[NSString alloc] initWithFormat:@"Result{err:%@,ok:%@}",innerType1,innerType2];
+    }
     return ret;
 }
 -(bool) isCLTypePrimitive {

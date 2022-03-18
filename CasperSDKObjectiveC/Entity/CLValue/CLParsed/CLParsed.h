@@ -8,6 +8,8 @@
 @property NSString * itsCLTypeStr;
 
 @property NSString * itsPrimitiveValue;
+@property NSString * itsValueStr;
+
 @property NSMutableArray * arrayValue;
 
 @property bool is_primitive;
@@ -21,7 +23,9 @@
 @property bool is_innerParsed2_exists;
 @property bool is_innerParsed3_exists;
 
-+(CLParsed*) fromJsonToCLParsed:(NSDictionary*) fromDict;
++(CLParsed*) fromObjToCLParsed:(NSObject*) fromObj withCLType:(CLType*) clType;
++(CLParsed*) fromObjToCLParsedPrimitive:(NSObject*) fromObj withCLType:(CLType*) clType;
++(CLParsed*) fromObjToCLParsedCompound:(NSObject*) fromObj withCLType:(CLType*) clType;
 -(void) logInfo;
 @end
 

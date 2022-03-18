@@ -87,6 +87,9 @@
 		9095D98A27DE3E1E00D58545 /* GetBlockTransfersResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9095D98927DE3E1E00D58545 /* GetBlockTransfersResultTest.m */; };
 		9096E4A927E00A4B0076E634 /* GetBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9096E4A827E00A4B0076E634 /* GetBlockTest.m */; };
 		9096E4AD27E084890076E634 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9096E4AC27E084890076E634 /* Utils.m */; };
+		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
+		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
+		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +237,12 @@
 		9096E4A827E00A4B0076E634 /* GetBlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBlockTest.m; sourceTree = "<group>"; };
 		9096E4AB27E084800076E634 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		9096E4AC27E084890076E634 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionEffect.h; sourceTree = "<group>"; };
+		90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionEffect.m; sourceTree = "<group>"; };
+		90CAF5BB27E4A55400AAA913 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
+		90CAF5BC27E4A55A00AAA913 /* Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
+		90CAF5BE27E4A64D00AAA913 /* TransformEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformEntry.h; sourceTree = "<group>"; };
+		90CAF5BF27E4A65300AAA913 /* TransformEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,21 +267,16 @@
 		9076288A27E0D3CE00D00892 /* GetDeploy */ = {
 			isa = PBXGroup;
 			children = (
+				90CAF5B727E4A08500AAA913 /* JsonExecutionResult */,
 				9076288E27E0D43300D00892 /* Deploy.h */,
 				9076288F27E0D43B00D00892 /* Deploy.m */,
 				9076289127E0D52B00D00892 /* DeployHeader.h */,
 				9076289227E0D53500D00892 /* DeployHeader.m */,
 				9076289427E0D65300D00892 /* ExecutableDeployItem */,
-				908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */,
-				908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */,
-				908A6A5227E229E500D850AD /* ExecutionResult_Success.h */,
-				908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */,
 				908A6A5827E234FC00D850AD /* GetDeployParams.h */,
 				908A6A5927E23A9600D850AD /* GetDeployParams.m */,
 				9076288B27E0D3E800D00892 /* GetDeployResult.h */,
 				9076288C27E0D3F200D00892 /* GetDeployResult.m */,
-				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
-				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
 				907628A727E0DE2100D00892 /* NamedArg.h */,
 				907628A827E0DE3300D00892 /* NamedArg.m */,
 			);
@@ -523,6 +527,33 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		90CAF5B727E4A08500AAA913 /* JsonExecutionResult */ = {
+			isa = PBXGroup;
+			children = (
+				90CAF5C127E4AC5F00AAA913 /* TransformEnum */,
+				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
+				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
+				908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */,
+				908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */,
+				908A6A5227E229E500D850AD /* ExecutionResult_Success.h */,
+				908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */,
+				90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */,
+				90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */,
+				90CAF5BB27E4A55400AAA913 /* Operation.h */,
+				90CAF5BC27E4A55A00AAA913 /* Operation.m */,
+				90CAF5BE27E4A64D00AAA913 /* TransformEntry.h */,
+				90CAF5BF27E4A65300AAA913 /* TransformEntry.m */,
+			);
+			path = JsonExecutionResult;
+			sourceTree = "<group>";
+		};
+		90CAF5C127E4AC5F00AAA913 /* TransformEnum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TransformEnum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -648,6 +679,7 @@
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
+				90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */,
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
@@ -662,7 +694,9 @@
 				9076289027E0D43B00D00892 /* Deploy.m in Sources */,
 				90955F1027E14C0E00F0FE7A /* CLValue.m in Sources */,
 				9092A26427DF450C00D0361C /* Reward.m in Sources */,
+				90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */,
 				90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */,
+				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
 				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,

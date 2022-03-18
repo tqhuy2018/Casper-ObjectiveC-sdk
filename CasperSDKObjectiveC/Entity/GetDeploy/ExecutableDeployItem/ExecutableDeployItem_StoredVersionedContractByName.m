@@ -4,10 +4,17 @@
 +(ExecutableDeployItem_StoredVersionedContractByName*) fromJsonDictToObj:(NSDictionary*) fromDict {
     ExecutableDeployItem_StoredVersionedContractByName * ret = [[ExecutableDeployItem_StoredVersionedContractByName alloc] init];
     
+    if(![fromDict[@"version"] isEqual:[NSNull null]]) {
+        ret.version = [fromDict[@"version"] intValue];
+        ret.is_version_exists = true;
+    } else {
+        ret.is_version_exists = false;
+    }
+    ret.name = fromDict[@"name"];
+    ret.entry_point = fromDict[@"entry_point"];
     NSArray * listArgs = [[NSArray alloc] init];
     listArgs = (NSArray*) fromDict[@"args"];
     ret.args = [RuntimeArgs fromJsonArrayToRuntimeArg:listArgs];
-
     return  ret;
 }
 -(void) logInfo {

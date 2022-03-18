@@ -38,7 +38,6 @@
            // [session closeWithCompletionHandler:nil];
         }];
 }
-
 - (void) testGetStateRootHash {
     //Test 1: get state root hash without sending parameter
     //expected result: latest block state root hash

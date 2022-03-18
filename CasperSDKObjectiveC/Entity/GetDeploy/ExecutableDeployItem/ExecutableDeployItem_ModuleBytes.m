@@ -14,7 +14,7 @@
     return ret;
 }
 -(void) logInfo {
-    NSLog(@"ExecutableDeployItem_ModuleBytes, module_bytes:%@",self.module_bytes);
+    //NSLog(@"ExecutableDeployItem_ModuleBytes, module_bytes:%@",self.module_bytes);
     [self.args logInfo];
 }
 @end
