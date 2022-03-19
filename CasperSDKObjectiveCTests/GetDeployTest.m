@@ -75,6 +75,8 @@
     gpr.deploy_hash = @"ac654d996f17720e780fe4eae9a7d57d57cdadb069998666a369a0833aebb7f8";
     //PublicKey, Option(U64)
     gpr.deploy_hash = @"fa02357bffd204b34d3a3495f393fc5651541e1be4376072d6d94297daa688d6";
+    //Transform of type Withdraw and Bid
+    gpr.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
     NSString * jsonString = [gpr generatePostParam];
     [self getDeploy:jsonString];
     return;

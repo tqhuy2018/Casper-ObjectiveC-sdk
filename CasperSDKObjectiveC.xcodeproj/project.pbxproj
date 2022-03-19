@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9072960727E5DE7800D0DEFE /* Delegator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960627E5DE7800D0DEFE /* Delegator.m */; };
+		9072960A27E5E70800D0DEFE /* Bid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960927E5E70800D0DEFE /* Bid.m */; };
+		9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960B27E5ED1800D0DEFE /* EraInfo.m */; };
+		9072960E27E5EF0C00D0DEFE /* SeigniorageAllocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960D27E5EF0C00D0DEFE /* SeigniorageAllocation.m */; };
+		9072961027E5F90600D0DEFE /* Transform_WriteEraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960F27E5F90600D0DEFE /* Transform_WriteEraInfo.m */; };
+		9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961127E5F9BE00D0DEFE /* Transform_WriteTransfer.m */; };
+		9072961427E5FB0000D0DEFE /* Transfer1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961327E5FB0000D0DEFE /* Transfer1.m */; };
+		9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961527E5FE6C00D0DEFE /* Transform_WriteWithdraw.m */; };
 		9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288C27E0D3F200D00892 /* GetDeployResult.m */; };
 		9076289027E0D43B00D00892 /* Deploy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288F27E0D43B00D00892 /* Deploy.m */; };
 		9076289327E0D53500D00892 /* DeployHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289227E0D53500D00892 /* DeployHeader.m */; };
@@ -114,6 +122,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9072960527E5DC8F00D0DEFE /* Delegator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Delegator.h; sourceTree = "<group>"; };
+		9072960627E5DE7800D0DEFE /* Delegator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Delegator.m; sourceTree = "<group>"; };
+		9072960827E5E6FE00D0DEFE /* Bid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bid.h; sourceTree = "<group>"; };
+		9072960927E5E70800D0DEFE /* Bid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bid.m; sourceTree = "<group>"; };
+		9072960B27E5ED1800D0DEFE /* EraInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EraInfo.m; sourceTree = "<group>"; };
+		9072960D27E5EF0C00D0DEFE /* SeigniorageAllocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeigniorageAllocation.m; sourceTree = "<group>"; };
+		9072960F27E5F90600D0DEFE /* Transform_WriteEraInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteEraInfo.m; sourceTree = "<group>"; };
+		9072961127E5F9BE00D0DEFE /* Transform_WriteTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteTransfer.m; sourceTree = "<group>"; };
+		9072961327E5FB0000D0DEFE /* Transfer1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transfer1.m; sourceTree = "<group>"; };
+		9072961527E5FE6C00D0DEFE /* Transform_WriteWithdraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteWithdraw.m; sourceTree = "<group>"; };
 		9076288B27E0D3E800D00892 /* GetDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployResult.h; sourceTree = "<group>"; };
 		9076288C27E0D3F200D00892 /* GetDeployResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployResult.m; sourceTree = "<group>"; };
 		9076288E27E0D43300D00892 /* Deploy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deploy.h; sourceTree = "<group>"; };
@@ -273,8 +291,6 @@
 		90CAF5CE27E4CE6100AAA913 /* DeployInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeployInfo.h; sourceTree = "<group>"; };
 		90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeployInfo.m; sourceTree = "<group>"; };
 		90CAF5D227E4D08A00AAA913 /* SeigniorageAllocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation.h; sourceTree = "<group>"; };
-		90CAF5D327E4D0B500AAA913 /* SeigniorageAllocation_Validator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation_Validator.h; sourceTree = "<group>"; };
-		90CAF5D427E4D0C600AAA913 /* SeigniorageAllocation_Delegator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeigniorageAllocation_Delegator.h; sourceTree = "<group>"; };
 		90CAF5D527E4D24A00AAA913 /* EraInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraInfo.h; sourceTree = "<group>"; };
 		90CAF5D627E4D43000AAA913 /* Transform_WriteEraInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteEraInfo.h; sourceTree = "<group>"; };
 		90CAF5D727E4D44900AAA913 /* Transform_WriteTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteTransfer.h; sourceTree = "<group>"; };
@@ -283,7 +299,7 @@
 		90CAF5DA27E4D52200AAA913 /* Transform_AddNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddNumber.h; sourceTree = "<group>"; };
 		90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddKeys.h; sourceTree = "<group>"; };
 		90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedKey.h; sourceTree = "<group>"; };
-		90CAF5DD27E4D74700AAA913 /* Transfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transfer.h; sourceTree = "<group>"; };
+		90CAF5DD27E4D74700AAA913 /* Transfer1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transfer1.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,8 +625,11 @@
 				90CAF5CB27E4CDE500AAA913 /* Transform_WriteDeployInfo.h */,
 				90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */,
 				90CAF5D627E4D43000AAA913 /* Transform_WriteEraInfo.h */,
+				9072960F27E5F90600D0DEFE /* Transform_WriteEraInfo.m */,
 				90CAF5D727E4D44900AAA913 /* Transform_WriteTransfer.h */,
+				9072961127E5F9BE00D0DEFE /* Transform_WriteTransfer.m */,
 				90CAF5D927E4D46A00AAA913 /* Transform_WriteWithdraw.h */,
+				9072961527E5FE6C00D0DEFE /* Transform_WriteWithdraw.m */,
 			);
 			path = TransformEnum;
 			sourceTree = "<group>";
@@ -618,17 +637,22 @@
 		90CAF5D127E4CFA700AAA913 /* TransformOtherObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9072960527E5DC8F00D0DEFE /* Delegator.h */,
+				9072960627E5DE7800D0DEFE /* Delegator.m */,
 				90CAF5CE27E4CE6100AAA913 /* DeployInfo.h */,
 				90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */,
 				90CAF5D227E4D08A00AAA913 /* SeigniorageAllocation.h */,
-				90CAF5D327E4D0B500AAA913 /* SeigniorageAllocation_Validator.h */,
-				90CAF5D427E4D0C600AAA913 /* SeigniorageAllocation_Delegator.h */,
+				9072960D27E5EF0C00D0DEFE /* SeigniorageAllocation.m */,
 				90CAF5D527E4D24A00AAA913 /* EraInfo.h */,
+				9072960B27E5ED1800D0DEFE /* EraInfo.m */,
 				90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */,
-				90CAF5DD27E4D74700AAA913 /* Transfer.h */,
+				90CAF5DD27E4D74700AAA913 /* Transfer1.h */,
+				9072961327E5FB0000D0DEFE /* Transfer1.m */,
 				90769BFF27E56173003552D8 /* NamedKey.m */,
 				90769C0527E59473003552D8 /* VestingSchedule.h */,
 				90769C0627E5957A003552D8 /* VestingSchedule.m */,
+				9072960827E5E6FE00D0DEFE /* Bid.h */,
+				9072960927E5E70800D0DEFE /* Bid.m */,
 			);
 			path = TransformOtherObjects;
 			sourceTree = "<group>";
@@ -761,6 +785,7 @@
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */,
+				9072961427E5FB0000D0DEFE /* Transfer1.m in Sources */,
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
@@ -782,14 +807,18 @@
 				90769C0427E5917B003552D8 /* Transform_WriteBid.m in Sources */,
 				90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */,
 				90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */,
+				9072960727E5DE7800D0DEFE /* Delegator.m in Sources */,
+				9072960A27E5E70800D0DEFE /* Bid.m in Sources */,
 				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
+				9072960E27E5EF0C00D0DEFE /* SeigniorageAllocation.m in Sources */,
 				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,
 				9095D97827DE0E5000D58545 /* GetBlockTransfersResult.m in Sources */,
 				9092A25B27DF3C7300D0361C /* JsonBlockBody.m in Sources */,
 				9076289327E0D53500D00892 /* DeployHeader.m in Sources */,
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
+				9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
 				90CAF5CA27E4CBBD00AAA913 /* Transform_WriteAccount.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
@@ -799,6 +828,7 @@
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
 				90CAF5C427E4C7E700AAA913 /* Transform_RawString.m in Sources */,
 				908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */,
+				9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */,
 				908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
@@ -809,6 +839,7 @@
 				90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
 				908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */,
+				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
 				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
 				908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
@@ -825,6 +856,7 @@
 				908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */,
 				90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */,
 				9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */,
+				9072961027E5F90600D0DEFE /* Transform_WriteEraInfo.m in Sources */,
 				9079790027DC966100B69B4E /* BlockIdentifider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,4 +1,4 @@
-#ifndef Transfer_h
+/*#ifndef Transfer_h
 #define Transfer_h
 #import "U512Class.h"
 @interface Transfer:NSObject
@@ -14,6 +14,9 @@
 @property U512Class * gas;
 @property UInt64 id;//Optional
 @property bool is_id_exists;
++(Transfer*) fromJsonDictToTransfer:(NSDictionary*) fromDict;
+-(void)logInfo;
 @end
 
 #endif
+*/

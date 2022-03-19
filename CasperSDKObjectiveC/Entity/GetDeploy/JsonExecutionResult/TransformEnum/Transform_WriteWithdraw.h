@@ -1,12 +1,9 @@
-//
-//  Transform_WriteWithdraw.h
-//  CasperSDKObjectiveC
-//
-//  Created by Hien on 18/03/2022.
-//
-
 #ifndef Transform_WriteWithdraw_h
 #define Transform_WriteWithdraw_h
+@interface Transform_WriteWithdraw:NSObject
+@property NSMutableArray * UnbondingPurseList;
++(Transform_WriteWithdraw*) fromJsonArrayToTransform_WriteWithdraw:(NSArray*) fromArray;
+-(void) logInfo;
+@end
 
-
-#endif /* Transform_WriteWithdraw_h */
+#endif
