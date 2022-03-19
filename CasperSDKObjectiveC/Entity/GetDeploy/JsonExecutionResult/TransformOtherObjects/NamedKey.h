@@ -3,6 +3,8 @@
 @interface NamedKey:NSObject
 @property NSString * name;
 @property NSString * key;
++(NamedKey*) fromJsonDictToNamedKey:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif
