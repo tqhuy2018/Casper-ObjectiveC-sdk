@@ -3,7 +3,7 @@
 @implementation Transform_WriteBid
 +(Transform_WriteBid*) fromJsonDictToTransform_WriteBid:(NSDictionary*) fromDict {
     Transform_WriteBid * ret = [[Transform_WriteBid alloc] init];
-    ret.bidValue = [Bid fromJsonDictToBid:fromDict[@"WriteBid"]];
+    ret.bidValue = [Bid fromJsonDictToBid:fromDict];
     return ret;
 }
 -(void) logInfo {

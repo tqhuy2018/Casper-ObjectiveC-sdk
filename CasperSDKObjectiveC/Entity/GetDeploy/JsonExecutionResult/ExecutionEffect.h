@@ -6,6 +6,7 @@
 ///List of TransformEntry
 @property NSMutableArray * transforms;
 +(ExecutionEffect*) fromJsonDictToExecutionEffect:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif

@@ -5,7 +5,7 @@
 +(Transform_WriteCLValue*) fromJsonDictToTransform_WriteCLValue:(NSDictionary*) fromDict {
     Transform_WriteCLValue * ret = [[Transform_WriteCLValue alloc] init];
     CLValue * clValue = [[CLValue alloc] init];
-    clValue = [CLValue fromJsonDictToCLValue:fromDict[@"WriteCLValue"]];
+    clValue = [CLValue fromJsonDictToCLValue:fromDict];
     ret.itsValue = clValue;
     return ret;
 }

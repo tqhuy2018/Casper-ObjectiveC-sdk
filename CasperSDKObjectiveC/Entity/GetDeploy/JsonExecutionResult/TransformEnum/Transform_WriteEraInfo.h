@@ -3,7 +3,7 @@
 #import "EraInfo.h"
 @interface Transform_WriteEraInfo:NSObject
 @property EraInfo * itsEraInfo;
-+(Transform_WriteEraInfo*) fromJsonDictToTransform_WriteEraInfo:(NSDictionary*) fromDict;
++(Transform_WriteEraInfo*) fromJsonArrayToTransform_WriteEraInfo:(NSArray*) fromDict;
 -(void) logInfo;
 @end
 

@@ -22,7 +22,7 @@
     return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get block"];
     NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
-   // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
+    casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -76,10 +76,12 @@
     //PublicKey, Option(U64)
     gpr.deploy_hash = @"fa02357bffd204b34d3a3495f393fc5651541e1be4376072d6d94297daa688d6";
     //Transform of type Withdraw and Bid
-    gpr.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
+    //gpr.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
+    gpr.deploy_hash = @"28910c7e14c2b4b2387507878f4f8f2b72d5b519d63d90ada0493735e7805e0c";
     NSString * jsonString = [gpr generatePostParam];
     [self getDeploy:jsonString];
     return;
+    //This test is for CLTYPE
     //List(Map(String,String)) alloc
     //Method 1
     CLTypeList * cll = [[CLTypeList alloc] init];

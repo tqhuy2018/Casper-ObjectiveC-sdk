@@ -26,10 +26,8 @@
 		907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628A527E0DAF300D00892 /* ExecutableDeployItem_Transfer.m */; };
 		907628A927E0DE3300D00892 /* NamedArg.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628A827E0DE3300D00892 /* NamedArg.m */; };
 		907628AB27E0E19D00D00892 /* GetDeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 907628AA27E0E19D00D00892 /* GetDeployTest.m */; };
-		90769BFC27E55EF9003552D8 /* Transform_Failure.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769BFB27E55EF9003552D8 /* Transform_Failure.m */; };
 		90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769BFD27E56032003552D8 /* Transform_AddKeys.m */; };
 		90769C0027E56173003552D8 /* NamedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769BFF27E56173003552D8 /* NamedKey.m */; };
-		90769C0227E58C64003552D8 /* Transform_AddNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769C0127E58C64003552D8 /* Transform_AddNumber.m */; };
 		90769C0427E5917B003552D8 /* Transform_WriteBid.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769C0327E5917B003552D8 /* Transform_WriteBid.m */; };
 		90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769C0627E5957A003552D8 /* VestingSchedule.m */; };
 		907978F027DC963E00B69B4E /* GetPeerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978EA27DC963E00B69B4E /* GetPeerList.h */; };
@@ -61,11 +59,10 @@
 		908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4727E223A400D850AD /* CLParsedPU64.m */; };
 		908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4A27E2261300D850AD /* CLParsedPInt32.m */; };
 		908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */; };
-		908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */; };
-		908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */; };
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
 		908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */; };
+		9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9091ABBA27E632A1002A51F1 /* UnbondingPurse.m */; };
 		9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24B27DF393B00D0361C /* GetBlockResult.m */; };
 		9092A24F27DF398700D0361C /* JsonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24E27DF398700D0361C /* JsonBlock.m */; };
 		9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A25127DF3A6100D0361C /* JsonBlockHeader.m */; };
@@ -104,9 +101,7 @@
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
 		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
 		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
-		90CAF5C427E4C7E700AAA913 /* Transform_RawString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */; };
 		90CAF5C727E4C85500AAA913 /* Transform_WriteCLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C627E4C85500AAA913 /* Transform_WriteCLValue.m */; };
-		90CAF5CA27E4CBBD00AAA913 /* Transform_WriteAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */; };
 		90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */; };
 		90CAF5D027E4CF2C00AAA913 /* DeployInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5CF27E4CF2C00AAA913 /* DeployInfo.m */; };
 /* End PBXBuildFile section */
@@ -153,11 +148,8 @@
 		907628A727E0DE2100D00892 /* NamedArg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedArg.h; sourceTree = "<group>"; };
 		907628A827E0DE3300D00892 /* NamedArg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamedArg.m; sourceTree = "<group>"; };
 		907628AA27E0E19D00D00892 /* GetDeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployTest.m; sourceTree = "<group>"; };
-		90769BFA27E55EA6003552D8 /* Transform_Failure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_Failure.h; sourceTree = "<group>"; };
-		90769BFB27E55EF9003552D8 /* Transform_Failure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_Failure.m; sourceTree = "<group>"; };
 		90769BFD27E56032003552D8 /* Transform_AddKeys.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_AddKeys.m; sourceTree = "<group>"; };
 		90769BFF27E56173003552D8 /* NamedKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamedKey.m; sourceTree = "<group>"; };
-		90769C0127E58C64003552D8 /* Transform_AddNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_AddNumber.m; sourceTree = "<group>"; };
 		90769C0327E5917B003552D8 /* Transform_WriteBid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteBid.m; sourceTree = "<group>"; };
 		90769C0527E59473003552D8 /* VestingSchedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VestingSchedule.h; sourceTree = "<group>"; };
 		90769C0627E5957A003552D8 /* VestingSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VestingSchedule.m; sourceTree = "<group>"; };
@@ -199,16 +191,14 @@
 		908A6A4A27E2261300D850AD /* CLParsedPInt32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedPInt32.m; sourceTree = "<group>"; };
 		908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonExecutionResult.h; sourceTree = "<group>"; };
 		908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonExecutionResult.m; sourceTree = "<group>"; };
-		908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionResult_Failure.h; sourceTree = "<group>"; };
-		908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionResult_Failure.m; sourceTree = "<group>"; };
-		908A6A5227E229E500D850AD /* ExecutionResult_Success.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionResult_Success.h; sourceTree = "<group>"; };
-		908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionResult_Success.m; sourceTree = "<group>"; };
 		908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem.h; sourceTree = "<group>"; };
 		908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItem.m; sourceTree = "<group>"; };
 		908A6A5827E234FC00D850AD /* GetDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployParams.h; sourceTree = "<group>"; };
 		908A6A5927E23A9600D850AD /* GetDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployParams.m; sourceTree = "<group>"; };
 		908E6D3427E2BD45003C17CC /* RuntimeArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeArgs.h; sourceTree = "<group>"; };
 		908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeArgs.m; sourceTree = "<group>"; };
+		9091ABB927E6329A002A51F1 /* UnbondingPurse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnbondingPurse.h; sourceTree = "<group>"; };
+		9091ABBA27E632A1002A51F1 /* UnbondingPurse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnbondingPurse.m; sourceTree = "<group>"; };
 		9092A24A27DF393400D0361C /* GetBlockResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBlockResult.h; sourceTree = "<group>"; };
 		9092A24B27DF393B00D0361C /* GetBlockResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBlockResult.m; sourceTree = "<group>"; };
 		9092A24D27DF397D00D0361C /* JsonBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonBlock.h; sourceTree = "<group>"; };
@@ -280,12 +270,8 @@
 		90CAF5BC27E4A55A00AAA913 /* Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
 		90CAF5BE27E4A64D00AAA913 /* TransformEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformEntry.h; sourceTree = "<group>"; };
 		90CAF5BF27E4A65300AAA913 /* TransformEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformEntry.m; sourceTree = "<group>"; };
-		90CAF5C227E4C71400AAA913 /* Transform_RawString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_RawString.h; sourceTree = "<group>"; };
-		90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_RawString.m; sourceTree = "<group>"; };
 		90CAF5C527E4C81600AAA913 /* Transform_WriteCLValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteCLValue.h; sourceTree = "<group>"; };
 		90CAF5C627E4C85500AAA913 /* Transform_WriteCLValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteCLValue.m; sourceTree = "<group>"; };
-		90CAF5C827E4CB9800AAA913 /* Transform_WriteAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteAccount.h; sourceTree = "<group>"; };
-		90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteAccount.m; sourceTree = "<group>"; };
 		90CAF5CB27E4CDE500AAA913 /* Transform_WriteDeployInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteDeployInfo.h; sourceTree = "<group>"; };
 		90CAF5CC27E4CE0600AAA913 /* Transform_WriteDeployInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteDeployInfo.m; sourceTree = "<group>"; };
 		90CAF5CE27E4CE6100AAA913 /* DeployInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeployInfo.h; sourceTree = "<group>"; };
@@ -296,7 +282,6 @@
 		90CAF5D727E4D44900AAA913 /* Transform_WriteTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteTransfer.h; sourceTree = "<group>"; };
 		90CAF5D827E4D45D00AAA913 /* Transform_WriteBid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteBid.h; sourceTree = "<group>"; };
 		90CAF5D927E4D46A00AAA913 /* Transform_WriteWithdraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteWithdraw.h; sourceTree = "<group>"; };
-		90CAF5DA27E4D52200AAA913 /* Transform_AddNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddNumber.h; sourceTree = "<group>"; };
 		90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddKeys.h; sourceTree = "<group>"; };
 		90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedKey.h; sourceTree = "<group>"; };
 		90CAF5DD27E4D74700AAA913 /* Transfer1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transfer1.h; sourceTree = "<group>"; };
@@ -589,10 +574,6 @@
 			children = (
 				90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */,
 				90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */,
-				908A6A4F27E229A800D850AD /* ExecutionResult_Failure.h */,
-				908A6A5027E229C800D850AD /* ExecutionResult_Failure.m */,
-				908A6A5227E229E500D850AD /* ExecutionResult_Success.h */,
-				908A6A5327E229EF00D850AD /* ExecutionResult_Success.m */,
 				908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */,
 				908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */,
 				90CAF5BB27E4A55400AAA913 /* Operation.h */,
@@ -610,14 +591,6 @@
 			children = (
 				90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */,
 				90769BFD27E56032003552D8 /* Transform_AddKeys.m */,
-				90CAF5DA27E4D52200AAA913 /* Transform_AddNumber.h */,
-				90769C0127E58C64003552D8 /* Transform_AddNumber.m */,
-				90769BFA27E55EA6003552D8 /* Transform_Failure.h */,
-				90769BFB27E55EF9003552D8 /* Transform_Failure.m */,
-				90CAF5C227E4C71400AAA913 /* Transform_RawString.h */,
-				90CAF5C327E4C7E700AAA913 /* Transform_RawString.m */,
-				90CAF5C827E4CB9800AAA913 /* Transform_WriteAccount.h */,
-				90CAF5C927E4CBBD00AAA913 /* Transform_WriteAccount.m */,
 				90CAF5D827E4D45D00AAA913 /* Transform_WriteBid.h */,
 				90769C0327E5917B003552D8 /* Transform_WriteBid.m */,
 				90CAF5C527E4C81600AAA913 /* Transform_WriteCLValue.h */,
@@ -653,6 +626,8 @@
 				90769C0627E5957A003552D8 /* VestingSchedule.m */,
 				9072960827E5E6FE00D0DEFE /* Bid.h */,
 				9072960927E5E70800D0DEFE /* Bid.m */,
+				9091ABB927E6329A002A51F1 /* UnbondingPurse.h */,
+				9091ABBA27E632A1002A51F1 /* UnbondingPurse.m */,
 			);
 			path = TransformOtherObjects;
 			sourceTree = "<group>";
@@ -774,8 +749,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90769BFC27E55EF9003552D8 /* Transform_Failure.m in Sources */,
 				90955F1927E14FD200F0FE7A /* CLTypeMap.m in Sources */,
+				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
@@ -791,7 +766,6 @@
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				90CAF5D027E4CF2C00AAA913 /* DeployInfo.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
-				90769C0227E58C64003552D8 /* Transform_AddNumber.m in Sources */,
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
 				908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */,
 				90955F2D27E1A57400F0FE7A /* CLParsedMap.m in Sources */,
@@ -820,16 +794,13 @@
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
-				90CAF5CA27E4CBBD00AAA913 /* Transform_WriteAccount.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
 				90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */,
 				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
-				90CAF5C427E4C7E700AAA913 /* Transform_RawString.m in Sources */,
 				908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */,
 				9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */,
-				908A6A5427E229EF00D850AD /* ExecutionResult_Success.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
 				9096E4AD27E084890076E634 /* Utils.m in Sources */,
@@ -853,7 +824,6 @@
 				9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */,
 				9079790527DC966100B69B4E /* GetStateRootHash.m in Sources */,
 				9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */,
-				908A6A5127E229C800D850AD /* ExecutionResult_Failure.m in Sources */,
 				90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */,
 				9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */,
 				9072961027E5F90600D0DEFE /* Transform_WriteEraInfo.m in Sources */,

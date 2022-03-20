@@ -2,14 +2,13 @@
 #import "Transform_AddKeys.h"
 #import "NamedKey.h"
 @implementation Transform_AddKeys
-+(Transform_AddKeys*) fromJSonDictToTransform_AddKeys:(NSDictionary *)fromDict {
++(Transform_AddKeys*) fromJSonArrayToTransform_AddKeys:(NSArray *)fromArray {
     Transform_AddKeys * ret = [[Transform_AddKeys alloc] init];
     NSMutableArray * arr = [[NSMutableArray alloc] init];
-    NSArray * list = (NSArray*) fromDict[@"AddKeys"];
-    int totalElement = (int) list.count;
+    int totalElement = (int) fromArray.count;
     for (int i = 0 ; i < totalElement ; i ++) {
         NamedKey * oneNK = [[NamedKey alloc] init];
-        oneNK = [NamedKey fromJsonDictToNamedKey:(NSDictionary*) [list objectAtIndex:i]];
+        oneNK = [NamedKey fromJsonDictToNamedKey:(NSDictionary*) [fromArray objectAtIndex:i]];
         [arr addObject:oneNK];
     }
     ret.listKey = arr;

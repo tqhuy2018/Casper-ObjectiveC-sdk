@@ -27,7 +27,7 @@
         ret.is_to_exists = false;
     }
     if(![jsonDict[@"id"] isEqual:[NSNull null]]) {
-        ret.id = (UInt64) jsonDict[@"id"];
+        ret.id = [(NSString*) jsonDict[@"id"] longLongValue];
     } else {
         ret.is_id_exists = false;
     }

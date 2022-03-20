@@ -4,6 +4,7 @@
 @interface GetDeployResult:NSObject
 @property NSString * api_version;
 @property Deploy * deploy;
+///execution_results of type enum ExecutionResult
 @property NSMutableArray * execution_results;
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict;
 -(void) logInfo;

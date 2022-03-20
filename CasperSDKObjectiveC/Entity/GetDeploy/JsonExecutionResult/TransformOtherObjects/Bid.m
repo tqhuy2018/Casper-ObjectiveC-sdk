@@ -14,10 +14,13 @@
     ret.delegators = [[NSMutableArray alloc] init];
     NSArray * listDelegator = (NSArray *) fromDict[@"delegators"];
     int totalDelegator = (int) listDelegator.count;
+    NSLog(@"total delegator:%i",totalDelegator);
     for(int i = 0 ; i < totalDelegator ; i++ ) {
-        NSArray * oneDelegatorJsonArray = (NSArray*) [listDelegator objectAtIndex:i];
-        Delegator * oneDelegator = [Delegator fromJsonArrayToDelegator:oneDelegatorJsonArray];
-        [ret.delegators addObject:oneDelegator];
+        NSDictionary * oneDelegatorDict = (NSDictionary*) [listDelegator objectAtIndex:i];
+        NSLog(@"oneDelegatorDict:%@",oneDelegatorDict);
+       // Delegator * oneDelegator = [Delegator fromJsonArrayToDelegator:oneDelegatorJsonArray];
+       // [oneDelegator logInfo];
+       // [ret.delegators addObject:oneDelegator];
     }
     return  ret;
 }
