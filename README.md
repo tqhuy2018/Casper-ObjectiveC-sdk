@@ -52,7 +52,10 @@ You will see the Log information about List Peer and State root hash for the 2 R
 
 ### Build and test in Terminal
 
-You can check the build and test result from the "Actions" section of the SDK in Github. There is a ".yml" file for building and testing the sdk using Github simulator for MacOS environment.
+You can check the build and test result from the "Actions" section of the SDK in Github. There is a ".yml" file for building and testing the sdk using Github simulator for MacOS environment, as you can see in this image.
+
+<img width="1394" alt="Screen Shot 2022-03-20 at 13 21 29" src="https://user-images.githubusercontent.com/94465107/159150799-989d786a-6f22-40a9-bbae-53c8b2916027.png">
+
 
 If you want to make it locally, you still need a Mac running MacOS 10.15 or above and then follow these steps:
 
