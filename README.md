@@ -12,6 +12,10 @@ The SDK use ObjectiveC 2.0 and support device running IOS from 12.0, MacOS from 
 
 ## Build and test
 
+The package can be built an tested from Xcode IDE or Terminal in MacOS
+
+### Build and test in Xcode IDE
+
 To test the project you need to have a Mac with Mac OS and XCode 13 or above to build and run the test.
 
 Download or clone the code from github, then open it with Xcode.
@@ -46,13 +50,36 @@ In the menu bar of XCode, hit Product->Test to test the SDK.
 
 You will see the Log information about List Peer and State root hash for the 2 RPC method. (Press "Cmd + Shift + Y" to show the Log if you don't see it)
 
+### Build and test in Terminal
+
+You can check the build and test result from the "Actions" section of the SDK in Github. There is a ".yml" file for building and testing the sdk using Github simulator for MacOS environment, as you can see in this image.
+
+<img width="1394" alt="Screen Shot 2022-03-20 at 13 21 29" src="https://user-images.githubusercontent.com/94465107/159150799-989d786a-6f22-40a9-bbae-53c8b2916027.png">
 
 
+If you want to make it locally, you still need a Mac running MacOS 10.15 (or above) and  Xcode 13.0 (or above) installed, then follow these steps:
+
+1) Download or clone the SDK from Github
+ 
+2) Configure the Package in XCode to sign the SDK for one Development Team or Distribution Team
+
+3) In terminal enter the folder of the SDK. Run the following commands to build or test trom the folder root of the SDK in terminal:
+
+To build package run this command line:
+
+```ObjectiveC
+xcodebuild -scheme CasperSDKObjectiveC build
+```
+To test package run this command line:
+
+```ObjectiveC
+xcodebuild test -scheme CasperSDKObjectiveCTests
+```
 
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
 
--  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
+  -  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
 
--  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
+  -  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
