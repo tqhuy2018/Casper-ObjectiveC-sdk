@@ -77,6 +77,6 @@ xcodebuild test -scheme CasperSDKObjectiveCTests
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
 
--  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
+  -  [Get State Root Hash](./Docs/Help.md#i-get-state-root-hash)
 
--  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
+  -  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
