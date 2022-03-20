@@ -12,7 +12,7 @@ The SDK use ObjectiveC 2.0 and support device running IOS from 12.0, MacOS from 
 
 ## Build and test
 
-The package can be built an tested from Xcode IDE or Terminal on MacOS
+The package can be built an tested from Xcode IDE or Terminal in MacOS
 
 ### Build and test in Xcode IDE
 
@@ -57,11 +57,13 @@ You can check the build and test result from the "Actions" section of the SDK in
 <img width="1394" alt="Screen Shot 2022-03-20 at 13 21 29" src="https://user-images.githubusercontent.com/94465107/159150799-989d786a-6f22-40a9-bbae-53c8b2916027.png">
 
 
-If you want to make it locally, you still need a Mac running MacOS 10.15 or above and then follow these steps:
+If you want to make it locally, you still need a Mac running MacOS 10.15 (or above) and  Xcode 13.0 (or above) installed, then follow these steps:
 
 1) Download or clone the SDK from Github
+ 
+2) Configure the Package in XCode to sign the SDK for one Development Team or Distribution Team
 
-2) In terminal enter the folder of the SDK. Run the following commands to build or test trom the folder root of the SDK in terminal:
+3) In terminal enter the folder of the SDK. Run the following commands to build or test trom the folder root of the SDK in terminal:
 
 To build package run this command line:
 
@@ -73,8 +75,6 @@ To test package run this command line:
 ```ObjectiveC
 xcodebuild test -scheme CasperSDKObjectiveCTests
 ```
-
-
 
 # Documentation for classes and methods
 
