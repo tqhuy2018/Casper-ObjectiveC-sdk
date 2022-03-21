@@ -65,6 +65,9 @@
 		9089363F27E88E670075035F /* Groups.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363E27E88E670075035F /* Groups.m */; };
 		9089364227E890980075035F /* ContractVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364127E890980075035F /* ContractVersion.m */; };
 		9089364527E895BC0075035F /* Contract.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364427E895BC0075035F /* Contract.m */; };
+		9089364827E8B0D10075035F /* EntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364727E8B0D10075035F /* EntryPoint.m */; };
+		9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364A27E8B2080075035F /* EntryPointAccess.m */; };
+		9089364E27E8B7850075035F /* Parameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364D27E8B7850075035F /* Parameter.m */; };
 		908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */; };
 		908A6A4227E2236500D850AD /* CLParsedPU512.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4127E2236500D850AD /* CLParsedPU512.m */; };
 		908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4427E2238E00D850AD /* CLParsedPU256.m */; };
@@ -214,6 +217,12 @@
 		9089364127E890980075035F /* ContractVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContractVersion.m; sourceTree = "<group>"; };
 		9089364327E895B00075035F /* Contract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contract.h; sourceTree = "<group>"; };
 		9089364427E895BC0075035F /* Contract.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contract.m; sourceTree = "<group>"; };
+		9089364627E8B0C40075035F /* EntryPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryPoint.h; sourceTree = "<group>"; };
+		9089364727E8B0D10075035F /* EntryPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryPoint.m; sourceTree = "<group>"; };
+		9089364927E8B2000075035F /* EntryPointAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryPointAccess.h; sourceTree = "<group>"; };
+		9089364A27E8B2080075035F /* EntryPointAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryPointAccess.m; sourceTree = "<group>"; };
+		9089364C27E8B77E0075035F /* Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parameter.h; sourceTree = "<group>"; };
+		9089364D27E8B7850075035F /* Parameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Parameter.m; sourceTree = "<group>"; };
 		908A6A3D27E222A100D850AD /* CLParsedTuple1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedTuple1.h; sourceTree = "<group>"; };
 		908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedTuple1.m; sourceTree = "<group>"; };
 		908A6A4027E2235700D850AD /* CLParsedPU512.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPU512.h; sourceTree = "<group>"; };
@@ -439,6 +448,12 @@
 				9089364127E890980075035F /* ContractVersion.m */,
 				9089364327E895B00075035F /* Contract.h */,
 				9089364427E895BC0075035F /* Contract.m */,
+				9089364627E8B0C40075035F /* EntryPoint.h */,
+				9089364727E8B0D10075035F /* EntryPoint.m */,
+				9089364927E8B2000075035F /* EntryPointAccess.h */,
+				9089364A27E8B2080075035F /* EntryPointAccess.m */,
+				9089364C27E8B77E0075035F /* Parameter.h */,
+				9089364D27E8B7850075035F /* Parameter.m */,
 			);
 			path = StoredValueEnumClasses;
 			sourceTree = "<group>";
@@ -842,6 +857,7 @@
 				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
+				9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */,
 				90CAF5D027E4CF2C00AAA913 /* DeployInfo.m in Sources */,
 				9092A24F27DF398700D0361C /* JsonBlock.m in Sources */,
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
@@ -900,9 +916,11 @@
 				908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
 				90955F2727E1680900F0FE7A /* CLParsedList.m in Sources */,
+				9089364E27E8B7850075035F /* Parameter.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,
 				908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */,
 				90CAF5C727E4C85500AAA913 /* Transform_WriteCLValue.m in Sources */,
+				9089364827E8B0D10075035F /* EntryPoint.m in Sources */,
 				907978F327DC963E00B69B4E /* GetPeerResult.m in Sources */,
 				908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */,
 				9095D97B27DE0F3600D58545 /* Transfer.m in Sources */,

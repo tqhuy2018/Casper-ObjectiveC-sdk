@@ -7,6 +7,8 @@
 @property NSMutableArray * entry_points;
 @property NSMutableArray * named_keys;
 @property NSString * protocol_version;
++(Contract*) fromJsonDictToContact:(NSDictionary*) fromDict;
+-(void)logInfo;
 
 @end
 #endif
