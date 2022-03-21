@@ -57,13 +57,11 @@
             ret.transformType = TRANSFORM_WRITE_BID;
             Transform_WriteBid * item = [[Transform_WriteBid alloc] init];
             item = [Transform_WriteBid fromJsonDictToTransform_WriteBid:(NSDictionary*) transformDict[@"WriteBid"]];
-            [item logInfo];
             [ret.transform addObject:item];
         } else if (!(transformDict[@"WriteWithdraw"] ==nil)) {
             ret.transformType = TRANSFORM_WRITE_WITHDRAW;
             Transform_WriteWithdraw * item = [[Transform_WriteWithdraw alloc] init];
             item = [Transform_WriteWithdraw fromJsonArrayToTransform_WriteWithdraw:(NSArray*) transformDict[@"WriteWithdraw"]];
-            [item logInfo];
             [ret.transform addObject:item];
         } else if (!(transformDict[@"AddKeys"] == nil)) {
             ret.transformType = TRANSFORM_ADD_KEYS;

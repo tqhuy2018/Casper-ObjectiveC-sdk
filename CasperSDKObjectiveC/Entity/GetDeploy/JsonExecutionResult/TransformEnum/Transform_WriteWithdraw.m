@@ -17,9 +17,12 @@
 }
 -(void) logInfo {
     int totalUnBondingPurse = (int) self.UnbondingPurseList.count;
-    NSLog(@"Transform_WriteWithdraw,%i",totalUnBondingPurse);
+    NSLog(@"Transform_WriteWithdraw,total UnbondingPurse %i",totalUnBondingPurse);
+    int counter = 1;
     if(totalUnBondingPurse >0) {
         for(int i = 0; i < totalUnBondingPurse; i++) {
+            NSLog(@"Transform_WriteWithdraw, item number %i information",counter);
+            counter ++;
             UnbondingPurse * oneItem = (UnbondingPurse*) [self.UnbondingPurseList objectAtIndex:i];
             [oneItem logInfo];
         }

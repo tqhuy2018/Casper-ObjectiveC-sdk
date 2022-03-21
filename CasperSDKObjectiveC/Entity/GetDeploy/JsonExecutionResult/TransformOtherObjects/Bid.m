@@ -12,15 +12,13 @@
     ret.vesting_schedule = [VestingSchedule fromJsonDictToVestingSchedule:fromDict[@"vesting_schedule"]];
     ret.validator_public_key = (NSString*) fromDict[@"validator_public_key"];
     ret.delegators = [[NSMutableArray alloc] init];
-    NSArray * listDelegator = (NSArray *) fromDict[@"delegators"];
-    int totalDelegator = (int) listDelegator.count;
-    NSLog(@"total delegator:%i",totalDelegator);
-    for(int i = 0 ; i < totalDelegator ; i++ ) {
-        NSDictionary * oneDelegatorDict = (NSDictionary*) [listDelegator objectAtIndex:i];
-        NSLog(@"oneDelegatorDict:%@",oneDelegatorDict);
-       // Delegator * oneDelegator = [Delegator fromJsonArrayToDelegator:oneDelegatorJsonArray];
-       // [oneDelegator logInfo];
-       // [ret.delegators addObject:oneDelegator];
+    NSDictionary * delegatorDict = (NSDictionary *) fromDict[@"delegators"];
+    for(NSString * key in delegatorDict ) {
+        id value  = (NSDictionary*) delegatorDict[key];
+        Delegator * oneDelegator = [[Delegator alloc] init];
+        oneDelegator = [Delegator fromJsonDictToDelegator:(NSDictionary*) value];
+        oneDelegator.itsPublicKey = key;
+        [ret.delegators addObject:oneDelegator];
     }
     return  ret;
 }

@@ -17,7 +17,10 @@
 -(void) logInfo {
     int totalSeigniorageAllocation = (int) self.seigniorage_allocations.count;
     NSLog(@"EraInfo, total SeigniorageAllocation:%i",totalSeigniorageAllocation);
+    int counter = 0;
     if (totalSeigniorageAllocation>0) {
+        counter ++;
+        NSLog(@"EraInfo, information for SeigniorageAllocation item %i",counter);
         for(int i = 0 ;i< totalSeigniorageAllocation ;i ++) {
             SeigniorageAllocation * oneItem = (SeigniorageAllocation*) [self.seigniorage_allocations objectAtIndex:i];
             [oneItem logInfo];

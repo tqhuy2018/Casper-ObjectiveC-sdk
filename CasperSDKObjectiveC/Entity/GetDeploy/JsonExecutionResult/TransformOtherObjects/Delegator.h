@@ -13,7 +13,7 @@
 @property VestingSchedule * vesting_schedule;
 ///bool property to check whethere the VestingSchedule exists
 @property bool is_vesting_schedule_existed;
-+(Delegator*) fromJsonArrayToDelegator:(NSArray *) fromArray;
++(Delegator*) fromJsonDictToDelegator:(NSDictionary *) fromDict;
 -(void) logInfo;
 @end
 

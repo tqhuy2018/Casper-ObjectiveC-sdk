@@ -30,6 +30,10 @@
 		90769C0027E56173003552D8 /* NamedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769BFF27E56173003552D8 /* NamedKey.m */; };
 		90769C0427E5917B003552D8 /* Transform_WriteBid.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769C0327E5917B003552D8 /* Transform_WriteBid.m */; };
 		90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 90769C0627E5957A003552D8 /* VestingSchedule.m */; };
+		90776BAF27E80277000CF3AF /* GetEraInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 90776BAE27E80277000CF3AF /* GetEraInfoResult.m */; };
+		90776BB227E802CB000CF3AF /* EraSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 90776BB127E802CB000CF3AF /* EraSummary.m */; };
+		90776BB527E80392000CF3AF /* StoredValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90776BB427E80392000CF3AF /* StoredValue.m */; };
+		90776BB727E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90776BB627E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m */; };
 		907978F027DC963E00B69B4E /* GetPeerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978EA27DC963E00B69B4E /* GetPeerList.h */; };
 		907978F127DC963E00B69B4E /* GetPeerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978EB27DC963E00B69B4E /* GetPeerList.m */; };
 		907978F227DC963E00B69B4E /* GetPeerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978EC27DC963E00B69B4E /* GetPeerResult.h */; };
@@ -153,6 +157,13 @@
 		90769C0327E5917B003552D8 /* Transform_WriteBid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteBid.m; sourceTree = "<group>"; };
 		90769C0527E59473003552D8 /* VestingSchedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VestingSchedule.h; sourceTree = "<group>"; };
 		90769C0627E5957A003552D8 /* VestingSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VestingSchedule.m; sourceTree = "<group>"; };
+		90776BAD27E80271000CF3AF /* GetEraInfoResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetEraInfoResult.h; sourceTree = "<group>"; };
+		90776BAE27E80277000CF3AF /* GetEraInfoResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetEraInfoResult.m; sourceTree = "<group>"; };
+		90776BB027E802BF000CF3AF /* EraSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraSummary.h; sourceTree = "<group>"; };
+		90776BB127E802CB000CF3AF /* EraSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EraSummary.m; sourceTree = "<group>"; };
+		90776BB327E8038D000CF3AF /* StoredValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoredValue.h; sourceTree = "<group>"; };
+		90776BB427E80392000CF3AF /* StoredValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoredValue.m; sourceTree = "<group>"; };
+		90776BB627E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetEraInfoBySwitchBlockTest.m; sourceTree = "<group>"; };
 		907978EA27DC963E00B69B4E /* GetPeerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPeerList.h; sourceTree = "<group>"; };
 		907978EB27DC963E00B69B4E /* GetPeerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPeerList.m; sourceTree = "<group>"; };
 		907978EC27DC963E00B69B4E /* GetPeerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPeerResult.h; sourceTree = "<group>"; };
@@ -348,6 +359,19 @@
 			path = ExecutableDeployItem;
 			sourceTree = "<group>";
 		};
+		90776BAC27E80245000CF3AF /* GetEraInfo */ = {
+			isa = PBXGroup;
+			children = (
+				90776BAD27E80271000CF3AF /* GetEraInfoResult.h */,
+				90776BAE27E80277000CF3AF /* GetEraInfoResult.m */,
+				90776BB027E802BF000CF3AF /* EraSummary.h */,
+				90776BB127E802CB000CF3AF /* EraSummary.m */,
+				90776BB327E8038D000CF3AF /* StoredValue.h */,
+				90776BB427E80392000CF3AF /* StoredValue.m */,
+			);
+			path = GetEraInfo;
+			sourceTree = "<group>";
+		};
 		9079791227DC9F5A00B69B4E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +463,7 @@
 				9095D98927DE3E1E00D58545 /* GetBlockTransfersResultTest.m */,
 				9096E4A827E00A4B0076E634 /* GetBlockTest.m */,
 				907628AA27E0E19D00D00892 /* GetDeployTest.m */,
+				90776BB627E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -446,6 +471,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				90776BAC27E80245000CF3AF /* GetEraInfo */,
 				90955F0D27E14BED00F0FE7A /* CLValue */,
 				9076288A27E0D3CE00D00892 /* GetDeploy */,
 				9096E4AA27E0846F0076E634 /* Utils */,
@@ -749,11 +775,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90776BAF27E80277000CF3AF /* GetEraInfoResult.m in Sources */,
 				90955F1927E14FD200F0FE7A /* CLTypeMap.m in Sources */,
 				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
+				90776BB527E80392000CF3AF /* StoredValue.m in Sources */,
 				90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */,
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
@@ -794,6 +822,7 @@
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
+				90776BB227E802CB000CF3AF /* EraSummary.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
 				90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */,
 				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
@@ -839,6 +868,7 @@
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
+				90776BB727E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m in Sources */,
 				9096E4A927E00A4B0076E634 /* GetBlockTest.m in Sources */,
 				907628AB27E0E19D00D00892 /* GetDeployTest.m in Sources */,
 				9095D98A27DE3E1E00D58545 /* GetBlockTransfersResultTest.m in Sources */,

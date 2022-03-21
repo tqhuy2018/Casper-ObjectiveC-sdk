@@ -3,14 +3,13 @@
 @implementation SeigniorageAllocation
 +(SeigniorageAllocation*) fromJsonDictToSeigniorageAllocation:(NSDictionary*) fromDict {
     SeigniorageAllocation * ret = [[SeigniorageAllocation alloc] init];
-    NSDictionary * nDict = (NSDictionary*) fromDict[@"SeigniorageAllocation"];
-    if(!(nDict[@"Validator"] == nil)) { //of type Validator
-        NSDictionary * vDict = (NSDictionary*) nDict[@"Validator"];
+    if(!(fromDict[@"Validator"] == nil)) { //of type Validator
+        NSDictionary * vDict = (NSDictionary*) fromDict[@"Validator"];
         ret.validator_public_key = vDict[@"validator_public_key"];
         ret.amount = [U512Class fromStrToClass:(NSString*)vDict[@"amount"]];
         ret.isDelegatorEnum = false;
     } else {  //of type Delegator
-        NSDictionary * vDict = (NSDictionary*) nDict[@"Delegator"];
+        NSDictionary * vDict = (NSDictionary*) fromDict[@"Delegator"];
         ret.validator_public_key = vDict[@"validator_public_key"];
         ret.delegator_public_key = vDict[@"delegator_public_key"];
         ret.amount = [U512Class fromStrToClass:(NSString*)vDict[@"amount"]];
