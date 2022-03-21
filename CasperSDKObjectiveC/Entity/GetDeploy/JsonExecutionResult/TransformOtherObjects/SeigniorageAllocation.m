@@ -19,12 +19,12 @@
 }
 -(void) logInfo {
     if(self.isDelegatorEnum) {
-        NSLog(@"SeigniorageAllocation of type Delegator");
+        NSLog(@"-----SeigniorageAllocation of type Delegator");
         NSLog(@"SeigniorageAllocation Delegator, validator_public_key:%@",self.validator_public_key);
         NSLog(@"SeigniorageAllocation Delegator, delegator_public_key:%@",self.delegator_public_key);
         NSLog(@"SeigniorageAllocation Delegator, amount:%@",self.amount.itsValue);
     } else {
-        NSLog(@"SeigniorageAllocation of type Validator");
+        NSLog(@"-----SeigniorageAllocation of type Validator");
         NSLog(@"SeigniorageAllocation Validator, validator_public_key:%@",self.validator_public_key);
         NSLog(@"SeigniorageAllocation Validator, amount:%@",self.amount.itsValue);
     }

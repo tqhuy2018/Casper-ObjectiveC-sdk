@@ -31,7 +31,7 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetEraInfoResult * item = [[GetEraInfoResult alloc] init];
             item = [GetEraInfoResult fromJsonDictToGetEraInfoResult:(NSDictionary *)forJSONObject[@"result"]];
-            [item logInfo];
+           // [item logInfo];
         } else {
             NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
         }
@@ -47,12 +47,14 @@
     //Test 1: get state root hash without sending parameter
     //expected result: latest block state root hash
     UInt64 height = 487754;
+    height = 4598;
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_BLOCK_HEIGHT;
     for(int i =0; i < 1; i++) {
         UInt64 blockHeight = (UInt64) i + height;
         [bi assignBlockHeigthtWithParam:blockHeight];
         NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
+        NSLog(@"Get era infor for block with height:%llu", blockHeight);
         [self getEraInfo:jsonString3];
     }
     

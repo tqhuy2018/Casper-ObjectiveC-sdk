@@ -6,10 +6,12 @@
     EraInfo * ret = [[EraInfo alloc] init];
     int totalElement = (int) fromArray.count;
     if(totalElement>0) {
+        ret.seigniorage_allocations = [[NSMutableArray alloc] init];
         for(int i = 0; i < totalElement ; i ++) {
             //Get one  SeigniorageAllocation, then add to the list of SeigniorageAllocation
             SeigniorageAllocation * oneItem = [[SeigniorageAllocation alloc] init];
             oneItem = [SeigniorageAllocation fromJsonDictToSeigniorageAllocation:[fromArray objectAtIndex:i]];
+            [ret.seigniorage_allocations addObject:oneItem];
         }
     }
     return ret;
@@ -22,6 +24,7 @@
         counter ++;
         NSLog(@"EraInfo, information for SeigniorageAllocation item %i",counter);
         for(int i = 0 ;i< totalSeigniorageAllocation ;i ++) {
+            NSLog(@"EraInfo, SeigniorageAllocation item number %i information",i);
             SeigniorageAllocation * oneItem = (SeigniorageAllocation*) [self.seigniorage_allocations objectAtIndex:i];
             [oneItem logInfo];
         }

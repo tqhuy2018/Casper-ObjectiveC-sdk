@@ -57,6 +57,14 @@
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
 		9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791B27DCBE8300B69B4E /* PeersMap.m */; };
+		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
+		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
+		9089363627E86FAA0075035F /* AssociatedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363527E86FAA0075035F /* AssociatedKey.m */; };
+		9089363927E87B6D0075035F /* ContractPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363827E87B6D0075035F /* ContractPackage.m */; };
+		9089363C27E889F60075035F /* DisabledVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363B27E889F60075035F /* DisabledVersion.m */; };
+		9089363F27E88E670075035F /* Groups.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363E27E88E670075035F /* Groups.m */; };
+		9089364227E890980075035F /* ContractVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364127E890980075035F /* ContractVersion.m */; };
+		9089364527E895BC0075035F /* Contract.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364427E895BC0075035F /* Contract.m */; };
 		908A6A3F27E222AF00D850AD /* CLParsedTuple1.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */; };
 		908A6A4227E2236500D850AD /* CLParsedPU512.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4127E2236500D850AD /* CLParsedPU512.m */; };
 		908A6A4527E2238E00D850AD /* CLParsedPU256.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4427E2238E00D850AD /* CLParsedPU256.m */; };
@@ -190,6 +198,22 @@
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
 		9079791A27DCBE7700B69B4E /* PeersMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeersMap.h; sourceTree = "<group>"; };
 		9079791B27DCBE8300B69B4E /* PeersMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeersMap.m; sourceTree = "<group>"; };
+		9089362E27E86D560075035F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		9089362F27E86D600075035F /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		9089363127E86F420075035F /* ActionThresholds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionThresholds.h; sourceTree = "<group>"; };
+		9089363227E86F480075035F /* ActionThresholds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionThresholds.m; sourceTree = "<group>"; };
+		9089363427E86FA20075035F /* AssociatedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssociatedKey.h; sourceTree = "<group>"; };
+		9089363527E86FAA0075035F /* AssociatedKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssociatedKey.m; sourceTree = "<group>"; };
+		9089363727E87A5A0075035F /* ContractPackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContractPackage.h; sourceTree = "<group>"; };
+		9089363827E87B6D0075035F /* ContractPackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContractPackage.m; sourceTree = "<group>"; };
+		9089363A27E87C100075035F /* DisabledVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisabledVersion.h; sourceTree = "<group>"; };
+		9089363B27E889F60075035F /* DisabledVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisabledVersion.m; sourceTree = "<group>"; };
+		9089363D27E88E5F0075035F /* Groups.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Groups.h; sourceTree = "<group>"; };
+		9089363E27E88E670075035F /* Groups.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Groups.m; sourceTree = "<group>"; };
+		9089364027E890860075035F /* ContractVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContractVersion.h; sourceTree = "<group>"; };
+		9089364127E890980075035F /* ContractVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContractVersion.m; sourceTree = "<group>"; };
+		9089364327E895B00075035F /* Contract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contract.h; sourceTree = "<group>"; };
+		9089364427E895BC0075035F /* Contract.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contract.m; sourceTree = "<group>"; };
 		908A6A3D27E222A100D850AD /* CLParsedTuple1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedTuple1.h; sourceTree = "<group>"; };
 		908A6A3E27E222AF00D850AD /* CLParsedTuple1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLParsedTuple1.m; sourceTree = "<group>"; };
 		908A6A4027E2235700D850AD /* CLParsedPU512.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLParsedPU512.h; sourceTree = "<group>"; };
@@ -362,6 +386,7 @@
 		90776BAC27E80245000CF3AF /* GetEraInfo */ = {
 			isa = PBXGroup;
 			children = (
+				9089362D27E86D3D0075035F /* StoredValueEnumClasses */,
 				90776BAD27E80271000CF3AF /* GetEraInfoResult.h */,
 				90776BAE27E80277000CF3AF /* GetEraInfoResult.m */,
 				90776BB027E802BF000CF3AF /* EraSummary.h */,
@@ -393,6 +418,29 @@
 				9095D97127DDF59400D58545 /* NextUpgrade.m */,
 			);
 			path = GetStatus;
+			sourceTree = "<group>";
+		};
+		9089362D27E86D3D0075035F /* StoredValueEnumClasses */ = {
+			isa = PBXGroup;
+			children = (
+				9089362E27E86D560075035F /* Account.h */,
+				9089362F27E86D600075035F /* Account.m */,
+				9089363127E86F420075035F /* ActionThresholds.h */,
+				9089363227E86F480075035F /* ActionThresholds.m */,
+				9089363427E86FA20075035F /* AssociatedKey.h */,
+				9089363527E86FAA0075035F /* AssociatedKey.m */,
+				9089363727E87A5A0075035F /* ContractPackage.h */,
+				9089363827E87B6D0075035F /* ContractPackage.m */,
+				9089363A27E87C100075035F /* DisabledVersion.h */,
+				9089363B27E889F60075035F /* DisabledVersion.m */,
+				9089363D27E88E5F0075035F /* Groups.h */,
+				9089363E27E88E670075035F /* Groups.m */,
+				9089364027E890860075035F /* ContractVersion.h */,
+				9089364127E890980075035F /* ContractVersion.m */,
+				9089364327E895B00075035F /* Contract.h */,
+				9089364427E895BC0075035F /* Contract.m */,
+			);
+			path = StoredValueEnumClasses;
 			sourceTree = "<group>";
 		};
 		9092A24927DF391B00D0361C /* GetBlock */ = {
@@ -645,9 +693,9 @@
 				90CAF5D527E4D24A00AAA913 /* EraInfo.h */,
 				9072960B27E5ED1800D0DEFE /* EraInfo.m */,
 				90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */,
+				90769BFF27E56173003552D8 /* NamedKey.m */,
 				90CAF5DD27E4D74700AAA913 /* Transfer1.h */,
 				9072961327E5FB0000D0DEFE /* Transfer1.m */,
-				90769BFF27E56173003552D8 /* NamedKey.m */,
 				90769C0527E59473003552D8 /* VestingSchedule.h */,
 				90769C0627E5957A003552D8 /* VestingSchedule.m */,
 				9072960827E5E6FE00D0DEFE /* Bid.h */,
@@ -780,11 +828,13 @@
 				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
+				9089363027E86D600075035F /* Account.m in Sources */,
 				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
 				90776BB527E80392000CF3AF /* StoredValue.m in Sources */,
 				90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */,
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
+				9089363F27E88E670075035F /* Groups.m in Sources */,
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */,
@@ -805,6 +855,8 @@
 				90955F1027E14C0E00F0FE7A /* CLValue.m in Sources */,
 				90769C0027E56173003552D8 /* NamedKey.m in Sources */,
 				9092A26427DF450C00D0361C /* Reward.m in Sources */,
+				9089363C27E889F60075035F /* DisabledVersion.m in Sources */,
+				9089364227E890980075035F /* ContractVersion.m in Sources */,
 				90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */,
 				90769C0427E5917B003552D8 /* Transform_WriteBid.m in Sources */,
 				90955F2A27E1A50A00F0FE7A /* CLParsedPString.m in Sources */,
@@ -824,6 +876,7 @@
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
 				90776BB227E802CB000CF3AF /* EraSummary.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
+				9089363627E86FAA0075035F /* AssociatedKey.m in Sources */,
 				90955F1D27E15B4B00F0FE7A /* CLTypeOption.m in Sources */,
 				90955F1627E14CCE00F0FE7A /* CLTypeList.m in Sources */,
 				9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */,
@@ -833,13 +886,16 @@
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
 				9096E4AD27E084890076E634 /* Utils.m in Sources */,
+				9089364527E895BC0075035F /* Contract.m in Sources */,
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
 				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
 				90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */,
+				9089363327E86F480075035F /* ActionThresholds.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
 				908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */,
 				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
+				9089363927E87B6D0075035F /* ContractPackage.m in Sources */,
 				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
 				908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
