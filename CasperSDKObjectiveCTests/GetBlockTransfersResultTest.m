@@ -32,7 +32,7 @@
             gbtr = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject];
             [gbtr logInfo];
         } else {
-            NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error get block transfer with error message:%@ and error code:%@",cem.message,cem.code);
         }
        
     }];

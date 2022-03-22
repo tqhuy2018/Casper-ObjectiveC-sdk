@@ -33,7 +33,7 @@
             gbr = [GetBlockResult fromJsonDictToGetBlockResult:forJSONObject];
             [gbr logInfo];
         } else {
-            NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error get block with error message:%@ and error code:%@",cem.message,cem.code);
         }
        
     }];

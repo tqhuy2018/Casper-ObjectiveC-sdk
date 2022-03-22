@@ -33,7 +33,7 @@
             item = [GetEraInfoResult fromJsonDictToGetEraInfoResult:(NSDictionary *)forJSONObject[@"result"]];
             [item logInfo];
         } else {
-            NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error get era info with error message:%@ and error code:%@",cem.message,cem.code);
         }
        
     }];

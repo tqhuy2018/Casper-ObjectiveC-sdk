@@ -1,6 +1,6 @@
 #ifndef Account_h
 #define Account_h
-
+#import "ActionThresholds.h"
 @interface Account:NSObject
 ///AccountHash
 @property NSString * account_hash;
@@ -10,8 +10,8 @@
 @property NSMutableArray * named_keys;
 ///List of AssociatedKey
 @property NSMutableArray * associated_keys;
-///List of ActionThresholds
-@property NSMutableArray * action_thresholds;
+///ActionThresholds
+@property ActionThresholds * action_thresholds;
 +(Account*) fromJsonDictToAccount:(NSDictionary *) fromDict;
 -(void) logInfo;
 @end

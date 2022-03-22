@@ -48,6 +48,7 @@
     //expected result: state root hash of the block with given hash
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+   // [bi assignBlockHashWithParam:@"00b1b35ee5d8bddfc70de6d8d769c49eec81511fee98102e1a6fea3b50524e9e"];
     NSString * jsonString2 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
     [self getStateRootHashWithJsonParam:jsonString2];
     //Test 3: get state root hash based on block height

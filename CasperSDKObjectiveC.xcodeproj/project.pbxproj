@@ -90,6 +90,13 @@
 		909424D427E974CC00351197 /* GetItemParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D327E974CC00351197 /* GetItemParams.m */; };
 		909424D727E974F200351197 /* GetItemResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D627E974F200351197 /* GetItemResult.m */; };
 		909424D927E97E7500351197 /* GetItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D827E97E7500351197 /* GetItemTest.m */; };
+		909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424DA27E9E4C500351197 /* GetDictionaryItemTest.m */; };
+		909424DF27E9E4F300351197 /* GetDictionaryItemParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424DE27E9E4F300351197 /* GetDictionaryItemParams.m */; };
+		909424E327E9E95F00351197 /* DictionaryIdentifier_AccountNamedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424E227E9E95F00351197 /* DictionaryIdentifier_AccountNamedKey.m */; };
+		909424E627E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424E527E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m */; };
+		909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424E827E9EA2B00351197 /* DictionaryIdentifier_URef.m */; };
+		909424EC27E9EAD100351197 /* DictionaryIdentifier_Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424EB27E9EAD100351197 /* DictionaryIdentifier_Dictionary.m */; };
+		909424EF27E9F1CF00351197 /* GetDictionaryItemResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424EE27E9F1CF00351197 /* GetDictionaryItemResult.m */; };
 		9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */; };
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
 		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -269,6 +276,19 @@
 		909424D527E974DF00351197 /* GetItemResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetItemResult.h; sourceTree = "<group>"; };
 		909424D627E974F200351197 /* GetItemResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetItemResult.m; sourceTree = "<group>"; };
 		909424D827E97E7500351197 /* GetItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetItemTest.m; sourceTree = "<group>"; };
+		909424DA27E9E4C500351197 /* GetDictionaryItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDictionaryItemTest.m; sourceTree = "<group>"; };
+		909424DD27E9E4EC00351197 /* GetDictionaryItemParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDictionaryItemParams.h; sourceTree = "<group>"; };
+		909424DE27E9E4F300351197 /* GetDictionaryItemParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDictionaryItemParams.m; sourceTree = "<group>"; };
+		909424E127E9E94600351197 /* DictionaryIdentifier_AccountNamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryIdentifier_AccountNamedKey.h; sourceTree = "<group>"; };
+		909424E227E9E95F00351197 /* DictionaryIdentifier_AccountNamedKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictionaryIdentifier_AccountNamedKey.m; sourceTree = "<group>"; };
+		909424E427E9E9B700351197 /* DictionaryIdentifier_ContractNamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryIdentifier_ContractNamedKey.h; sourceTree = "<group>"; };
+		909424E527E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictionaryIdentifier_ContractNamedKey.m; sourceTree = "<group>"; };
+		909424E727E9EA2400351197 /* DictionaryIdentifier_URef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryIdentifier_URef.h; sourceTree = "<group>"; };
+		909424E827E9EA2B00351197 /* DictionaryIdentifier_URef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictionaryIdentifier_URef.m; sourceTree = "<group>"; };
+		909424EA27E9EAB800351197 /* DictionaryIdentifier_Dictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryIdentifier_Dictionary.h; sourceTree = "<group>"; };
+		909424EB27E9EAD100351197 /* DictionaryIdentifier_Dictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictionaryIdentifier_Dictionary.m; sourceTree = "<group>"; };
+		909424ED27E9F1C900351197 /* GetDictionaryItemResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDictionaryItemResult.h; sourceTree = "<group>"; };
+		909424EE27E9F1CF00351197 /* GetDictionaryItemResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDictionaryItemResult.m; sourceTree = "<group>"; };
 		9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CasperSDKObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
@@ -502,6 +522,33 @@
 			path = GetItem;
 			sourceTree = "<group>";
 		};
+		909424DC27E9E4DF00351197 /* GetDictionaryItem */ = {
+			isa = PBXGroup;
+			children = (
+				909424E027E9E91200351197 /* DictionaryIdentifierEnum */,
+				909424DD27E9E4EC00351197 /* GetDictionaryItemParams.h */,
+				909424DE27E9E4F300351197 /* GetDictionaryItemParams.m */,
+				909424ED27E9F1C900351197 /* GetDictionaryItemResult.h */,
+				909424EE27E9F1CF00351197 /* GetDictionaryItemResult.m */,
+			);
+			path = GetDictionaryItem;
+			sourceTree = "<group>";
+		};
+		909424E027E9E91200351197 /* DictionaryIdentifierEnum */ = {
+			isa = PBXGroup;
+			children = (
+				909424E127E9E94600351197 /* DictionaryIdentifier_AccountNamedKey.h */,
+				909424E227E9E95F00351197 /* DictionaryIdentifier_AccountNamedKey.m */,
+				909424E427E9E9B700351197 /* DictionaryIdentifier_ContractNamedKey.h */,
+				909424E527E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m */,
+				909424E727E9EA2400351197 /* DictionaryIdentifier_URef.h */,
+				909424E827E9EA2B00351197 /* DictionaryIdentifier_URef.m */,
+				909424EA27E9EAB800351197 /* DictionaryIdentifier_Dictionary.h */,
+				909424EB27E9EAD100351197 /* DictionaryIdentifier_Dictionary.m */,
+			);
+			path = DictionaryIdentifierEnum;
+			sourceTree = "<group>";
+		};
 		9095580B27D833D0001AE414 = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +594,7 @@
 				907628AA27E0E19D00D00892 /* GetDeployTest.m */,
 				90776BB627E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m */,
 				909424D827E97E7500351197 /* GetItemTest.m */,
+				909424DA27E9E4C500351197 /* GetDictionaryItemTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -554,6 +602,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				909424DC27E9E4DF00351197 /* GetDictionaryItem */,
 				909424D127E974A200351197 /* GetItem */,
 				90776BAC27E80245000CF3AF /* GetEraInfo */,
 				90955F0D27E14BED00F0FE7A /* CLValue */,
@@ -865,6 +914,7 @@
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				9089363027E86D600075035F /* Account.m in Sources */,
+				909424E627E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m in Sources */,
 				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
 				90776BB527E80392000CF3AF /* StoredValue.m in Sources */,
 				90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */,
@@ -884,6 +934,7 @@
 				9076289727E0D75400D00892 /* ExecutableDeployItem_ModuleBytes.m in Sources */,
 				908A6A4827E223A400D850AD /* CLParsedPU64.m in Sources */,
 				90955F2D27E1A57400F0FE7A /* CLParsedMap.m in Sources */,
+				909424E327E9E95F00351197 /* DictionaryIdentifier_AccountNamedKey.m in Sources */,
 				908A6A4227E2236500D850AD /* CLParsedPU512.m in Sources */,
 				907628A027E0D9E200D00892 /* ExecutableDeployItem_StoredVersionedContractByHash.m in Sources */,
 				9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */,
@@ -903,6 +954,7 @@
 				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
+				909424EC27E9EAD100351197 /* DictionaryIdentifier_Dictionary.m in Sources */,
 				909424D727E974F200351197 /* GetItemResult.m in Sources */,
 				9072960E27E5EF0C00D0DEFE /* SeigniorageAllocation.m in Sources */,
 				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,
@@ -911,6 +963,7 @@
 				9076289327E0D53500D00892 /* DeployHeader.m in Sources */,
 				9092A25227DF3A6100D0361C /* JsonBlockHeader.m in Sources */,
 				9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */,
+				909424EF27E9F1CF00351197 /* GetDictionaryItemResult.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
 				90776BB227E802CB000CF3AF /* EraSummary.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
@@ -928,6 +981,7 @@
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
 				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
+				909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */,
 				90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */,
 				9089363327E86F480075035F /* ActionThresholds.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
@@ -952,6 +1006,7 @@
 				9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */,
 				90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */,
 				9095D96C27DDEE7A00D58545 /* MinimalBlockInfo.m in Sources */,
+				909424DF27E9E4F300351197 /* GetDictionaryItemParams.m in Sources */,
 				9072961027E5F90600D0DEFE /* Transform_WriteEraInfo.m in Sources */,
 				9079790027DC966100B69B4E /* BlockIdentifider.m in Sources */,
 			);
@@ -962,6 +1017,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				909424D927E97E7500351197 /* GetItemTest.m in Sources */,
+				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				9079791127DC96BB00B69B4E /* CasperSDKObjectiveCTests.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,

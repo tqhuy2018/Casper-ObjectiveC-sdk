@@ -42,7 +42,7 @@
             ret = [GetDeployResult fromJsonDictToGetDeployResult:forJSONObject[@"result"]];
             [ret logInfo];
         } else {
-            NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error get deploy with error message:%@ and error code:%@",cem.message,cem.code);
         }
        
     }];
