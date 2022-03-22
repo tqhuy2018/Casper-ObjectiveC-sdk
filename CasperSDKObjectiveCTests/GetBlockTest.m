@@ -30,7 +30,7 @@
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetBlockResult * gbr = [[GetBlockResult alloc] init];
-            gbr = [GetBlockResult fromJsonDictToGetBlockResult:forJSONObject];
+            gbr = [GetBlockResult fromJsonDictToGetBlockResult:(NSDictionary*) forJSONObject[@"result"]];
             [gbr logInfo];
         } else {
             NSLog(@"Error get block with error message:%@ and error code:%@",cem.message,cem.code);

@@ -4,9 +4,8 @@
 +(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict {
     GetBlockResult * ret = [[GetBlockResult alloc] init];
     ret.is_block_exists = true;
-    NSDictionary * result = jsonDict[@"result"];
-    ret.api_version = result[@"api_version"];
-    ret.block = [JsonBlock fromJsonDictToJsonBlock:(NSDictionary*) result[@"block"]];
+    ret.api_version = jsonDict[@"api_version"];
+    ret.block = [JsonBlock fromJsonDictToJsonBlock:(NSDictionary*) jsonDict[@"block"]];
     return ret;
 }
 -(void) logInfo {
