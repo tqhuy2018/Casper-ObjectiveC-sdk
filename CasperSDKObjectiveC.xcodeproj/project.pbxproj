@@ -87,6 +87,9 @@
 		9092A25E27DF3CD900D0361C /* JsonProof.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A25D27DF3CD900D0361C /* JsonProof.m */; };
 		9092A26127DF3FED00D0361C /* ValidatorWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A26027DF3FED00D0361C /* ValidatorWeight.m */; };
 		9092A26427DF450C00D0361C /* Reward.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A26327DF450C00D0361C /* Reward.m */; };
+		909424D427E974CC00351197 /* GetItemParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D327E974CC00351197 /* GetItemParams.m */; };
+		909424D727E974F200351197 /* GetItemResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D627E974F200351197 /* GetItemResult.m */; };
+		909424D927E97E7500351197 /* GetItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 909424D827E97E7500351197 /* GetItemTest.m */; };
 		9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */; };
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
 		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -261,6 +264,11 @@
 		9092A26027DF3FED00D0361C /* ValidatorWeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValidatorWeight.m; sourceTree = "<group>"; };
 		9092A26227DF450200D0361C /* Reward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reward.h; sourceTree = "<group>"; };
 		9092A26327DF450C00D0361C /* Reward.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reward.m; sourceTree = "<group>"; };
+		909424D227E974BE00351197 /* GetItemParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetItemParams.h; sourceTree = "<group>"; };
+		909424D327E974CC00351197 /* GetItemParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetItemParams.m; sourceTree = "<group>"; };
+		909424D527E974DF00351197 /* GetItemResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetItemResult.h; sourceTree = "<group>"; };
+		909424D627E974F200351197 /* GetItemResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetItemResult.m; sourceTree = "<group>"; };
+		909424D827E97E7500351197 /* GetItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetItemTest.m; sourceTree = "<group>"; };
 		9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CasperSDKObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
@@ -483,6 +491,17 @@
 			path = GetBlock;
 			sourceTree = "<group>";
 		};
+		909424D127E974A200351197 /* GetItem */ = {
+			isa = PBXGroup;
+			children = (
+				909424D227E974BE00351197 /* GetItemParams.h */,
+				909424D327E974CC00351197 /* GetItemParams.m */,
+				909424D527E974DF00351197 /* GetItemResult.h */,
+				909424D627E974F200351197 /* GetItemResult.m */,
+			);
+			path = GetItem;
+			sourceTree = "<group>";
+		};
 		9095580B27D833D0001AE414 = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +546,7 @@
 				9096E4A827E00A4B0076E634 /* GetBlockTest.m */,
 				907628AA27E0E19D00D00892 /* GetDeployTest.m */,
 				90776BB627E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m */,
+				909424D827E97E7500351197 /* GetItemTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -534,6 +554,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				909424D127E974A200351197 /* GetItem */,
 				90776BAC27E80245000CF3AF /* GetEraInfo */,
 				90955F0D27E14BED00F0FE7A /* CLValue */,
 				9076288A27E0D3CE00D00892 /* GetDeploy */,
@@ -882,6 +903,7 @@
 				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
 				907978F127DC963E00B69B4E /* GetPeerList.m in Sources */,
+				909424D727E974F200351197 /* GetItemResult.m in Sources */,
 				9072960E27E5EF0C00D0DEFE /* SeigniorageAllocation.m in Sources */,
 				9076289D27E0D98500D00892 /* ExecutableDeployItem_StoredContractByName.m in Sources */,
 				9095D97827DE0E5000D58545 /* GetBlockTransfersResult.m in Sources */,
@@ -909,6 +931,7 @@
 				90955F2427E15F6E00F0FE7A /* CLParsedPBool.m in Sources */,
 				9089363327E86F480075035F /* ActionThresholds.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
+				909424D427E974CC00351197 /* GetItemParams.m in Sources */,
 				908A6A4B27E2261300D850AD /* CLParsedPInt32.m in Sources */,
 				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
 				9089363927E87B6D0075035F /* ContractPackage.m in Sources */,
@@ -938,6 +961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909424D927E97E7500351197 /* GetItemTest.m in Sources */,
 				9079791127DC96BB00B69B4E /* CasperSDKObjectiveCTests.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,

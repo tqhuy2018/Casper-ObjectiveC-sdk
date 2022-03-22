@@ -49,7 +49,7 @@
     UInt64 height = 329;
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_BLOCK_HEIGHT;
-    for(int i =0; i < 99; i++) {
+    for(int i =0; i < 1; i++) {
         UInt64 blockHeight = (UInt64) i + height;
         [bi assignBlockHeigthtWithParam:blockHeight];
         NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_block"];

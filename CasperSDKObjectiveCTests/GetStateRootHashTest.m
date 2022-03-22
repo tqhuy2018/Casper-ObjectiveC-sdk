@@ -18,7 +18,6 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];
-
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -45,7 +44,6 @@
     bi.blockType = USE_NONE;
     NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
     [self getStateRootHashWithJsonParam:jsonString];
-   
     //Test 2:get state root hash based on block hash
     //expected result: state root hash of the block with given hash
     bi.blockType = USE_BLOCK_HASH;
@@ -72,5 +70,4 @@
     NSString * jsonString5 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
     [self getStateRootHashWithJsonParam:jsonString5];
 }
-
 @end
