@@ -189,11 +189,52 @@ for (int i = 0 ; i < totalPeer;i ++) {
 
 #### 1. Method declaration
 
+The call for Get Deploy RPC method is done through this function in "GetDeployResult.m" file
+
+```ObjectiveC
++(void) getDeployWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_DEPLOY];
+}
+```
+
+From this the GetDeployResult is retrieved through this function, also in "GetDeployResult.m" file
+
 ```ObjectiveC
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getDeployWithParams:(NSString*) jsonString
+```
+
+Input is the string of parameter sent to Http Post request to the RPC method, which in form of
+
+```ObjectiveC
+{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1"},"jsonrpc" : "2.0"}
+```
+To generate such string, you need to use GetDeployParams class, which declared in file "GetDeployParams.h" and "GetDeployParams.m"
+
+Instantiate the GetDeployParams, then assign the deploy_hash to the object and use function generatePostParam to generate such parameter string like above.
+
+Sample  code for this process
+
+
+```ObjectiveC
+GetDeployParams * item = [[GetDeployParams alloc]init];
+item.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
+NSString * paramStr = [item generatePostParam];
+[GetDeployResult getDeployWithParams:paramStr];
+```
+
+* For function 
+
+```ObjectiveC
++(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
+```
 
 Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information.
 
