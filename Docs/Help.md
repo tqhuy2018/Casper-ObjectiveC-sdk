@@ -184,3 +184,102 @@ for (int i = 0 ; i < totalPeer;i ++) {
     counter = counter + 1;
 }
 ```
+
+### III. Get Deploy 
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+
+### IV. Get Status
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### V. Get Block Transfers
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### VI. Get Block 
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### VII. Get Era Info By Switch Block
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+
+### VII. Get Item
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### IX. Get Dictionaray Item
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### X. Get Balance
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+### XI. Get Auction Info
+
+#### 1. Method declaration
+
+```ObjectiveC
++(void) getDeployWithJsonParam:(NSString*) jsonString 
+```
+
+#### 2. Input & Output: 
+
+
+
+
+
+
+
