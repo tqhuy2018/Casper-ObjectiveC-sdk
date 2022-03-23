@@ -229,6 +229,7 @@ item.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae205186331626
 NSString * paramStr = [item generatePostParam];
 [GetDeployResult getDeployWithParams:paramStr];
 ```
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetDeployResult function, described below:
 
 * For function 
 
@@ -244,11 +245,38 @@ Output: The GetDeployResult which contains all information of the Deploy. From t
 
 #### 1. Method declaration
 
+The call for Get Status RPC method is done through this function in "GetStatusResult.m" file
+
+```ObjectiveC
++(void) getStatusWithParams:(NSString*) jsonString 
+```
+
+From this the GetDeployResult is retrieved through this function, also in "GetStatusResult.m" file
+
 ```ObjectiveC
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getStatusWithParams:(NSString*) jsonString
+```
+
+Input: a JsonString of value 
+```ObjectiveC
+{"params" : [],"id" : 1,"method":"info_get_status","jsonrpc" : "2.0"}
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetStatusResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
+```
 
 Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information.
 
