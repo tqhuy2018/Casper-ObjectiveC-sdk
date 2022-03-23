@@ -312,7 +312,7 @@ From this the GetDeployResult is retrieved through this function, also in "GetBl
 
 Input: a JsonString of such value:
 ```ObjectiveC
-{"params" : [],"id" : 1,"method":"chain_get_block_transfers","jsonrpc" : "2.0"}
+{"method" : "chain_get_block_transfers","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
 ```
 
 To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
