@@ -29,6 +29,7 @@
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         GetPeerResult * gpr = [[GetPeerResult alloc] init];
         gpr = [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
+        NSLog(@"M1: info_get_peers test cases");
         NSLog(@"Get peer result api_version:%@",gpr.api_version);
         NSLog(@"Get peer result, total peer entry:%lu",[gpr.PeersMap count]);
         NSLog(@"List of peer printed out:");
