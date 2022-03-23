@@ -561,15 +561,17 @@ When the state_root_hash and DictionaryIdentifier value are sets, use function "
 Sample  code for this process, with DictionaryIdentifier of type AccountNamedKey
 
 ```ObjectiveC
- DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
-    item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
-    item.dictionary_name = @"dict_name";
-    item.dictionary_item_key = @"abc_name";
-    itemParam.dictionaryIdentifierType = @"AccountNamedKey";
-    itemParam.innerDict = [[NSMutableArray alloc] init];
-    [itemParam.innerDict addObject:item];
-    NSString * jsonStr = [itemParam toJsonString];
-    [GetDictionaryItemResult getDictionaryItem:jsonStr];
+GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
+itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
+DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
+item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
+item.dictionary_name = @"dict_name";
+item.dictionary_item_key = @"abc_name";
+itemParam.dictionaryIdentifierType = @"AccountNamedKey";
+itemParam.innerDict = [[NSMutableArray alloc] init];
+[itemParam.innerDict addObject:item];
+NSString * jsonStr = [itemParam toJsonString];
+[GetDictionaryItemResult getDictionaryItem:jsonStr];
 ```
 
 Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
