@@ -396,8 +396,6 @@ Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictT
 +(GetBlockResult *) fromJsonDictToGetBlockResult:(NSDictionary*) jsonDict
 ```
 
-#### 2. Input & Output: 
-
 Input: The NSDictionaray object represents the GetBlockResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockResult is taken to pass to the function to get the block information.
 
 Output: The GetBlockResult which contains all information of the block. From this result you can retrieve information such as: api_version,JsonBlock object(in which you can retrieve information such as: blockHash, JsonBlockHeader,JsonBlockBody, list of proof)
@@ -406,11 +404,56 @@ Output: The GetBlockResult which contains all information of the block. From thi
 
 #### 1. Method declaration
 
+The call for Get Era Info RPC method is done through this function in "GetEraInfoResult.m" file
+
 ```ObjectiveC
-+(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
++(void) getEraInfoWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
+}
+```
+
+From this the GetEraInfoResult is retrieved through this function, also in "GetEraInfoResult.m" file
+
+```ObjectiveC
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getEraInfoWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "chain_get_era_info_by_switch_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetEraInfoResult getEraInfoWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetEraInfoResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetEraInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetEraInfoResult is taken to pass to the function to get the era info information.
 
