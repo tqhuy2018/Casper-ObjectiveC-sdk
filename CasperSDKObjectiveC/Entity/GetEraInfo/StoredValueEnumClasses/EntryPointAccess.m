@@ -9,7 +9,6 @@
         ret.is_type_public = true;
     } else { //else type is of Groups - list of Group
         ret.is_type_public = false;
-        Groups * groups = [[Groups alloc] init];
         NSArray * listGroup = (NSArray*) fromDict[@"Groups"];
         int totalGroup = (int) listGroup.count;
         if(totalGroup>0) {
