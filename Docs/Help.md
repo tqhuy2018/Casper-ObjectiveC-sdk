@@ -14,27 +14,27 @@ The calling the RPC follow this sequence:
 
 ## List of RPC methods:
 
-1) Get state root hash (chain_get_state_root_hash)
+1) [Get state root hash (chain_get_state_root_hash)](#i-get-state-root-hash)
 
-2) Get peer list (info_get_peers)
+2) [Get peer list (info_get_peers)](#ii-get-peers-list)
 
-3) Get Deploy (info_get_deploy)
+3) [Get Deploy (info_get_deploy)](#iii-get-deploy)
 
-4) Get Status (info_get_status)
+4) [Get Status (info_get_status)](#iv-get-status)
 
-5) Get Block transfer (chain_get_block_transfers)
+5) [Get Block transfer (chain_get_block_transfers)](#v-get-block-transfers)
 
-6) Get Block (chain_get_block)
+6) [Get Block (chain_get_block)](#vi-get-block)
 
-7) Get Era by switch block (chain_get_era_info_by_switch_block)
+7) [Get Era by switch block (chain_get_era_info_by_switch_block)](#vii-get-era-info-by-switch-block)
 
-8) Get Item (state_get_item)
+8) [Get Item (state_get_item)](#vii-get-item)
 
-9) Get Dictionary item (state_get_dictionary_item)
+9) [Get Dictionary item (state_get_dictionary_item)](#ix-get-dictionaray-item)
 
-10) Get balance (state_get_balance)
+10) [Get balance (state_get_balance)](#x-get-balance)
 
-11) Get Auction info (state_get_auction_info)
+11) [Get Auction info (state_get_auction_info)](#xi-get-auction-info)
 
 12) Put Deploy (account_put_deploy) 
 
@@ -190,51 +190,70 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
 ```
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information.
+
+Output: The GetDeployResult which contains all information of the Deploy. From this result you can retrieve information of Deploy hash, Deploy header, Deploy session, payment, ExecutionResults.
 
 ### IV. Get Status
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information.
+
+Output: The GetStatusResult which contains all information of the status. From this result you can retrieve information such as: api_version,chainspec_name,starting_state_root_hash,peers,last_added_block_info...
 
 ### V. Get Block Transfers
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetBlockTransfersResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockTransfersResult is taken to pass to the function to get the block transfers information.
+
+Output: The GetBlockTransfersResult which contains all information of the Block Transfers. From this result you can retrieve information such as: api_version,block_hash, list of transfers. (Transfer is wrap in class Transfer.h and all information of Transfer can retrieve from this result).
 
 ### VI. Get Block 
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict 
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetBlockResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockResult is taken to pass to the function to get the block information.
+
+Output: The GetBlockResult which contains all information of the block. From this result you can retrieve information such as: api_version,JsonBlock object(in which you can retrieve information such as: blockHash, JsonBlockHeader,JsonBlockBody, list of proof)
 
 ### VII. Get Era Info By Switch Block
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetEraInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetEraInfoResult is taken to pass to the function to get the era info information.
+
+Output: The GetEraInfoResult which contains all information of the era info. From this result you can retrieve information such as: api_version, era_summary (in which you can retrieve information such as: block_hash, era_id, state_root_hash, merkle_proof, stored_value).
 
 
 ### VII. Get Item
@@ -242,42 +261,56 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetItemResult is taken to pass to the function to get the item information.
+
+Output: The GetItemResult which contains all information of the item. From this result you can retrieve information such as: api_version,merkle_proof, stored_value.
 
 ### IX. Get Dictionaray Item
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetDictionaryItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDictionaryItemResult is taken to pass to the function to get the dictionary item information.
+
+Output: The GetDictionaryItemResult which contains all information of the dictionary item. From this result you can retrieve information such as: api_version,dictionary_key, merkle_proof,stored_value.
 
 ### X. Get Balance
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetBalanceResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBalanceResult is taken to pass to the function to get the balance information.
+
+Output: The GetBalanceResult which contains all information of the balance. From this result you can retrieve information such as: api_version,balance_value, merkle_proof.
 
 ### XI. Get Auction Info
 
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetAuctionInfoResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetAuctionInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetAuctionInfoResult is taken to pass to the function to get the aunction information.
 
+Output: The GetAuctionInfoResult which contains all information of the aunction. From this result you can retrieve information such as: api_version,auction_state (in which you can retrieve information such as state_root_hash, block_height, list of JsonEraValidators).
 
 
 
