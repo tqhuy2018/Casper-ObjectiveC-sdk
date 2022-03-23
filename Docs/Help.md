@@ -195,6 +195,9 @@ for (int i = 0 ; i < totalPeer;i ++) {
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information
+
+Output: The GetDeployResult which contains all information of the Deploy. From this result you can retrieve information of Deploy hash, Deploy header, Deploy session, payment, ExecutionResults.
 
 ### IV. Get Status
 
@@ -205,6 +208,10 @@ for (int i = 0 ; i < totalPeer;i ++) {
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information
+
+Output: The GetStatusResult which contains all information of the status. From this result you can retrieve information such as: api_version,chainspec_name,starting_state_root_hash,peers,last_added_block_info...
 
 ### V. Get Block Transfers
 
@@ -256,6 +263,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 ```
 
 #### 2. Input & Output: 
+Input: 
 
 ### X. Get Balance
 
