@@ -14,7 +14,7 @@ The calling the RPC follow this sequence:
 
 ## List of RPC methods:
 
-1) Get state root hash (chain_get_state_root_hash)(#i-get-state-root-hash)
+1) [Get state root hash (chain_get_state_root_hash)](#i-get-state-root-hash)
 
 2) Get peer list (info_get_peers)
 
