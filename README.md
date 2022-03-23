@@ -78,9 +78,9 @@ xcodebuild test -scheme CasperSDKObjectiveCTests
 
 Other comments on the test implementation:
 
-There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
+* There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
 
-To see test result of Milestone 1, please search this text "M1: chain_get_state_root_hash test cases" for the result of "chain_get_state_root_hash" RPC call and search for text "M1: info_get_peers test cases" for the result of "info_get_peers" RPC call in the Test log.
+* To see test result of Milestone 1, please search this text "M1: chain_get_state_root_hash test cases" for the result of "chain_get_state_root_hash" RPC call and search for text "M1: info_get_peers test cases" for the result of "info_get_peers" RPC call in the Test log.
 
 # Documentation for classes and methods
 
@@ -90,20 +90,20 @@ To see test result of Milestone 1, please search this text "M1: chain_get_state_
 
   -  [Get Peer List](./Docs/Help.md#ii-get-peers-list)
 
-  -  [Get Deploy] (./Docs/Help.md#iii-get-deploy)
+  -  [Get Deploy](./Docs/Help.md#iii-get-deploy)
   
-  -  [Get Status] (./Docs/Help.md#iv-get-status)
+  -  [Get Status](./Docs/Help.md#iv-get-status)
   
-  -  [Get Block Transfers] (./Docs/Help.md#v-get-block-transfers)
+  -  [Get Block Transfers](./Docs/Help.md#v-get-block-transfers)
   
-  -  [Get Block] (./Docs/Help.md#vi-get-block)
+  -  [Get Block](./Docs/Help.md#vi-get-block)
   
-  -  [Get Era Info By Switch Block] (./Docs/Help.md#vii-get-era-info-by-switch-block)
+  -  [Get Era Info By Switch Block](./Docs/Help.md#vii-get-era-info-by-switch-block)
   
-  -  [Get Item] (./Docs/Help.md#vii-get-item)
+  -  [Get Item](./Docs/Help.md#vii-get-item)
   
-  -  [Get Dictionary Item] (./Docs/Help.md#ix-get-dictionaray-item)
+  -  [Get Dictionary Item](./Docs/Help.md#ix-get-dictionaray-item)
   
-  -  [Get Balance] (./Docs/Help.md#x-get-balance)
+  -  [Get Balance](./Docs/Help.md#x-get-balance)
   
-  -  [Get Auction Info] (./Docs/Help.md#xi-get-auction-info)
+  -  [Get Auction Info](./Docs/Help.md#xi-get-auction-info)
