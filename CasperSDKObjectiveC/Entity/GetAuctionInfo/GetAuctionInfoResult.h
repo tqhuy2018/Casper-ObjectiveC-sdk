@@ -4,7 +4,7 @@
 @interface GetAuctionInfoResult:NSObject
 @property NSString * api_version;
 @property AuctionState * auction_state;
-+(GetAuctionInfoResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict;
++(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict;
 +(void) getAuctionWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end

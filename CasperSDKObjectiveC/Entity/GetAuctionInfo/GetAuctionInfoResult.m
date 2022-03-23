@@ -3,7 +3,7 @@
 #import "ConstValues.h"
 #import "HttpHandler.h"
 @implementation GetAuctionInfoResult
-+(GetAuctionInfoResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict {
++(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict {
     GetAuctionInfoResult * ret = [[GetAuctionInfoResult alloc] init];
     ret.api_version = (NSString*) fromDict[@"api_version"];
     ret.auction_state = [[AuctionState alloc] init];

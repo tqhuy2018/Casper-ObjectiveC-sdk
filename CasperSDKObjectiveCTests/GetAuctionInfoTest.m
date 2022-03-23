@@ -30,7 +30,7 @@
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetAuctionInfoResult * item = [[GetAuctionInfoResult alloc] init];
-            item = [GetAuctionInfoResult fromJsonDictToGetBalanceResult:(NSDictionary*) forJSONObject[@"result"]];
+            item = [GetAuctionInfoResult fromJsonDictToGetAuctionResult:(NSDictionary*) forJSONObject[@"result"]];
             [item logInfo];
         } else {
             NSLog(@"Error get block with error message:%@ and error code:%@",cem.message,cem.code);
