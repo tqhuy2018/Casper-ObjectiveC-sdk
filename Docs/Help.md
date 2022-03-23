@@ -195,7 +195,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 
 #### 2. Input & Output: 
 
-Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information
+Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information.
 
 Output: The GetDeployResult which contains all information of the Deploy. From this result you can retrieve information of Deploy hash, Deploy header, Deploy session, payment, ExecutionResults.
 
@@ -209,7 +209,7 @@ Output: The GetDeployResult which contains all information of the Deploy. From t
 
 #### 2. Input & Output: 
 
-Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information
+Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information.
 
 Output: The GetStatusResult which contains all information of the status. From this result you can retrieve information such as: api_version,chainspec_name,starting_state_root_hash,peers,last_added_block_info...
 
@@ -223,6 +223,10 @@ Output: The GetStatusResult which contains all information of the status. From t
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetBlockTransfersResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockTransfersResult is taken to pass to the function to get the status information.
+
+Output: The GetBlockTransfersResult which contains all information of the Block Transfers. From this result you can retrieve information such as: api_version,block_hash, list of transfers. (Transfer is wrap in class Transfer.h and all information of Transfer can retrieve from this result).
+
 ### VI. Get Block 
 
 #### 1. Method declaration
@@ -232,6 +236,10 @@ Output: The GetStatusResult which contains all information of the status. From t
 ```
 
 #### 2. Input & Output: 
+
+Input: The NSDictionaray object represents the GetBlockResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockResult is taken to pass to the function to get the status information.
+
+Output: The GetBlockResult which contains all information of the status. From this result you can retrieve information such as: api_version,JsonBlock object(in which you can retrieve information such as: blockHash, JsonBlockHeader,JsonBlockBody, list of proof)
 
 ### VII. Get Era Info By Switch Block
 
