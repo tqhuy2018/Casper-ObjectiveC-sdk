@@ -279,7 +279,10 @@ Output: The GetItemResult which contains all information of the item. From this 
 ```
 
 #### 2. Input & Output: 
-Input: 
+
+Input: The NSDictionaray object represents the GetDictionaryItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDictionaryItemResult is taken to pass to the function to get the dictionary item information.
+
+Output: The GetDictionaryItemResult which contains all information of the dictionary item. From this result you can retrieve information such as: api_version,dictionary_key, merkle_proof,stored_value.
 
 ### X. Get Balance
 
@@ -291,6 +294,10 @@ Input:
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetBalanceResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBalanceResult is taken to pass to the function to get the balance information.
+
+Output: The GetBalanceResult which contains all information of the balance. From this result you can retrieve information such as: api_version,balance_value, merkle_proof.
+
 ### XI. Get Auction Info
 
 #### 1. Method declaration
@@ -301,7 +308,9 @@ Input:
 
 #### 2. Input & Output: 
 
+Input: The NSDictionaray object represents the GetAuctionInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetAuctionInfoResult is taken to pass to the function to get the aunction information.
 
+Output: The GetAuctionInfoResult which contains all information of the aunction. From this result you can retrieve information such as: api_version,auction_state (in which you can retrieve information such as state_root_hash, block_height, list of JsonEraValidators).
 
 
 
