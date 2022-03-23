@@ -189,11 +189,53 @@ for (int i = 0 ; i < totalPeer;i ++) {
 
 #### 1. Method declaration
 
+The call for Get Deploy RPC method is done through this function in "GetDeployResult.m" file
+
+```ObjectiveC
++(void) getDeployWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_DEPLOY];
+}
+```
+
+From this the GetDeployResult is retrieved through this function, also in "GetDeployResult.m" file
+
 ```ObjectiveC
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getDeployWithParams:(NSString*) jsonString
+```
+
+Input is the string of parameter sent to Http Post request to the RPC method, which in form of
+
+```ObjectiveC
+{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1"},"jsonrpc" : "2.0"}
+```
+To generate such string, you need to use GetDeployParams class, which declared in file "GetDeployParams.h" and "GetDeployParams.m"
+
+Instantiate the GetDeployParams, then assign the deploy_hash to the object and use function generatePostParam to generate such parameter string like above.
+
+Sample  code for this process
+
+
+```ObjectiveC
+GetDeployParams * item = [[GetDeployParams alloc]init];
+item.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
+NSString * paramStr = [item generatePostParam];
+[GetDeployResult getDeployWithParams:paramStr];
+```
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetDeployResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
+```
 
 Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information.
 
@@ -203,11 +245,40 @@ Output: The GetDeployResult which contains all information of the Deploy. From t
 
 #### 1. Method declaration
 
+The call for Get Status RPC method is done through this function in "GetStatusResult.m" file
+
+```ObjectiveC
++(void) getStatusWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_STATUS];
+}
+```
+
+From this the GetStatusResult is retrieved through this function, also in "GetStatusResult.m" file
+
 ```ObjectiveC
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getStatusWithParams:(NSString*) jsonString
+```
+
+Input: a JsonString of value 
+```ObjectiveC
+{"params" : [],"id" : 1,"method":"info_get_status","jsonrpc" : "2.0"}
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetStatusResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
+```
 
 Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information.
 
@@ -217,11 +288,54 @@ Output: The GetStatusResult which contains all information of the status. From t
 
 #### 1. Method declaration
 
+The call for Get Block Transfers RPC method is done through this function in "GetBlockTransfersResult.m" file
+
+```ObjectiveC
++(void) getBlockTransfersWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK_TRANSFERS];
+}
+```
+
+From this the GetBlockTransfersResult is retrieved through this function, also in "GetBlockTransfersResult.m" file
+
 ```ObjectiveC
 +(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getBlockTransfersWithParams:(NSString*) jsonString
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "chain_get_block_transfers","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetBlockTransfersResult getBlockTransfersWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBlockTransfersResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
+```
 
 Input: The NSDictionaray object represents the GetBlockTransfersResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockTransfersResult is taken to pass to the function to get the block transfers information.
 
@@ -231,11 +345,56 @@ Output: The GetBlockTransfersResult which contains all information of the Block 
 
 #### 1. Method declaration
 
+The call for Get Block Transfers RPC method is done through this function in "GetBlockResult.m" file
+
 ```ObjectiveC
-+(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict 
++(void) getBlockWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
+}
+```
+
+From this the GetBlockResult is retrieved through this function, also in "GetBlockResult.m" file
+
+```ObjectiveC
++(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getBlockWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "chain_get_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetBlockResult getBlockWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBlockResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetBlockResult *) fromJsonDictToGetBlockResult:(NSDictionary*) jsonDict
+```
 
 Input: The NSDictionaray object represents the GetBlockResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockResult is taken to pass to the function to get the block information.
 
@@ -245,11 +404,56 @@ Output: The GetBlockResult which contains all information of the block. From thi
 
 #### 1. Method declaration
 
+The call for Get Era Info RPC method is done through this function in "GetEraInfoResult.m" file
+
 ```ObjectiveC
-+(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
++(void) getEraInfoWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
+}
+```
+
+From this the GetEraInfoResult is retrieved through this function, also in "GetEraInfoResult.m" file
+
+```ObjectiveC
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getEraInfoWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "chain_get_era_info_by_switch_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetEraInfoResult getEraInfoWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetEraInfoResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetEraInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetEraInfoResult is taken to pass to the function to get the era info information.
 
@@ -260,11 +464,56 @@ Output: The GetEraInfoResult which contains all information of the era info. Fro
 
 #### 1. Method declaration
 
+The call for Get Item RPC method is done through this function in "GetItemResult.m" file
+
 ```ObjectiveC
-+(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
++(void) getItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
+}
+```
+
+From this the GetItemResult is retrieved through this function, also in "GetItemResult.m" file
+
+```ObjectiveC
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "state_get_item","id" : 1,"params" :{"state_root_hash" : "d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228","key":"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1","path":[]},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type GetItemParams class, which declared in file "GetItemParams.h" and "GetItemParams.m"
+
+Instantiate the GetItemParams, then assign the GetItemParams object with state_root_hash, key, and path, then use function "toJsonString" of the "GetItemParams" class to generate such parameter string like above.
+
+Sample  code for this process:
+
+```ObjectiveC
+ GetItemParams * item = [[GetItemParams alloc] init];
+ item.state_root_hash = @"d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228";
+ item.key = @"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1";
+NSString * paramStr = [item toJsonString];
+[GetItemResult getItemWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetItemResult is taken to pass to the function to get the item information.
 
@@ -274,11 +523,62 @@ Output: The GetItemResult which contains all information of the item. From this 
 
 #### 1. Method declaration
 
+The call for Get Dictionary Item RPC method is done through this function in "GetDictionaryItemResult.m" file
+
 ```ObjectiveC
-+(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
++(void) getDictionaryItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
+}
+```
+
+From this the GetDictionaryItemResult is retrieved through this function, also in "GetDictionaryItemResult.m" file
+
+```ObjectiveC
++(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getDictionaryItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "state_get_dictionary_item","id" : 1,"params" :{"state_root_hash" : "146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8","dictionary_identifier":{"AccountNamedKey":{"dictionary_name":"dict_name","key":"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877","dictionary_item_key":"abc_name"}}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type GetDictionaryItemParams class, which declared in file "GetDictionaryItemParams.h" and "GetDictionaryItemParams.m"
+
+Instantiate the GetDictionaryItemParams, then assign the GetDictionaryItemParams object with state_root_hash and an DictionaryIdentifier value.
+The DictionaryIdentifier can be 1 among 4 possible classes defined in folder "DictionaryIdentifierEnum".
+When the state_root_hash and DictionaryIdentifier value are sets, use function "toJsonString" of the "GetDictionaryItemParams" class to generate such parameter string like above.
+
+Sample  code for this process, with DictionaryIdentifier of type AccountNamedKey
+
+```ObjectiveC
+ DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
+    item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
+    item.dictionary_name = @"dict_name";
+    item.dictionary_item_key = @"abc_name";
+    itemParam.dictionaryIdentifierType = @"AccountNamedKey";
+    itemParam.innerDict = [[NSMutableArray alloc] init];
+    [itemParam.innerDict addObject:item];
+    NSString * jsonStr = [itemParam toJsonString];
+    [GetDictionaryItemResult getDictionaryItem:jsonStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetDictionaryItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDictionaryItemResult is taken to pass to the function to get the dictionary item information.
 
@@ -288,11 +588,55 @@ Output: The GetDictionaryItemResult which contains all information of the dictio
 
 #### 1. Method declaration
 
+The call for Get Balance RPC method is done through this function in "GetBalanceResult.m" file
+
 ```ObjectiveC
-+(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
++(void) getBalanceWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_BALANCE];
+}
+```
+
+From this the GetBalanceResult is retrieved through this function, also in "GetBalanceResult.m" file
+
+```ObjectiveC
++(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getBalanceWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_BALANCE];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "state_get_balance","id" : 1,"params" :{"state_root_hash" : "8b463b56f2d124f43e7c157e602e31d5d2d5009659de7f1e79afbd238cbaa189","purse_uref":"uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007"},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type GetBalanceParams class, which declared in file "GetBalanceParams.h" and "GetBalanceParams.m"
+
+Instantiate the GetBalanceParams, then assign the GetBalanceParams with state_root_hash and purse_uref then use function "toJsonString" of the "GetBalanceParams" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ GetBalanceParams * param = [[GetBalanceParams alloc] init];
+ param.state_root_hash = @"8b463b56f2d124f43e7c157e602e31d5d2d5009659de7f1e79afbd238cbaa189";
+ param.purse_uref = @"uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007";
+ NSString * jsonStr = [param toJsonString];
+ [GetBalanceResult getBalance:jsonStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBalanceResult function, described below:
+
+* For function 
+```ObjectiveC
++(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetBalanceResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBalanceResult is taken to pass to the function to get the balance information.
 
@@ -302,17 +646,57 @@ Output: The GetBalanceResult which contains all information of the balance. From
 
 #### 1. Method declaration
 
+The call for Get Auction RPC method is done through this function in "GetAuctionInfoResult.m" file
+
 ```ObjectiveC
-+(GetAuctionInfoResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
++(void) getAuctionWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO];
+}
+```
+
+From this the GetAuctionInfoResult is retrieved through this function, also in "GetAuctionInfoResult.m" file
+
+```ObjectiveC
++(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
 
+* For function 
+
+```ObjectiveC
++(void) getAuctionWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "state_get_auction_info","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+ bi.blockType = USE_BLOCK_HASH;
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+ NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetAuctionInfoResult getAuctionWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetAuctionResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict 
+```
+
 Input: The NSDictionaray object represents the GetAuctionInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetAuctionInfoResult is taken to pass to the function to get the aunction information.
 
 Output: The GetAuctionInfoResult which contains all information of the aunction. From this result you can retrieve information such as: api_version,auction_state (in which you can retrieve information such as state_root_hash, block_height, list of JsonEraValidators).
-
-
-
-
-
