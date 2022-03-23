@@ -10,9 +10,8 @@
 @implementation GetBalanceTest
 
 - (void) getBalance:(NSString*) jsonString {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get balance"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -33,7 +32,7 @@
             item = [GetBalanceResult fromJsonDictToGetBalanceResult:(NSDictionary *)forJSONObject[@"result"]];
             [item logInfo];
         } else {
-            NSLog(@"Error get block with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error get balance with error message:%@ and error code:%@",cem.message,cem.code);
         }
        
     }];
@@ -43,7 +42,6 @@
         }];
 }
 - (void) testGetBalance {
-    return;
     GetBalanceParams * param = [[GetBalanceParams alloc] init];
     param.state_root_hash = @"8b463b56f2d124f43e7c157e602e31d5d2d5009659de7f1e79afbd238cbaa189";
     param.purse_uref = @"uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007";

@@ -10,7 +10,7 @@
 @implementation GetStateRootHashTest
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get state root hash"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    NSString * casperURL =  URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -42,7 +42,7 @@
     //expected result: latest block state root hash
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_NONE;
-    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+    NSString * jsonString = [bi toJsonStringWithMethodName:@"get state root hash"];
     [self getStateRootHashWithJsonParam:jsonString];
     //Test 2:get state root hash based on block hash
     //expected result: state root hash of the block with given hash

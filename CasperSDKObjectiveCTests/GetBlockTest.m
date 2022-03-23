@@ -10,9 +10,8 @@
 @implementation GetBlockTest
 
 - (void) getBlock:(NSString*) jsonString {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get block"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -43,50 +42,32 @@
         }];
 }
 - (void) testGetBlock {
-    return;
-    //Test 1: get state root hash without sending parameter
+    //Test 1: get block without sending parameter
     //expected result: latest block state root hash
-    UInt64 height = 329;
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-    bi.blockType = USE_BLOCK_HEIGHT;
-    for(int i =0; i < 1; i++) {
-        UInt64 blockHeight = (UInt64) i + height;
-        [bi assignBlockHeigthtWithParam:blockHeight];
-        NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_block"];
-        [self getBlock:jsonString3];
-    }
-    
     bi.blockType = USE_NONE;
     NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_block"];
     [self getBlock: jsonString];
-   
-    //Test 2:get state root hash based on block hash
+    //Test 2:get block based on block hash
     //expected result: state root hash of the block with given hash
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
     NSString * jsonString2 = [bi toJsonStringWithMethodName:@"chain_get_block"];
     [self getBlock: jsonString2];
-    //Test 3: get state root hash based on block height
+    //Test 3: get block based on block height
     //expected result: state root hash of the block with given height, transfer result blank list
     bi.blockType = USE_BLOCK_HEIGHT;
     [bi assignBlockHeigthtWithParam:12345];
     NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_block"];
     [self getBlock: jsonString3];
-    
-    //Test 3: get state root hash based on block height
-    //expected result: state root hash of the block with given height, transfer does exist
-    bi.blockType = USE_BLOCK_HEIGHT;
-    [bi assignBlockHeigthtWithParam:104];
-    NSString * jsonString31 = [bi toJsonStringWithMethodName:@"chain_get_block"];
-    [self getBlock: jsonString31];
     //Negative test
-    //Test 4: get state root hash based on non-existing block height (too big height)
+    //Test 4: get block based on non-existing block height (too big height)
     //expected result: error thrown with message: block not known, error code: -32001
     bi.blockType = USE_BLOCK_HEIGHT;
     [bi assignBlockHeigthtWithParam:123456789];
     NSString * jsonString4 = [bi toJsonStringWithMethodName:@"chain_get_block"];
     [self getBlock: jsonString4];
-    //Test 5: get state root hash based on non-existing block hash
+    //Test 5: get block based on non-existing block hash
     //expected result: error thrown with message: block not known, error code: -32001
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"ccccb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];

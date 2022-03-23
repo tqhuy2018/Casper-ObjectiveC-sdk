@@ -5,6 +5,8 @@
 @property UInt64 block_height;
 //List of JsonEraValidators;
 @property NSMutableArray * era_validators;
++(AuctionState*) fromJsonDictToAuctionState:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif

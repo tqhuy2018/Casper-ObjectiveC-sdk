@@ -15,9 +15,8 @@
 @implementation GetDictionaryItemTest
 
 - (void) getDictionaryItem:(NSString*) jsonString {
-    return;
-    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get item"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get dictionary item"];
+    NSString * casperURL = URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -48,7 +47,6 @@
         }];
 }
 - (void) testGetDictionaryItem {
-    return;
     GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
     itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
     

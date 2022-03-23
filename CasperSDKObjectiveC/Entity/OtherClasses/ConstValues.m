@@ -70,3 +70,7 @@ NSString *const TRANSFORM_ADD_UINT256               = @"AddUInt256";
 NSString *const TRANSFORM_ADD_UINT512               = @"AddUInt512";
 NSString *const TRANSFORM_ADD_KEYS                  = @"AddKeys";
 NSString *const TRANSFORM_FAILURE                   = @"Failure";
+
+//URL FOR TEST AND MAIN NET
+NSString *const URL_TEST_NET = @"https://node-clarity-testnet.make.services/rpc";
+NSString *const URL_MAIN_NET = @"https://node-clarity-mainnet.make.services/rpc";

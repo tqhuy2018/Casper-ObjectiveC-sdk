@@ -24,7 +24,6 @@
     if(totalTransform >0) {
         ret.transforms = [[NSMutableArray alloc] init];
         for(int i = 0; i < totalTransform; i++) {
-            NSLog(@"Get transform object index:%i",i+1);
             NSDictionary * oneTransformDict = (NSDictionary*) [transformList objectAtIndex:i];
             TransformEntry * oneTransform = [[TransformEntry alloc] init];
             oneTransform = [TransformEntry fromJsonDictToTransformEntry:oneTransformDict];
@@ -38,20 +37,17 @@
     int totalTransform = (int) self.transforms.count;
     if(totalOperation>0) {
         NSLog(@"Total operation:%i",totalOperation);
-        for(int i = 0; i < totalOperation; i ++) {
-            Operation * oneO = [self.operations objectAtIndex:i];
-            NSLog(@"Operation item %i, key:%@, kind:%@",i,oneO.key,oneO.kind);
-        }
+        NSLog(@"First operation information");
+        Operation * oneO = [self.operations objectAtIndex:0];
+        NSLog(@"Operation item  key:%@, kind:%@",oneO.key,oneO.kind);
     } else {
         NSLog(@"Operation:[]");
     }
     if(totalTransform >0) {
         NSLog(@"Total transform:%i",totalTransform);
-        for(int i = 0; i < totalTransform;i++) {
-            NSLog(@"Information for Transform number %i",i);
-            TransformEntry * oneTE = [self.transforms objectAtIndex:i];
-            [oneTE logInfo];
-        }
+        NSLog(@"First transform information");
+        TransformEntry * oneTE = self.transforms.firstObject;
+        [oneTE logInfo];
     } else {
         NSLog(@"Transform:[]");
     }

@@ -10,10 +10,9 @@
 
 @implementation GetEraInfoBySwitchBlockTest
 - (void) getEraInfo:(NSString*) jsonString {
-    return;
-    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get block"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
-    casperURL = @"https://node-clarity-mainnet.make.services/rpc";
+    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get era info"];
+    NSString * casperURL =  URL_TEST_NET;
+    casperURL = URL_MAIN_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -43,44 +42,24 @@
         }];
 }
 - (void) testGetEraInfoBySwitchBlock {
-    return;
     //Test 1: get state root hash without sending parameter
-    //expected result: latest block state root hash
-    UInt64 height = 4487;
-    //height = 4598;
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-    bi.blockType = USE_BLOCK_HEIGHT;
-    for(int i =0; i < 1; i++) {
-        UInt64 blockHeight = (UInt64) i + height;
-        [bi assignBlockHeigthtWithParam:blockHeight];
-        NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
-        NSLog(@"Get era infor for block with height:%llu", blockHeight);
-        [self getEraInfo:jsonString3];
-    }
-    
     bi.blockType = USE_NONE;
     NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
     [self getEraInfo: jsonString];
    
     //Test 2:get state root hash based on block hash
-    //expected result: state root hash of the block with given hash
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
     NSString * jsonString2 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
     [self getEraInfo: jsonString2];
+    
     //Test 3: get state root hash based on block height
-    //expected result: state root hash of the block with given height, transfer result blank list
     bi.blockType = USE_BLOCK_HEIGHT;
-    [bi assignBlockHeigthtWithParam:12345];
+    [bi assignBlockHeigthtWithParam:318];
     NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
     [self getEraInfo: jsonString3];
     
-    //Test 3: get state root hash based on block height
-    //expected result: state root hash of the block with given height, transfer does exist
-    bi.blockType = USE_BLOCK_HEIGHT;
-    [bi assignBlockHeigthtWithParam:104];
-    NSString * jsonString31 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
-    [self getEraInfo: jsonString31];
     //Negative test
     //Test 4: get state root hash based on non-existing block height (too big height)
     //expected result: error thrown with message: block not known, error code: -32001

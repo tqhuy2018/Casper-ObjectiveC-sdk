@@ -10,10 +10,8 @@
 @implementation GetItemTest
 
 - (void) getItem:(NSString*) jsonString {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get item"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
-   // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
+    NSString * casperURL = URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -43,7 +41,6 @@
         }];
 }
 - (void) testGetItem {
-    return;
     GetItemParams * item = [[GetItemParams alloc] init];
     //Test with StoredValue of type ContracPackage
     item.key = @"hash-b36478fa545160796de902e61ac504b33bc14624eea245a9df525b4d92d150bc";

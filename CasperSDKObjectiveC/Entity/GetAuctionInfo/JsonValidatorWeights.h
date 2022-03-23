@@ -4,6 +4,8 @@
 @interface JsonValidatorWeights:NSObject
 @property NSString * public_key;
 @property U512Class * weight;
++(JsonValidatorWeights*) fromJsonDictToJsonValidatorWeights:(NSDictionary*) fromDict;
+-(void) logInfo;
 @end
 
 #endif

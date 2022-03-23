@@ -20,11 +20,9 @@
     int totalKey = (int) self.keys.count;
     NSLog(@"Groups, total keys:%i",totalKey);
     if(totalKey >0) {
-        for(int i = 0 ; i < totalKey ; i ++)
-        {
-            NSString * oneKey = (NSString*) [self.keys objectAtIndex:i];
-            NSLog(@"Groups, key number %i is:",i,oneKey);
-        }
+        NSLog(@"Groups first key information");
+        NSString * oneKey = (NSString*) [self.keys objectAtIndex:0];
+        NSLog(@"Groups, key 0 is:%@",oneKey);
     }
 }
 

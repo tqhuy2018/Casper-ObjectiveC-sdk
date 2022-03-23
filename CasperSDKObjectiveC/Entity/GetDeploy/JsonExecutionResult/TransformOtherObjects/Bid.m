@@ -8,7 +8,7 @@
     ret.bonding_purse = fromDict[@"bonding_purse"];
     ret.inactive = [(NSString*) fromDict[@"inactive"] boolValue];
     ret.staked_amount = [U512Class fromStrToClass:(NSString*)fromDict[@"staked_amount"]];
-    ret.delegation_rate = (uint8) fromDict[@"delegation_rate"];
+    ret.delegation_rate = (int) [(NSString*) fromDict[@"delegation_rate"] intValue];
     ret.vesting_schedule = [VestingSchedule fromJsonDictToVestingSchedule:fromDict[@"vesting_schedule"]];
     ret.validator_public_key = (NSString*) fromDict[@"validator_public_key"];
     ret.delegators = [[NSMutableArray alloc] init];

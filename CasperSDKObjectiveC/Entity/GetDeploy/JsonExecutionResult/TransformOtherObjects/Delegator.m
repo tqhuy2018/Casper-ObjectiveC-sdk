@@ -4,13 +4,9 @@
 +(Delegator*) fromJsonDictToDelegator:(NSDictionary *)fromDict {
     Delegator * ret = [[Delegator alloc] init];
     ret.bonding_purse = (NSString*) fromDict[@"bonding_purse"];
-    NSLog(@"bonding_purse:%@",ret.bonding_purse);
     ret.staked_amount = [U512Class fromStrToClass:(NSString*)fromDict[@"staked_amount"]];
-    NSLog(@"staked_amount:%@",ret.staked_amount.itsValue);
     ret.delegator_public_key = (NSString*) fromDict[@"delegator_public_key"];
-    NSLog(@"delegator_public_key:%@",ret.delegator_public_key);
     ret.validator_public_key = (NSString*) fromDict[@"validator_public_key"];
-    NSLog(@"validator_public_key:%@",ret.validator_public_key);
     if(!(fromDict[@"vesting_schedule"] == nil)) {
         NSObject * obj = fromDict[@"vesting_schedule"];
         if([obj isKindOfClass:[NSString class]]) {
@@ -19,7 +15,6 @@
                 ret.is_vesting_schedule_existed = false;
             }
         } else {
-            NSLog(@"VestingSchedule json:%@",fromDict[@"vesting_schedule"]);
             if(obj==(id) [NSNull null]) {
                 ret.is_vesting_schedule_existed = false;
             } else {
@@ -31,7 +26,6 @@
     } else {
         ret.is_vesting_schedule_existed = false;
     }
-    NSLog(@"Done");
     return ret;
 }
 -(void) logInfo {

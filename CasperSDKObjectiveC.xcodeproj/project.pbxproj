@@ -53,7 +53,6 @@
 		9079790C27DC96AA00B69B4E /* HttpHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9079790827DC96AA00B69B4E /* HttpHandler.h */; };
 		9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790927DC96AA00B69B4E /* CasperSDK.m */; };
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
-		9079791127DC96BB00B69B4E /* CasperSDKObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
 		9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791B27DCBE8300B69B4E /* PeersMap.m */; };
@@ -212,7 +211,6 @@
 		9079790827DC96AA00B69B4E /* HttpHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHandler.h; sourceTree = "<group>"; };
 		9079790927DC96AA00B69B4E /* CasperSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDK.m; sourceTree = "<group>"; };
 		9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHashTest.m; sourceTree = "<group>"; };
-		9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDKObjectiveCTests.m; sourceTree = "<group>"; };
 		9079791327DC9F8300B69B4E /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
 		9079791727DCBCFC00B69B4E /* GetStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStatusResult.h; sourceTree = "<group>"; };
@@ -533,6 +531,28 @@
 			path = GetBlock;
 			sourceTree = "<group>";
 		};
+		9092BAC727EAB89300CBF99F /* GetStateRootHash */ = {
+			isa = PBXGroup;
+			children = (
+				907978FC27DC966100B69B4E /* GetStateRootHash.h */,
+				907978FD27DC966100B69B4E /* GetStateRootHash.m */,
+			);
+			path = GetStateRootHash;
+			sourceTree = "<group>";
+		};
+		9092BAC827EAB8AB00CBF99F /* OtherClasses */ = {
+			isa = PBXGroup;
+			children = (
+				907978F827DC966100B69B4E /* BlockIdentifider.m */,
+				907978FB27DC966100B69B4E /* BlockIdentifier.h */,
+				907978FA27DC966100B69B4E /* CasperErrorMessage.h */,
+				907978F727DC966100B69B4E /* CasperErrorMessage.m */,
+				907978F927DC966100B69B4E /* ConstValues.m */,
+				907978F627DC966100B69B4E /* ConstValues.h */,
+			);
+			path = OtherClasses;
+			sourceTree = "<group>";
+		};
 		909424D127E974A200351197 /* GetItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,7 +653,6 @@
 		9095582327D833D0001AE414 /* CasperSDKObjectiveCTests */ = {
 			isa = PBXGroup;
 			children = (
-				9079790F27DC96BB00B69B4E /* CasperSDKObjectiveCTests.m */,
 				9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */,
 				9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */,
 				9095D97327DDFB0400D58545 /* GetStatusTest.m */,
@@ -652,6 +671,8 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				9092BAC827EAB8AB00CBF99F /* OtherClasses */,
+				9092BAC727EAB89300CBF99F /* GetStateRootHash */,
 				909424F927EA274A00351197 /* GetAuctionInfo */,
 				909424F027EA22B200351197 /* GetBalance */,
 				909424DC27E9E4DF00351197 /* GetDictionaryItem */,
@@ -664,14 +685,6 @@
 				9095D97C27DE0F7200D58545 /* CommonClasses */,
 				9095D97527DE0DD800D58545 /* GetBlockTransfers */,
 				9079791627DCBCE100B69B4E /* GetStatus */,
-				907978F827DC966100B69B4E /* BlockIdentifider.m */,
-				907978FB27DC966100B69B4E /* BlockIdentifier.h */,
-				907978FA27DC966100B69B4E /* CasperErrorMessage.h */,
-				907978F727DC966100B69B4E /* CasperErrorMessage.m */,
-				907978F927DC966100B69B4E /* ConstValues.m */,
-				907978F627DC966100B69B4E /* ConstValues.h */,
-				907978FC27DC966100B69B4E /* GetStateRootHash.h */,
-				907978FD27DC966100B69B4E /* GetStateRootHash.m */,
 				909616E527DAE4AD00F9BB95 /* GetPeerList */,
 			);
 			path = Entity;
@@ -1077,7 +1090,6 @@
 				909424D927E97E7500351197 /* GetItemTest.m in Sources */,
 				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				909424F827EA24E600351197 /* GetBalanceTest.m in Sources */,
-				9079791127DC96BB00B69B4E /* CasperSDKObjectiveCTests.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,

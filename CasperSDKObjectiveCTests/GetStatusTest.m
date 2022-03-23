@@ -1,5 +1,6 @@
 #import <XCTest/XCTest.h>
 #import "GetStatusResult.h"
+#import "ConstValues.h"
 @interface GetStatusTest : XCTestCase
 
 @end
@@ -7,9 +8,8 @@
 @implementation GetStatusTest
 
 - (void) testGetStatus {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get status"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    NSString * casperURL =  URL_TEST_NET;
     NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_status\",\"jsonrpc\" : \"2.0\"}";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];

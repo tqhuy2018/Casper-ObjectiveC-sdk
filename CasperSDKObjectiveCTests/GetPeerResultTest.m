@@ -5,7 +5,7 @@
 #import "GetPeerResult.h"
 #import "BlockIdentifier.h"
 #import "PeerEntry.h"
-
+#import "ConstValues.h"
 @interface GetPeerResultTest : XCTestCase
 
 @end
@@ -13,7 +13,7 @@
 @implementation GetPeerResultTest
 - (void) testGetPeerList {
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get peer list"];
-    NSString * casperURL =  @"https://node-clarity-testnet.make.services/rpc";
+    NSString * casperURL =  URL_TEST_NET;
     NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_peers\",\"jsonrpc\" : \"2.0\"}";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
