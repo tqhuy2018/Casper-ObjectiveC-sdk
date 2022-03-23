@@ -16,25 +16,25 @@ The calling the RPC follow this sequence:
 
 1) [Get state root hash (chain_get_state_root_hash)](#i-get-state-root-hash)
 
-2) Get peer list (info_get_peers)
+2) [Get peer list (info_get_peers)](#ii-get-peers-list)
 
-3) Get Deploy (info_get_deploy)
+3) [Get Deploy (info_get_deploy)](#iii-get-deploy)
 
-4) Get Status (info_get_status)
+4) [Get Status (info_get_status)](#iv-get-status)
 
-5) Get Block transfer (chain_get_block_transfers)
+5) [Get Block transfer (chain_get_block_transfers)](#v-get-block-transfers)
 
-6) Get Block (chain_get_block)
+6) [Get Block (chain_get_block)](#vi-get-block)
 
-7) Get Era by switch block (chain_get_era_info_by_switch_block)
+7) [Get Era by switch block (chain_get_era_info_by_switch_block)](#vii-get-era-info-by-switch-block)
 
-8) Get Item (state_get_item)
+8) [Get Item (state_get_item)](#vii-get-item)
 
-9) Get Dictionary item (state_get_dictionary_item)
+9) [Get Dictionary item (state_get_dictionary_item)](#ix-get-dictionaray-item)
 
-10) Get balance (state_get_balance)
+10) [Get balance (state_get_balance)](#x-get-balance)
 
-11) Get Auction info (state_get_auction_info)
+11) [Get Auction info (state_get_auction_info)](#xi-get-auction-info)
 
 12) Put Deploy (account_put_deploy) 
 
