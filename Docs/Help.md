@@ -253,7 +253,7 @@ The call for Get Status RPC method is done through this function in "GetStatusRe
 }
 ```
 
-From this the GetDeployResult is retrieved through this function, also in "GetStatusResult.m" file
+From this the GetStatusResult is retrieved through this function, also in "GetStatusResult.m" file
 
 ```ObjectiveC
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
@@ -296,7 +296,7 @@ The call for Get Block Transfers RPC method is done through this function in "Ge
 }
 ```
 
-From this the GetDeployResult is retrieved through this function, also in "GetBlockTransfersResult.m" file
+From this the GetBlockTransfersResult is retrieved through this function, also in "GetBlockTransfersResult.m" file
 
 ```ObjectiveC
 +(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
@@ -345,8 +345,55 @@ Output: The GetBlockTransfersResult which contains all information of the Block 
 
 #### 1. Method declaration
 
+The call for Get Block Transfers RPC method is done through this function in "GetBlockResult.m" file
+
 ```ObjectiveC
-+(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict 
++(void) getBlockWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
+}
+```
+
+From this the GetBlockResult is retrieved through this function, also in "GetBlockResult.m" file
+
+```ObjectiveC
++(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict
+```
+
+#### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getBlockWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "chain_get_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
+
+Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
+
+Sample  code for this process
+
+```ObjectiveC
+ BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[GetBlockResult getBlockWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBlockResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetBlockResult *) fromJsonDictToGetBlockResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
