@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "GetDictionaryItemResult.h"
+#import "ConstValues.h"
+#import "HttpHandler.h"
 @implementation GetDictionaryItemResult
 +(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict {
     GetDictionaryItemResult * ret = [[GetDictionaryItemResult alloc] init];
@@ -8,6 +10,9 @@
     ret.merkle_proof = (NSString *) fromDict[@"merkle_proof"];
     ret.stored_value = [StoredValue fromJsonDictToStoredValue:(NSDictionary*) fromDict[@"stored_value"]];
     return ret;
+}
++(void) getDictionaryItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
 }
 -(void)logInfo {
     NSLog(@"GetDictionaryItemResult, api_version:%@",self.api_version);

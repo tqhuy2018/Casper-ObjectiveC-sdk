@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "GetBlockTransfersResult.h"
 #import "Transfer.h"
+#import "ConstValues.h"
+#import "HttpHandler.h"
 @implementation GetBlockTransfersResult
 +(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict {
     GetBlockTransfersResult * ret = [[GetBlockTransfersResult alloc] init];
@@ -20,6 +22,9 @@
         ret.is_block_hash_exists = false;
     }
     return ret;
+}
++(void) getBlockTransfersWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK_TRANSFERS];
 }
 -(void) logInfo {
     NSLog(@"api_version:%@",self.api_version);

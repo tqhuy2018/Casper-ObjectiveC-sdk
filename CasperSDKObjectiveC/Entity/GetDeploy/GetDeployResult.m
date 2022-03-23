@@ -2,6 +2,8 @@
 #import "GetDeployResult.h"
 #import "Deploy.h"
 #import "JsonExecutionResult.h"
+#import "HttpHandler.h"
+#import "ConstValues.h"
 @implementation GetDeployResult
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict {
     GetDeployResult * ret = [[GetDeployResult alloc] init];
@@ -15,6 +17,9 @@
         [ret.execution_results addObject:oneItem];
     }
     return ret;
+}
++(void) getDeployWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_DEPLOY];
 }
 -(void) logInfo {
     NSLog(@"GetDeployResult, api_version:%@",self.api_version);

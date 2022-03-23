@@ -7,6 +7,7 @@
 ///execution_results of type enum ExecutionResult
 @property NSMutableArray * execution_results;
 +(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict;
++(void) getDeployWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end
 #endif 

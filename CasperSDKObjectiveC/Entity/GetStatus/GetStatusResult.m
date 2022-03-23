@@ -2,6 +2,8 @@
 #import "GetStatusResult.h"
 #import "GetPeerList.h"
 #import "NextUpgrade.h"
+#import "ConstValues.h"
+#import "HttpHandler.h"
 @implementation GetStatusResult
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict {
     GetStatusResult * ret = [[GetStatusResult alloc] init];
@@ -40,6 +42,9 @@
         ret.is_next_upgrade_exists = false;
     }
     return ret;
+}
++(void) getStatusWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_STATUS];
 }
 -(void) logInfo {
     NSLog(@"Get status result, starting_state_root_hash:%@",self.starting_state_root_hash);

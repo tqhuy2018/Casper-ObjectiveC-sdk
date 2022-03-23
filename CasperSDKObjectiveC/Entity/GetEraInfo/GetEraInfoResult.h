@@ -8,6 +8,7 @@
 ///Bool value to check whether the era_summary exist or not
 @property bool is_era_summary_existed;
 +(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict;
++(void) getEraInfoWithParams:(NSString*) jsonString;
 -(void)logInfo;
 @end
 

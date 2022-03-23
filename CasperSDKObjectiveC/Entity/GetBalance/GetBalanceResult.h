@@ -7,6 +7,7 @@
 @property U512Class * balance_value;
 @property NSString * merkle_proof;
 +(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict;
++(void) getBalanceWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end
 

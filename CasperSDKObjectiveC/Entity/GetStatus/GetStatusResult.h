@@ -18,6 +18,7 @@
 @property bool is_our_public_signing_key_exists;
 @property bool is_round_length_exists;
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict;
++(void) getStatusWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end
 

@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "GetEraInfoResult.h"
+#import "ConstValues.h"
+#import "HttpHandler.h"
 @implementation GetEraInfoResult
 +(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict {
     GetEraInfoResult * ret = [[GetEraInfoResult alloc] init];
@@ -21,6 +23,9 @@
         }
     }
     return ret;
+}
++(void) getEraInfoWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
 }
 -(void)logInfo {
     NSLog(@"GetEraInfoResult, api_version:%@",self.api_version);

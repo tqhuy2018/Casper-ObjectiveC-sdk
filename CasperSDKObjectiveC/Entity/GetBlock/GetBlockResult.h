@@ -7,6 +7,7 @@
 @property JsonBlock * block;
 @property bool is_block_exists;
 +(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict;
++(void) getBlockWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end
 

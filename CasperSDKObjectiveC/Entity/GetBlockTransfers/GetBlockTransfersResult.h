@@ -8,6 +8,7 @@
 @property bool is_transfers_exists;
 @property bool is_block_hash_exists;
 +(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict;
++(void) getBlockTransfersWithParams:(NSString*) jsonString;
 -(void) logInfo;
 @end
 

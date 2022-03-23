@@ -7,6 +7,7 @@
 @property NSString * merkle_proof;
 @property StoredValue * stored_value;
 +(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict;
++(void) getDictionaryItemWithParams:(NSString*) jsonString;
 -(void)logInfo;
 @end
 
