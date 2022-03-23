@@ -190,7 +190,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
 ```
 
 #### 2. Input & Output: 
@@ -201,7 +201,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
@@ -211,7 +211,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
 ```
 
 #### 2. Input & Output: 
@@ -221,7 +221,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict 
 ```
 
 #### 2. Input & Output: 
@@ -231,7 +231,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
@@ -242,7 +242,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
@@ -252,7 +252,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
@@ -262,7 +262,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
@@ -272,7 +272,7 @@ for (int i = 0 ; i < totalPeer;i ++) {
 #### 1. Method declaration
 
 ```ObjectiveC
-+(void) getDeployWithJsonParam:(NSString*) jsonString 
++(GetAuctionInfoResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
 ```
 
 #### 2. Input & Output: 
