@@ -464,11 +464,56 @@ Output: The GetEraInfoResult which contains all information of the era info. Fro
 
 #### 1. Method declaration
 
+The call for Get Era Info RPC method is done through this function in "GetItemResult.m" file
+
 ```ObjectiveC
-+(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
++(void) getItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
+}
+```
+
+From this the GetItemResult is retrieved through this function, also in "GetItemResult.m" file
+
+```ObjectiveC
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict
 ```
 
 #### 2. Input & Output: 
+
+* For function 
+
+```ObjectiveC
++(void) getItemWithParams:(NSString*) jsonString {
+    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
+}
+```
+
+Input: a JsonString of such value:
+```ObjectiveC
+{"method" : "state_get_item","id" : 1,"params" :{"state_root_hash" : "d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228","key":"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1","path":[]},"jsonrpc" : "2.0"}
+```
+
+To generate such string, you need to use an object of type GetItemParams class, which declared in file "GetItemParams.h" and "GetItemParams.m"
+
+Instantiate the GetItemParams, then assign the GetItemParams object with state_root_hash, key, and path, then use function "toJsonString" of the "GetItemParams" class to generate such parameter string like above.
+
+Sample  code for this process:
+
+```ObjectiveC
+ GetItemParams * item = [[GetItemParams alloc] init];
+ item.state_root_hash = @"d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228";
+ item.key = @"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1";
+NSString * paramStr = [item toJsonString];
+[GetItemResult getItemWithParams:paramStr];
+```
+
+Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
+
+* For function 
+
+```ObjectiveC
++(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
+```
 
 Input: The NSDictionaray object represents the GetItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetItemResult is taken to pass to the function to get the item information.
 
