@@ -214,7 +214,7 @@ From this the GetDeployResult is retrieved through this function, also in "GetDe
 Input is the string of parameter sent to Http Post request to the RPC method, which in form of
 
 ```ObjectiveC
-{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1"},"jsonrpc" : "2.0"}
+{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "6e74f836d7b10dd5db7430497e106ddf56e30afee993dd29b85a91c1cd903583"},"jsonrpc" : "2.0"}
 ```
 To generate such string, you need to use GetDeployParams class, which declared in file "GetDeployParams.h" and "GetDeployParams.m"
 
