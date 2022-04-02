@@ -28,7 +28,6 @@
         [requestExpectation fulfill];
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
-        NSLog(@"Data back:%@",forJSONObject);
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetDeployResult * ret = [[GetDeployResult alloc] init];
