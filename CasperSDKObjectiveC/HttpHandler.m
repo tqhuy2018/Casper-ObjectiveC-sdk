@@ -13,13 +13,15 @@
 #import "GetDictionaryItemResult.h"
 #import "GetBalanceResult.h"
 #import "GetAuctionInfoResult.h"
+/**HttpHandler class - Class built for handle POST method of all RPC call
+ */
 @implementation HttpHandler
 static NSString* casperURL;
 + (NSString*) casperURL
 { @synchronized(self) { return casperURL; } }
 + (void) setCasperURL:(NSString*)val
 { @synchronized(self) { casperURL = val; } }
-
+///Function where all the RPC call is handled, with the send of parameter to the POST method and the handle of JSON data back from the server
 +(void) handleRequestWithParam:(NSString*) jsonString andRPCMethod:(NSString*) rpcMethod {
     HttpHandler.casperURL =  @"https://node-clarity-testnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
