@@ -33,14 +33,17 @@ NSString *const CASPER_RPC_METHOD_ACCOUNT_PUT_DEPLOY = @"put_deploy";
  NSString *const CLTYPE_LIST            = @"List";
 NSString *const CLTYPE_LIST_MAP_KEY     = @"ListMapKey";
 NSString *const CLTYPE_LIST_MAP_VALUE   = @"ListMapValue";
- NSString *const CLTYPE_BYTEARRAY       = @"ByteArray";
- NSString *const CLTYPE_RESULT          = @"Result";
- NSString *const CLTYPE_MAP             = @"Map";
- NSString *const CLTYPE_TUPLE1          = @"Tuple1";
- NSString *const CLTYPE_TUPLE2          = @"Tuple2";
- NSString *const CLTYPE_TUPLE3          = @"Tuple3";
- NSString *const CLTYPE_ANY             = @"Any";
-NSString *const CLTYPE_NULL_VALUE       = @"NULL";
+NSString *const CLTYPE_BYTEARRAY        = @"ByteArray";
+NSString *const CLTYPE_RESULT           = @"Result";
+NSString *const CLTYPE_MAP              = @"Map";
+NSString *const CLTYPE_TUPLE1           = @"Tuple1";
+NSString *const CLTYPE_TUPLE2           = @"Tuple2";
+NSString *const CLTYPE_TUPLE3           = @"Tuple3";
+NSString *const CLTYPE_ANY              = @"Any";
+NSString * const CLTYPE_NULL_VALUE      = @"NULL";
+NSString * const CLPARSED_NULL_VALUE    = @"NULL";
+NSString * const CLPARSED_RESULT_OK     = @"Ok";
+NSString * const CLPARSED_RESULT_ERR    = @"Err";
 
 //ExecutableDeployItem
 

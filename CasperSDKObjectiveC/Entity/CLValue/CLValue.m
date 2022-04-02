@@ -10,6 +10,11 @@
     ret.parsed = [CLParsed fromObjToCLParsed:fromDict[@"parsed"] withCLType:ret.cl_type];
     return ret;
 }
+-(NSString*) serialize {
+    NSString * ret = @"";
+    
+    return ret;
+}
 -(void) logInfo {
     NSLog(@"------------------------------Begin of CLValue log info --------------------------");
     NSLog(@"CLValue bytes:%@",self.bytes);

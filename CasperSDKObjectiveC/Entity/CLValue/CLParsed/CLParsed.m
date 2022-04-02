@@ -40,7 +40,7 @@
             [ret.arrayValue addObject:listInnerItem];
         }
     } else if ([clType.itsType isEqual: CLTYPE_LIST_MAP_KEY]) {
-        ret.is_array_type = true;
+       ret.is_array_type = true;
         ret.arrayValue = [[NSMutableArray alloc] init];
         NSArray * list = (NSArray*) fromObj;
         int totalListE = (int) list.count;
@@ -150,6 +150,46 @@
         ret.is_innerParsed3_exists = true;
         
     }
+    return ret;
+}
+-(bool) isPrimitive {
+    if ([self.itsCLTypeStr isEqualToString:CLTYPE_BOOL]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U8]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_I32]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_I64]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U32]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U64]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_STRING]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_KEY]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_UREF]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_PUBLICKEY]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_UNIT]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U128]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U256]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U512]) {
+        return true;
+    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_BYTEARRAY]) {
+        return true;
+    }
+    return false;
+}
++(CLParsed*) clParsedWithType:(NSString*) type andValue:(NSString*) value {
+    CLParsed * ret = [[CLParsed alloc] init];
+    ret.itsValueStr = value;
+    ret.itsCLTypeStr = type;
     return ret;
 }
 -(void) logInfo {

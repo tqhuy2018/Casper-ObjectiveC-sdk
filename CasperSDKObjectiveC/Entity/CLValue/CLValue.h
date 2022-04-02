@@ -8,6 +8,7 @@
 @property CLParsed * parsed;
 +(CLValue*) fromJsonDictToCLValue:(NSDictionary*) fromDict;
 -(void) logInfo;
+-(NSString*) serialize;
 @end
 
 #endif

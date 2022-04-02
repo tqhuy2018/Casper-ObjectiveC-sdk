@@ -17,6 +17,8 @@
 +(CLType*) fromObjToCompoundCLType:(NSDictionary*) fromDict;
 +(CLType*) fromObjToPrimitiveCLType:(NSObject*) fromObj;
 -(void) logInfo;
+///Function for serialization of CLValue cl_type value
++(NSString*) getTagForCLType:(CLType*) clType;
 @end
 
 #endif 

@@ -3,13 +3,7 @@
 #import "CasperErrorMessage.h"
 #import "ConstValues.h"
 #import "CLType.h"
-#import "CLTypeList.h"
-#import "CLTypeMap.h"
 #import "CLParsed.h"
-#import "CLParsedPBool.h"
-#import "CLParsedList.h"
-#import "CLParsedPString.h"
-#import "CLParsedMap.h"
 #import "GetDeployResult.h"
 #import "GetDeployParams.h"
 @interface GetDeployTest : XCTestCase
@@ -20,7 +14,7 @@
 - (void) getDeploy:(NSString*) jsonString {
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get deploy"];
     NSString * casperURL =  URL_TEST_NET;
-    casperURL = URL_MAIN_NET;
+   // casperURL = URL_MAIN_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -34,6 +28,7 @@
         [requestExpectation fulfill];
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
+        NSLog(@"Data back:%@",forJSONObject);
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetDeployResult * ret = [[GetDeployResult alloc] init];
@@ -56,8 +51,6 @@
     gpr.deploy_hash = @"afab485f7534d593bf9e30ae34e003d6faf81819a983048b972dbbb4ff441ecc";
     //List(Map(String,String)
     gpr.deploy_hash = @"AaB4aa0C14a37Bc9386020609aa1CabaD895c3E2E104d877B936C6Ffa2302268";
-    //List(Map(String,String)  in session StoredContractByHash
-    gpr.deploy_hash = @"a91d468e2ddc8936f7866bc594794b322f747508c2192fd4eca90ef8a121d45e";
     //BytesArray, Bool,U512
     gpr.deploy_hash = @"1d113022631c587444166e4d1efbc3d475e49b28b90f1414d9cadee6dcddf65f";
     //ModuleBytes blank for session
@@ -76,6 +69,8 @@
     gpr.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
     //Transform of type WriteBid and WriteWithdraw
     gpr.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
+    //List(Map(String,String)  in session StoredContractByHash
+    gpr.deploy_hash = @"a91d468e2ddc8936f7866bc594794b322f747508c2192fd4eca90ef8a121d45e";
     NSString * jsonString = [gpr generatePostParam];
     [self getDeploy:jsonString];
 }
