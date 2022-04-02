@@ -16,12 +16,10 @@
     return ret;
 }
 -(void) logInfo {
-    NSLog(@"------------------------------Begin of CLValue log info --------------------------");
     NSLog(@"CLValue bytes:%@",self.bytes);
     NSLog(@"-----CLType info-------");
     [self.cl_type logInfo];
     NSLog(@"-----CLParsed info-------");
     [self.parsed logInfo];
-    NSLog(@"------------------------End of CLValue log info --------------------------");
 }
 @end
