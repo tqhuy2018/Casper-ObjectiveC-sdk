@@ -227,7 +227,6 @@
     parseOption.innerParsed1 = parseU32InOption;
     NSString * parseOptionU32Serialized = [CLParseSerializeHelper serializeFromCLParseOption:parseOption];
     XCTAssert([parseOptionU32Serialized isEqualToString:@"010a000000"]);
-    NSLog(@"parseOption:%@",parseOptionU32Serialized);
     //Option(U64)
     CLParsed * parseU64InOption = [[CLParsed alloc] init];
     parseU64InOption.itsValueStr = @"123456";
@@ -243,7 +242,6 @@
     parseOption.innerParsed1 = parseStringInOption;
     NSString * parseOptionStringSerialized = [CLParseSerializeHelper serializeFromCLParseOption:parseOption];
     XCTAssert([parseOptionStringSerialized isEqualToString:@"010d00000048656c6c6f2c20576f726c6421"]);
-    NSLog(@"parseOption:%@",parseOptionStringSerialized);
     
     //Test for CLValue List serialization
     
@@ -333,7 +331,6 @@
     [parseList.arrayValue removeAllObjects];
     [parseList.arrayValue addObject:parseMapInList];
     NSString * list4Serialized = [CLParseSerializeHelper serializeFromCLParse:parseList];
-    NSLog(@"List 4:%@",list4Serialized);
     XCTAssert([list4Serialized isEqualToString:@"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"]);
     
     //Test for CLValue Map serialization
@@ -372,7 +369,6 @@
     parseMap.innerParsed1 = parseMapKey;
     parseMap.innerParsed2 = parseMapValue;
     NSString * mapSerialization1 = [CLParseSerializeHelper serializeFromCLParse:parseMap];
-    NSLog(@"List mapSerialization1 is:%@",mapSerialization1);
     XCTAssert([mapSerialization1 isEqualToString:@"0400000015000000636f6e74726163745f7061636b6167655f6861736840000000643332444531353263306242464463414666356232613630373043643732394663304633656143463330306136623565326162414230333530323743343962630a0000006576656e745f747970650400000073796e630800000072657365727665301800000034313239343931343739373335363933323135333637343708000000726573657276653118000000393931373137313437323638353639383438313432343138"]);
     //Map(String,String) 2
     //Test based on the deploy at this address
@@ -414,7 +410,6 @@
     parseMap.innerParsed1 = parseMapKey2;
     parseMap.innerParsed2 = parseMapValue2;
     NSString * mapSerialization2 = [CLParseSerializeHelper serializeFromCLParse:parseMap];
-    NSLog(@"List mapSerialization1 is:%@",mapSerialization2);
     XCTAssert([mapSerialization2 isEqualToString:@"0600000015000000636f6e74726163745f7061636b6167655f6861736840000000323635323663333033383365356330326436383461633638643738343565353736613837313636393236663735303062646161333033636461623532616561370a0000006576656e745f74797065080000007472616e736665720400000066726f6d4e0000004b65793a3a4163636f756e7428386232313761303932393664356365333630383437613764323066363233343736313537633566303232333333633465393838613436343033356361646438302904000000706169724b0000004b65793a3a4861736828353361383132316632313961643263363432306630303761323031366564333230633531393537393131326238316435303563623135373135343034623236342902000000746f4b0000004b65793a3a486173682832363532366333303338336535633032643638346163363864373834356535373661383731363639323666373530306264616133303363646162353261656137290500000076616c75650a00000031373633353839353131"]);
     
     //Test for CLValue ByteArray serialization
@@ -446,7 +441,6 @@
     parseResultErr.itsValueStr = @"999888666555444999887988887777666655556666777888999666999";
     parseResult.innerParsed1 = parseResultErr;
     NSString * resultSerialization2 = [CLParseSerializeHelper serializeFromCLParseResult:parseResult];
-    NSLog(@"result serialize:%@",resultSerialization2);
     XCTAssert([resultSerialization2 isEqualToString:@"001837f578fca55492f299ea354eaca52b6e9de47d592453c728"]);
     
    
@@ -491,7 +485,6 @@
     parseTuple2.innerParsed2 = tuple2Inner2;
     
     NSString * tuple2Serialization = [CLParseSerializeHelper serializeFromCLParseTuple2:parseTuple2];
-    NSLog(@"tuple2 serialize:%@",tuple2Serialization);
     XCTAssert([tuple2Serialization isEqualToString:@"030000006162630101"]);
     
     //Test for CLValue Tuple3 serialization
@@ -522,9 +515,7 @@
     parseTuple3.innerParsed3 = tuple3Inner3;
 
     NSString * tuple3Serialization = [CLParseSerializeHelper serializeFromCLParseTuple3:parseTuple3];
-    NSLog(@"tuple3 serialize:%@",tuple3Serialization);
     XCTAssert([tuple3Serialization isEqualToString:@"01a018bf278f32fdb7b06226071ce399713ace78a28d43a346055060a660ba7aa901030000006162630102"]);
-    NSLog(@"Done");
 }
 
 @end
