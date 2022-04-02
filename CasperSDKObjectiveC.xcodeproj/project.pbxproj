@@ -61,7 +61,6 @@
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
-		9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791B27DCBE8300B69B4E /* PeersMap.m */; };
 		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
 		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
 		9089363627E86FAA0075035F /* AssociatedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363527E86FAA0075035F /* AssociatedKey.m */; };
@@ -222,8 +221,6 @@
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
 		9079791727DCBCFC00B69B4E /* GetStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStatusResult.h; sourceTree = "<group>"; };
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
-		9079791A27DCBE7700B69B4E /* PeersMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeersMap.h; sourceTree = "<group>"; };
-		9079791B27DCBE8300B69B4E /* PeersMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeersMap.m; sourceTree = "<group>"; };
 		9089362E27E86D560075035F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		9089362F27E86D600075035F /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		9089363127E86F420075035F /* ActionThresholds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionThresholds.h; sourceTree = "<group>"; };
@@ -768,8 +765,6 @@
 				907978ED27DC963E00B69B4E /* GetPeerResult.m */,
 				907978EE27DC963E00B69B4E /* PeerEntry.h */,
 				907978EF27DC963E00B69B4E /* PeerEntry.m */,
-				9079791A27DCBE7700B69B4E /* PeersMap.h */,
-				9079791B27DCBE8300B69B4E /* PeersMap.m */,
 			);
 			path = GetPeerList;
 			sourceTree = "<group>";
@@ -984,7 +979,6 @@
 				909424FC27EA275E00351197 /* GetAuctionInfoResult.m in Sources */,
 				90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */,
 				9072961427E5FB0000D0DEFE /* Transfer1.m in Sources */,
-				9079791C27DCBE8300B69B4E /* PeersMap.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */,
