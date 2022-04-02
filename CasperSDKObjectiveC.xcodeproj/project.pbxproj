@@ -55,9 +55,7 @@
 		9079790427DC966100B69B4E /* GetStateRootHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 907978FC27DC966100B69B4E /* GetStateRootHash.h */; };
 		9079790527DC966100B69B4E /* GetStateRootHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 907978FD27DC966100B69B4E /* GetStateRootHash.m */; };
 		9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790627DC96AA00B69B4E /* HttpHandler.m */; };
-		9079790B27DC96AA00B69B4E /* CasperSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 9079790727DC96AA00B69B4E /* CasperSDK.h */; };
 		9079790C27DC96AA00B69B4E /* HttpHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9079790827DC96AA00B69B4E /* HttpHandler.h */; };
-		9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790927DC96AA00B69B4E /* CasperSDK.m */; };
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
@@ -106,7 +104,6 @@
 		9094250727EA295900351197 /* GetAuctionInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094250627EA295900351197 /* GetAuctionInfoTest.m */; };
 		9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */; };
 		9095582027D833D0001AE414 /* CasperSDKObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */; };
-		9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90955F1027E14C0E00F0FE7A /* CLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F0F27E14C0E00F0FE7A /* CLValue.m */; };
 		90955F1327E14C6900F0FE7A /* CLType.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F1227E14C6900F0FE7A /* CLType.m */; };
 		90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */ = {isa = PBXBuildFile; fileRef = 90955F2027E15CA000F0FE7A /* CLParsed.m */; };
@@ -213,9 +210,7 @@
 		907978FC27DC966100B69B4E /* GetStateRootHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStateRootHash.h; sourceTree = "<group>"; };
 		907978FD27DC966100B69B4E /* GetStateRootHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHash.m; sourceTree = "<group>"; };
 		9079790627DC96AA00B69B4E /* HttpHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHandler.m; sourceTree = "<group>"; };
-		9079790727DC96AA00B69B4E /* CasperSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasperSDK.h; sourceTree = "<group>"; };
 		9079790827DC96AA00B69B4E /* HttpHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHandler.h; sourceTree = "<group>"; };
-		9079790927DC96AA00B69B4E /* CasperSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasperSDK.m; sourceTree = "<group>"; };
 		9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStateRootHashTest.m; sourceTree = "<group>"; };
 		9079791327DC9F8300B69B4E /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
@@ -304,7 +299,6 @@
 		9094250427EA28CE00351197 /* JsonValidatorWeights.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonValidatorWeights.m; sourceTree = "<group>"; };
 		9094250627EA295900351197 /* GetAuctionInfoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetAuctionInfoTest.m; sourceTree = "<group>"; };
 		9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CasperSDKObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CasperSDKObjectiveC.h; sourceTree = "<group>"; };
 		9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CasperSDKObjectiveC.docc; sourceTree = "<group>"; };
 		9095581F27D833D0001AE414 /* CasperSDKObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasperSDKObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90955F0E27E14C0100F0FE7A /* CLValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLValue.h; sourceTree = "<group>"; };
@@ -643,12 +637,9 @@
 		9095581727D833D0001AE414 /* CasperSDKObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
-				9079790727DC96AA00B69B4E /* CasperSDK.h */,
-				9079790927DC96AA00B69B4E /* CasperSDK.m */,
 				9079790827DC96AA00B69B4E /* HttpHandler.h */,
 				9079790627DC96AA00B69B4E /* HttpHandler.m */,
 				9095583527D8AE1A001AE414 /* Entity */,
-				9095581827D833D0001AE414 /* CasperSDKObjectiveC.h */,
 				9095581927D833D0001AE414 /* CasperSDKObjectiveC.docc */,
 			);
 			path = CasperSDKObjectiveC;
@@ -850,8 +841,6 @@
 			files = (
 				907978FE27DC966100B69B4E /* ConstValues.h in Headers */,
 				9079790427DC966100B69B4E /* GetStateRootHash.h in Headers */,
-				9079790B27DC96AA00B69B4E /* CasperSDK.h in Headers */,
-				9095582627D833D0001AE414 /* CasperSDKObjectiveC.h in Headers */,
 				907978F227DC963E00B69B4E /* GetPeerResult.h in Headers */,
 				9079790227DC966100B69B4E /* CasperErrorMessage.h in Headers */,
 				907978F027DC963E00B69B4E /* GetPeerList.h in Headers */,
@@ -962,7 +951,6 @@
 				9075817B27F8619B00D5022F /* DeploySerialize.m in Sources */,
 				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
-				9079790D27DC96AA00B69B4E /* CasperSDK.m in Sources */,
 				9089363027E86D600075035F /* Account.m in Sources */,
 				9097335027F2BDF3009C18BF /* CLParseSerializeHelper.m in Sources */,
 				909424E627E9E9D300351197 /* DictionaryIdentifier_ContractNamedKey.m in Sources */,
