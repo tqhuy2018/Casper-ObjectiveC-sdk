@@ -80,7 +80,7 @@ Other comments on the test implementation:
 
 * There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
 
-* To see test result of Milestone 1, please search this text "M1: chain_get_state_root_hash test cases" for the result of "chain_get_state_root_hash" RPC call and search for text "M1: info_get_peers test cases" for the result of "info_get_peers" RPC call in the Test log.
+* To see test result of Milestone 1, please search this text "M1: chain_get_state_root_hash test cases" for the result of "chain_get_state_root_hash" RPC call and search for text "M1: info_get_peers test cases" for the result of "info_get_peers" RPC call in the Test log. The rest result is for M2 information log.
 
 # Documentation for classes and methods
 

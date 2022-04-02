@@ -214,7 +214,7 @@ From this the GetDeployResult is retrieved through this function, also in "GetDe
 Input is the string of parameter sent to Http Post request to the RPC method, which in form of
 
 ```ObjectiveC
-{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1"},"jsonrpc" : "2.0"}
+{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "6e74f836d7b10dd5db7430497e106ddf56e30afee993dd29b85a91c1cd903583"},"jsonrpc" : "2.0"}
 ```
 To generate such string, you need to use GetDeployParams class, which declared in file "GetDeployParams.h" and "GetDeployParams.m"
 
@@ -322,10 +322,10 @@ Instantiate the BlockIdentifier, then assign the block with block hash or block 
 Sample  code for this process
 
 ```ObjectiveC
- BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+BlockIdentifier * bi = [[BlockIdentifier alloc] init];
 bi.blockType = USE_BLOCK_HASH;
-    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
 [GetBlockTransfersResult getBlockTransfersWithParams:paramStr];
 ```
 
@@ -381,10 +381,10 @@ Instantiate the BlockIdentifier, then assign the block with block hash or block 
 Sample  code for this process
 
 ```ObjectiveC
- BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+BlockIdentifier * bi = [[BlockIdentifier alloc] init];
 bi.blockType = USE_BLOCK_HASH;
-    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
 [GetBlockResult getBlockWithParams:paramStr];
 ```
 
@@ -440,10 +440,10 @@ Instantiate the BlockIdentifier, then assign the block with block hash or block 
 Sample  code for this process
 
 ```ObjectiveC
- BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+BlockIdentifier * bi = [[BlockIdentifier alloc] init];
 bi.blockType = USE_BLOCK_HASH;
-    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-    NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
 [GetEraInfoResult getEraInfoWithParams:paramStr];
 ```
 
@@ -500,9 +500,9 @@ Instantiate the GetItemParams, then assign the GetItemParams object with state_r
 Sample  code for this process:
 
 ```ObjectiveC
- GetItemParams * item = [[GetItemParams alloc] init];
- item.state_root_hash = @"d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228";
- item.key = @"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1";
+GetItemParams * item = [[GetItemParams alloc] init];
+item.state_root_hash = @"d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228";
+item.key = @"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1";
 NSString * paramStr = [item toJsonString];
 [GetItemResult getItemWithParams:paramStr];
 ```
@@ -561,15 +561,17 @@ When the state_root_hash and DictionaryIdentifier value are sets, use function "
 Sample  code for this process, with DictionaryIdentifier of type AccountNamedKey
 
 ```ObjectiveC
- DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
-    item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
-    item.dictionary_name = @"dict_name";
-    item.dictionary_item_key = @"abc_name";
-    itemParam.dictionaryIdentifierType = @"AccountNamedKey";
-    itemParam.innerDict = [[NSMutableArray alloc] init];
-    [itemParam.innerDict addObject:item];
-    NSString * jsonStr = [itemParam toJsonString];
-    [GetDictionaryItemResult getDictionaryItem:jsonStr];
+GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
+itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
+DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
+item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
+item.dictionary_name = @"dict_name";
+item.dictionary_item_key = @"abc_name";
+itemParam.dictionaryIdentifierType = @"AccountNamedKey";
+itemParam.innerDict = [[NSMutableArray alloc] init];
+[itemParam.innerDict addObject:item];
+NSString * jsonStr = [itemParam toJsonString];
+[GetDictionaryItemResult getDictionaryItem:jsonStr];
 ```
 
 Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
