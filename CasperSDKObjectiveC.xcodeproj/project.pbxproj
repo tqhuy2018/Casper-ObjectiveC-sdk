@@ -20,6 +20,7 @@
 		9075817827F7B97E00D5022F /* CLTypeSerializeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817727F7B97E00D5022F /* CLTypeSerializeHelper.m */; };
 		9075817B27F8619B00D5022F /* DeploySerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817A27F8619B00D5022F /* DeploySerialize.m */; };
 		9075817D27F869D900D5022F /* Serialization_DeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817C27F869D900D5022F /* Serialization_DeployTest.m */; };
+		9075817F27F8AD7400D5022F /* QuotientNRemainder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817E27F8AD7400D5022F /* QuotientNRemainder.m */; };
 		9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288C27E0D3F200D00892 /* GetDeployResult.m */; };
 		9076289027E0D43B00D00892 /* Deploy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288F27E0D43B00D00892 /* Deploy.m */; };
 		9076289327E0D53500D00892 /* DeployHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076289227E0D53500D00892 /* DeployHeader.m */; };
@@ -127,7 +128,6 @@
 		9097335327F2C1EA009C18BF /* NumberSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335227F2C1EA009C18BF /* NumberSerialize.m */; };
 		9097335527F2C553009C18BF /* Serialization_CLTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */; };
 		9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */; };
-		90A8CCF527F4615B00852F43 /* QuotientNRemainder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A8CCF427F4615B00852F43 /* QuotientNRemainder.m */; };
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
 		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
 		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
@@ -165,6 +165,7 @@
 		9075817927F8616300D5022F /* DeploySerialize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeploySerialize.h; sourceTree = "<group>"; };
 		9075817A27F8619B00D5022F /* DeploySerialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeploySerialize.m; sourceTree = "<group>"; };
 		9075817C27F869D900D5022F /* Serialization_DeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_DeployTest.m; sourceTree = "<group>"; };
+		9075817E27F8AD7400D5022F /* QuotientNRemainder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotientNRemainder.m; sourceTree = "<group>"; };
 		9076288B27E0D3E800D00892 /* GetDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployResult.h; sourceTree = "<group>"; };
 		9076288C27E0D3F200D00892 /* GetDeployResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployResult.m; sourceTree = "<group>"; };
 		9076288E27E0D43300D00892 /* Deploy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deploy.h; sourceTree = "<group>"; };
@@ -345,7 +346,6 @@
 		9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLTypeTest.m; sourceTree = "<group>"; };
 		9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLValueTest.m; sourceTree = "<group>"; };
 		90A8CCF327F4607400852F43 /* QuotientNRemainder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotientNRemainder.h; sourceTree = "<group>"; };
-		90A8CCF427F4615B00852F43 /* QuotientNRemainder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuotientNRemainder.m; sourceTree = "<group>"; };
 		90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionEffect.h; sourceTree = "<group>"; };
 		90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionEffect.m; sourceTree = "<group>"; };
 		90CAF5BB27E4A55400AAA913 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
@@ -728,7 +728,7 @@
 				90955F1F27E15C9400F0FE7A /* CLParsed.h */,
 				90955F2027E15CA000F0FE7A /* CLParsed.m */,
 				90A8CCF327F4607400852F43 /* QuotientNRemainder.h */,
-				90A8CCF427F4615B00852F43 /* QuotientNRemainder.m */,
+				9075817E27F8AD7400D5022F /* QuotientNRemainder.m */,
 			);
 			path = CLParsed;
 			sourceTree = "<group>";
@@ -978,6 +978,7 @@
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
 				9089363F27E88E670075035F /* Groups.m in Sources */,
+				9075817F27F8AD7400D5022F /* QuotientNRemainder.m in Sources */,
 				9092A25827DF3BAC00D0361C /* JsonEraReport.m in Sources */,
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				909424FC27EA275E00351197 /* GetAuctionInfoResult.m in Sources */,
@@ -1023,7 +1024,6 @@
 				9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */,
 				909424EF27E9F1CF00351197 /* GetDictionaryItemResult.m in Sources */,
 				9095D96F27DDF2CA00D58545 /* ActivationPoint.m in Sources */,
-				90A8CCF527F4615B00852F43 /* QuotientNRemainder.m in Sources */,
 				90776BB227E802CB000CF3AF /* EraSummary.m in Sources */,
 				90769BFE27E56032003552D8 /* Transform_AddKeys.m in Sources */,
 				9089363627E86FAA0075035F /* AssociatedKey.m in Sources */,
