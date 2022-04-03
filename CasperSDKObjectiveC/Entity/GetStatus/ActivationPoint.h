@@ -1,5 +1,7 @@
 #ifndef ActivationPoint_h
 #define ActivationPoint_h
+/**Class built for storing ActivationPoint information
+ */
 @interface ActivationPoint : NSObject
 @property UInt64 era_id;
 @property NSString * timestamp;

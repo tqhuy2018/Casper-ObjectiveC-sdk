@@ -4,7 +4,11 @@
 #import "NextUpgrade.h"
 #import "ConstValues.h"
 #import "HttpHandler.h"
+/**Class built for storing GetStatusResult information, taken from info_get_status RPC method
+ */
 @implementation GetStatusResult
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to GetStatusResult object
+ */
 +(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict {
     GetStatusResult * ret = [[GetStatusResult alloc] init];
     ret.is_round_length_exists = true;
@@ -43,6 +47,13 @@
     }
     return ret;
 }
+/**This function initiate the process of sending POST request with given parameter in JSON string format
+The input jsonString is used to send to server as parameter of the POST request to get the result back
+The input jsonString is somehow like this:
+ 
+ {"params" : [],"id" : 1,"method":"info_get_status","jsonrpc" : "2.0"}
+ 
+ */
 +(void) getStatusWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_STATUS];
 }
