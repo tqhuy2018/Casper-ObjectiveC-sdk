@@ -4,7 +4,9 @@
  */
 @interface  GetDictionaryItemParams : NSObject
 @property NSString * state_root_hash;
+///This could be 1 among the 4 possible value of the enum: AccountNamedKey, ContractNamedKey,URef,Dictionary
 @property NSString * dictionaryIdentifierType;
+///This hold the 1 among 4 possible value of the 4 enum type of the DictionaryIdentifier
 @property NSMutableArray * innerDict;
 /**This function generate the json data used for sending POST method for state_get_dictionary_item RPC call.
 Based on the GetDictionaryItemParams data, the JSON string is built somehow like this:
