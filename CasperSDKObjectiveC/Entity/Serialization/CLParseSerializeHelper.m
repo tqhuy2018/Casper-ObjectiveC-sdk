@@ -3,9 +3,18 @@
 #import "NumberSerialize.h"
 #import "ConstValues.h"
 #import "CLParsed.h"
+/**Class for serialization of CLValue parse value
+ For example take this CLValue object
+ {
+ "bytes":"0400e1f505"
+ "parsed":"100000000"
+ "cl_type":"U512"
+ }
+ Then the parse will hold the value of 100000000.
+ This class will serialize the value of 100000000 based on its CLValue type, which is U512
+ */
 @implementation CLParseSerializeHelper
-
-
+///Serialization for Bool parsed value
 +(NSString*) serializeFromCLParseBool:(CLParsed*) fromCLParse {
     if ([fromCLParse.itsValueStr isEqualToString: @"true"]) {
         return @"01";
@@ -13,16 +22,19 @@
         return @"00";
     }
 }
+///Serialization for U8 parsed value
 
 +(NSString*) serializeFromCLParseU8:(CLParsed*) fromCLParse {
     NSString * ret = [NumberSerialize serializeForU8:fromCLParse.itsValueStr];
     return ret;
 }
+///Serialization for U32 parsed value
 
 +(NSString*) serializeFromCLParseU32:(CLParsed*) fromCLParse {
     NSString * ret = [NumberSerialize serializeForU32:fromCLParse.itsValueStr];
     return ret;
 }
+///Serialization for U64 parsed value
 
 +(NSString*) serializeFromCLParseU64:(CLParsed*) fromCLParse {
     NSString * ret = [NumberSerialize serializeForU64:fromCLParse.itsValueStr];

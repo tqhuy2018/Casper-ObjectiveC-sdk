@@ -39,6 +39,7 @@ static NSString* casperURL;
         
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
+        //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             if( rpcMethod == CASPER_RPC_METHOD_GET_STATE_ROOT_HASH) {
               //Uncomment this to get state root hash

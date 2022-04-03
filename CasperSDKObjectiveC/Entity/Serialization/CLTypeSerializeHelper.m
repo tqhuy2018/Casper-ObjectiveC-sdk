@@ -1,7 +1,15 @@
 #import <Foundation/Foundation.h>
 #import "CLTypeSerializeHelper.h"
 #import "ConstValues.h"
+/**
+ This class do the work of serialize the CLType object
+ */
 @implementation CLTypeSerializeHelper
+/**
+ This function do the work of serialize the CLTYpe object
+ Input: the CLType object
+ Output: the serialization of the CLType object
+ */
 +(NSString *) serializeForCLType:(CLType*) clType {
     if (clType.itsType == CLTYPE_BOOL) {
         return @"00";

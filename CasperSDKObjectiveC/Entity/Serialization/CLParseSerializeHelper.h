@@ -1,7 +1,16 @@
 #ifndef CLParseSerializeHelper_h
 #define CLParseSerializeHelper_h
 #import "CLParsed.h"
-///Class for serialization of CLValue parse value
+/**Class for serialization of CLValue parse value
+ For example take this CLValue object
+ {
+ "bytes":"0400e1f505"
+ "parsed":"100000000"
+ "cl_type":"U512"
+ }
+ Then the parse will hold the value of 100000000.
+ This class will serialize the value of 100000000 based on its CLValue type, which is U512
+ */
 @interface CLParseSerializeHelper:NSObject
 
 ///Function for the serialization of  CLParse in general

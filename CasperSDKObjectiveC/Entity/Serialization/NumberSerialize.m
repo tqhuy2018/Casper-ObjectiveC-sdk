@@ -1,7 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "NumberSerialize.h"
+/**Class helper for serialization of big number such as UInt128, UInt256, UInt512
+This class also handle the serialization of small number like u8, i32,i64,u32,u64
+ */
 @implementation NumberSerialize
-
 ///Function for the serialization of u8 number in string format
 +(NSString*) serializeForU8:(NSString *)numberInStr{
     NSString * ret = @"";

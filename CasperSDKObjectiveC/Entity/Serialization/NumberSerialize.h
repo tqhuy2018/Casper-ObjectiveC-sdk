@@ -1,8 +1,9 @@
 #ifndef BigNumberSerialize_h
 #define BigNumberSerialize_h
 #import "QuotientNRemainder.h"
-///Class helper for serialization of big number such as UInt128, UInt256, UInt512
-///This class also handle the serialization of small number like u8, i32,i64,u32,u64
+/**Class helper for serialization of big number such as UInt128, UInt256, UInt512
+This class also handle the serialization of small number like u8, i32,i64,u32,u64
+ */
 @interface NumberSerialize:NSObject
 ///Function that change big number in decimal to hexa
 +(NSString *) fromDecimalToHexa:(NSString*) fromNumberInStr;
