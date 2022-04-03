@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "JsonEraValidators.h"
 #import "JsonValidatorWeights.h"
+/**Class built for storing JsonEraValidators information
+ */
 @implementation JsonEraValidators
+/**Generate a JsonEraValidators from dictionary object taken from the JSON back from the server when call RPC method
+ */
 +(JsonEraValidators*) fromJsonDictToJsonEraValidators:(NSDictionary*) fromDict{
     JsonEraValidators * ret = [[JsonEraValidators alloc] init];
     ret.era_id = [(NSString*) fromDict[@"era_id"] longLongValue];

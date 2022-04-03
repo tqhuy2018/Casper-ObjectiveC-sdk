@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "JsonValidatorWeights.h"
 #import "U512Class.h"
+/**Class built for storing JsonValidatorWeights information
+ */
 @implementation JsonValidatorWeights
+/**Generate a JsonValidatorWeights from dictionary object taken from the JSON back from the server when call RPC method
+ */
 +(JsonValidatorWeights*) fromJsonDictToJsonValidatorWeights:(NSDictionary*) fromDict {
     JsonValidatorWeights * ret = [[JsonValidatorWeights alloc] init];
     ret.public_key = (NSString*) fromDict[@"public_key"];

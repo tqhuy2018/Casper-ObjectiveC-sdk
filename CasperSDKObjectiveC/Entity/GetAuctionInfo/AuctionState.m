@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "AuctionState.h"
 #import "JsonEraValidators.h"
+/**Class built for storing AuctionState information
+ */
 @implementation AuctionState
 +(AuctionState*) fromJsonDictToAuctionState:(NSDictionary*) fromDict {
     AuctionState * ret = [[AuctionState alloc] init];
