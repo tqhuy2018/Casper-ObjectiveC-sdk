@@ -43,33 +43,33 @@
     //expected result: latest block state root hash
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_NONE;
-    NSString * jsonString = [bi toJsonStringWithMethodName:@"get state root hash"];
+    NSString * jsonString = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
     [self getStateRootHashWithJsonParam:jsonString];
     //Test 2:get state root hash based on block hash
     //expected result: state root hash of the block with given hash
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
    // [bi assignBlockHashWithParam:@"00b1b35ee5d8bddfc70de6d8d769c49eec81511fee98102e1a6fea3b50524e9e"];
-    NSString * jsonString2 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+    NSString * jsonString2 = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
     [self getStateRootHashWithJsonParam:jsonString2];
     //Test 3: get state root hash based on block height
     //expected result: state root hash of the block with given height
     bi.blockType = USE_BLOCK_HEIGHT;
     [bi assignBlockHeigthtWithParam:12345];
-    NSString * jsonString3 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+    NSString * jsonString3 = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
     [self getStateRootHashWithJsonParam:jsonString3];
     //Negative test
     //Test 4: get state root hash based on non-existing block height (too big height)
     //expected result: error thrown with message: block not known, error code: -32001
     bi.blockType = USE_BLOCK_HEIGHT;
     [bi assignBlockHeigthtWithParam:123456789];
-    NSString * jsonString4 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+    NSString * jsonString4 = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
     [self getStateRootHashWithJsonParam:jsonString4];
     //Test 5: get state root hash based on non-existing block hash
     //expected result: error thrown with message: block not known, error code: -32001
     bi.blockType = USE_BLOCK_HASH;
     [bi assignBlockHashWithParam:@"ccccb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-    NSString * jsonString5 = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
+    NSString * jsonString5 = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
     [self getStateRootHashWithJsonParam:jsonString5];
 }
 @end
