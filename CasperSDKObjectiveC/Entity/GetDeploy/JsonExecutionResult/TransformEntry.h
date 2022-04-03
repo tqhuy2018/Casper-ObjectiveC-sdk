@@ -1,6 +1,6 @@
 #ifndef TransformEntry_h
 #define TransformEntry_h
-/**Class built for storing TransformEntry information
+/**Class built for storing TransformEntry information, base on this https://docs.rs/casper-types/1.4.6/casper_types/enum.Transform.html
  */
 @interface TransformEntry:NSObject
 @property NSString * key;

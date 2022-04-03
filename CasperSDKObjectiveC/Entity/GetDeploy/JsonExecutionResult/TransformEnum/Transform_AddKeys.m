@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "Transform_AddKeys.h"
 #import "NamedKey.h"
+/**Class built for storing Transform_AddKeys information. This class store Transform enum of type  AddKeys. The Transform enum is based on this address:
+ https://docs.rs/casper-types/1.4.6/casper_types/enum.Transform.html
+ */
 @implementation Transform_AddKeys
 +(Transform_AddKeys*) fromJSonArrayToTransform_AddKeys:(NSArray *)fromArray {
     Transform_AddKeys * ret = [[Transform_AddKeys alloc] init];

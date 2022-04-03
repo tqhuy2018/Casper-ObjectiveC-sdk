@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "Transform_WriteWithdraw.h"
 #import "UnbondingPurse.h"
+/**Class built for storing Transform_WriteWithdraw information. This class store Transform enum of type  WriteWithdraw. The Transform enum is based on this address:
+ https://docs.rs/casper-types/1.4.6/casper_types/enum.Transform.html
+ */
 @implementation Transform_WriteWithdraw
 +(Transform_WriteWithdraw*) fromJsonArrayToTransform_WriteWithdraw:(NSArray*) fromArray{
     Transform_WriteWithdraw * ret = [[Transform_WriteWithdraw alloc] init];
