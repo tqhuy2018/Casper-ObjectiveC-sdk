@@ -1,9 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "JsonBlockBody.h"
-
+/**Class built for storing JsonBlockBody information
+ */
 @implementation JsonBlockBody:NSObject
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonBlockBody object
+ */
 +(JsonBlockBody*) fromJsonDictToJsonBlockBody:(NSDictionary *) fromDict {
-    
     JsonBlockBody * ret = [[JsonBlockBody alloc] init];
     ret.proposer = fromDict[@"proposer"];
     ret.deploy_hashes = [[NSMutableArray alloc]init];
