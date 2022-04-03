@@ -1,7 +1,18 @@
 #import <Foundation/Foundation.h>
 #import "CLParsed.h"
 #import "ConstValues.h"
+/**Class built for storing the parse value of a CLValue object.
+ For example take this CLValue object
+ {
+ "bytes":"0400e1f505"
+ "parsed":"100000000"
+ "cl_type":"U512"
+ }
+ Then the parse will hold the value of 100000000.
+ There are some more attributes in the object to store more information on the type of the parse (CLType), its value in String for later handle in serialization or show the information
+ */
 @implementation CLParsed
+///Generate the CLParse object  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsed:(NSObject*) fromObj withCLType:(CLType *)clType{
     CLParsed * ret = [[CLParsed alloc] init];
     ret.itsCLType = clType;
@@ -16,15 +27,14 @@
     }
     return ret;
 }
-
+///Generate the CLParse object  of type primitive (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsedPrimitive:(NSObject*) fromObj withCLType:(CLType *)clType{
     CLParsed * ret = [[CLParsed alloc] init];
     ret.itsValueStr = (NSString*) fromObj;
-   // NSLog(@"Get clparsed primitive, value:%@",ret.itsValueStr);
     ret.itsCLType = clType;
     return ret;
 }
-
+///Generate the CLParse object  of type compound (type with recursive CLValue inside its body, such as List, Map, Tuple , Result ,Option...)  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsedCompound:(NSObject*) fromObj withCLType:(CLType *)clType{
     CLParsed * ret = [[CLParsed alloc] init];
     ret.itsCLType = clType;
@@ -99,7 +109,6 @@
             ret = [CLParsed fromObjToCLParsed:fromObj withCLType:clType.innerType1];
         }
     } else if ([clType.itsType isEqual: CLTYPE_RESULT]) {
-        NSLog(@"Get CLParsed Result, of CLtype :%@ and inner type:%@",clType.itsType,clType.innerType1.itsType);
         ret.is_array_type = false;
         NSDictionary * dict = [[NSDictionary alloc] init];
         dict = (NSDictionary*) fromObj;
@@ -109,7 +118,6 @@
             ret.itsValueStr = CLTYPE_NULL_VALUE;
         }
     } else if ([clType.itsType isEqual:CLTYPE_TUPLE1]) {
-        NSLog(@"Get CLParsed Tuple1, of CLtype :%@ and inner type:%@",clType.itsType,clType.innerType1.itsType);
         NSArray * listParsed = (NSArray*) fromObj;
         CLParsed * parsed1 = [[CLParsed alloc] init];
         parsed1 = [CLParsed fromObjToCLParsed:(NSObject*) [listParsed objectAtIndex:0] withCLType:clType.innerType1];
@@ -117,7 +125,6 @@
         ret.innerParsed1 = parsed1;
         ret.is_innerParsed1_exists = true;
     } else if ([clType.itsType isEqual:CLTYPE_TUPLE2]) {
-        NSLog(@"Get CLParsed Tuple2, of CLtype :%@ and inner type1:%@ and inner type2:%@",clType.itsType,clType.innerType1.itsType,clType.innerType2.itsType);
         NSArray * listParsed = (NSArray*) fromObj;
         CLParsed * parsed1 = [[CLParsed alloc] init];
         CLParsed * parsed2 = [[CLParsed alloc] init];
@@ -131,7 +138,6 @@
         ret.is_innerParsed2_exists = true;
     }
     else if ([clType.itsType isEqual:CLTYPE_TUPLE3]) {
-        NSLog(@"Get CLParsed Tuple3, of CLtype :%@ and inner type1:%@ and inner type2:%@ and inner type3:%@",clType.itsType,clType.innerType1.itsType,clType.innerType2.itsType,clType.innerType3.itsType);
         NSArray * listParsed = (NSArray*) fromObj;
         CLParsed * parsed1 = [[CLParsed alloc] init];
         CLParsed * parsed2 = [[CLParsed alloc] init];
@@ -152,6 +158,7 @@
     }
     return ret;
 }
+///Check if the CLParse from CLType primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isPrimitive {
     if ([self.itsCLTypeStr isEqualToString:CLTYPE_BOOL]) {
         return true;
@@ -186,12 +193,14 @@
     }
     return false;
 }
+///Generate the CLParse object with given information of Type and value
 +(CLParsed*) clParsedWithType:(NSString*) type andValue:(NSString*) value {
     CLParsed * ret = [[CLParsed alloc] init];
     ret.itsValueStr = value;
     ret.itsCLTypeStr = type;
     return ret;
 }
+
 -(void) logInfo {
     if (self.itsValueStr == CLTYPE_NULL_VALUE) {
         NSLog(@"Value of parsed:NULL");

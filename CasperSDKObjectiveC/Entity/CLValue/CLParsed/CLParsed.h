@@ -1,6 +1,16 @@
 #ifndef CLParsed_h
 #define CLParsed_h
 #import "CLType.h"
+/**Class built for storing the parse value of a CLValue object.
+ For example take this CLValue object
+ {
+ "bytes":"0400e1f505"
+ "parsed":"100000000"
+ "cl_type":"U512"
+ }
+ Then the parse will hold the value of 100000000.
+ There are some more attributes in the object to store more information on the type of the parse (CLType), its value in String for later handle in serialization or show the information
+ */
 @interface CLParsed:NSObject
 
 @property CLType * itsCLType;
@@ -31,13 +41,17 @@
 @property bool is_innerParsed1_exists;
 @property bool is_innerParsed2_exists;
 @property bool is_innerParsed3_exists;
-
+///Generate the CLParse object  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsed:(NSObject*) fromObj withCLType:(CLType*) clType;
+///Generate the CLParse object  of type primitive (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsedPrimitive:(NSObject*) fromObj withCLType:(CLType*) clType;
+///Generate the CLParse object  of type compound (type with recursive CLValue inside its body, such as List, Map, Tuple , Result ,Option...)  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsedCompound:(NSObject*) fromObj withCLType:(CLType*) clType;
+///Generate the CLParse object with given information of Type and value
 +(CLParsed*) clParsedWithType:(NSString*) type andValue:(NSString*) value;
--(void) logInfo;
+///Check if the CLParse from CLType primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isPrimitive;
+-(void) logInfo;
 @end
 
 #endif
