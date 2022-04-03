@@ -1,4 +1,3 @@
-
 #ifndef ConstValues_h
 #define ConstValues_h
 //Casper RPC method

@@ -35,10 +35,15 @@
         NSLog(@"List of peer printed out:");
         NSInteger totalPeer = [gpr.PeersMap count];
         NSInteger  counter = 1;
+        XCTAssert(totalPeer>0);
         for (int i = 0 ; i < totalPeer;i ++) {
             PeerEntry * pe = [[PeerEntry alloc] init];
             pe = [gpr.PeersMap objectAtIndex:i];
             NSLog(@"Peer number %lu address:%@ and node id:%@",counter,pe.address,pe.nodeID);
+            int nodeIDStrLength = (int) [pe.nodeID length];
+            int addressStrLength = (int) [pe.address length];
+            XCTAssert(addressStrLength >10);
+            XCTAssert(nodeIDStrLength == 14);
             counter = counter + 1;
         }
     }];
