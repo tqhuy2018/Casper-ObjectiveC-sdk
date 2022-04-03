@@ -31,6 +31,8 @@
             GetBalanceResult * item = [[GetBalanceResult alloc] init];
             item = [GetBalanceResult fromJsonDictToGetBalanceResult:(NSDictionary *)forJSONObject[@"result"]];
             [item logInfo];
+            XCTAssert([item.balance_value.itsValue isEqualToString:@"522693296224"]);
+            XCTAssert(item.merkle_proof.length == 31766);
         } else {
             NSLog(@"Error get balance with error message:%@ and error code:%@",cem.message,cem.code);
         }
