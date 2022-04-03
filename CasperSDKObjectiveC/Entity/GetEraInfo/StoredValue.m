@@ -10,8 +10,14 @@
 #import "Bid.h"
 #import "Transform_WriteWithdraw.h"
 #import "Contract.h"
+/**StoredValue is an enum type, which can hold the following values:
+CLValue(CLValue),Account(Account),ContractWasm(String),Contract(Contract),ContractPackage(ContractPackage),Transfer(Transfer),DeployInfo(DeployInfo),EraInfo(EraInfo),Bid(Box<Bid>),Withdraw(Vec<UnbondingPurse>),
+In which the following values can be retrieve from TransformEntry
+1. Transfer(Transfer), 2. DeployInfo(DeployInfo),3. EraInfo(EraInfo),Bid(Box<Bid>),4. Withdraw(Vec<UnbondingPurse>), 5. CLValue(CLValue)
+The following has to be implemented
+ Account(Account),ContractWasm(String),Contract(Contract),ContractPackage(ContractPackage),
+ */
 @implementation StoredValue
-
 +(StoredValue *) fromJsonDictToStoredValue:(NSDictionary*) fromDict{
     StoredValue * ret = [[StoredValue alloc] init];
     if(!(fromDict[@"EraInfo"] == nil)) {

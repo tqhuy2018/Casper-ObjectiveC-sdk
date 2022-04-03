@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "DisabledVersion.h"
+/**Class built for storing DisabledVersion information
+ */
 @implementation DisabledVersion
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DisabledVersion object
+ */
 +(DisabledVersion*) fromJsonDictToDisabledVersion:(NSDictionary*) fromDict {
     DisabledVersion * ret = [[DisabledVersion alloc] init];
     ret.contract_version = (unsigned int)[(NSString*) fromDict[@"contract_version"] intValue];

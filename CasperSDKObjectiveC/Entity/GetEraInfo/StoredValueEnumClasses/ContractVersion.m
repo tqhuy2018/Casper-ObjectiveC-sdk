@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "ContractVersion.h"
+/**Class built for storing ContractVersion information
+ */
 @implementation ContractVersion
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to ContractVersion object
+ */
 +(ContractVersion*) fromJsonDictToContractVersion:(NSDictionary*) fromDict {
     ContractVersion * ret = [[ContractVersion alloc] init];
     ret.contract_version = (unsigned int) [(NSString*) fromDict[@"contract_version"] intValue];

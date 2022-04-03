@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "Contract.h"
 #import "EntryPoint.h"
+/**Class built for storing Contract information
+ */
 @implementation Contract
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Contract object
+ */
 +(Contract*) fromJsonDictToContact:(NSDictionary*) fromDict {
     Contract * ret = [[Contract alloc] init];
     ret.contract_package_hash = (NSString*) fromDict[@"contract_package_hash"];

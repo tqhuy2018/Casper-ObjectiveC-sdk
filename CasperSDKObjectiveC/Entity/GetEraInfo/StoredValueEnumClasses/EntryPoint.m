@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "EntryPoint.h"
 #import "Parameter.h"
+/**Class built for storing EntryPoint information
+ */
 @implementation EntryPoint
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to EntryPoint object
+ */
 +(EntryPoint*) fromJsonDictToEntryPoint:(NSDictionary*) fromDict{
     EntryPoint * ret = [[EntryPoint alloc] init];
     ret.name = (NSString*) fromDict[@"name"];

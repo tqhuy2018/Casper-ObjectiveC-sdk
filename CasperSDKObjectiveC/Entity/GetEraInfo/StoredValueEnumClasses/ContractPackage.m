@@ -3,7 +3,11 @@
 #import "DisabledVersion.h"
 #import "Groups.h"
 #import "ContractVersion.h"
+/**Class built for storing ContractPackage information
+ */
 @implementation ContractPackage
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to ContractPackage object
+ */
 +(ContractPackage*) fromJsonDictToContractPackage:(NSDictionary*) fromDict {
     ContractPackage * ret = [[ContractPackage alloc] init];
     ret.access_key = (NSString*) fromDict[@"access_key"];

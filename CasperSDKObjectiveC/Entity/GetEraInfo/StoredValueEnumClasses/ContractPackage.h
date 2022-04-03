@@ -1,5 +1,7 @@
 #ifndef ContractPackage_h
 #define ContractPackage_h
+/**Class built for storing ContractPackage information
+ */
 @interface ContractPackage:NSObject
 ///Access key of type URef
 @property NSString * access_key;
@@ -9,6 +11,8 @@
 @property NSMutableArray * groups;
 ///List of ContractVersion
 @property NSMutableArray * versions;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to ContractPackage object
+ */
 +(ContractPackage*) fromJsonDictToContractPackage:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end

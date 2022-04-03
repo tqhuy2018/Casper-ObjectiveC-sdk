@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "EntryPointAccess.h"
 #import "Groups.h"
+/**Class built for storing EntryPointAccess information
+ */
 @implementation EntryPointAccess
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to EntryPointAccess object
+ */
 +(EntryPointAccess*) fromJsonDictToEntryPointAccess:(NSDictionary*) fromDict {
     EntryPointAccess * ret = [[EntryPointAccess alloc] init];
     //check if type is Public

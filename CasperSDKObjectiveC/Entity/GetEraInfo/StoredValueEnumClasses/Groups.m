@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "Groups.h"
+/**Class built for storing Groups information
+ */
 @implementation Groups
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Groups object
+ */
 +(Groups*) fromJSonDictToGroups:(NSDictionary*) fromDict {
     Groups * ret = [[Groups alloc] init];
     ret.group = fromDict[@"group"];
