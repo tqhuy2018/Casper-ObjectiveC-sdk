@@ -18,6 +18,8 @@
    // ret = [NSString stringWithFormat:@"%llu",ret64];
     return ret64;
 }
+///This function change time to live (ttl) in format of "1d" or "2h" or "3m" to U64 number in String format
+///value of time to live (ttl) based on this site https://docs.rs/humantime/latest/humantime/fn.parse_duration.html
 +(uint64_t) fromTimeToLiveToU64Str:(NSString*) ttl {
     //check for ttl in format of "3d 2h" or "1d 2h 6m"
     if ([ttl containsString:@" "]) {

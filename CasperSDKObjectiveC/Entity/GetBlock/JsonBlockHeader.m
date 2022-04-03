@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "JsonBlockHeader.h"
+/**Class built for storing JsonBlockHeader information
+ */
 @implementation JsonBlockHeader
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonBlockHeader object
+ */
 +(JsonBlockHeader*) fromJsonDictToJsonBlockHeader:(NSDictionary*) fromDict {
     JsonBlockHeader * ret = [[JsonBlockHeader alloc] init];
     ret.parent_hash = fromDict[@"parent_hash"];

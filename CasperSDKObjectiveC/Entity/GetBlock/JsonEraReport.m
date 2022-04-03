@@ -2,7 +2,11 @@
 #import "JsonEraReport.h"
 #import "Reward.h"
 #import "Utils.h"
+/**Class built for storing JsonEraReport information
+ */
 @implementation JsonEraReport
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonEraReport object
+ */
 +(JsonEraReport*) fromJsonDictToJsonEraReport:(NSDictionary *) fromDict {
     JsonEraReport * ret = [[JsonEraReport alloc] init];
     if(![fromDict[@"equivocators"] isEqual:[NSNull null]]) {

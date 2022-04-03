@@ -2,7 +2,11 @@
 #import "JsonEraEnd.h"
 #import "ValidatorWeight.h"
 #import "JsonEraReport.h"
+/**Class built for storing JsonEraEnd information
+ */
 @implementation JsonEraEnd
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonEraEnd object
+ */
 +(JsonEraEnd*) fromJsonDictToJsonEraEnd:(NSDictionary*) fromDict {
     JsonEraEnd * ret = [[JsonEraEnd alloc] init];
     if(![fromDict[@"next_era_validator_weights"] isEqual:[NSNull null]]) {

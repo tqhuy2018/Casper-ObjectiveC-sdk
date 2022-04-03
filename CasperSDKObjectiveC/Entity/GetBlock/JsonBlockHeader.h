@@ -1,7 +1,8 @@
 #import "JsonEraEnd.h"
 #ifndef JsonBlockHeader_h
 #define JsonBlockHeader_h
-
+/**Class built for storing JsonBlockHeader information
+ */
 @interface JsonBlockHeader:NSObject
 @property NSString * parent_hash;
 @property NSString *  state_root_hash;
@@ -14,6 +15,8 @@
 @property UInt64 era_id;
 @property UInt64 height;
 @property NSString * protocol_version;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonBlockHeader object
+ */
 +(JsonBlockHeader*) fromJsonDictToJsonBlockHeader:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end

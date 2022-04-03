@@ -3,7 +3,11 @@
 #import "JsonBlockHeader.h"
 #import "JsonBlockBody.h"
 #import "JsonProof.h"
+/**Class built for storing JsonBlock information
+ */
 @implementation JsonBlock
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonBlock object
+ */
 +(JsonBlock*) fromJsonDictToJsonBlock:(NSDictionary*) fromDict {
     JsonBlock * ret = [[JsonBlock alloc] init];
     ret.blockHash = fromDict[@"hash"];//done
