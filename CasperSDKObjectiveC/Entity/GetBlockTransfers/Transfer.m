@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "Transfer.h"
 #import "U512Class.h"
+/**Class built for storing Transfer information
+ */
 @implementation Transfer
+/**This function parse the Array object (as part of the JSON object taken from server RPC method call) to a list of Transfer object
+ */
 +(NSMutableArray*) fromJsonDictToTransferList:(NSArray*) nsArray {
     NSMutableArray * listTransfer = [[NSMutableArray alloc]init];
     for (id obj in nsArray) {
@@ -10,6 +14,8 @@
     }
     return listTransfer;
 }
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Transfer object
+ */
 +(Transfer *) fromJsonDictToTransfer:(NSDictionary*) jsonDict {
     Transfer * ret = [[Transfer alloc] init];
     ret.is_to_exists = true;

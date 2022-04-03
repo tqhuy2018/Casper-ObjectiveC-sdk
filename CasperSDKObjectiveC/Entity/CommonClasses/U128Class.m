@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "U128Class.h"
+/**Class built for storing U128 value
+ */
 @implementation U128Class
 +(U128Class*) fromStrToClass:(NSString*) value {
     U128Class * ret = [[U128Class alloc] init];
