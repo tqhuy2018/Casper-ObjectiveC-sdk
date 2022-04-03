@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "NamedArg.h"
+/**Class built for storing NamedArg information
+ */
 @implementation NamedArg
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to NamedArg object
+ */
 +(NamedArg *) fromJsonArrayToNamedArg:(NSArray*) fromArray {
     NamedArg * ret = [[NamedArg alloc] init];
     ret.itsName = (NSString *)[fromArray firstObject];
