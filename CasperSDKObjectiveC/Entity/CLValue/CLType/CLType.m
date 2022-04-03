@@ -1,12 +1,30 @@
 #import <Foundation/Foundation.h>
 #import "CLType.h"
 #import "ConstValues.h"
+/**Class built for storing the cl_type value of a CLValue object.
+ For example take this CLValue object
+ {
+ "bytes":"0400e1f505"
+ "parsed":"100000000"
+ "cl_type":"U512"
+ }
+ Then the CLType will hold the value of U512.
+ There are some more attributes in the object to store more information in its value, used to build   recursived CLType, such as List, Map, Tuple, Result, Option
+ */
 @implementation CLType
--(void) logInfo {
-    NSString * type = [self getItsType];
-    NSLog(@"CLType:%@",type);
-    return;
+
+///Generate the CLType object  from the JSON object fromObj
++(CLType*) fromObjToCLType:(NSObject*) fromObj {
+    CLType * ret = [[CLType alloc] init];
+    if([fromObj isKindOfClass:[NSString class]]) {
+        //NSLog(@"cltype of primitive type:%@",(NSString*) fromObj);
+        ret = [CLType fromObjToPrimitiveCLType:fromObj];
+    } else  {
+        ret = [CLType fromObjToCompoundCLType:(NSDictionary*) fromObj];
+    }
+    return ret;
 }
+///Generate the CLType object (of type primitive (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)  from the JSON object fromObj
 +(CLType*) fromObjToCompoundCLType:(NSDictionary*) fromDict {
     CLType * ret = [[CLType alloc] init];
     if (!(fromDict[@"Option"] == nil)) {
@@ -69,21 +87,13 @@
     }
     return ret;
 }
-+(CLType*) fromObjToCLType:(NSObject*) fromObj {
-    CLType * ret = [[CLType alloc] init];
-    if([fromObj isKindOfClass:[NSString class]]) {
-        //NSLog(@"cltype of primitive type:%@",(NSString*) fromObj);
-        ret = [CLType fromObjToPrimitiveCLType:fromObj];
-    } else  {
-        ret = [CLType fromObjToCompoundCLType:(NSDictionary*) fromObj];
-    }
-    return ret;
-}
+///Generate the CLType object (of type primitive (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)  from the JSON object fromObj
 +(CLType*) fromObjToPrimitiveCLType:(NSObject*) fromObj {
     CLType * ret = [[CLType alloc] init];
     ret.itsType = (NSString *) fromObj;
     return ret;
 }
+///Function to get the tag for CLType
 +(NSString*) getTagForCLType:(CLType*) clType {
     if (clType.itsType == CLTYPE_BOOL) {
         return @"00";
@@ -189,6 +199,7 @@
     }
     return ret;
 }
+///Check if the  CLType is primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isCLTypePrimitive {
     if (self.itsType == CLTYPE_LIST || self.itsType == CLTYPE_MAP || self.itsType == CLTYPE_TUPLE1|| self.itsType == CLTYPE_TUPLE2|| self.itsType == CLTYPE_TUPLE3|| self.itsType == CLTYPE_OPTION|| self.itsType == CLTYPE_RESULT) {
         return false;
@@ -200,6 +211,10 @@
        
     }
     return self;
+}
+-(void) logInfo {
+    NSString * type = [self getItsType];
+    NSLog(@"CLType:%@",type);
 }
 
 @end
