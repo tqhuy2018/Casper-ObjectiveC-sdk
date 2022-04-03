@@ -1,6 +1,8 @@
 #ifndef DeployInfo_h
 #define DeployInfo_h
 #import "U512Class.h"
+/**Class built for storing DeployInfo information.
+ */
 ///Object to use in Transform Enum in type WriteDeployInfo
 @interface DeployInfo:NSObject
 ///Deploy hash in type of String
@@ -15,6 +17,8 @@
 @property NSString * source;
 ///Gas, of type U512 class
 @property U512Class * gas;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DeployInfo object
+ */
 +(DeployInfo * ) fromJsonDictToDeployInfo:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end

@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "EraInfo.h"
 #import "SeigniorageAllocation.h"
+/**Class built for storing EraInfo information.
+ */
 @implementation EraInfo
+/**This function parse the Array object (as part of the JSON object taken from server RPC method call) to EraInfo object
+ */
 +(EraInfo*) fromJsonArrayToEraInfo:(NSArray*) fromArray {
     EraInfo * ret = [[EraInfo alloc] init];
     int totalElement = (int) fromArray.count;

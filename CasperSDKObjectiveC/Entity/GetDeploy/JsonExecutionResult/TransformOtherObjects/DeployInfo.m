@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "DeployInfo.h"
+/**Class built for storing DeployInfo information.
+ */
 @implementation DeployInfo
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DeployInfo object
+ */
 +(DeployInfo * ) fromJsonDictToDeployInfo:(NSDictionary*) fromDict {
     DeployInfo * ret = [[DeployInfo alloc] init];
     ret.deploy_hash = (NSString*) fromDict[@"deploy_hash"];

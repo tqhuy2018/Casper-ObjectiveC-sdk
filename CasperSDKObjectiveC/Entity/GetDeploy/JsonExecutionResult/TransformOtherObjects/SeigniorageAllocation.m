@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "SeigniorageAllocation.h"
+/**Class built for storing SeigniorageAllocation information.
+ */
 @implementation SeigniorageAllocation
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to SeigniorageAllocation object
+ */
 +(SeigniorageAllocation*) fromJsonDictToSeigniorageAllocation:(NSDictionary*) fromDict {
     SeigniorageAllocation * ret = [[SeigniorageAllocation alloc] init];
     if(!(fromDict[@"Validator"] == nil)) { //of type Validator

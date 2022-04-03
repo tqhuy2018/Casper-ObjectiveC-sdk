@@ -13,7 +13,6 @@
 		9072960E27E5EF0C00D0DEFE /* SeigniorageAllocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960D27E5EF0C00D0DEFE /* SeigniorageAllocation.m */; };
 		9072961027E5F90600D0DEFE /* Transform_WriteEraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960F27E5F90600D0DEFE /* Transform_WriteEraInfo.m */; };
 		9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961127E5F9BE00D0DEFE /* Transform_WriteTransfer.m */; };
-		9072961427E5FB0000D0DEFE /* Transfer1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961327E5FB0000D0DEFE /* Transfer1.m */; };
 		9072961627E5FE6C00D0DEFE /* Transform_WriteWithdraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072961527E5FE6C00D0DEFE /* Transform_WriteWithdraw.m */; };
 		9075817127F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817027F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m */; };
 		9075817527F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817427F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m */; };
@@ -151,7 +150,6 @@
 		9072960D27E5EF0C00D0DEFE /* SeigniorageAllocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeigniorageAllocation.m; sourceTree = "<group>"; };
 		9072960F27E5F90600D0DEFE /* Transform_WriteEraInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteEraInfo.m; sourceTree = "<group>"; };
 		9072961127E5F9BE00D0DEFE /* Transform_WriteTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteTransfer.m; sourceTree = "<group>"; };
-		9072961327E5FB0000D0DEFE /* Transfer1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transfer1.m; sourceTree = "<group>"; };
 		9072961527E5FE6C00D0DEFE /* Transform_WriteWithdraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transform_WriteWithdraw.m; sourceTree = "<group>"; };
 		9075817027F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_ExecutableDeployItemTest.m; sourceTree = "<group>"; };
 		9075817327F7B33100D5022F /* ExecutableDeployItemSerializationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItemSerializationHelper.h; sourceTree = "<group>"; };
@@ -357,7 +355,6 @@
 		90CAF5D927E4D46A00AAA913 /* Transform_WriteWithdraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_WriteWithdraw.h; sourceTree = "<group>"; };
 		90CAF5DB27E4D5B900AAA913 /* Transform_AddKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform_AddKeys.h; sourceTree = "<group>"; };
 		90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamedKey.h; sourceTree = "<group>"; };
-		90CAF5DD27E4D74700AAA913 /* Transfer1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transfer1.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -820,8 +817,6 @@
 				9072960B27E5ED1800D0DEFE /* EraInfo.m */,
 				90CAF5DC27E4D5CD00AAA913 /* NamedKey.h */,
 				90769BFF27E56173003552D8 /* NamedKey.m */,
-				90CAF5DD27E4D74700AAA913 /* Transfer1.h */,
-				9072961327E5FB0000D0DEFE /* Transfer1.m */,
 				90769C0527E59473003552D8 /* VestingSchedule.h */,
 				90769C0627E5957A003552D8 /* VestingSchedule.m */,
 				9072960827E5E6FE00D0DEFE /* Bid.h */,
@@ -966,7 +961,6 @@
 				907978F527DC963E00B69B4E /* PeerEntry.m in Sources */,
 				909424FC27EA275E00351197 /* GetAuctionInfoResult.m in Sources */,
 				90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */,
-				9072961427E5FB0000D0DEFE /* Transfer1.m in Sources */,
 				9079790127DC966100B69B4E /* ConstValues.m in Sources */,
 				9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */,
 				9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */,

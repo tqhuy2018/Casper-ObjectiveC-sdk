@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "UnbondingPurse.h"
 #import "U512Class.h"
+/**Class built for storing UnbondingPurse information.
+ */
 @implementation UnbondingPurse
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to UnbondingPurse object
+ */
 +(UnbondingPurse*) fromJsonDictToUnbondingPurse:(NSDictionary*) fromDict{
     UnbondingPurse * ret = [[UnbondingPurse alloc] init];
     ret.bonding_purse = fromDict[@"bonding_purse"];

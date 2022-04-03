@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "Delegator.h"
+/**Class built for storing Delegator information. Delegator class is used for  getting information for Transform<Bid> in get_deploy => JsonExecutionResult
+ */
 @implementation Delegator
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Delegator object
+ */
 +(Delegator*) fromJsonDictToDelegator:(NSDictionary *)fromDict {
     Delegator * ret = [[Delegator alloc] init];
     ret.bonding_purse = (NSString*) fromDict[@"bonding_purse"];

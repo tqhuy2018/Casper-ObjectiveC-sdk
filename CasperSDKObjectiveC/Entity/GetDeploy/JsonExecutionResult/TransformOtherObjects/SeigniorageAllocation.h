@@ -8,6 +8,8 @@
 @property NSString * delegator_public_key; //This is for enum type Delegator
 @property U512Class * amount;
 @property bool isDelegatorEnum;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to SeigniorageAllocation object
+ */
 +(SeigniorageAllocation*) fromJsonDictToSeigniorageAllocation:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end

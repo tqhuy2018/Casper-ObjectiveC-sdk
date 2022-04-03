@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "VestingSchedule.h"
 #import "U512Class.h"
+/**Class built for storing VestingSchedule information.
+ */
 @implementation VestingSchedule
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to VestingSchedule object
+ */
 +(VestingSchedule*) fromJsonDictToVestingSchedule:(NSDictionary*) fromDict {
     VestingSchedule * ret = [[VestingSchedule alloc]init];
     ret.initial_release_timestamp_millis = [(NSString*) fromDict[@"initial_release_timestamp_millis"] longLongValue];

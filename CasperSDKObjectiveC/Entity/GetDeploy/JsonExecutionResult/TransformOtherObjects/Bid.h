@@ -3,6 +3,8 @@
 #import "U512Class.h"
 #import "Delegator.h"
 #import "VestingSchedule.h"
+/**Class built for storing Bid information.
+ */
 @interface Bid:NSObject
 @property NSString * bonding_purse;
 @property uint8 delegation_rate;
@@ -15,6 +17,8 @@
 @property VestingSchedule * vesting_schedule;
 ///bool value to determine whether the vesting_schedule exists or not.
 @property bool is_vesting_schedule_existed;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Bid object
+ */
 +(Bid*) fromJsonDictToBid:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end
