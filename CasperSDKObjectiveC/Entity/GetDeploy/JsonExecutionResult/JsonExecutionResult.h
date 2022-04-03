@@ -2,6 +2,8 @@
 #define JsonExecutionResult_h
 #import "U512Class.h"
 #import "ExecutionEffect.h"
+/**Class built for storing JsonExecutionResult information
+ */
 @interface JsonExecutionResult:NSObject
 @property NSString * block_hash;
 @property U512Class * cost;
@@ -11,6 +13,8 @@
 ///Error_message, only apply for ExecutionResult_Failure
 @property NSString * error_message;
 @property bool is_ExecutionResult_success;
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonExecutionResult object
+ */
 +(JsonExecutionResult*) fromJsonDictToJsonExecutionResult:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end

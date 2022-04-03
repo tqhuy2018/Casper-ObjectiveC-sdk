@@ -1,7 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "JsonExecutionResult.h"
 #import "U512Class.h"
+/**Class built for storing JsonExecutionResult information
+ */
 @implementation JsonExecutionResult
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonExecutionResult object
+ */
 +(JsonExecutionResult*) fromJsonDictToJsonExecutionResult:(NSDictionary*) fromDict {
     JsonExecutionResult * ret = [[JsonExecutionResult alloc] init];
     ret.block_hash = fromDict[@"block_hash"];

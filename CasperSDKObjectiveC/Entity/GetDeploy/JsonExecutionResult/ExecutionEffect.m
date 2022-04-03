@@ -2,7 +2,11 @@
 #import "ExecutionEffect.h"
 #import "Operation.h"
 #import "TransformEntry.h"
+/**Class built for storing ExecutionEffect information
+ */
 @implementation ExecutionEffect
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to ExecutionEffect object
+ */
 +(ExecutionEffect*) fromJsonDictToExecutionEffect:(NSDictionary*) fromDict {
     ExecutionEffect * ret = [[ExecutionEffect alloc] init];
     NSArray * operationList = (NSArray*) fromDict[@"operations"];

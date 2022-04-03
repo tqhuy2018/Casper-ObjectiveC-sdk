@@ -8,8 +8,11 @@
 #import "Transform_WriteTransfer.h"
 #import "Transform_WriteWithdraw.h"
 #import "Transform_AddKeys.h"
-
+/**Class built for storing TransformEntry information
+ */
 @implementation TransformEntry
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to TransformEntry object
+ */
 +(TransformEntry*) fromJsonDictToTransformEntry:(NSDictionary*) fromDict {
     TransformEntry * ret = [[TransformEntry alloc] init];
     ret.key = (NSString*) fromDict[@"key"];

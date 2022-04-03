@@ -1,6 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "DeployHeader.h"
+/**Class built for storing Deploy information
+ */
 @implementation DeployHeader
+/**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DeployHeader object
+ */
 +(DeployHeader*) fromJsonDictToDeployHeader:(NSDictionary*) fromDict {
     DeployHeader * ret = [[DeployHeader alloc] init];
     ret.account = fromDict[@"account"];
