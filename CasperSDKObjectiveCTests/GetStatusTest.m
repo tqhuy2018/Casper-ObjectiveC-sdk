@@ -26,6 +26,9 @@
         GetStatusResult * gsr = [[GetStatusResult alloc] init];
         gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
         [gsr logInfo];
+        XCTAssert([gsr.chainspec_name isEqualToString:@"casper-test"]);
+        XCTAssert(gsr.peers.count > 0);
+        XCTAssert(gsr.starting_state_root_hash.length > 0);
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {

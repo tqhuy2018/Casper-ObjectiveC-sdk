@@ -6,6 +6,9 @@
 #import "CLParsed.h"
 #import "GetDeployResult.h"
 #import "GetDeployParams.h"
+#import "ExecutableDeployItem.h"
+#import "ExecutableDeployItem_ModuleBytes.h"
+#import "NamedArg.h"
 @interface GetDeployTest : XCTestCase
 
 @end
@@ -33,6 +36,20 @@
             GetDeployResult * ret = [[GetDeployResult alloc] init];
             ret = [GetDeployResult fromJsonDictToGetDeployResult:forJSONObject[@"result"]];
             [ret logInfo];
+            XCTAssert([ret.deploy.itsHash isEqualToString:@"a91d468e2ddc8936f7866bc594794b322f747508c2192fd4eca90ef8a121d45e"]);
+            //assert for deploy header
+            XCTAssert([ret.deploy.header.account isEqualToString:@"014caf1ce908f9ef3d427dceac17e5c47950becf15d1def0810c235e0d58a9efad"]);
+            XCTAssert([ret.deploy.header.chain_name isEqualToString:@"casper-test"]);
+            XCTAssert([ret.deploy.header.dependencies count] == 0);
+            XCTAssert(ret.deploy.header.gas_price == 1);
+            XCTAssert([ret.deploy.header.timestamp isEqualToString:@"2022-01-17T11:11:08.508Z"]);
+            XCTAssert([ret.deploy.header.ttl isEqualToString:@"30m"]);
+            //assert for deploy payment
+            XCTAssert([ret.deploy.payment.itsType isEqualToString:EDI_MODULEBYTES]);
+            ExecutableDeployItem_ModuleBytes * payment = (ExecutableDeployItem_ModuleBytes*) [ret.deploy.payment.itsValue objectAtIndex:0];
+            XCTAssert([payment.module_bytes isEqualToString:@""]);
+            NamedArg * na = [payment.args.listArgs objectAtIndex:0];
+            XCTAssert([na.itsName isEqualToString:@"amount"]);
         } else {
             NSLog(@"Error get deploy with error message:%@ and error code:%@",cem.message,cem.code);
         }

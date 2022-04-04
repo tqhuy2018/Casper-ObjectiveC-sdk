@@ -8,5 +8,4 @@
 +(ExecutableDeployItem*) fromJsonDictToExecutableDeployItem:(NSDictionary*) fromDict;
 -(void) logInfo;
 @end
-
 #endif

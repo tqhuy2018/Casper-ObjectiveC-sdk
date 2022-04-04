@@ -8,13 +8,15 @@
 #import "DictionaryIdentifier_ContractNamedKey.h"
 #import "DictionaryIdentifier_URef.h"
 #import "DictionaryIdentifier_Dictionary.h"
+#import "CLValue.h"
+#import "StoredValue.h"
 @interface GetDictionaryItemTest : XCTestCase
 
 @end
 
 @implementation GetDictionaryItemTest
 
-- (void) getDictionaryItem:(NSString*) jsonString {
+- (void) getDictionaryItem:(NSString*) jsonString  withCallIndex:(NSString*) callIndex{
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get dictionary item"];
     NSString * casperURL = URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
@@ -36,8 +38,50 @@
             GetDictionaryItemResult * item = [[GetDictionaryItemResult alloc] init];
             item = [GetDictionaryItemResult fromJsonDictToGetItemResult:(NSDictionary *)forJSONObject[@"result"]];
             [item logInfo];
+            if( [callIndex isEqualToString:@"call1"]) {
+                XCTAssert([item.dictionary_key isEqualToString:@"dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373"]);
+                XCTAssert(item.merkle_proof.length == 30330);
+                StoredValue * sv = item.stored_value;
+                XCTAssert([sv.itsType isEqualToString:@"CLValue"]);
+                CLValue * clValue = (CLValue*) [sv.innerValue objectAtIndex:0];
+                XCTAssert([clValue.bytes isEqualToString:@"090000006162635f76616c7565"]);
+                XCTAssert([clValue.parsed.itsValueStr isEqualToString:@"abc_value"]);
+                XCTAssert([clValue.cl_type.itsType isEqualToString:@"String"]);
+            } else  if( [callIndex isEqualToString:@"call2"]) {
+                XCTAssert([item.dictionary_key isEqualToString:@"dictionary-ac34673fa957fa8083306892815496b8fdee0aa1509f0080823979d869176060"]);
+                XCTAssert(item.merkle_proof.length == 30178);
+                StoredValue * sv = item.stored_value;
+                XCTAssert([sv.itsType isEqualToString:@"CLValue"]);
+                CLValue * clValue = (CLValue*) [sv.innerValue objectAtIndex:0];
+                XCTAssert([clValue.bytes isEqualToString:@"0800000061626376616c7565"]);
+                XCTAssert([clValue.parsed.itsValueStr isEqualToString:@"abcvalue"]);
+                XCTAssert([clValue.cl_type.itsType isEqualToString:@"String"]);
+            } else  if( [callIndex isEqualToString:@"call3"]) {
+                XCTAssert([item.dictionary_key isEqualToString:@"dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373"]);
+                XCTAssert(item.merkle_proof.length == 30330);
+                StoredValue * sv = item.stored_value;
+                XCTAssert([sv.itsType isEqualToString:@"CLValue"]);
+                CLValue * clValue = (CLValue*) [sv.innerValue objectAtIndex:0];
+                XCTAssert([clValue.bytes isEqualToString:@"090000006162635f76616c7565"]);
+                XCTAssert([clValue.parsed.itsValueStr isEqualToString:@"abc_value"]);
+                XCTAssert([clValue.cl_type.itsType isEqualToString:@"String"]);
+            } else  if( [callIndex isEqualToString:@"call4"]) {
+                XCTAssert([item.dictionary_key isEqualToString:@"dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373"]);
+                XCTAssert(item.merkle_proof.length == 30330);
+                StoredValue * sv = item.stored_value;
+                XCTAssert([sv.itsType isEqualToString:@"CLValue"]);
+                CLValue * clValue = (CLValue*) [sv.innerValue objectAtIndex:0];
+                XCTAssert([clValue.bytes isEqualToString:@"090000006162635f76616c7565"]);
+                XCTAssert([clValue.parsed.itsValueStr isEqualToString:@"abc_value"]);
+                XCTAssert([clValue.cl_type.itsType isEqualToString:@"String"]);
+            }
         } else {
             NSLog(@"Error get dictionary item with error message:%@ and error code:%@",cem.message,cem.code);
+            if( [callIndex isEqualToString:@"call5"]) {
+                XCTAssert([cem.message isEqualToString:@"Invalid params"]);
+            } else if( [callIndex isEqualToString:@"call6"]) {
+                XCTAssert([cem.message isEqualToString:@"Failed to parse Dictionary key"]);
+            }
         }
        
     }];
@@ -59,7 +103,7 @@
     itemParam.innerDict = [[NSMutableArray alloc] init];
     [itemParam.innerDict addObject:item];
     NSString * jsonStr = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStr];
+    [self getDictionaryItem:jsonStr withCallIndex:@"call1"];
 
     //Test 2: Parameter DictionaryIdentifier of type ContractNamedKey
     DictionaryIdentifier_ContractNamedKey * itemCN = [[DictionaryIdentifier_ContractNamedKey alloc] init];
@@ -70,7 +114,7 @@
     [itemParam.innerDict removeAllObjects];
     [itemParam.innerDict addObject:itemCN];
     NSString * jsonStrCN = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStrCN];
+    [self getDictionaryItem:jsonStrCN withCallIndex:@"call2"];
     
     //Test 3: Parameter DictionaryIdentifier of type URef
     DictionaryIdentifier_URef * itemU = [[DictionaryIdentifier_URef alloc] init];
@@ -80,7 +124,7 @@
     [itemParam.innerDict removeAllObjects];
     [itemParam.innerDict addObject:itemU];
     NSString * jsonStrU = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStrU];
+    [self getDictionaryItem:jsonStrU withCallIndex:@"call3"];
     
     //Test 4: Parameter DictionaryIdentifier of type Dictionary
     DictionaryIdentifier_Dictionary * itemD = [[DictionaryIdentifier_Dictionary alloc] init];
@@ -89,7 +133,7 @@
     [itemParam.innerDict removeAllObjects];
     [itemParam.innerDict addObject:itemD];
     NSString * jsonStrD = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStrD];
+    [self getDictionaryItem:jsonStrD withCallIndex:@"call4"];
     
     //Negative path
     //Test1: Test with incorrect state_root_hash
@@ -102,7 +146,7 @@
     [itemParam.innerDict removeAllObjects];
     [itemParam.innerDict addObject:itemD2];
     NSString * jsonStrD2 = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStrD2];
+    [self getDictionaryItem:jsonStrD2 withCallIndex:@"call5"];
     
     //Test 2: Test with incorrect parameter
     //Expected error object with the following information:
@@ -114,7 +158,7 @@
     [itemParam.innerDict removeAllObjects];
     [itemParam.innerDict addObject:itemD1];
     NSString * jsonStrD1 = [itemParam toJsonString];
-    [self getDictionaryItem:jsonStrD1];
+    [self getDictionaryItem:jsonStrD1 withCallIndex:@"call6"];
     
 }
 
