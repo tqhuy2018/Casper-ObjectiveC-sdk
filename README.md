@@ -205,5 +205,27 @@ When get information for a deploy, for example, the args of the payment/session 
   - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
 
 In detail:
- - CLType serialization based on the rules:
- 
+ *  CLType serialization is process in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization is a string for that type. The return string is  based on the following rule:
+    - CLType Bool the return string is "00"
+    - CLType Int32 the return string is "01"
+    - CLType Int64 the return string is "02"
+    - CLType U8 the return string is "03"
+    - CLType U32 the return string is "04"
+    - CLType U64 the return string is "05"
+    - CLType U128 the return string is "06"
+    - CLType U256 the return string is "07"
+    - CLType U512 the return string is "08"
+    - CLType Unit the return string is "09"
+    - CLType String the return string is "0a"
+    - CLType Key the return string is "0b"
+    - CLType URef the return string is "0c"
+    - CLType Option the return string is "0d" + CLType.serialize for Option inner CLType
+    - CLType List the return string is "0e" + CLType.serialize for List inner CLType
+    - CLType ByteArray the return string is "0f"
+    - CLType Result the return string is "10" + CLType.serialize for "Ok" inner CLType + CLType.serialize for "Err" inner CLType
+    - CLType Map the return string is "11" + CLType.serialize for "key" inner CLType + CLType.serialize for "value" inner CLType
+    - CLType Tuple1 the return string is "12" + CLType.serialize for Tuple1 inner CLType
+    - CLType Tuple2 the return string is "13" + CLType.serialize for Tuple2 inner CLType 1 + CLType.serialize for Tuple2 inner CLType 2
+    - CLType Tuple3 the return string is "14" + CLType.serialize for Tuple3 inner CLType 1 + CLType.serialize for Tuple3 inner CLType 2 + CLType.serialize for Tuple3 inner CLType 3
+    - CLType Any the return string is "15"
+    - CLType PublicKey the return string is "16"
