@@ -257,9 +257,13 @@ The deploy serialization is built base on the content of the deploy itself. The 
 
 There are 3 main function in this class for serialization of deploy header, deploy approvals and deploy. The deploy payment and session is of type ExecutableDeployItem and is serialized with ExecutableDeployItemSerializationHelper class, defined in "ExecutableDeployItemSerializationHelper.h" and "ExecutableDeployItemSerializationHelper.m" file.
 
+#### Deploy header serialization:
+
 The rule for deploy header serialization is:
 
 Deploy header serialization = deployHeader.account + U64.serialize(deployHeader.timeStampMiliSecondFrom1970InU64) + U64.serialize(deployHeader.ttlMilisecondsFrom1980InU64) + U64.serialize(gas_price) + deployHeader.bodyHash
+
+#### Deploy payment/session serialization
 
 The rule for ExecutableDeployItem serialization (deploy payment and deploy session):
 
@@ -276,4 +280,18 @@ Serialization result = "04" + String.serialize(name) + Option(U32).serialize(ver
  - For ExecutableDeployItem of type Transfer: 
 Serialization result = "05" + args.serialization
 
+#### Deploy approvals serialization
 
+The rule for deploy approvals serialization is:
+
+If the approval list is empty, just return "00000000", which is equals to U32.serialize(0)
+If the approval list is not empty, then first get the approval list length, then take the prefixStr = U32.serialize(approvalList.length)
+Then concatenate all the elements in the approval list with rule for each element:
+1 element serialization = singer + signature
+Final result = prefixStr + (listApprovals.serialize)
+
+#### Deploy serialization 
+
+The deploy itself is serialized under this rule:
+
+Deploy serialization  = deployHeader.serialize + deploy.hash + deployPayment.serialize + deploySession.serialize + deployApprovals.serialize
