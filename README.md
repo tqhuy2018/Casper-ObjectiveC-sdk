@@ -205,7 +205,9 @@ When get information for a deploy, for example, the args of the payment/session 
   - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
 
 In detail:
- *  CLType serialization is process in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization is a string for that type. The return string is  based on the following rule:
+ ###  CLType serialization
+ The CLType serialization is processed in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization result is a string for that type. The returned string is  based on the following rule:
+ 
     - CLType Bool the return string is "00"
     - CLType Int32 the return string is "01"
     - CLType Int64 the return string is "02"
@@ -229,7 +231,7 @@ In detail:
     - CLType Tuple3 the return string is "14" + CLType.serialize for Tuple3 inner CLType 1 + CLType.serialize for Tuple3 inner CLType 2 + CLType.serialize for Tuple3 inner CLType 3
     - CLType Any the return string is "15"
     - CLType PublicKey the return string is "16"
-* CLParse serialization
+### CLParse serialization
 The CLParse serialization is done with the reference to the document at this address:
 
 https://casper.network/docs/design/serialization-standard#serialization-standard-state-keys
@@ -249,6 +251,54 @@ This class provides all the function necessary to serialize for all parsed value
  ```
  
  is for the parsed of CLType Tuple2 serialization.
+ 
+ The big number (U128, U256, U512) value serialization is done through the class NumberSerialize which defined in "NumberSerialize.h" and "NumberSerialize.m" file. This class also handle some helper method for smaller number serialization, such as U32, U64, U8, I32, I64.
 
-* Deploy serialization
+### Deploy serialization
 
+The deploy serialization is built base on the content of the deploy itself. The class for doing this is DeploySerializeHelper class defined in "DeploySerializeHelper.h" and "DeploySerializeHelper.m" file.
+
+There are 3 main function in this class for serialization of deploy header, deploy approvals and deploy. The deploy payment and session is of type ExecutableDeployItem and is serialized with ExecutableDeployItemSerializationHelper class, defined in "ExecutableDeployItemSerializationHelper.h" and "ExecutableDeployItemSerializationHelper.m" file.
+
+#### Deploy header serialization:
+
+The rule for deploy header serialization is:
+
+Deploy header serialization = deployHeader.account + U64.serialize(deployHeader.timeStampMiliSecondFrom1970InU64) + U64.serialize(deployHeader.ttlMilisecondsFrom1980InU64) + U64.serialize(gas_price) + deployHeader.bodyHash
+
+#### Deploy payment/session serialization
+
+The rule for ExecutableDeployItem serialization (deploy payment and deploy session):
+
+ - For ExecutableDeployItem of type ModuleBytes: 
+Serialization result = "00" + String.serialize(module_bytes) + args.serialization
+ - For ExecutableDeployItem of type StoredContractByHash: 
+Serialization result = "01" + hash + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredContractByName: 
+Serialization result =  "02" + String.serialize(name) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredVersionedContractByHash: 
+Serialization result = "03" + hash + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredVersionedContractByName: 
+Serialization result = "04" + String.serialize(name) + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type Transfer: 
+Serialization result = "05" + args.serialization
+
+#### Deploy approvals serialization
+
+The rule for deploy approvals serialization is:
+
+If the approval list is empty, just return "00000000", which is equals to U32.serialize(0)
+
+If the approval list is not empty, then first get the approval list length, then take the prefixStr = U32.serialize(approvalList.length)
+
+Then concatenate all the elements in the approval list with rule for each element:
+
+1 element serialization = singer + signature
+
+Final result = prefixStr + (listApprovals.serialize)
+
+#### Deploy serialization 
+
+The deploy itself is serialized under this rule:
+
+Deploy serialization  = deployHeader.serialize + deploy.hash + deployPayment.serialize + deploySession.serialize + deployApprovals.serialize
