@@ -108,7 +108,7 @@ Other comments on the test implementation:
   
   -  [Get Auction Info](./Docs/Help.md#xi-get-auction-info)
  
- # - ObjectiveC version of CLType primitives, Casper Domain Specific Objects and Serialization
+ # ObjectiveC version of CLType primitives, Casper Domain Specific Objects and Serialization
  
  ## CLType primitives
  
@@ -173,7 +173,7 @@ In the examples above,
        ]"
   ```
   
-   - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+     - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
  
 In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
  
@@ -205,7 +205,7 @@ When get information for a deploy, for example, the args of the payment/session 
   - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
 
 In detail:
- *  CLType serialization is process in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization is a string for that type. The return string is  based on the following rule:
+ 1)  CLType serialization is process in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization is a string for that type. The return string is  based on the following rule:
     - CLType Bool the return string is "00"
     - CLType Int32 the return string is "01"
     - CLType Int64 the return string is "02"
@@ -229,3 +229,26 @@ In detail:
     - CLType Tuple3 the return string is "14" + CLType.serialize for Tuple3 inner CLType 1 + CLType.serialize for Tuple3 inner CLType 2 + CLType.serialize for Tuple3 inner CLType 3
     - CLType Any the return string is "15"
     - CLType PublicKey the return string is "16"
+2) CLParse serialization
+The CLParse serialization is done with the reference to the document at this address:
+
+https://casper.network/docs/design/serialization-standard#serialization-standard-state-keys
+
+and the work of serialization is done through the class CLParseSerializeHelper which declared in file CLParseSerializeHelper.h and CLParseSerializeHelper.m
+
+This class provides all the function necessary to serialize for all parsed value of all 23 possible values of CLType, for example the function : 
+
+ ```ObjectiveC
++(NSString*) serializeFromCLParseInt32:(CLParsed*) fromCLParse;
+ ```
+ 
+ is for Int32 serialization, or 
+
+ ```ObjectiveC
++(NSString*) serializeFromCLParseTuple2:(CLParsed*) fromCLParse;
+ ```
+ 
+ is for the parsed of CLType Tuple2 serialization.
+
+4) Deploy serialization
+
