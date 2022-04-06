@@ -107,3 +107,148 @@ Other comments on the test implementation:
   -  [Get Balance](./Docs/Help.md#x-get-balance)
   
   -  [Get Auction Info](./Docs/Help.md#xi-get-auction-info)
+ 
+ # ObjectiveC version of CLType primitives, Casper Domain Specific Objects and Serialization
+ 
+ ## CLType primitives
+ 
+ The CLType is an enum variables, defined at this address: (for Rust version)
+ 
+ https://docs.rs/casper-types/1.4.6/casper_types/enum.CLType.html
+ 
+ In ObjectiveC, the CLType when put into usage is part of a CLValue object.
+ 
+ To more detail, a CLValue holds the information like this:
+ 
+ ```ObjectiveC
+ {
+"bytes":"0400e1f505"
+"parsed":"100000000"
+"cl_type":"U512"
+}
+```
+
+or
+
+
+ ```ObjectiveC
+ {
+"bytes":"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+"parsed":[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+]
+"cl_type":{
+        "List":{
+           "Map":{
+           "key":"String"
+           "value":"String"
+           }
+      }
+}
+ ```
+The CLValue is built up with 3 elements: cl_type, parsed and bytes.
+In the examples above, 
+ * For the first example:
+   - The cl_type is: U512 
+   - The parsed is: "100000000" 
+   - The bytes is: "0400e1f505"  
+
+ * For the second example: 
+   - The cl_type is: List(Map(String,String))
+   - The parsed is: 
+ 
+ ```ObjectiveC
+ "[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+       ]"
+  ```
+  
+     - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+ 
+In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
+ 
+The "parsed" is wrapped in CLParsed class, which is declared in  CLParsed.h and CLParsed.m file. The CLParsed class stores all information need when you want to declare a CLParsed object, and also this class provides functions to turn JSON object to CLParsed object and supporter function such as function to check if the CLParsed hold pure value of CLType object or with hold value of recursive CLType object inside its body.
+
+ To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
+  
+ ```ObjectiveC
+@interface CLValue:NSObject
+@property NSString * bytes;
+@property CLType * cl_type;
+@property CLParsed * parsed;
+@end
+ ```
+This class also provide a supporter function to parse a JSON object to CLValue object.
+
+When get information for a deploy, for example, the args of the payment/session or items in the execution_results can hold CLValue values, and they will be turned to CLValue object in ObjectiveC to support the work of storing information and doing the serialization.
+
+ ## Casper Domain Specific Objects
+
+ All of the main Casper Domain Specific Objects is built in ObjectiveC with classes like Deploy, DeployHeader, ExecutionDeployItem, NamedArg, Approval,  JsonBlock, JsonBlockHeader, JsonEraEnd, JsonEraReport, JsonBlockBody, JsonProof, ValidatorWeight, Reward, ... and so on. All the class belonging to the RPC call is built to store coressponding information.
+ 
+ ## Serialization
+ 
+ The serialization is build for the following classes & objects:
+  
+  - CLType serialization
+  - CLParse serialization
+  - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
+
+In detail:
+ *  CLType serialization is process in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization is a string for that type. The return string is  based on the following rule:
+    - CLType Bool the return string is "00"
+    - CLType Int32 the return string is "01"
+    - CLType Int64 the return string is "02"
+    - CLType U8 the return string is "03"
+    - CLType U32 the return string is "04"
+    - CLType U64 the return string is "05"
+    - CLType U128 the return string is "06"
+    - CLType U256 the return string is "07"
+    - CLType U512 the return string is "08"
+    - CLType Unit the return string is "09"
+    - CLType String the return string is "0a"
+    - CLType Key the return string is "0b"
+    - CLType URef the return string is "0c"
+    - CLType Option the return string is "0d" + CLType.serialize for Option inner CLType
+    - CLType List the return string is "0e" + CLType.serialize for List inner CLType
+    - CLType ByteArray the return string is "0f"
+    - CLType Result the return string is "10" + CLType.serialize for "Ok" inner CLType + CLType.serialize for "Err" inner CLType
+    - CLType Map the return string is "11" + CLType.serialize for "key" inner CLType + CLType.serialize for "value" inner CLType
+    - CLType Tuple1 the return string is "12" + CLType.serialize for Tuple1 inner CLType
+    - CLType Tuple2 the return string is "13" + CLType.serialize for Tuple2 inner CLType 1 + CLType.serialize for Tuple2 inner CLType 2
+    - CLType Tuple3 the return string is "14" + CLType.serialize for Tuple3 inner CLType 1 + CLType.serialize for Tuple3 inner CLType 2 + CLType.serialize for Tuple3 inner CLType 3
+    - CLType Any the return string is "15"
+    - CLType PublicKey the return string is "16"
+* CLParse serialization
+The CLParse serialization is done with the reference to the document at this address:
+
+https://casper.network/docs/design/serialization-standard#serialization-standard-state-keys
+
+and the work of serialization is done through the class CLParseSerializeHelper which declared in file CLParseSerializeHelper.h and CLParseSerializeHelper.m
+
+This class provides all the function necessary to serialize for all parsed value of all 23 possible values of CLType, for example the function : 
+
+ ```ObjectiveC
++(NSString*) serializeFromCLParseInt32:(CLParsed*) fromCLParse;
+ ```
+ 
+ is for Int32 serialization, or 
+
+ ```ObjectiveC
++(NSString*) serializeFromCLParseTuple2:(CLParsed*) fromCLParse;
+ ```
+ 
+ is for the parsed of CLType Tuple2 serialization.
+
+* Deploy serialization
+
