@@ -116,9 +116,9 @@ Other comments on the test implementation:
  
  https://docs.rs/casper-types/1.4.6/casper_types/enum.CLType.html
  
- The CLType when put into usage is part of a CLValue object.
+ In ObjectiveC, the CLType when put into usage is part of a CLValue object.
  
- To more detail, a CLValue can be like this:
+ To more detail, a CLValue holds the information like this:
  
  ```ObjectiveC
  {
@@ -154,13 +154,13 @@ or
 The CLValue is built up with 3 elements: cl_type, parsed and bytes.
 In the examples above, 
  * For the first example:
- - The cl_type is: U512 
- - The parsed is: "100000000" 
- - The bytes is: "0400e1f505"  
+   - The cl_type is: U512 
+   - The parsed is: "100000000" 
+   - The bytes is: "0400e1f505"  
 
  * For the second example: 
- - The cl_type is: List(Map(String,String))
- - The parsed is: 
+   - The cl_type is: List(Map(String,String))
+   - The parsed is: 
  
  ```ObjectiveC
  "[
@@ -173,7 +173,7 @@ In the examples above,
        ]"
   ```
   
- - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+   - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
  
 In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
  
@@ -192,5 +192,18 @@ This class also provide a supporter function to parse a JSON object to CLValue o
 
 When get information for a deploy, for example, the args of the payment/session or items in the execution_results can hold CLValue values, and they will be turned to CLValue object in ObjectiveC to support the work of storing information and doing the serialization.
 
+ ## Casper Domain Specific Objects
 
+ All of the main Casper Domain Specific Objects is built in ObjectiveC with classes like Deploy, DeployHeader, ExecutionDeployItem, NamedArg, Approval,  JsonBlock, JsonBlockHeader, JsonEraEnd, JsonEraReport, JsonBlockBody, JsonProof, ValidatorWeight, Reward, ... and so on. All the class belonging to the RPC call is built to store coressponding information.
+ 
+ ## Serialization
+ 
+ The serialization is build for the following classes & objects:
+  
+  - CLType serialization
+  - CLParse serialization
+  - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
+
+In detail:
+ - CLType serialization based on the rules:
  
