@@ -207,9 +207,10 @@ When get information for a deploy, for example, the args of the payment/session 
 In detail:
  ###  CLType serialization
  The CLType serialization is processed in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization result is a string for that type. The returned string is  based on the following rule:
-    - CLType Bool the return string is "00"
-    - CLType Int32 the return string is "01"
-    - CLType Int64 the return string is "02"
+ 
+    * CLType Bool the return string is "00"
+    * CLType Int32 the return string is "01"
+    * CLType Int64 the return string is "02"
     - CLType U8 the return string is "03"
     - CLType U32 the return string is "04"
     - CLType U64 the return string is "05"
