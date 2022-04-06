@@ -164,7 +164,6 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
         NSString * first2 = [fromNumberInStr substringToIndex:2];
         int value = (int) [first2 integerValue];
         if (value < 16) {
-            //ret = [NSString stringWithFormat:@"%@0",ret];
             startIndex = 3;
             //take 3 character
             NSString * first3 = [fromNumberInStr substringToIndex:3];
@@ -184,7 +183,7 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
             int nextCharValue = (int) [nextChar integerValue];
             int nextValue = remainder * 10 + nextCharValue;
             if(nextValue<16) {
-                if(startIndex + 2 <= strLength) {//???
+                if(startIndex + 2 <= strLength) {
                     ret = [NSString stringWithFormat:@"%@0",ret];
                     NSString * nextChar  = [fromNumberInStr substringWithRange:NSMakeRange(startIndex,2)];
                     int nextCharValue = (int) [nextChar integerValue];
@@ -284,8 +283,7 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
     return @"NONE";
 }
 
-
-///Reverse a string, each 2 digits swap, used to get the correct order of the result of decimal to hexa
+///Function to do the work of reversing a string, each 2 digits in a swap, used to get the correct order of the result of decimal to hexa
 +(NSString*) stringReversed2Digit:(NSString*) fromString {
     NSMutableString *reversedString = [NSMutableString string];
     NSInteger charIndex = [fromString length];
@@ -296,7 +294,7 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
     }
     return  reversedString;
 }
-///Reverse a string, used to get the correct order of the result of decimal to hexa
+///Function to do the work of reversing a string, used to get the correct order of the result of decimal to hexa
 +(NSString*) stringReversed:(NSString*) fromString {
     NSMutableString *reversedString = [NSMutableString string];
     NSInteger charIndex = [fromString length];

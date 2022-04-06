@@ -13,9 +13,9 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
 +(NSString*) from10To16:(int) number;
 ///Function that changes number from decimal to hexa in bytes
 +(NSString*) from10To16Bytes:(int) number;
-///Reverse a string, used to get the correct order of the result of decimal to hexa
+///Function to do the work of reversing a string, used to get the correct order of the result of decimal to hexa
 +(NSString*) stringReversed:(NSString*) fromString;
-///Reverse a string, each 2 digits swap, used to get the correct order of the result of decimal to hexa
+///Function to do the work of reversing a string, each 2 digits in a swap, used to get the correct order of the result of decimal to hexa
 +(NSString*) stringReversed2Digit:(NSString*) fromString;
 
 /**

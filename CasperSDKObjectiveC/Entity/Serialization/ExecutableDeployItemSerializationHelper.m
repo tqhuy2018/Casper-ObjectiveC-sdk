@@ -39,7 +39,7 @@
         ret = [NSString stringWithFormat:@"%@%@",ret,runtimeArgsSerialization];
     } else if ([input.itsType isEqualToString:EDI_STORED_CONTRACT_BY_HASH]) {
         //prefix 01 for ExecutableDeployItem as type StoredContractByHash
-        //the result = "01" + hash + String.Serialize(entry_point) + Args.Serialized
+        //the result = "01" + hash + String.Serialize(entry_point) + args.Serialization
         ret = @"01";
         ExecutableDeployItem_StoredContractByHash * realItem = (ExecutableDeployItem_StoredContractByHash*) [input.itsValue objectAtIndex:0];
         NSString * entryPointSerialization = [CLParseSerializeHelper serializeFromCLParseString:[CLParsed clParsedWithType:CLTYPE_STRING andValue:realItem.entry_point]];
@@ -49,7 +49,7 @@
         return ret;
     } else if ([input.itsType isEqualToString:EDI_STORED_CONTRACT_BY_NAME]) {
         //prefix 02 for ExecutableDeployItem as type StoredContractByName
-        //the result = "02" + String.Serialize(name) + String.Serialize(entry_point) + Args.Serialized
+        //the result = "02" + String.Serialize(name) + String.Serialize(entry_point) + Args.Serialization
         ret = @"02";
         ExecutableDeployItem_StoredContractByName * realItem = (ExecutableDeployItem_StoredContractByName*) [input.itsValue objectAtIndex:0];
         NSString * nameSerialization = [CLParseSerializeHelper serializeFromCLParseString:[CLParsed clParsedWithType:CLTYPE_STRING andValue:realItem.name]];
