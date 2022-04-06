@@ -17,6 +17,7 @@
 @implementation GetDictionaryItemTest
 
 - (void) getDictionaryItem:(NSString*) jsonString  withCallIndex:(NSString*) callIndex{
+    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get dictionary item"];
     NSString * casperURL = URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";

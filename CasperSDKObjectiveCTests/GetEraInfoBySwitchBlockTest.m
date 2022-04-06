@@ -12,6 +12,7 @@
 
 @implementation GetEraInfoBySwitchBlockTest
 - (void) getEraInfo:(NSString*) jsonString withCallIndex:(NSString*) callIndex {
+    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get era info"];
     NSString * casperURL =  URL_TEST_NET;
     casperURL = URL_MAIN_NET;

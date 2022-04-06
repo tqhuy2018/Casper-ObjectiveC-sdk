@@ -1,21 +1,19 @@
 #import <Foundation/Foundation.h>
 #import "ExecutableDeployItemSerializationHelper.h"
 #import "ConstValues.h"
-
+#import "NamedArg.h"
+#import "CLParsed.h"
+#import "CLValue.h"
+#import "CLType.h"
+#import "NumberSerialize.h"
+#import "CLTypeSerializeHelper.h"
+#import "CLParseSerializeHelper.h"
+#import "ExecutableDeployItem_Transfer.h"
 #import "ExecutableDeployItem_ModuleBytes.h"
 #import "ExecutableDeployItem_StoredContractByHash.h"
 #import "ExecutableDeployItem_StoredContractByName.h"
 #import "ExecutableDeployItem_StoredVersionedContractByHash.h"
 #import "ExecutableDeployItem_StoredVersionedContractByName.h"
-#import "ExecutableDeployItem_Transfer.h"
-
-#import "CLParseSerializeHelper.h"
-#import "NumberSerialize.h"
-#import "NamedArg.h"
-#import "CLParsed.h"
-#import "CLValue.h"
-#import "CLType.h"
-#import "CLTypeSerializeHelper.h"
 @implementation ExecutableDeployItemSerializationHelper
 +(NSString*) serializeForExecutableDeployItem:(ExecutableDeployItem*) input {
     NSString * ret = @"";

@@ -2,7 +2,7 @@
 #import "Utils.h"
 @implementation Utils
 ///This function change timestamp in format of "2020-11-17T00:39:24.072Z" to millisecondsSince1970 U64 number in String format like this "1605573564072"
-+(uint64_t ) fromTimeStampToU64Str:(NSString*) timeStamp {
++(UInt64 ) fromTimeStampToU64Str:(NSString*) timeStamp {
     //Get the miliseconds
     NSArray * elements = [timeStamp componentsSeparatedByString:@"."];
     NSString * miliSecondsZ = (NSString*) elements[1];
@@ -14,18 +14,18 @@
     NSDate * date = [dateFormatter dateFromString:realTime];
     double ms2 = [date timeIntervalSince1970];
     double totalSeconds = ms2 * 1000 + ms;
-    uint64_t ret64 = (uint64_t) totalSeconds;
+    UInt64 ret64 = (UInt64) totalSeconds;
    // ret = [NSString stringWithFormat:@"%llu",ret64];
     return ret64;
 }
 ///This function change time to live (ttl) in format of "1d" or "2h" or "3m" to U64 number in String format
 ///value of time to live (ttl) based on this site https://docs.rs/humantime/latest/humantime/fn.parse_duration.html
-+(uint64_t) fromTimeToLiveToU64Str:(NSString*) ttl {
++(UInt64) fromTimeToLiveToU64Str:(NSString*) ttl {
     //check for ttl in format of "3d 2h" or "1d 2h 6m"
     if ([ttl containsString:@" "]) {
         NSArray * elements = [ttl componentsSeparatedByString:@" "];
         int totalElements = (int)[elements count];
-        uint64_t valueBack = 0;
+        UInt64 valueBack = 0;
         for(int i = 0 ; i < totalElements; i ++ ) {
             valueBack = valueBack + [Utils fromTimeToLiveToU64Str:(NSString *)[elements objectAtIndex:i]];
         }

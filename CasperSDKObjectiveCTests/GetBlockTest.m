@@ -10,6 +10,7 @@
 @implementation GetBlockTest
 
 - (void) getBlock:(NSString*) jsonString withCallIndex:(NSString*) callIndex {
+    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get block"];
     NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";

@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "Deploy.h"
 #import "DeployHeader.h"
+#import "Approval.h"
 /**Class built for storing Deploy information
  */
 @implementation Deploy
@@ -9,6 +10,11 @@
 +(Deploy*) fromJsonDictToDeploy:(NSDictionary*) fromDict {
     Deploy * ret = [[Deploy alloc] init];
     ret.itsHash = fromDict[@"hash"];
+    NSArray * listApprovals = (NSArray*) fromDict[@"approvals"];
+    int totalApproval = (int) [listApprovals count];
+    if(totalApproval > 0) {
+        ret.approvals = [Approval fromArrayToListApproval:listApprovals];
+    }
     ret.header = [DeployHeader fromJsonDictToDeployHeader:fromDict[@"header"]];
     ret.payment = [ExecutableDeployItem fromJsonDictToExecutableDeployItem:fromDict[@"payment"]];
     ret.session = [ExecutableDeployItem fromJsonDictToExecutableDeployItem:fromDict[@"session"]];

@@ -73,6 +73,7 @@
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
 		908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */; };
+		909064D427FD33BB0070BC5C /* Approval.m in Sources */ = {isa = PBXBuildFile; fileRef = 909064D327FD33BB0070BC5C /* Approval.m */; };
 		9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9091ABBA27E632A1002A51F1 /* UnbondingPurse.m */; };
 		9092A24C27DF393B00D0361C /* GetBlockResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24B27DF393B00D0361C /* GetBlockResult.m */; };
 		9092A24F27DF398700D0361C /* JsonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9092A24E27DF398700D0361C /* JsonBlock.m */; };
@@ -244,6 +245,8 @@
 		908A6A5927E23A9600D850AD /* GetDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetDeployParams.m; sourceTree = "<group>"; };
 		908E6D3427E2BD45003C17CC /* RuntimeArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeArgs.h; sourceTree = "<group>"; };
 		908E6D3527E2D8F9003C17CC /* RuntimeArgs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeArgs.m; sourceTree = "<group>"; };
+		909064D227FD33AE0070BC5C /* Approval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Approval.h; sourceTree = "<group>"; };
+		909064D327FD33BB0070BC5C /* Approval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Approval.m; sourceTree = "<group>"; };
 		9091ABB927E6329A002A51F1 /* UnbondingPurse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnbondingPurse.h; sourceTree = "<group>"; };
 		9091ABBA27E632A1002A51F1 /* UnbondingPurse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnbondingPurse.m; sourceTree = "<group>"; };
 		9092A24A27DF393400D0361C /* GetBlockResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBlockResult.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				9076288C27E0D3F200D00892 /* GetDeployResult.m */,
 				907628A727E0DE2100D00892 /* NamedArg.h */,
 				907628A827E0DE3300D00892 /* NamedArg.m */,
+				909064D227FD33AE0070BC5C /* Approval.h */,
+				909064D327FD33BB0070BC5C /* Approval.m */,
 			);
 			path = GetDeploy;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				9094250527EA28CE00351197 /* JsonValidatorWeights.m in Sources */,
 				9095D97B27DE0F3600D58545 /* Transfer.m in Sources */,
 				9095581A27D833D0001AE414 /* CasperSDKObjectiveC.docc in Sources */,
+				909064D427FD33BB0070BC5C /* Approval.m in Sources */,
 				9079790527DC966100B69B4E /* GetStateRootHash.m in Sources */,
 				9076289A27E0D90200D00892 /* ExecutableDeployItem_StoredContractByHash.m in Sources */,
 				90955F2127E15CA000F0FE7A /* CLParsed.m in Sources */,

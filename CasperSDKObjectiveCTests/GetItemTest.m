@@ -13,6 +13,7 @@
 @implementation GetItemTest
 
 - (void) getItem:(NSString*) jsonString withCallIndex:(NSString*) callIndex {
+    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get item"];
     NSString * casperURL = URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];

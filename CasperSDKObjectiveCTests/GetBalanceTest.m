@@ -10,6 +10,7 @@
 @implementation GetBalanceTest
 
 - (void) getBalance:(NSString*) jsonString {
+    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get balance"];
     NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
