@@ -15,7 +15,6 @@
 
 @implementation GetDeployTest
 - (void) getDeploy:(NSString*) jsonString {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get deploy"];
     NSString * casperURL =  URL_TEST_NET;
    // casperURL = URL_MAIN_NET;

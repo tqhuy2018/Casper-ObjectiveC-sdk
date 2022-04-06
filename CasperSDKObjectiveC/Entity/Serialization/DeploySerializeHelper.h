@@ -5,7 +5,7 @@
 /**
  This class do the work of serialize the Deploy object
  */
-@interface DeploySerialize:NSObject
+@interface DeploySerializeHelper:NSObject
 /**
  Serialization for the Deploy Header
  Rule for serialization:

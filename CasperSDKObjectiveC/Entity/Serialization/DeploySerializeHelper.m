@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
-#import "DeploySerialize.h"
+#import "DeploySerializeHelper.h"
 #import "CLParseSerializeHelper.h"
 #import "CLTypeSerializeHelper.h"
 #import "Utils.h"
 #import "ConstValues.h"
 #import "Approval.h"
 #import "ExecutableDeployItemSerializationHelper.h"
-@implementation DeploySerialize
+@implementation DeploySerializeHelper
 /**
  Serialization for the Deploy Header
  Rule for serialization:
@@ -82,11 +82,11 @@
  */
 +(NSString*) serializeForDeploy:(Deploy*) deploy {
     NSString * ret = @"";
-    ret = [DeploySerialize serializeForHeader:deploy.header];
+    ret = [DeploySerializeHelper serializeForHeader:deploy.header];
     ret = [NSString stringWithFormat:@"%@%@",ret,deploy.itsHash];
     NSString * paymentSerialization = [ExecutableDeployItemSerializationHelper serializeForExecutableDeployItem:deploy.payment];
     NSString * sessionSerialization = [ExecutableDeployItemSerializationHelper serializeForExecutableDeployItem:deploy.session];
-    NSString * approvalSerialization = [DeploySerialize serializeForDeployApproval:deploy.approvals];
+    NSString * approvalSerialization = [DeploySerializeHelper serializeForDeployApproval:deploy.approvals];
     ret = [NSString stringWithFormat:@"%@%@%@%@",ret,paymentSerialization,sessionSerialization,approvalSerialization];
     return ret;
 }

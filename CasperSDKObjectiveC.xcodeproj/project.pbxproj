@@ -17,7 +17,7 @@
 		9075817127F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817027F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m */; };
 		9075817527F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817427F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m */; };
 		9075817827F7B97E00D5022F /* CLTypeSerializeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817727F7B97E00D5022F /* CLTypeSerializeHelper.m */; };
-		9075817B27F8619B00D5022F /* DeploySerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817A27F8619B00D5022F /* DeploySerialize.m */; };
+		9075817B27F8619B00D5022F /* DeploySerializeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817A27F8619B00D5022F /* DeploySerializeHelper.m */; };
 		9075817D27F869D900D5022F /* Serialization_DeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817C27F869D900D5022F /* Serialization_DeployTest.m */; };
 		9075817F27F8AD7400D5022F /* QuotientNRemainder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075817E27F8AD7400D5022F /* QuotientNRemainder.m */; };
 		9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9076288C27E0D3F200D00892 /* GetDeployResult.m */; };
@@ -157,8 +157,8 @@
 		9075817427F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutableDeployItemSerializationHelper.m; sourceTree = "<group>"; };
 		9075817627F7B8F400D5022F /* CLTypeSerializeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTypeSerializeHelper.h; sourceTree = "<group>"; };
 		9075817727F7B97E00D5022F /* CLTypeSerializeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLTypeSerializeHelper.m; sourceTree = "<group>"; };
-		9075817927F8616300D5022F /* DeploySerialize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeploySerialize.h; sourceTree = "<group>"; };
-		9075817A27F8619B00D5022F /* DeploySerialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeploySerialize.m; sourceTree = "<group>"; };
+		9075817927F8616300D5022F /* DeploySerializeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeploySerializeHelper.h; sourceTree = "<group>"; };
+		9075817A27F8619B00D5022F /* DeploySerializeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeploySerializeHelper.m; sourceTree = "<group>"; };
 		9075817C27F869D900D5022F /* Serialization_DeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_DeployTest.m; sourceTree = "<group>"; };
 		9075817E27F8AD7400D5022F /* QuotientNRemainder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotientNRemainder.m; sourceTree = "<group>"; };
 		9076288B27E0D3E800D00892 /* GetDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetDeployResult.h; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 				9097335227F2C1EA009C18BF /* NumberSerialize.m */,
 				9075817327F7B33100D5022F /* ExecutableDeployItemSerializationHelper.h */,
 				9075817427F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m */,
-				9075817927F8616300D5022F /* DeploySerialize.h */,
-				9075817A27F8619B00D5022F /* DeploySerialize.m */,
+				9075817927F8616300D5022F /* DeploySerializeHelper.h */,
+				9075817A27F8619B00D5022F /* DeploySerializeHelper.m */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
@@ -948,7 +948,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90776BAF27E80277000CF3AF /* GetEraInfoResult.m in Sources */,
-				9075817B27F8619B00D5022F /* DeploySerialize.m in Sources */,
+				9075817B27F8619B00D5022F /* DeploySerializeHelper.m in Sources */,
 				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
 				908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */,
 				9089363027E86D600075035F /* Account.m in Sources */,

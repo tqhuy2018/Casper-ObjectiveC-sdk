@@ -13,7 +13,6 @@
 @implementation GetAuctionInfoTest
 
 - (void) getGetAuctionInfo:(NSString*) jsonString withCallIndex:(NSString*) callIndex {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get auction info"];
     NSString * casperURL = URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
