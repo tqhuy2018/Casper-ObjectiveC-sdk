@@ -263,12 +263,17 @@ Deploy header serialization = deployHeader.account + U64.serialize(deployHeader.
 
 The rule for ExecutableDeployItem serialization (deploy payment and deploy session):
 
- ```ObjectiveC
- - For ExecutableDeployItem of type ModuleBytes: Serialization result = "00" + String.serialize(module_bytes) + args.serialization
- - For ExecutableDeployItem of type StoredContractByHash: Serialization result = "01" + hash + String.serialize(entry_point) + args.serialization
- - For ExecutableDeployItem of type StoredContractByName: Serialization result =  "02" + String.serialize(name) + String.serialize(entry_point) + args.serialization
- - For ExecutableDeployItem of type StoredVersionedContractByHash: Serialization result = "03" + hash + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
- - For ExecutableDeployItem of type StoredVersionedContractByName: Serialization result = "04" + String.serialize(name) + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
- - For ExecutableDeployItem of type Transfer: Serialization result = "05" + args.serialization
- ```
+ - For ExecutableDeployItem of type ModuleBytes: 
+Serialization result = "00" + String.serialize(module_bytes) + args.serialization
+ - For ExecutableDeployItem of type StoredContractByHash: 
+Serialization result = "01" + hash + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredContractByName: 
+Serialization result =  "02" + String.serialize(name) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredVersionedContractByHash: 
+Serialization result = "03" + hash + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type StoredVersionedContractByName: 
+Serialization result = "04" + String.serialize(name) + Option(U32).serialize(version) + String.serialize(entry_point) + args.serialization
+ - For ExecutableDeployItem of type Transfer: 
+Serialization result = "05" + args.serialization
+
 
