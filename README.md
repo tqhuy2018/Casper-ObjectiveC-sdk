@@ -107,3 +107,90 @@ Other comments on the test implementation:
   -  [Get Balance](./Docs/Help.md#x-get-balance)
   
   -  [Get Auction Info](./Docs/Help.md#xi-get-auction-info)
+ 
+ # - ObjectiveC version of CLType primitives, Casper Domain Specific Objects and Serialization
+ 
+ ## CLType primitives
+ 
+ The CLType is an enum variables, defined at this address: (for Rust version)
+ 
+ https://docs.rs/casper-types/1.4.6/casper_types/enum.CLType.html
+ 
+ The CLType when put into usage is part of a CLValue object.
+ 
+ To more detail, a CLValue can be like this:
+ 
+ ```ObjectiveC
+ {
+"bytes":"0400e1f505"
+"parsed":"100000000"
+"cl_type":"U512"
+}
+```
+
+or
+
+
+ ```ObjectiveC
+ {
+"bytes":"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+"parsed":[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+]
+"cl_type":{
+        "List":{
+           "Map":{
+           "key":"String"
+           "value":"String"
+           }
+      }
+}
+ ```
+The CLValue is built up with 3 elements: cl_type, parsed and bytes.
+In the examples above, 
+ * For the first example:
+ - The cl_type is: U512 
+ - The parsed is: "100000000" 
+ - The bytes is: "0400e1f505"  
+
+ * For the second example: 
+ - The cl_type is: List(Map(String,String))
+ - The parsed is: 
+ 
+ ```ObjectiveC
+ "[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+       ]"
+  ```
+  
+ - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+ 
+In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
+ 
+The "parsed" is wrapped in CLParsed class, which is declared in  CLParsed.h and CLParsed.m file. The CLParsed class stores all information need when you want to declare a CLParsed object, and also this class provides functions to turn JSON object to CLParsed object and supporter function such as function to check if the CLParsed hold pure value of CLType object or with hold value of recursive CLType object inside its body.
+
+ To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
+  
+ ```ObjectiveC
+@interface CLValue:NSObject
+@property NSString * bytes;
+@property CLType * cl_type;
+@property CLParsed * parsed;
+@end
+ ```
+This class also provide a supporter function to parse a JSON object to CLValue object.
+
+When get information for a deploy, for example, the args of the payment/session or items in the execution_results can hold CLValue values, and they will be turned to CLValue object in ObjectiveC to support the work of storing information and doing the serialization.
+
+
+ 
