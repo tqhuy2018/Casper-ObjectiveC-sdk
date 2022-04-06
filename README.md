@@ -251,6 +251,8 @@ This class provides all the function necessary to serialize for all parsed value
  ```
  
  is for the parsed of CLType Tuple2 serialization.
+ 
+ The big number (U128, U256, U512) value serialization is done through the class NumberSerialize which defined in "NumberSerialize.h" and "NumberSerialize.m" file. This class also handle some helper method for smaller number serialization, such as U32, U64, U8, I32, I64.
 
 ### Deploy serialization
 
