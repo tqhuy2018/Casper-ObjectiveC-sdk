@@ -97,6 +97,10 @@
     return @"";
 }
 ///This function serialize  CLValue of type  Key
+///Rule for serialization:
+///For type of account hash: "00" + value drop the prefix "account-hash-"
+///For type hash: "01" + value drop the prefix "hash-"
+///For type URef: same like CLValue of CLType URef serialization
 +(NSString*) serializeFromCLParseKey:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     NSString * keyStr = fromCLParse.itsValueStr;
@@ -115,6 +119,8 @@
     return ret;
 }
 ///This function serialize  CLValue of type  URef
+///Sample serialization for value : uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007
+///Return result will be be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c607
 +(NSString*) serializeFromCLParseURef:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     NSString * keyStr = fromCLParse.itsValueStr;
@@ -138,6 +144,9 @@
     return fromCLParse.itsValueStr;
 }
 ///This function serialize  CLValue of type  Option
+///Rule for Option serialization:
+///If the value inside the Option is Null, return "00"
+///else return "01" + (Option.inner parse value).serialization
 +(NSString*) serializeFromCLParseOption:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     if([fromCLParse.itsValueStr isEqualToString:CLPARSED_NULL_VALUE]) {
@@ -162,7 +171,12 @@
     }
     return ret;
 }
-///This function serialize  CLValue of type  Map
+///This function serialize  CLValue of type  Map, the rule for serialization:
+///If the map is empty return "00000000"
+///else
+///First get the size of the map, then get the U32.serialize of the map size, let call it lengthSerialization
+///For 1 pair (key,value) the serialization is key.serialization + value.serialization
+///map.serialization = lengthSerialization +  concatenation of all pair(key,value)
 +(NSString*) serializeFromCLParseMap:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     //Value of CLParseMap is stored with innerParsed1 and innerParsed2  as List taken into used, for key and value array
@@ -181,7 +195,10 @@
     }
     return ret;
 }
-///This function serialize  CLValue of type  Result
+///This function serialize  CLValue of type  Result, the rule is:
+///If the result is Ok, then the prefix = "01"
+///If the result is Err, then the prefix = "00"
+///result = prefix + (inner CLParse value).serialized
 +(NSString*) serializeFromCLParseResult:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     NSString * prefix = @"";
@@ -193,17 +210,16 @@
     ret = [CLParseSerializeHelper serializeFromCLParse:fromCLParse.innerParsed1];
     ret = [NSString stringWithFormat:@"%@%@",prefix,ret];
     return ret;
-    
 }
 
-///This function serialize  CLValue of type  Tuple1
+///This function serialize  CLValue of type  Tuple1, the result is the serialization of the CLParse inner value in the Tuple1
 +(NSString*) serializeFromCLParseTuple1:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     ret  = [CLParseSerializeHelper serializeFromCLParse:fromCLParse.innerParsed1];
     return ret;
 }
 
-///This function serialize  CLValue of type  Tuple2
+///This function serialize  CLValue of type  Tuple2,  the result is the concatenation of 2 inner CLParse values in the Tuple2
 +(NSString*) serializeFromCLParseTuple2:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     ret  = [CLParseSerializeHelper serializeFromCLParse:fromCLParse.innerParsed1];
@@ -212,7 +228,7 @@
     return ret;
 }
 
-///This function serialize  CLValue of type  Tuple3
+///This function serialize  CLValue of type  Tuple3, the result is the concatenation of 3 inner CLParse values in the Tuple3
 +(NSString*) serializeFromCLParseTuple3:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     ret  = [CLParseSerializeHelper serializeFromCLParse:fromCLParse.innerParsed1];

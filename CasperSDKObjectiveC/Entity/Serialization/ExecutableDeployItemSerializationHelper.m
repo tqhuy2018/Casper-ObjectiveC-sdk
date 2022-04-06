@@ -14,7 +14,12 @@
 #import "ExecutableDeployItem_StoredContractByName.h"
 #import "ExecutableDeployItem_StoredVersionedContractByHash.h"
 #import "ExecutableDeployItem_StoredVersionedContractByName.h"
+/**
+ This class do the work of serialize the ExecutableDeployItem object, which is an enum type object
+ */
 @implementation ExecutableDeployItemSerializationHelper
+
+///This function do the serialization for ExecutableDeployItem, which can be among 1 of 6 value type: ModuleBytes, StoredContractByHash, StoredContractByName, StoredVersionedContractByHash, StoredVersionedContractByName, Transfer
 +(NSString*) serializeForExecutableDeployItem:(ExecutableDeployItem*) input {
     NSString * ret = @"";
     //Serialization for ModuleBytes
@@ -118,7 +123,8 @@
     }
     return ret;
 }
-///serialization for NameArgList, which stored in RuntimeArgs class
+
+///This function do the serialization for NameArgList, which stored in RuntimeArgs class
 +(NSString *) serializeForRuntimeArgs:(RuntimeArgs*) input {
     NSString * ret = @"";
     int totalNamedArg = (int) input.listArgs.count;
