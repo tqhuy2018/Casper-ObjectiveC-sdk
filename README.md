@@ -76,7 +76,7 @@ To test package run this command line:
 xcodebuild test -scheme CasperSDKObjectiveCTests
 ```
 
-Other comments on the test implementation:
+### Other comments on the test implementation:
 
 
 There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
