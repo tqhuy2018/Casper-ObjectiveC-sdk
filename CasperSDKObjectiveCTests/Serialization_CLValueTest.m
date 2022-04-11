@@ -5,6 +5,7 @@
 #import "CLParsed.h"
 #import "ConstValues.h"
 #import "CLType.h"
+#import "CLValue.h"
 @interface Serialization_CLValueTest : XCTestCase
 
 @end

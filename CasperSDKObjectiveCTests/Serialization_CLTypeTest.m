@@ -123,6 +123,5 @@
     CLType * typePublicKey = [[CLType alloc] init];
     typePublicKey.itsType = CLTYPE_PUBLICKEY;
     XCTAssert([[CLTypeSerializeHelper serializeForCLType:typePublicKey] isEqualToString:@"16"]);
-
 }
 @end
