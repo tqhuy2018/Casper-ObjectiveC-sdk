@@ -313,6 +313,35 @@ This class also provide a supporter function to parse a JSON object to CLValue o
 
 When get information for a deploy, for example, the args of the payment/session or items in the execution_results can hold CLValue values, and they will be turned to CLValue object in ObjectiveC to support the work of storing information and doing the serialization.
 
+### Example of declaring CLValue object
+
+Take this CLValue in JSON
+
+ ```ObjectiveC
+ {
+"bytes":"0400e1f505"
+"parsed":"100000000"
+"cl_type":"U512"
+}
+```
+
+This JSON will turn to a CLValue like this:
+
+ ```ObjectiveC
+ CLValue * clValue = [[CLValue alloc] init];
+ //assignment for bytes
+ clValue.bytes = @"0400e1f505";
+ //assignment for parsed
+ CLParsed * parsed = [[CLParsed alloc] init];
+ parsed.itsValueStr = @"100000000";
+ parsed.itsCLTypeStr = CLTYPE_U512;
+ clValue.parsed = parsed;
+ //assignment for cl_type
+ CLType * clType = [[CLType alloc] init];
+ clType.itsType = CLTYPE_U512;
+ clValue.cl_type = clType;
+```
+
  ## Casper Domain Specific Objects
 
  All of the main Casper Domain Specific Objects is built in ObjectiveC with classes like Deploy, DeployHeader, ExecutionDeployItem, NamedArg, Approval,  JsonBlock, JsonBlockHeader, JsonEraEnd, JsonEraReport, JsonBlockBody, JsonProof, ValidatorWeight, Reward, ... and so on. All the class belonging to the RPC call is built to store coressponding information.
