@@ -175,7 +175,7 @@ In the examples above,
   
      - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
      
-### In more detail
+### CLType in detail
 
 In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
 
@@ -220,9 +220,44 @@ To declare for a CLType of type List(Map(String,U32)):
     typeList.itsType = CLTYPE_LIST;
     typeList.innerType1 = typeMap;
   ```
-  
+
+### CLParsed in detail 
+
 The "parsed" is wrapped in CLParsed class, which is declared in  CLParsed.h and CLParsed.m file. The CLParsed class stores all information need when you want to declare a CLParsed object, and also this class provides functions to turn JSON object to CLParsed object and supporter function such as function to check if the CLParsed hold pure value of CLType object or with hold value of recursive CLType object inside its body.
 
+The main properties of the CLParsed object are:
+
+ ```ObjectiveC
+@property CLType * itsCLType;
+@property NSString * itsValueStr;
+@property CLParsed * innerParsed1;
+@property CLParsed * innerParsed2;
+@property CLParsed * innerParsed3;
+ ```
+
+ In which the property "itsCLType" is to hold CLType of the CLParsed object, which can be 1 among 23 possible value from "Bool", "I32","I64", "U8" ... to "Tuple1", "Tuple2", "Tuple3" and "Any".
+ 
+The innerParsed1 is to hold the inner CLParsed object for the following CLType: List, Tuple1, Option
+
+The innerParsed1 and innerParsed2 is to hold the inner CLParsed for the following CLType: Map, Result, Tuple2
+
+The innerParsed1 and innerParsed2 and innerParsed3 is to hold the inner CLParsed for the following CLType: Tuple3
+
+
+#### Here are some examples of declaring the CLParsed object for some types: 
+
+To declare for a CLParsed of type U512 with value "1234":
+
+ ```ObjectiveC
+ CLParsed * parseU512 = [[CLParsed alloc] init];
+ CLType * typeU512 = [[CLType alloc] init];
+ typeU512.itsType = CLTYPE_U512;
+ parseU512.itsValueStr = @"1234";
+ parseU512.itsCLType = typeU512;
+ ```
+ 
+ ### CLValue in detail
+ 
  To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
   
  ```ObjectiveC
