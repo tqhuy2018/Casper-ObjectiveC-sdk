@@ -76,11 +76,11 @@ To test package run this command line:
 xcodebuild test -scheme CasperSDKObjectiveCTests
 ```
 
-Other comments on the test implementation:
+### Other comments on the test implementation:
 
-* There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
 
-* To see test result of Milestone 1, please search this text "M1: chain_get_state_root_hash test cases" for the result of "chain_get_state_root_hash" RPC call and search for text "M1: info_get_peers test cases" for the result of "info_get_peers" RPC call in the Test log. The rest result is for M2 information log.
+There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
+
 
 # Documentation for classes and methods
 
@@ -174,11 +174,132 @@ In the examples above,
   ```
   
      - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
- 
+     
+### CLType in detail
+
 In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
+
+The main properties of the CLType object are:
+
+ ```ObjectiveC
+@property NSString * itsType;
+@property CLType * innerType1;
+@property CLType * innerType2;
+@property CLType * innerType3;
+ ```
  
+ In which the property "itsType" is to hold information of the CLType type, which can be 1 among 23 possible value from "Bool", "I32","I64", "U8" ... to "Tuple1", "Tuple2", "Tuple3" and "Any".
+ 
+The innerType1 is to hold the inner CLType for the following CLType: List, Tuple1, Option
+
+The innerType1 and innerType2 is to hold the inner CLType for the following CLType: Map, Result, Tuple2
+
+The innerType1 and innerType2 and innerType3 is to hold the inner CLType for the following CLType: Tuple3
+
+#### Here are some examples of declaring the CLType object for some types: 
+
+To declare for a CLType of type Bool:
+  
+ ```ObjectiveC
+  CLType * typeBool = [[CLType alloc] init];
+  typeBool.itsType = CLTYPE_BOOL;
+  ```
+  
+To declare for a CLType of type List(Map(String,U32)):
+  
+ ```ObjectiveC
+    CLType * mapKeyType = [[CLType alloc] init];
+    mapKeyType.itsType = CLTYPE_STRING;
+    CLType * mapValueType = [[CLType alloc] init];
+    mapValueType.itsType = CLTYPE_U32;
+    CLType * typeMap = [[CLType alloc] init];
+    typeMap.itsType = CLTYPE_MAP;
+    typeMap.innerType1 = mapKeyType;
+    typeMap.innerType2 = mapValueType;
+    CLType * typeList = [[CLType alloc] init];
+    typeList.itsType = CLTYPE_LIST;
+    typeList.innerType1 = typeMap;
+  ```
+
+### CLParsed in detail 
+
 The "parsed" is wrapped in CLParsed class, which is declared in  CLParsed.h and CLParsed.m file. The CLParsed class stores all information need when you want to declare a CLParsed object, and also this class provides functions to turn JSON object to CLParsed object and supporter function such as function to check if the CLParsed hold pure value of CLType object or with hold value of recursive CLType object inside its body.
 
+The main properties of the CLParsed object are:
+
+ ```ObjectiveC
+@property CLType * itsCLType;
+@property NSString * itsValueStr;
+@property CLParsed * innerParsed1;
+@property CLParsed * innerParsed2;
+@property CLParsed * innerParsed3;
+@property NSMutableArray * arrayValue;
+@property NSString * itsCLTypeStr;
+ ```
+
+ In which the property "itsCLType" is to hold CLType of the CLParsed object, which can be 1 among 23 possible value from "Bool", "I32","I64", "U8" ... to "Tuple1", "Tuple2", "Tuple3" and "Any".
+ 
+The property itsValueStr is to hold value of CLParsed that doesn't contain recursive CLParsed inside its body
+
+The property arrayValue is to hold value of List and FixedList elements
+ 
+The innerParsed1 is to hold the inner CLParsed object for the following CLType: Tuple1, Option
+
+The innerParsed1 and innerParsed2 is to hold the inner CLParsed for the following CLType: Map, Result, Tuple2
+
+The innerParsed1 and innerParsed2 and innerParsed3 is to hold the inner CLParsed for the following CLType: Tuple3
+
+itsCLTypeStr is a short way to get the direct CLType of the CLParsed. The value of itsCLTypeStr is 1 among 23 possible value of the CLType. With this attribute, you can know very fast the topmost CLType of the CLParsed (if the CLParsed hold recursive CLParsed inside its body, such as List, Map, Result, Option, Tuple1, Tuple2, Tuple3)
+
+#### Here are some examples of declaring the CLParsed object for some types: 
+
+To declare for a CLParsed of type U512 with value "1234":
+
+ ```ObjectiveC
+    CLParsed * parseU512 = [[CLParsed alloc] init];
+    CLType * typeU512 = [[CLType alloc] init];
+    typeU512.itsType = CLTYPE_U512;
+    parseU512.itsValueStr = @"1234";
+    parseU512.itsCLType = typeU512;
+ ```
+ or just simple like this:
+ 
+  ```ObjectiveC
+    CLParsed * parseU512 = [[CLParsed alloc] init];
+    parseU512.itsValueStr = @"1234";
+    parseU512.itsCLTypeStr = CLTYPE_U512;
+ ```
+ 
+To declare for a CLParsed of type List(I64) with the value of {10,20,30}:
+
+```ObjectiveC
+    CLParsed * parsedList = [[CLParsed alloc] init];
+    //Assign the cltype for clparsed
+    //Declare for the CLType
+    CLType * typeList = [[CLType alloc] init];
+    typeList.itsType = CLTYPE_LIST;
+    CLType * typeI64 = [[CLType alloc] init];
+    typeI64.itsType = CLTYPE_I64;
+    typeList.innerType1 = typeI64;
+    parsedList.itsCLType = typeList;
+    //Assign the value for CLParsed
+    CLParsed * parsed641 = [[CLParsed alloc] init];
+    parsed641.itsCLTypeStr = CLTYPE_U64;
+    parsed641.itsValueStr = @"10";
+    CLParsed * parsed642 = [[CLParsed alloc] init];
+    parsed642.itsCLTypeStr = CLTYPE_U64;
+    parsed642.itsValueStr = @"20";
+    CLParsed * parsed643 = [[CLParsed alloc] init];
+    parsed643.itsCLTypeStr = CLTYPE_U64;
+    parsed643.itsValueStr = @"30";
+    parsedList.arrayValue = [[NSMutableArray alloc] init];
+    [parsedList.arrayValue addObject:parsed641];
+    [parsedList.arrayValue addObject:parsed642];
+    [parsedList.arrayValue addObject:parsed643];
+ ```
+
+ ### CLValue in detail
+ 
  To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
   
  ```ObjectiveC
@@ -192,6 +313,104 @@ This class also provide a supporter function to parse a JSON object to CLValue o
 
 When get information for a deploy, for example, the args of the payment/session or items in the execution_results can hold CLValue values, and they will be turned to CLValue object in ObjectiveC to support the work of storing information and doing the serialization.
 
+### Example of declaring CLValue object
+
+Take this CLValue in JSON
+
+ ```ObjectiveC
+ {
+"bytes":"0400e1f505"
+"parsed":"100000000"
+"cl_type":"U512"
+}
+```
+
+This JSON will turn to a CLValue like this:
+
+ ```ObjectiveC
+ CLValue * clValue = [[CLValue alloc] init];
+ //assignment for bytes
+ clValue.bytes = @"0400e1f505";
+ //assignment for parsed
+ CLParsed * parsed = [[CLParsed alloc] init];
+ parsed.itsValueStr = @"100000000";
+ parsed.itsCLTypeStr = CLTYPE_U512;
+ clValue.parsed = parsed;
+ //assignment for cl_type
+ CLType * clType = [[CLType alloc] init];
+ clType.itsType = CLTYPE_U512;
+ clValue.cl_type = clType;
+```
+
+Take this CLValue in JSON:
+
+ ```ObjectiveC
+ {
+"bytes":"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+"parsed":[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+]
+"cl_type":{
+        "List":{
+           "Map":{
+           "key":"String"
+           "value":"String"
+           }
+      }
+}
+ ```
+ 
+ This JSON will turn to a CLValue like this:
+ 
+ ```ObjectiveC
+  CLValue * clValue = [[CLValue alloc] init];
+    //assignment for bytes
+    clValue.bytes = @"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b";
+    
+    //assignment for cl_type
+   CLType * mapKeyType = [[CLType alloc] init];
+   mapKeyType.itsType = CLTYPE_STRING;
+   CLType * mapValueType = [[CLType alloc] init];
+   mapValueType.itsType = CLTYPE_STRING;
+   CLType * typeMap = [[CLType alloc] init];
+   typeMap.itsType = CLTYPE_MAP;
+   typeMap.innerType1 = mapKeyType;
+   typeMap.innerType2 = mapValueType;
+   CLType * typeList = [[CLType alloc] init];
+   typeList.itsType = CLTYPE_LIST;
+   typeList.innerType1 = typeMap;
+    clValue.cl_type = typeList;
+    
+    //assignment for parsed
+    CLParsed * parsedList = [[CLParsed alloc] init];
+    parsedList.itsCLType = typeList;
+    //define the List inner Parsed type of ClParseMap
+    CLParsed * parsedMap = [[CLParsed alloc] init];
+    //to hold the key list of the map
+    parsedMap.innerParsed1 = [[CLParsed alloc] init];
+    CLParsed * key1 = [[CLParsed alloc] init];
+    key1.itsValueStr = @"token_uri";
+    key1.itsCLTypeStr = CLTYPE_U512;
+    parsedMap.innerParsed1.arrayValue = [[NSMutableArray alloc] init];
+    [parsedMap.innerParsed1.arrayValue addObject:key1];
+    //to hold the value list of the map
+    parsedMap.innerParsed2 = [[CLParsed alloc] init];
+    CLParsed * value1 = [[CLParsed alloc] init];
+    value1.itsValueStr = @"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk";
+    value1.itsCLTypeStr = CLTYPE_U512;
+    parsedMap.innerParsed2.arrayValue = [[NSMutableArray alloc] init];
+    [parsedMap.innerParsed2.arrayValue addObject:value1];
+    parsedList.innerParsed1 = [[CLParsed alloc] init];
+    parsedList.innerParsed1.arrayValue = [[NSMutableArray alloc] init];
+    [parsedList.innerParsed1.arrayValue addObject:parsedMap];
+    clValue.parsed = parsedList;
+```
+ 
  ## Casper Domain Specific Objects
 
  All of the main Casper Domain Specific Objects is built in ObjectiveC with classes like Deploy, DeployHeader, ExecutionDeployItem, NamedArg, Approval,  JsonBlock, JsonBlockHeader, JsonEraEnd, JsonEraReport, JsonBlockBody, JsonProof, ValidatorWeight, Reward, ... and so on. All the class belonging to the RPC call is built to store coressponding information.
@@ -205,7 +424,9 @@ When get information for a deploy, for example, the args of the payment/session 
   - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
 
 In detail:
+
  ###  CLType serialization
+ 
  The CLType serialization is processed in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization result is a string for that type. The returned string is  based on the following rule:
  
     - CLType Bool the return string is "00"
