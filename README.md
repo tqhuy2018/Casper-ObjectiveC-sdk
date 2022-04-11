@@ -174,7 +174,9 @@ In the examples above,
   ```
   
      - The bytes is: "010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
- 
+     
+### In more detail
+
 In ObjectiveC the "cl_type" is wrapped in CLType class, which is declared in  CLType.h and CLType.m file. The CLType class stores all information need when you want to declare a CLType, and also this class provides functions to turn JSON object to CLType object and supporter function such as function to check if the CLType hold pure value of CLType with recursive CLType inside its body.
 
 The main properties of the CLType object are:
@@ -189,9 +191,36 @@ The main properties of the CLType object are:
  In which the property "itsType" is to hold information of the CLType type, which can be 1 among 23 possible value from "Bool", "I32","I64", "U8" ... to "Tuple1", "Tuple2", "Tuple3" and "Any".
  
 The innerType1 is to hold the inner CLType for the following CLType: List, Tuple1, Option
+
 The innerType1 and innerType2 is to hold the inner CLType for the following CLType: Map, Result, Tuple2
+
 The innerType1 and innerType2 and innerType3 is to hold the inner CLType for the following CLType: Tuple3
 
+#### Here are some examples of declaring the CLType object for some types: 
+
+To declare for a CLType of type Bool:
+  
+ ```ObjectiveC
+  CLType * typeBool = [[CLType alloc] init];
+  typeBool.itsType = CLTYPE_BOOL;
+  ```
+  
+To declare for a CLType of type List(Map(String,U32)):
+  
+ ```ObjectiveC
+    CLType * mapKeyType = [[CLType alloc] init];
+    mapKeyType.itsType = CLTYPE_STRING;
+    CLType * mapValueType = [[CLType alloc] init];
+    mapValueType.itsType = CLTYPE_U32;
+    CLType * typeMap = [[CLType alloc] init];
+    typeMap.itsType = CLTYPE_MAP;
+    typeMap.innerType1 = mapKeyType;
+    typeMap.innerType2 = mapValueType;
+    CLType * typeList = [[CLType alloc] init];
+    typeList.itsType = CLTYPE_LIST;
+    typeList.innerType1 = typeMap;
+  ```
+  
 The "parsed" is wrapped in CLParsed class, which is declared in  CLParsed.h and CLParsed.m file. The CLParsed class stores all information need when you want to declare a CLParsed object, and also this class provides functions to turn JSON object to CLParsed object and supporter function such as function to check if the CLParsed hold pure value of CLType object or with hold value of recursive CLType object inside its body.
 
  To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
