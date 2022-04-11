@@ -233,29 +233,71 @@ The main properties of the CLParsed object are:
 @property CLParsed * innerParsed1;
 @property CLParsed * innerParsed2;
 @property CLParsed * innerParsed3;
+@property NSMutableArray * arrayValue;
+@property NSString * itsCLTypeStr;
  ```
 
  In which the property "itsCLType" is to hold CLType of the CLParsed object, which can be 1 among 23 possible value from "Bool", "I32","I64", "U8" ... to "Tuple1", "Tuple2", "Tuple3" and "Any".
  
-The innerParsed1 is to hold the inner CLParsed object for the following CLType: List, Tuple1, Option
+The property itsValueStr is to hold value of CLParsed that doesn't contain recursive CLParsed inside its body
+
+The property arrayValue is to hold value of List and FixedList elements
+ 
+The innerParsed1 is to hold the inner CLParsed object for the following CLType: Tuple1, Option
 
 The innerParsed1 and innerParsed2 is to hold the inner CLParsed for the following CLType: Map, Result, Tuple2
 
 The innerParsed1 and innerParsed2 and innerParsed3 is to hold the inner CLParsed for the following CLType: Tuple3
 
+itsCLTypeStr is a short way to get the direct CLType of the CLParsed. The value of itsCLTypeStr is 1 among 23 possible value of the CLType. With this attribute, you can know very fast the topmost CLType of the CLParsed (if the CLParsed hold recursive CLParsed inside its body, such as List, Map, Result, Option, Tuple1, Tuple2, Tuple3)
 
 #### Here are some examples of declaring the CLParsed object for some types: 
 
 To declare for a CLParsed of type U512 with value "1234":
 
  ```ObjectiveC
- CLParsed * parseU512 = [[CLParsed alloc] init];
- CLType * typeU512 = [[CLType alloc] init];
- typeU512.itsType = CLTYPE_U512;
- parseU512.itsValueStr = @"1234";
- parseU512.itsCLType = typeU512;
+    CLParsed * parseU512 = [[CLParsed alloc] init];
+    CLType * typeU512 = [[CLType alloc] init];
+    typeU512.itsType = CLTYPE_U512;
+    parseU512.itsValueStr = @"1234";
+    parseU512.itsCLType = typeU512;
+ ```
+ or just simple like this:
+ 
+  ```ObjectiveC
+    CLParsed * parseU512 = [[CLParsed alloc] init];
+    parseU512.itsValueStr = @"1234";
+    parseU512.itsCLTypeStr = CLTYPE_U512;
  ```
  
+To declare for a CLParsed of type List(I64) with the value of {10,20,30}:
+
+```ObjectiveC
+    CLParsed * parsedList = [[CLParsed alloc] init];
+    //Assign the cltype for clparsed
+    //Declare for the CLType
+    CLType * typeList = [[CLType alloc] init];
+    typeList.itsType = CLTYPE_LIST;
+    CLType * typeI64 = [[CLType alloc] init];
+    typeI64.itsType = CLTYPE_I64;
+    typeList.innerType1 = typeI64;
+    parsedList.itsCLType = typeList;
+    //Assign the value for CLParsed
+    CLParsed * parsed641 = [[CLParsed alloc] init];
+    parsed641.itsCLTypeStr = CLTYPE_U64;
+    parsed641.itsValueStr = @"10";
+    CLParsed * parsed642 = [[CLParsed alloc] init];
+    parsed642.itsCLTypeStr = CLTYPE_U64;
+    parsed642.itsValueStr = @"20";
+    CLParsed * parsed643 = [[CLParsed alloc] init];
+    parsed643.itsCLTypeStr = CLTYPE_U64;
+    parsed643.itsValueStr = @"30";
+    parsedList.arrayValue = [[NSMutableArray alloc] init];
+    [parsedList.arrayValue addObject:parsed641];
+    [parsedList.arrayValue addObject:parsed642];
+    [parsedList.arrayValue addObject:parsed643];
+ ```
+
  ### CLValue in detail
  
  To store information of one CLValue object, which include the following information: {bytes,parsed,cl_type}, this SDK uses a class with name CLValue, which is declared in CLValue.h and CLValue.m file. with main information like this:
