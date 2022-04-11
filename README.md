@@ -409,7 +409,7 @@ Take this CLValue in JSON:
     parsedList.innerParsed1.arrayValue = [[NSMutableArray alloc] init];
     [parsedList.innerParsed1.arrayValue addObject:parsedMap];
     clValue.parsed = parsedList;
-     ```
+```
  
  ## Casper Domain Specific Objects
 
@@ -424,7 +424,9 @@ Take this CLValue in JSON:
   - Deploy serialization (which include: Deploy header serialization, ExecutableDeployItem serialization for deploy payment and deploy session, Deploy Approvals serialization)
 
 In detail:
+
  ###  CLType serialization
+ 
  The CLType serialization is processed in CLTypeSerializeHelper.h and CLTypeSerializeHelper.m file. For each of the 23 possible types, the serialization result is a string for that type. The returned string is  based on the following rule:
  
     - CLType Bool the return string is "00"
