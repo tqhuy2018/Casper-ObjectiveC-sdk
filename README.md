@@ -342,6 +342,75 @@ This JSON will turn to a CLValue like this:
  clValue.cl_type = clType;
 ```
 
+Take this CLValue in JSON:
+
+ ```ObjectiveC
+ {
+"bytes":"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b"
+"parsed":[
+          [
+             {
+             "key":"token_uri"
+             "value":"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"
+             }
+          ]
+]
+"cl_type":{
+        "List":{
+           "Map":{
+           "key":"String"
+           "value":"String"
+           }
+      }
+}
+ ```
+ 
+ This JSON will turn to a CLValue like this:
+ 
+ ```ObjectiveC
+  CLValue * clValue = [[CLValue alloc] init];
+    //assignment for bytes
+    clValue.bytes = @"010000000100000009000000746f6b656e5f7572695000000068747470733a2f2f676174657761792e70696e6174612e636c6f75642f697066732f516d5a4e7a337a564e7956333833666e315a6762726f78434c5378566e78376a727134796a4779464a6f5a35566b";
+    
+    //assignment for cl_type
+   CLType * mapKeyType = [[CLType alloc] init];
+   mapKeyType.itsType = CLTYPE_STRING;
+   CLType * mapValueType = [[CLType alloc] init];
+   mapValueType.itsType = CLTYPE_STRING;
+   CLType * typeMap = [[CLType alloc] init];
+   typeMap.itsType = CLTYPE_MAP;
+   typeMap.innerType1 = mapKeyType;
+   typeMap.innerType2 = mapValueType;
+   CLType * typeList = [[CLType alloc] init];
+   typeList.itsType = CLTYPE_LIST;
+   typeList.innerType1 = typeMap;
+    clValue.cl_type = typeList;
+    
+    //assignment for parsed
+    CLParsed * parsedList = [[CLParsed alloc] init];
+    parsedList.itsCLType = typeList;
+    //define the List inner Parsed type of ClParseMap
+    CLParsed * parsedMap = [[CLParsed alloc] init];
+    //to hold the key list of the map
+    parsedMap.innerParsed1 = [[CLParsed alloc] init];
+    CLParsed * key1 = [[CLParsed alloc] init];
+    key1.itsValueStr = @"token_uri";
+    key1.itsCLTypeStr = CLTYPE_U512;
+    parsedMap.innerParsed1.arrayValue = [[NSMutableArray alloc] init];
+    [parsedMap.innerParsed1.arrayValue addObject:key1];
+    //to hold the value list of the map
+    parsedMap.innerParsed2 = [[CLParsed alloc] init];
+    CLParsed * value1 = [[CLParsed alloc] init];
+    value1.itsValueStr = @"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk";
+    value1.itsCLTypeStr = CLTYPE_U512;
+    parsedMap.innerParsed2.arrayValue = [[NSMutableArray alloc] init];
+    [parsedMap.innerParsed2.arrayValue addObject:value1];
+    parsedList.innerParsed1 = [[CLParsed alloc] init];
+    parsedList.innerParsed1.arrayValue = [[NSMutableArray alloc] init];
+    [parsedList.innerParsed1.arrayValue addObject:parsedMap];
+    clValue.parsed = parsedList;
+     ```
+ 
  ## Casper Domain Specific Objects
 
  All of the main Casper Domain Specific Objects is built in ObjectiveC with classes like Deploy, DeployHeader, ExecutionDeployItem, NamedArg, Approval,  JsonBlock, JsonBlockHeader, JsonEraEnd, JsonEraReport, JsonBlockBody, JsonProof, ValidatorWeight, Reward, ... and so on. All the class belonging to the RPC call is built to store coressponding information.
