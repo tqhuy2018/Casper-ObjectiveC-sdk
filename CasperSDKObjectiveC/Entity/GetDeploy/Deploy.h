@@ -14,6 +14,8 @@
  */
 +(Deploy*) fromJsonDictToDeploy:(NSDictionary*) fromDict;
 -(void) logInfo;
+/** This function generate the String parameter used for account_put_deploy RPC call, base on the deploy information itself, to send the deploy to the account_put_deploy RPC method*/
+-(NSString*) toPutDeployParameterStr;
 @end
 
 #endif

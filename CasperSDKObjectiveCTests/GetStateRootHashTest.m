@@ -33,6 +33,8 @@
             } else if([indexStr isEqualToString:@"call3"]) {
                 // call2 get state root hash base on block height 12345
                 XCTAssert([state_root_hash isEqualToString:@"a42c238d2d850b4d9c3efac6104bbfad6b91ce1ca38733c332e35a3459166a58"]);
+            } else if([indexStr isEqualToString:@"call1"]) {
+                XCTAssert([state_root_hash length] > 0);
             }
         } else {
             NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);

@@ -113,7 +113,11 @@
         NSDictionary * dict = [[NSDictionary alloc] init];
         dict = (NSDictionary*) fromObj;
         if (!(dict[@"Ok"] == nil)) {
-            ret = [CLParsed fromObjToCLParsed:(NSObject*) dict[@"Ok"] withCLType:clType];
+            ret.itsValueStr = @"Ok";
+            ret.innerParsed1 = [CLParsed fromObjToCLParsed:(NSObject*) dict[@"Ok"] withCLType:clType];
+        } else if (!(dict[@"Err"] == nil)) {
+            ret.itsValueStr = @"Err";
+            ret.innerParsed1 = [CLParsed fromObjToCLParsed:(NSObject*) dict[@"Err"] withCLType:clType];
         } else {
             ret.itsValueStr = CLTYPE_NULL_VALUE;
         }
@@ -261,5 +265,163 @@
     }
     return self;
 }
-
+/// Function to turn CLParsed object to Json string, used for account_put_deploy RPC method call.
++(NSString *) toJsonString:(CLParsed *) fromCLParsed {
+    NSString * ret = @"";
+    if([fromCLParsed.itsCLType isCLTypePrimitive]) {
+        return [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed];
+    } else {
+        return [CLParsed fromCompoundParsedToJsonString:fromCLParsed];
+    }
+    return ret;
+}
+/// Function to turn 1 CLType object of type primitive to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with no recursive CLType inside its body, such as Bool, U8, I32, I64, U32, U64, U128....
++(NSString *) fromPrimitiveParsedToJsonString:(CLParsed *) fromCLParsed {
+    if (fromCLParsed.itsCLType.itsType == CLTYPE_KEY) {
+        NSArray * arr = [fromCLParsed.itsValueStr componentsSeparatedByString:@"-"];
+        NSString * prefix = (NSString*) [arr objectAtIndex:0];
+        if ([prefix isEqualToString: @"account"]) {
+            return [[NSString alloc] initWithFormat:@"{\"Account\": \"%@\"}",fromCLParsed.itsValueStr];
+        } else if ([prefix isEqualToString: @"hash"]) {
+            return [[NSString alloc] initWithFormat:@"{\"Hash\": \"%@\"}",fromCLParsed.itsValueStr];
+        } else {
+            return [[NSString alloc] initWithFormat:@"{\"URef\": \"%@\"}",fromCLParsed.itsValueStr];
+        }
+    }
+    NSString * retStr = [[NSString alloc] initWithFormat:@"%@:%@",PARSED_FIXED_STR,fromCLParsed.itsValueStr];
+    return retStr;
+}
+/// Function to turn 1 CLParsed object of type CLType compound to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with recursive CLType inside its body, such as List, Option, Tuple1, Tuple2, Tuple3, Result, Map.
++(NSString *) fromCompoundParsedToJsonString:(CLParsed *) fromCLParsed {
+    NSString * ret = @"";
+    if(fromCLParsed.itsCLType.itsType == CLTYPE_OPTION) {
+        if(fromCLParsed.itsValueStr == CLTYPE_NULL_VALUE) {
+            return  CLTYPE_NULL_VALUE;
+        } else {
+            // parsed of cltype primitive
+            if ([fromCLParsed.itsCLType isCLTypePrimitive]) {
+                ret = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
+            } else { // parsed of cltype compound
+                ret = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];
+            }
+        }
+    } else if(fromCLParsed.itsCLType.itsType == CLTYPE_LIST) {
+        ret = @"[";
+        int totalListE = (int) fromCLParsed.arrayValue.count;
+        if(totalListE > 0) {
+            int counter = 0;
+            NSString * oneParsedStr = @"";
+            for(int i = 0 ; i < totalListE;i ++) {
+                CLParsed * oneParsed = (CLParsed*)[fromCLParsed.arrayValue objectAtIndex:i];
+                if ([oneParsed.itsCLType isCLTypePrimitive]) {
+                    oneParsedStr = [CLParsed fromPrimitiveParsedToJsonString:oneParsed];
+                } else {
+                    oneParsedStr = [CLParsed fromCompoundParsedToJsonString:oneParsed];
+                }
+                counter ++;
+                if(counter < totalListE - 1) {
+                    ret = [[NSString alloc] initWithFormat:@"%@%@,",ret,oneParsedStr];
+                } else {
+                    ret = [[NSString alloc] initWithFormat:@"%@%@]",ret,oneParsedStr];
+                }
+            }
+        } else {
+            return @"[]";
+        }
+        return ret;
+    }  else if(fromCLParsed.itsCLType.itsType == CLTYPE_RESULT) {
+        NSString * okErrStr = fromCLParsed.itsValueStr; // This get the value of Ok or Err
+        NSString * resultStr = @"";
+        if([fromCLParsed.innerParsed1.itsCLType isCLTypePrimitive]) {
+            resultStr = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
+        } else {
+            resultStr = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];
+        }
+        ret = [[NSString alloc] initWithFormat:@"{%@:%@}",okErrStr,resultStr];
+        return ret;
+    } else if(fromCLParsed.itsCLType.itsType == CLTYPE_MAP) {
+        int totalMapE = (int) [fromCLParsed.innerParsed1.arrayValue count];
+        if (totalMapE > 0) {
+            int counter = 0;
+            ret = @"[";
+            NSString * keyString = @"";
+            NSString * valueString = @"";
+            for(int i = 0; i < totalMapE; i ++) {
+                CLParsed * oneKeyParsed = (CLParsed*)[fromCLParsed.innerParsed1.arrayValue objectAtIndex:i];
+                if([oneKeyParsed.itsCLType isCLTypePrimitive]) {
+                    keyString = [CLParsed fromPrimitiveParsedToJsonString:oneKeyParsed];
+                } else {
+                    keyString = [CLParsed fromCompoundParsedToJsonString:oneKeyParsed];
+                }
+                CLParsed * oneValueParsed = (CLParsed*)[fromCLParsed.innerParsed2.arrayValue objectAtIndex:i];
+                if([oneValueParsed.itsCLType isCLTypePrimitive]) {
+                    valueString = [CLParsed fromPrimitiveParsedToJsonString:oneValueParsed];
+                } else {
+                    valueString = [CLParsed fromCompoundParsedToJsonString:oneValueParsed];
+                }
+                if(counter < totalMapE - 1) {
+                    ret = [[NSString alloc] initWithFormat:@"%@{\"key\": \%@,\"value\":%@},",ret,keyString,valueString];
+                } else {
+                    ret = [[NSString alloc] initWithFormat:@"%@{\"key\": \%@,\"value\":%@}]",ret,keyString,valueString];
+                }
+                counter ++;
+            }
+        } else {
+            return @"[]";
+        }
+    } else if(fromCLParsed.itsCLType.itsType == CLTYPE_TUPLE1) {
+        ret = @"[";
+        NSString * tupleStr = @"";
+        if([fromCLParsed.innerParsed1.itsCLType isCLTypePrimitive]) {
+            tupleStr = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
+        } else {
+            tupleStr = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];
+        }
+        ret = [[NSString alloc] initWithFormat:@"%@%@]",ret,tupleStr];
+        return ret;
+    }  else if(fromCLParsed.itsCLType.itsType == CLTYPE_TUPLE2) {
+        ret = @"[";
+        NSString * tupleStr1 = @"";
+        NSString * tupleStr2 = @"";
+        if([fromCLParsed.innerParsed1.itsCLType isCLTypePrimitive]) {
+            tupleStr1 = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
+        } else {
+            tupleStr1 = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];
+        }
+        if([fromCLParsed.innerParsed2.itsCLType isCLTypePrimitive]) {
+            tupleStr2 = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed2];
+        } else {
+            tupleStr2 = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed2];
+        }
+        ret = [[NSString alloc] initWithFormat:@"%@%@,%@]",ret,tupleStr1,tupleStr2];
+        return ret;
+    } else if(fromCLParsed.itsCLType.itsType == CLTYPE_TUPLE3) {
+        ret = @"[";
+        NSString * tupleStr1 = @"";
+        NSString * tupleStr2 = @"";
+        NSString * tupleStr3 = @"";
+        if([fromCLParsed.innerParsed1.itsCLType isCLTypePrimitive]) {
+            tupleStr1 = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
+        } else {
+            tupleStr1 = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];
+        }
+        if([fromCLParsed.innerParsed2.itsCLType isCLTypePrimitive]) {
+            tupleStr2 = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed2];
+        } else {
+            tupleStr2 = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed2];
+        }
+        if([fromCLParsed.innerParsed3.itsCLType isCLTypePrimitive]) {
+            tupleStr3 = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed3];
+        } else {
+            tupleStr3 = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed3];
+        }
+        ret = [[NSString alloc] initWithFormat:@"%@%@,%@,%@]",ret,tupleStr1,tupleStr2,tupleStr3];
+        return ret;
+    } else if(fromCLParsed.itsCLType.itsType == CLTYPE_ANY) {
+        return CLPARSED_NULL_VALUE;
+    }
+    return ret;
+}
 @end

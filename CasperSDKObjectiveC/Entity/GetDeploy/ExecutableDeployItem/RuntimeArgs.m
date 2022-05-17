@@ -21,4 +21,25 @@
         [oneNA logInfo];
     }
 }
++(NSString *) toJsonString: (RuntimeArgs *) fromRA {
+    NSString * ret = @"[";
+    int totalArgs = (int) fromRA.listArgs.count;
+    if (totalArgs > 0) {
+        int counter = 0;
+        for(int i = 0 ; i < totalArgs ;i ++) {
+            NamedArg * oneNA = (NamedArg*) [fromRA.listArgs objectAtIndex:i];
+            NSString * oneNAJsonString = [NamedArg toJsonString:oneNA];
+            if (counter < totalArgs -1) {
+                ret = [[NSString alloc] initWithFormat:@"%@%@,",ret,oneNAJsonString];
+            } else {
+                ret = [[NSString alloc] initWithFormat:@"%@%@]",ret,oneNAJsonString];
+            }
+            counter ++;
+        }
+        NSLog(@"Ret in RuntimeArgs is:%@",ret);
+        return ret;
+    }
+    //if list Args empty just return []
+    return @"[]";
+}
 @end

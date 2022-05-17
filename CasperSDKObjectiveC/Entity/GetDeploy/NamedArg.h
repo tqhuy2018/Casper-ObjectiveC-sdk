@@ -10,6 +10,7 @@
  */
 +(NamedArg *) fromJsonArrayToNamedArg:(NSArray*) fromArray;
 -(void) logInfo;
++(NSString *) toJsonString:(NamedArg*) fromNA;
 @end
 
 #endif

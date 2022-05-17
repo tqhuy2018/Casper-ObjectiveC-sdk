@@ -15,22 +15,22 @@ NSString *const CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO = @"state_get_auction_i
 NSString *const CASPER_RPC_METHOD_ACCOUNT_PUT_DEPLOY = @"put_deploy";
 
 //CLType
- NSString *const CLTYPE_BOOL            = @"bool";
- NSString *const CLTYPE_I32             = @"I32";
- NSString *const CLTYPE_I64             = @"I64";
- NSString *const CLTYPE_U8              = @"U8";
- NSString *const CLTYPE_U32             = @"U32";
- NSString *const CLTYPE_U64             = @"U64";
- NSString *const CLTYPE_U128            = @"U128";
- NSString *const CLTYPE_U256            = @"U256";
- NSString *const CLTYPE_U512            = @"U512";
- NSString *const CLTYPE_UNIT            = @"Unit";
- NSString *const CLTYPE_STRING          = @"String";
- NSString *const CLTYPE_KEY             = @"Key";
- NSString *const CLTYPE_UREF            = @"URef";
- NSString *const CLTYPE_PUBLICKEY       = @"PublicKey";
- NSString *const CLTYPE_OPTION          = @"Option";
- NSString *const CLTYPE_LIST            = @"List";
+NSString *const CLTYPE_BOOL            = @"bool";
+NSString *const CLTYPE_I32             = @"I32";
+NSString *const CLTYPE_I64             = @"I64";
+NSString *const CLTYPE_U8              = @"U8";
+NSString *const CLTYPE_U32             = @"U32";
+NSString *const CLTYPE_U64             = @"U64";
+NSString *const CLTYPE_U128            = @"U128";
+NSString *const CLTYPE_U256            = @"U256";
+NSString *const CLTYPE_U512            = @"U512";
+NSString *const CLTYPE_UNIT            = @"Unit";
+NSString *const CLTYPE_STRING          = @"String";
+NSString *const CLTYPE_KEY             = @"Key";
+NSString *const CLTYPE_UREF            = @"URef";
+NSString *const CLTYPE_PUBLICKEY       = @"PublicKey";
+NSString *const CLTYPE_OPTION          = @"Option";
+NSString *const CLTYPE_LIST            = @"List";
 NSString *const CLTYPE_LIST_MAP_KEY     = @"ListMapKey";
 NSString *const CLTYPE_LIST_MAP_VALUE   = @"ListMapValue";
 NSString *const CLTYPE_BYTEARRAY        = @"ByteArray";
@@ -77,3 +77,6 @@ NSString *const TRANSFORM_FAILURE                   = @"Failure";
 //URL FOR TEST AND MAIN NET
 NSString *const URL_TEST_NET = @"https://node-clarity-testnet.make.services/rpc";
 NSString *const URL_MAIN_NET = @"https://node-clarity-mainnet.make.services/rpc";
+
+//PARSE FIXED PREFIX STRING, USED FOR BUILD DEPLOY JSON STRING FOR ACCOUNT_PUT_DEPLOY RPC CALL
+NSString *const PARSED_FIXED_STR = @"!!!!!___PARSED___!!!!!";

@@ -58,6 +58,7 @@
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
+		908198B528329D4F00F35F2B /* PutDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908198B428329D4F00F35F2B /* PutDeployParams.m */; };
 		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
 		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
 		9089363627E86FAA0075035F /* AssociatedKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363527E86FAA0075035F /* AssociatedKey.m */; };
@@ -124,6 +125,8 @@
 		9097335327F2C1EA009C18BF /* NumberSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335227F2C1EA009C18BF /* NumberSerialize.m */; };
 		9097335527F2C553009C18BF /* Serialization_CLTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */; };
 		9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */; };
+		90B41426280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
+		90B41427280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
 		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
 		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
@@ -215,6 +218,8 @@
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
 		9079791727DCBCFC00B69B4E /* GetStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStatusResult.h; sourceTree = "<group>"; };
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
+		908198B428329D4F00F35F2B /* PutDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployParams.m; sourceTree = "<group>"; };
+		908198B628329D6400F35F2B /* PutDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployParams.h; sourceTree = "<group>"; };
 		9089362E27E86D560075035F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		9089362F27E86D600075035F /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		9089363127E86F420075035F /* ActionThresholds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionThresholds.h; sourceTree = "<group>"; };
@@ -338,6 +343,8 @@
 		9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLTypeTest.m; sourceTree = "<group>"; };
 		9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLValueTest.m; sourceTree = "<group>"; };
 		90A8CCF327F4607400852F43 /* QuotientNRemainder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotientNRemainder.h; sourceTree = "<group>"; };
+		90B41424280AEA1E00B21DFC /* CasperSDKObjectiveCTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CasperSDKObjectiveCTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		90B41425280AEA1E00B21DFC /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionEffect.h; sourceTree = "<group>"; };
 		90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionEffect.m; sourceTree = "<group>"; };
 		90CAF5BB27E4A55400AAA913 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
@@ -475,6 +482,15 @@
 				9095D97127DDF59400D58545 /* NextUpgrade.m */,
 			);
 			path = GetStatus;
+			sourceTree = "<group>";
+		};
+		908198B328329CE200F35F2B /* PutDeploy */ = {
+			isa = PBXGroup;
+			children = (
+				908198B428329D4F00F35F2B /* PutDeployParams.m */,
+				908198B628329D6400F35F2B /* PutDeployParams.h */,
+			);
+			path = PutDeploy;
 			sourceTree = "<group>";
 		};
 		9089362D27E86D3D0075035F /* StoredValueEnumClasses */ = {
@@ -620,10 +636,12 @@
 		9095580B27D833D0001AE414 = {
 			isa = PBXGroup;
 			children = (
+				90B41425280AEA1E00B21DFC /* Package.swift */,
 				9079791227DC9F5A00B69B4E /* Docs */,
 				9095581727D833D0001AE414 /* CasperSDKObjectiveC */,
 				9095582327D833D0001AE414 /* CasperSDKObjectiveCTests */,
 				9095581627D833D0001AE414 /* Products */,
+				90B41424280AEA1E00B21DFC /* CasperSDKObjectiveCTests-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -672,6 +690,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				908198B328329CE200F35F2B /* PutDeploy */,
 				9075817227F7B2DB00D5022F /* Serialization */,
 				9092BAC827EAB8AB00CBF99F /* OtherClasses */,
 				9092BAC727EAB89300CBF99F /* GetStateRootHash */,
@@ -900,9 +919,11 @@
 				TargetAttributes = {
 					9095581427D833D0001AE414 = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 					9095581E27D833D0001AE414 = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -990,6 +1011,7 @@
 				90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */,
 				9072960727E5DE7800D0DEFE /* Delegator.m in Sources */,
 				909424FF27EA27A000351197 /* AuctionState.m in Sources */,
+				908198B528329D4F00F35F2B /* PutDeployParams.m in Sources */,
 				9072960A27E5E70800D0DEFE /* Bid.m in Sources */,
 				90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */,
 				908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */,
@@ -1023,6 +1045,7 @@
 				909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */,
 				9089363327E86F480075035F /* ActionThresholds.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
+				90B41426280AEA1E00B21DFC /* Package.swift in Sources */,
 				909424D427E974CC00351197 /* GetItemParams.m in Sources */,
 				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
 				9089363927E87B6D0075035F /* ContractPackage.m in Sources */,
@@ -1057,6 +1080,7 @@
 				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				909424F827EA24E600351197 /* GetBalanceTest.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
+				90B41427280AEA1E00B21DFC /* Package.swift in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,
 				9075817127F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
@@ -1203,6 +1227,7 @@
 		9095582A27D833D0001AE414 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
@@ -1233,6 +1258,8 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
@@ -1240,6 +1267,7 @@
 		9095582B27D833D0001AE414 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
@@ -1270,6 +1298,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
@@ -1277,6 +1306,8 @@
 		9095582D27D833D0001AE414 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
@@ -1296,6 +1327,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CasperSDKObjectiveCTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1303,6 +1337,8 @@
 		9095582E27D833D0001AE414 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
@@ -1322,6 +1358,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CasperSDKObjectiveCTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

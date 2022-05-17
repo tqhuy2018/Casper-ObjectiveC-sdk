@@ -34,6 +34,15 @@
 -(void) logInfo;
 ///Function to get the tag for CLType
 +(NSString*) getTagForCLType:(CLType*) clType;
+/// Function to turn 1 CLType object to Json string, used for account_put_deploy RPC method call.
++(NSString *) toJsonString:(CLType *) fromCLType;
+/// Function to turn 1 CLType object of type compound to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with recursive CLType inside its body, such as List, Option, Tuple1, Tuple2, Tuple3, Result, Map.
++(NSString *) fromCLTypeCompoundToJsonString:(CLType *) fromCLType;
+/// Function to turn 1 CLType object of type primitive to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with no recursive CLType inside its body, such as Bool, U8, I32, I64, U32, U64, U128....
++(NSString *) fromCLTypePrimitiveToJsonString:(CLType *) fromCLType;
+
 @end
 
 #endif 

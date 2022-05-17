@@ -217,4 +217,184 @@
     NSLog(@"CLType:%@",type);
 }
 
+/// Function to turn 1 CLType object to Json string, used for account_put_deploy RPC method call.
++(NSString *) toJsonString:(CLType *) fromCLType {
+    NSString * ret = @"";
+    if ([fromCLType isCLTypePrimitive]) {
+        ret = [CLType fromCLTypePrimitiveToJsonString:fromCLType];
+        ret = [[NSString alloc] initWithFormat:@"\"%@\"",ret];
+    } else {
+        ret = [CLType fromCLTypeCompoundToJsonString:fromCLType];
+    }
+    return  ret;
+}
+
+/// Function to turn 1 CLType object of type compound to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with recursive CLType inside its body, such as List, Option, Tuple1, Tuple2, Tuple3, Result, Map.
++(NSString *) fromCLTypeCompoundToJsonString:(CLType *) fromCLType {
+    NSString * ret = @"";
+    if (fromCLType.itsType == CLTYPE_BYTEARRAY) {
+        return @"{\"ByteArray\": 32}";
+    } else if (fromCLType.itsType == CLTYPE_LIST) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"List\": \"%@\"}",innerType1String];
+            return ret;
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"List\": %@}",innerType1String];
+            return ret;
+        }
+    } else if (fromCLType.itsType == CLTYPE_OPTION) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"Option\": \"%@\"}",innerType1String];
+            return ret;
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"Option\": %@}",innerType1String];
+            return ret;
+        }
+    } else if (fromCLType.itsType == CLTYPE_RESULT) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Result\": {\"ok\": %@, \"err\": %@}}",innerType1String,innerType2String];
+                return ret;
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Result\": {\"ok\": %@, \"err\": %@}}",innerType1String,innerType2String];
+            }
+            return ret;
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Result\": {\"ok\": %@, \"err\": %@}}",innerType1String,innerType2String];
+                return ret;
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Result\": {\"ok\": %@, \"err\": %@}}",innerType1String,innerType2String];
+            }
+            return ret;
+        }
+    } else if (fromCLType.itsType == CLTYPE_MAP) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                NSString * keyValueString = [[NSString alloc] initWithFormat:@"{\"key\": \"%@\", \"value\": \"%@\"}",innerType1String,innerType2String];
+                ret = [[NSString alloc] initWithFormat:@"{\"Map\": %@}",keyValueString];
+                return ret;
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                NSString * keyValueString = [[NSString alloc] initWithFormat:@"{\"key\": \"%@\", \"value\": %@}",innerType1String,innerType2String];
+                ret = [[NSString alloc] initWithFormat:@"{\"Map\": %@}",keyValueString];
+            }
+            return ret;
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                NSString * keyValueString = [[NSString alloc] initWithFormat:@"{\"key\": %@, \"value\": \"%@\"}",innerType1String,innerType2String];
+                ret = [[NSString alloc] initWithFormat:@"{\"Map\": %@}",keyValueString];
+                return ret;
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                NSString * keyValueString = [[NSString alloc] initWithFormat:@"{\"key\": %@, \"value\": %@}",innerType1String,innerType2String];
+                ret = [[NSString alloc] initWithFormat:@"{\"Map\": %@}",keyValueString];
+            }
+        }
+    }  else if (fromCLType.itsType == CLTYPE_TUPLE1) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"Tuple1\": \"%@\"}",innerType1String];
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"{\"Tuple1\": %@}",innerType1String];
+        }
+    } else if (fromCLType.itsType == CLTYPE_TUPLE2) {
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Tuple2\": [\"%@\", \"%@\"]}",innerType1String,innerType2String];
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Tuple2\": [\"%@\", %@]}",innerType1String,innerType2String];
+            }
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            if ([fromCLType.innerType2 isCLTypePrimitive]) {
+                NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Tuple2\": [%@, \"%@\"]}",innerType1String,innerType2String];
+            } else {
+                NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+                ret = [[NSString alloc] initWithFormat:@"{\"Tuple2\": [%@, %@]}",innerType1String,innerType2String];
+            }
+        }
+    } else if (fromCLType.itsType == CLTYPE_TUPLE3) {
+        ret = @"{\"Tuple3\": [";
+        if ([fromCLType.innerType1 isCLTypePrimitive]) {
+            NSString * innerType1String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"%@\"%@\",",ret,innerType1String];
+        } else {
+            NSString * innerType1String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType1];
+            ret = [[NSString alloc] initWithFormat:@"%@%@,",ret,innerType1String];
+        }
+        if ([fromCLType.innerType2 isCLTypePrimitive]) {
+            NSString * innerType2String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType2];
+            ret = [[NSString alloc] initWithFormat:@"%@\"%@\",",ret,innerType2String];
+        } else {
+            NSString * innerType2String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType2];
+            ret = [[NSString alloc] initWithFormat:@"%@%@,",ret,innerType2String];
+        }
+        if ([fromCLType.innerType3 isCLTypePrimitive]) {
+            NSString * innerType3String = [CLType fromCLTypePrimitiveToJsonString:fromCLType.innerType3];
+            ret = [[NSString alloc] initWithFormat:@"%@\"%@\"]",ret,innerType3String];
+        } else {
+            NSString * innerType3String = [CLType fromCLTypeCompoundToJsonString:fromCLType.innerType3];
+            ret = [[NSString alloc] initWithFormat:@"%@%@]",ret,innerType3String];
+        }
+    }
+    return ret;
+}
+
+/// Function to turn 1 CLType object of type primitive to Json string, used for account_put_deploy RPC method call.
+/// CLType of type compound is of type with no recursive CLType inside its body, such as Bool, U8, I32, I64, U32, U64, U128....
++(NSString *) fromCLTypePrimitiveToJsonString:(CLType *) fromCLType {
+    if (fromCLType.itsType == CLTYPE_BOOL) {
+        return @"Bool";
+    } else if (fromCLType.itsType == CLTYPE_U8) {
+        return @"U8";
+    } else if (fromCLType.itsType == CLTYPE_I32) {
+        return @"I32";
+    } else if (fromCLType.itsType == CLTYPE_I64) {
+        return @"I64";
+    } else if (fromCLType.itsType == CLTYPE_U32) {
+        return @"U32";
+    } else if (fromCLType.itsType == CLTYPE_U64) {
+        return @"U64";
+    } else if (fromCLType.itsType == CLTYPE_U128) {
+        return @"U128";
+    } else if (fromCLType.itsType == CLTYPE_U256) {
+        return @"U256";
+    } else if (fromCLType.itsType == CLTYPE_U512) {
+        return @"U512";
+    } else if (fromCLType.itsType == CLTYPE_UNIT) {
+        return @"Unit";
+    } else if (fromCLType.itsType == CLTYPE_STRING) {
+        return @"String";
+    } else if (fromCLType.itsType == CLTYPE_KEY) {
+        return @"Key";
+    } else if (fromCLType.itsType == CLTYPE_UREF) {
+        return @"URef";
+    } else if (fromCLType.itsType == CLTYPE_PUBLICKEY) {
+        return @"PublicKey";
+    } else if (fromCLType.itsType == CLTYPE_ANY) {
+        return @"Any";
+    }
+    return @"NONE";
+}
 @end

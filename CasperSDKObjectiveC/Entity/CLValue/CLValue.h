@@ -17,6 +17,8 @@
 ///Generate the CLValue object  from the dictionary object  fromDict
 +(CLValue*) fromJsonDictToCLValue:(NSDictionary*) fromDict;
 -(void) logInfo;
+/// Function to turn 1 CLValue object to Json string, used for account_put_deploy RPC method call.
++(NSString *) toJsonString:(CLValue *) fromCLValue;
 @end
 
 #endif

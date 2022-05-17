@@ -2,6 +2,8 @@
 #import "CLValue.h"
 #import "CLType.h"
 #import "CLParsed.h"
+#import "ConstValues.h"
+#import "CLParseSerializeHelper.h"
 /**Class built for storing the  CLValue object.
  Information of a sample CLValue object
  {
@@ -26,5 +28,20 @@
     [self.cl_type logInfo];
     NSLog(@"-----CLParsed info-------");
     [self.parsed logInfo];
+}
+
+/// Function to turn 1 CLValue object to Json string, used for account_put_deploy RPC method call.
++(NSString *) toJsonString:(CLValue *) fromCLValue {
+    NSString * ret = @"";
+    NSString * clTypeJsonString = [CLType toJsonString:fromCLValue.cl_type];
+    NSString * clParseJsonString = [CLParsed toJsonString:fromCLValue.parsed];
+    NSString * findStr = [[NSString alloc] initWithFormat:@"%@:",PARSED_FIXED_STR];
+    clParseJsonString = [clParseJsonString stringByReplacingOccurrencesOfString:findStr withString:@""];
+    NSString * bytesStr= [CLParseSerializeHelper serializeFromCLParse:fromCLValue.parsed];
+    bytesStr = [[NSString alloc] initWithFormat:@"\"bytes\": \"%@\"",bytesStr];
+    clTypeJsonString = [[NSString alloc] initWithFormat:@"\"cl_type\": %@",clTypeJsonString];
+    clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": %@",clParseJsonString];
+    ret = [[NSString alloc] initWithFormat:@"{%@,%@,%@}",bytesStr,clTypeJsonString,clParseJsonString];
+    return ret;
 }
 @end
