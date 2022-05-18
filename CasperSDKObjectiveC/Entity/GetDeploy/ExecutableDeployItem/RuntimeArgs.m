@@ -36,7 +36,7 @@
             }
             counter ++;
         }
-        ret = [[NSString alloc] initWithFormat:@"\"args\":%@",ret];
+        ret = [[NSString alloc] initWithFormat:@"\"args\": %@",ret];
         NSLog(@"Ret in RuntimeArgs is:%@",ret);
         return ret;
     }

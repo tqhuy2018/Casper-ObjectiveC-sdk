@@ -15,7 +15,7 @@
 
 @property CLType * itsCLType;
 ///Type in String, for example: type of CLParsedPBool will get value of  Bool, CLParsedList will get value of List,  CLParsedMap will get value of Map, CLParsedPInt32 will get value of Int32 and so on
-@property NSString * itsCLTypeStr;
+//@property NSString * itsCLTypeStr;
 
 @property NSString * itsPrimitiveValue;
 //This value is for CLType primitive value

@@ -67,7 +67,8 @@
     CLType * oneCLType = [[CLType alloc] init];
     CLParsed * oneCLParse = [[CLParsed alloc] init];
     oneCLParse.itsValueStr = @"1000";
-    oneCLParse.itsCLTypeStr = CLTYPE_I32;
+    oneCLParse.itsCLType = [[CLType alloc] init];
+    oneCLParse.itsCLType.itsType = CLTYPE_I32;
     oneCLType.itsType = CLTYPE_I32;
     oneCLValue.cl_type = oneCLType;
     oneCLValue.parsed = oneCLParse;
@@ -91,7 +92,8 @@
     CLType * oneCLTypeSession = [[CLType alloc] init];
     CLParsed * oneCLParseSession = [[CLParsed alloc] init];
     oneCLParseSession.itsValueStr = @"1000";
-    oneCLParseSession.itsCLTypeStr = CLTYPE_I32;
+    oneCLParseSession.itsCLType = [[CLType alloc] init];
+    oneCLParseSession.itsCLType.itsType = CLTYPE_I32;
     oneCLTypeSession.itsType = CLTYPE_I32;
     oneCLValueSession.cl_type = oneCLTypeSession;
     oneCLValueSession.parsed = oneCLParseSession;

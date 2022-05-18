@@ -39,9 +39,17 @@
     clParseJsonString = [clParseJsonString stringByReplacingOccurrencesOfString:findStr withString:@""];
     NSString * bytesStr= [CLParseSerializeHelper serializeFromCLParse:fromCLValue.parsed];
     bytesStr = [[NSString alloc] initWithFormat:@"\"bytes\": \"%@\"",bytesStr];
-    clTypeJsonString = [[NSString alloc] initWithFormat:@"\"cl_type\": %@",clTypeJsonString];
-    clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": \"%@\"",clParseJsonString];
-    ret = [[NSString alloc] initWithFormat:@"{%@,%@,%@}",bytesStr,clTypeJsonString,clParseJsonString];
+    if (fromCLValue.cl_type.itsType == CLTYPE_BYTEARRAY) {
+        clTypeJsonString = [[NSString alloc] initWithFormat:@"\"cl_type\": %@",clTypeJsonString];
+    } else {
+        clTypeJsonString = [[NSString alloc] initWithFormat:@"\"cl_type\": %@",clTypeJsonString];
+    }
+    if (fromCLValue.cl_type.itsType == CLTYPE_KEY) {
+        clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": %@",clParseJsonString];
+    } else {
+        clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": \"%@\"",clParseJsonString];
+    }
+    ret = [[NSString alloc] initWithFormat:@"{%@,%@,%@}",bytesStr,clParseJsonString,clTypeJsonString];
     return ret;
 }
 @end

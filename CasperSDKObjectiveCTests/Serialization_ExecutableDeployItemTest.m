@@ -35,7 +35,8 @@
     CLType * oneCLType = [[CLType alloc] init];
     CLParsed * oneCLParse = [[CLParsed alloc] init];
     oneCLParse.itsValueStr = @"100000000";
-    oneCLParse.itsCLTypeStr = CLTYPE_U512;
+    oneCLParse.itsCLType = [[CLType alloc] init];
+    oneCLParse.itsCLType.itsType = CLTYPE_U512;
     oneCLType.itsType = CLTYPE_U512;
     oneCLValue.cl_type = oneCLType;
     oneCLValue.parsed = oneCLParse;
@@ -61,7 +62,8 @@
     CLType * oneCLType2 = [[CLType alloc] init];
     CLParsed * oneCLParse2 = [[CLParsed alloc] init];
     oneCLParse2.itsValueStr = @"999888666555444999887988887777666655556666777888999666999";
-    oneCLParse2.itsCLTypeStr = CLTYPE_U512;
+    oneCLParse2.itsCLType = [[CLType alloc] init];
+    oneCLParse2.itsCLType.itsType = CLTYPE_U512;
     oneCLType2.itsType = CLTYPE_U512;
     oneCLValue2.cl_type = oneCLType2;
     oneCLValue2.parsed = oneCLParse2;
@@ -88,7 +90,8 @@
     CLType * oneCLType3 = [[CLType alloc] init];
     CLParsed * oneCLParse3 = [[CLParsed alloc] init];
     oneCLParse3.itsValueStr = @"1000";
-    oneCLParse3.itsCLTypeStr = CLTYPE_I32;
+    oneCLParse3.itsCLType = [[CLType alloc] init];
+    oneCLParse3.itsCLType.itsType = CLTYPE_I32;
     oneCLType3.itsType = CLTYPE_I32;
     oneCLValue3.cl_type = oneCLType3;
     oneCLValue3.parsed = oneCLParse3;

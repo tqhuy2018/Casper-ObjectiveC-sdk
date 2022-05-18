@@ -240,37 +240,37 @@
 }
 ///Function for the serialization of  CLParse primitive in type with no recursive CLValue inside, such as Bool, U8, U32, I32, String, ....
 +(NSString*) serializeFromCLParsePrimitive:(CLParsed*) fromCLParse {
-    if ([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_BOOL]) {
+    if ([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_BOOL]) {
         return [CLParseSerializeHelper serializeFromCLParseBool:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U8]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U8]) {
         return [CLParseSerializeHelper serializeFromCLParseU8:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U32]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U32]) {
         return [CLParseSerializeHelper serializeFromCLParseU32:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U64]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U64]) {
         return [CLParseSerializeHelper serializeFromCLParseU64:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_I32]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_I32]) {
         return [CLParseSerializeHelper serializeFromCLParseInt32:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_I64]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_I64]) {
         return [CLParseSerializeHelper serializeFromCLParseInt64:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U128]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U128]) {
         return [CLParseSerializeHelper serializeFromCLParseBigNumber:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U256]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U256]) {
         return [CLParseSerializeHelper serializeFromCLParseBigNumber:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_U512]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_U512]) {
         return [CLParseSerializeHelper serializeFromCLParseBigNumber:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_STRING]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_STRING]) {
         return [CLParseSerializeHelper serializeFromCLParseString:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_UNIT]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_UNIT]) {
         return [CLParseSerializeHelper serializeFromCLParseUnit:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_KEY]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_KEY]) {
         return [CLParseSerializeHelper serializeFromCLParseKey:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_UREF]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_UREF]) {
         return [CLParseSerializeHelper serializeFromCLParseURef:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_PUBLICKEY]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_PUBLICKEY]) {
         return [CLParseSerializeHelper serializeFromCLParsePublicKey:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_BYTEARRAY]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_BYTEARRAY]) {
         return [CLParseSerializeHelper serializeFromCLParseByteArray:fromCLParse];
-    }  else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_ANY]) {
+    }  else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_ANY]) {
         return @"ANY_SERIALIZATION_NOT_COUNTED"; //CLTYPE ANY is not processed here since the value of serialization is not determined
         //Just put the result of 1 alert sentence here, in case later in the future the value can be processed
     }
@@ -279,19 +279,19 @@
 ///Function for the serialization of  CLParse compound in type with  recursive CLValue inside, such as Option, List, Map, Tuple1, Tuple2, Tuple3, Result
 +(NSString*) serializeFromCLParseCompound:(CLParsed*) fromCLParse {
     NSString * ret = @"";
-    if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_OPTION]) {
+    if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_OPTION]) {
         ret = [CLParseSerializeHelper serializeFromCLParseOption:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_LIST]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_LIST]) {
         ret = [CLParseSerializeHelper serializeFromCLParseList:fromCLParse];
-    } else if([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_MAP]) {
+    } else if([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_MAP]) {
         ret = [CLParseSerializeHelper serializeFromCLParseMap:fromCLParse];
-    } else if ([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_TUPLE1]) {
+    } else if ([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_TUPLE1]) {
         ret = [CLParseSerializeHelper serializeFromCLParseTuple1:fromCLParse];
-    } else if ([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_TUPLE2]) {
+    } else if ([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_TUPLE2]) {
         ret = [CLParseSerializeHelper serializeFromCLParseTuple2:fromCLParse];
-    } else if ([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_TUPLE3]) {
+    } else if ([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_TUPLE3]) {
         ret = [CLParseSerializeHelper serializeFromCLParseTuple3:fromCLParse];
-    } else if ([fromCLParse.itsCLTypeStr isEqualToString:CLTYPE_RESULT]) {
+    } else if ([fromCLParse.itsCLType.itsType isEqualToString:CLTYPE_RESULT]) {
         ret = [CLParseSerializeHelper serializeFromCLParseResult:fromCLParse];
     }
     return ret;

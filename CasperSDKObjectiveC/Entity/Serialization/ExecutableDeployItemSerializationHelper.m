@@ -35,7 +35,7 @@
             moduleBytesSerialization = [NumberSerialize serializeForU32:@"0"];
         } else { //if module_bytes is not blank then the serialization of module_bytes is just string serialization
             CLParsed * parseString = [[CLParsed alloc] init];
-            parseString.itsCLTypeStr = CLTYPE_STRING;
+            parseString.itsCLType.itsType = CLTYPE_STRING;
             parseString.itsValueStr = realItem.module_bytes;
             moduleBytesSerialization = [CLParseSerializeHelper serializeFromCLParseString:parseString];
         }
@@ -70,10 +70,10 @@
         ExecutableDeployItem_StoredVersionedContractByHash * realItem = (ExecutableDeployItem_StoredVersionedContractByHash*) [input.itsValue objectAtIndex:0];
         //Get the Option(U32).Serialize(version)
         CLParsed * parseOption = [[CLParsed alloc] init];
-        parseOption.itsCLTypeStr = CLTYPE_OPTION;
+        parseOption.itsCLType.itsType = CLTYPE_OPTION;
         if(realItem.is_version_exists) { //version of type Option(U32)
             CLParsed * u32 = [[CLParsed alloc] init];
-            u32.itsCLTypeStr = CLTYPE_U32;
+            u32.itsCLType.itsType = CLTYPE_U32;
             u32.itsValueStr = [NSString stringWithFormat:@"%i",realItem.version];
             parseOption.innerParsed1 = u32;
         } else {//version of type Option(NULL)
@@ -96,10 +96,10 @@
         
         //Get the Option(U32).Serialize(version)
         CLParsed * parseOption = [[CLParsed alloc] init];
-        parseOption.itsCLTypeStr = CLTYPE_OPTION;
+        parseOption.itsCLType.itsType = CLTYPE_OPTION;
         if(realItem.is_version_exists) { //version of type Option(U32)
             CLParsed * u32 = [[CLParsed alloc] init];
-            u32.itsCLTypeStr = CLTYPE_U32;
+            u32.itsCLType.itsType = CLTYPE_U32;
             u32.itsValueStr = [NSString stringWithFormat:@"%i",realItem.version];
             parseOption.innerParsed1 = u32;
         } else {//version of type Option(NULL)

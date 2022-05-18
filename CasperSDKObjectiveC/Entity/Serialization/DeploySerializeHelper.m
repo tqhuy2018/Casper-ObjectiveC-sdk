@@ -20,21 +20,29 @@
     NSString * ttlStr = [NSString stringWithFormat:@"%llu",ttl64];
     CLParsed * parseTimeStamp = [[CLParsed alloc] init];
     parseTimeStamp.itsValueStr = timeStampStr;
-    parseTimeStamp.itsCLTypeStr = CLTYPE_U64;
+    parseTimeStamp.itsCLType = [[CLType alloc] init];
+    parseTimeStamp.itsCLType.itsType = CLTYPE_U64;
+    //parseTimeStamp.itsCLTypeStr = CLTYPE_U64;
     NSString * timeStampSerialization = [CLParseSerializeHelper serializeFromCLParseU64:parseTimeStamp];
     CLParsed * parseTTL = [[CLParsed alloc] init];
     parseTTL.itsValueStr = ttlStr;
-    parseTTL.itsCLTypeStr = CLTYPE_U64;
+    parseTTL.itsCLType = [[CLType alloc] init];
+    parseTTL.itsCLType.itsType = CLTYPE_U64;
+    //parseTTL.itsCLTypeStr = CLTYPE_U64;
     NSString * ttlSerialization = [CLParseSerializeHelper serializeFromCLParseU64:parseTTL];
     CLParsed * parseGasPrice = [[CLParsed alloc] init];
     parseGasPrice.itsValueStr = [NSString stringWithFormat:@"%llu",header.gas_price];
-    parseGasPrice.itsCLTypeStr = CLTYPE_U64;
+    //parseGasPrice.itsCLTypeStr = CLTYPE_U64;
+    parseGasPrice.itsCLType = [[CLType alloc] init];
+    parseGasPrice.itsCLType.itsType = CLTYPE_U64;
     NSString * gasPriceSerialization = [CLParseSerializeHelper serializeFromCLParseU64:parseGasPrice];
     NSString * dependencySerialization = @"";
     int totalDependency = (int) header.dependencies.count;
     CLParsed * dependencySizeParse = [[CLParsed alloc] init];
     dependencySizeParse.itsValueStr = [NSString stringWithFormat:@"%i",totalDependency];
-    dependencySizeParse.itsCLTypeStr = CLTYPE_U32;
+    //dependencySizeParse.itsCLTypeStr = CLTYPE_U32;
+    dependencySizeParse.itsCLType = [[CLType alloc] init];
+    dependencySizeParse.itsCLType.itsType = CLTYPE_U32;
     dependencySerialization = [CLParseSerializeHelper serializeFromCLParseU32:dependencySizeParse];
     if (totalDependency>0) {
         for (int i = 0 ; i < totalDependency ; i++) {
@@ -44,7 +52,9 @@
     }
     CLParsed * chainNameParse = [[CLParsed alloc] init];
     chainNameParse.itsValueStr = header.chain_name;
-    chainNameParse.itsCLTypeStr = CLTYPE_STRING;
+    chainNameParse.itsCLType = [[CLType alloc] init];
+    chainNameParse.itsCLType.itsType = CLTYPE_STRING;
+    //chainNameParse.itsCLTypeStr = CLTYPE_STRING;
     NSString * chainNameSerialize = [CLParseSerializeHelper serializeFromCLParseString:chainNameParse];
     ret = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",header.account,timeStampSerialization,ttlSerialization,gasPriceSerialization,header.body_hash,dependencySerialization,chainNameSerialize];
     return ret;
@@ -66,7 +76,9 @@
     }
     CLParsed * parse32 = [[CLParsed alloc] init];
     parse32.itsValueStr = [NSString stringWithFormat:@"%i",totalApproval];
-    parse32.itsCLTypeStr = CLTYPE_U32;
+    parse32.itsCLType = [[CLType alloc] init];
+    parse32.itsCLType.itsType = CLTYPE_U32;
+   // parse32.itsCLTypeStr = CLTYPE_U32;
     NSString * prefix = (NSString*) [CLParseSerializeHelper serializeFromCLParseU32:parse32];
     NSString * listApprovalSerializeStr = @"";
     for(int i = 0 ; i < totalApproval; i ++) {

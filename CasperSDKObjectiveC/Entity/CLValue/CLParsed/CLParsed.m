@@ -164,35 +164,35 @@
 }
 ///Check if the CLParse from CLType primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isPrimitive {
-    if ([self.itsCLTypeStr isEqualToString:CLTYPE_BOOL]) {
+    if ([self.itsCLType.itsType isEqualToString:CLTYPE_BOOL]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U8]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U8]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_I32]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_I32]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_I64]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_I64]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U32]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U32]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U64]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U64]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_STRING]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_STRING]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_KEY]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_KEY]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_UREF]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_UREF]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_PUBLICKEY]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_PUBLICKEY]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_UNIT]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_UNIT]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U128]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U128]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U256]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U256]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_U512]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_U512]) {
         return true;
-    } else  if ([self.itsCLTypeStr isEqualToString:CLTYPE_BYTEARRAY]) {
+    } else  if ([self.itsCLType.itsType isEqualToString:CLTYPE_BYTEARRAY]) {
         return true;
     }
     return false;
@@ -201,7 +201,8 @@
 +(CLParsed*) clParsedWithType:(NSString*) type andValue:(NSString*) value {
     CLParsed * ret = [[CLParsed alloc] init];
     ret.itsValueStr = value;
-    ret.itsCLTypeStr = type;
+    ret.itsCLType = [[CLType alloc] init];
+    ret.itsCLType.itsType = type;
     return ret;
 }
 
@@ -290,6 +291,7 @@
         }
     }
     NSString * retStr = [[NSString alloc] initWithFormat:@"%@:%@",PARSED_FIXED_STR,fromCLParsed.itsValueStr];
+    NSLog(@"Parse value is:%@",retStr);
     return retStr;
 }
 /// Function to turn 1 CLParsed object of type CLType compound to Json string, used for account_put_deploy RPC method call.
@@ -301,7 +303,7 @@
             return  CLTYPE_NULL_VALUE;
         } else {
             // parsed of cltype primitive
-            if ([fromCLParsed.itsCLType isCLTypePrimitive]) {
+            if ([fromCLParsed.innerParsed1.itsCLType isCLTypePrimitive]) {
                 ret = [CLParsed fromPrimitiveParsedToJsonString:fromCLParsed.innerParsed1];
             } else { // parsed of cltype compound
                 ret = [CLParsed fromCompoundParsedToJsonString:fromCLParsed.innerParsed1];

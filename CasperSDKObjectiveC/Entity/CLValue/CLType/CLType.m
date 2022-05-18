@@ -222,7 +222,11 @@
     NSString * ret = @"";
     if ([fromCLType isCLTypePrimitive]) {
         ret = [CLType fromCLTypePrimitiveToJsonString:fromCLType];
-        ret = [[NSString alloc] initWithFormat:@"\"%@\"",ret];
+        if(fromCLType.itsType == CLTYPE_BYTEARRAY) {
+            ret = [[NSString alloc] initWithFormat:@"%@",ret];
+        } else {
+            ret = [[NSString alloc] initWithFormat:@"\"%@\"",ret];
+        }
     } else {
         ret = [CLType fromCLTypeCompoundToJsonString:fromCLType];
     }
@@ -394,6 +398,8 @@
         return @"PublicKey";
     } else if (fromCLType.itsType == CLTYPE_ANY) {
         return @"Any";
+    } else if (fromCLType.itsType == CLTYPE_BYTEARRAY) {
+        return @"{\"ByteArray\": 32}";
     }
     return @"NONE";
 }

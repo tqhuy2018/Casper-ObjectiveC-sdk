@@ -186,7 +186,8 @@
     //Test for CLValue Unit serialization
     
     CLParsed * parseUnit = [[CLParsed alloc] init];
-    parseUnit.itsCLTypeStr = CLTYPE_UNIT;
+    parseUnit.itsCLType = [[CLType alloc] init];
+    parseUnit.itsCLType.itsType = CLTYPE_UNIT;
     NSString * retUnit = [CLParseSerializeHelper serializeFromCLParseUnit:parseUnit];
     XCTAssert([retUnit isEqualToString:@""]);
     
@@ -220,19 +221,22 @@
     
     //Test for CLValue Option serialization
     CLParsed * parseOption = [[CLParsed alloc] init];
-    parseOption.itsCLTypeStr = CLTYPE_OPTION;
+    parseOption.itsCLType = [[CLType alloc] init];
+    parseOption.itsCLType.itsType = CLTYPE_OPTION;
     
     //Option(U32)
     CLParsed * parseU32InOption = [[CLParsed alloc] init];
+    parseU32InOption.itsCLType = [[CLType alloc] init];
+    parseU32InOption.itsCLType.itsType = CLTYPE_U32;
     parseU32InOption.itsValueStr = @"10";
-    parseU32InOption.itsCLTypeStr = CLTYPE_U32;
     parseOption.innerParsed1 = parseU32InOption;
     NSString * parseOptionU32Serialized = [CLParseSerializeHelper serializeFromCLParseOption:parseOption];
     XCTAssert([parseOptionU32Serialized isEqualToString:@"010a000000"]);
     //Option(U64)
     CLParsed * parseU64InOption = [[CLParsed alloc] init];
     parseU64InOption.itsValueStr = @"123456";
-    parseU64InOption.itsCLTypeStr = CLTYPE_U64;
+    parseU64InOption.itsCLType = [[CLType alloc] init];
+    parseU64InOption.itsCLType.itsType = CLTYPE_U64;
     parseOption.innerParsed1 = parseU64InOption;
     NSString * parseOptionU64Serialized = [CLParseSerializeHelper serializeFromCLParseOption:parseOption];
     XCTAssert([parseOptionU64Serialized isEqualToString:@"0140e2010000000000"]);
@@ -240,7 +244,8 @@
     //Option(String)
     CLParsed * parseStringInOption = [[CLParsed alloc] init];
     parseStringInOption.itsValueStr = @"Hello, World!";
-    parseStringInOption.itsCLTypeStr = CLTYPE_STRING;
+    parseStringInOption.itsCLType = [[CLType alloc] init];
+    parseStringInOption.itsCLType.itsType = CLTYPE_STRING;
     parseOption.innerParsed1 = parseStringInOption;
     NSString * parseOptionStringSerialized = [CLParseSerializeHelper serializeFromCLParseOption:parseOption];
     XCTAssert([parseOptionStringSerialized isEqualToString:@"010d00000048656c6c6f2c20576f726c6421"]);
@@ -248,20 +253,24 @@
     //Test for CLValue List serialization
     
     CLParsed * parseList = [[CLParsed alloc] init];
-    parseList.itsCLTypeStr = CLTYPE_LIST;
+    parseList.itsCLType = [[CLType alloc] init];
+    parseList.itsCLType.itsType = CLTYPE_LIST;
     parseList.arrayValue = [[NSMutableArray alloc] init];
     
     //List U8
     CLParsed * u81 = [[CLParsed alloc] init];
-    u81.itsCLTypeStr = CLTYPE_U8;
+    u81.itsCLType = [[CLType alloc] init];
+    u81.itsCLType.itsType = CLTYPE_U8;
     u81.itsValueStr = @"100";
 
     CLParsed * u82 = [[CLParsed alloc] init];
-    u82.itsCLTypeStr = CLTYPE_U8;
+    u82.itsCLType = [[CLType alloc] init];
+    u82.itsCLType.itsType = CLTYPE_U8;
     u82.itsValueStr = @"0";
     
     CLParsed * u83 = [[CLParsed alloc] init];
-    u83.itsCLTypeStr = CLTYPE_U8;
+    u83.itsCLType = [[CLType alloc] init];
+    u83.itsCLType.itsType = CLTYPE_U8;
     u83.itsValueStr = @"255";
     
     [parseList.arrayValue addObject:u81];
@@ -272,15 +281,18 @@
     
     //List U32
     CLParsed * u321 = [[CLParsed alloc] init];
-    u321.itsCLTypeStr = CLTYPE_U32;
+    u321.itsCLType = [[CLType alloc] init];
+    u321.itsCLType.itsType = CLTYPE_U32;
     u321.itsValueStr = @"1";
 
     CLParsed * u322 = [[CLParsed alloc] init];
-    u322.itsCLTypeStr = CLTYPE_U32;
+    u322.itsCLType = [[CLType alloc] init];
+    u322.itsCLType.itsType = CLTYPE_U32;
     u322.itsValueStr = @"2";
     
     CLParsed * u323 = [[CLParsed alloc] init];
-    u323.itsCLTypeStr = CLTYPE_U32;
+    u323.itsCLType = [[CLType alloc] init];
+    u323.itsCLType.itsType = CLTYPE_U32;
     u323.itsValueStr = @"3";
     
     [parseList.arrayValue removeAllObjects];
@@ -292,15 +304,18 @@
     
     //List String
     CLParsed * string1 = [[CLParsed alloc] init];
-    string1.itsCLTypeStr = CLTYPE_STRING;
+    string1.itsCLType = [[CLType alloc] init];
+    string1.itsCLType.itsType = CLTYPE_STRING;
     string1.itsValueStr = @"Hello, World!";
 
     CLParsed * string2 = [[CLParsed alloc] init];
-    string2.itsCLTypeStr = CLTYPE_STRING;
+    string2.itsCLType = [[CLType alloc] init];
+    string2.itsCLType.itsType = CLTYPE_STRING;
     string2.itsValueStr = @"Bonjour le monde";
     
     CLParsed * string3 = [[CLParsed alloc] init];
-    string3.itsCLTypeStr = CLTYPE_STRING;
+    string3.itsCLType = [[CLType alloc] init];
+    string3.itsCLType.itsType = CLTYPE_STRING;
     string3.itsValueStr = @"Hola Mundo";
     
     [parseList.arrayValue removeAllObjects];
@@ -315,16 +330,19 @@
     //refer to session section of the deploy, args item number 2
     
     CLParsed * parseMapInList = [[CLParsed alloc] init];
-    parseMapInList.itsCLTypeStr = CLTYPE_MAP;
+    parseMapInList.itsCLType = [[CLType alloc] init];
+    parseMapInList.itsCLType.itsType = CLTYPE_MAP;
     //Key generation
     CLParsed * parseMapInListKey = [[CLParsed alloc] init];
-    parseMapInListKey.itsCLTypeStr = CLTYPE_LIST_MAP_KEY;//This assignment could drop
+    parseMapInListKey.itsCLType = [[CLType alloc] init];
+    parseMapInListKey.itsCLType.itsType = CLTYPE_LIST_MAP_KEY;//This assignment could drop
     parseMapInListKey.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapListKey1 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"token_uri"];
     [parseMapInListKey.arrayValue addObject:mapListKey1];
     //Value generation
     CLParsed * parseMapInListValue = [[CLParsed alloc] init];
-    parseMapInListValue.itsCLTypeStr = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
+    parseMapInListValue.itsCLType = [[CLType alloc] init];
+    parseMapInListValue.itsCLType.itsType = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
     parseMapInListValue.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapListValue1 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"https://gateway.pinata.cloud/ipfs/QmZNz3zVNyV383fn1ZgbroxCLSxVnx7jrq4yjGyFJoZ5Vk"];
     [parseMapInListValue.arrayValue addObject:mapListValue1];
@@ -337,7 +355,8 @@
     
     //Test for CLValue Map serialization
     CLParsed * parseMap = [[CLParsed alloc] init];
-    parseMap.itsCLTypeStr = CLTYPE_MAP;
+    parseMap.itsCLType = [[CLType alloc] init];
+    parseMap.itsCLType.itsType = CLTYPE_MAP;
     
     //Map(String,String)
     //Test based on the deploy at this address
@@ -345,7 +364,8 @@
     //please refer to execution_results item 86 to see the real data
     //Key generation
     CLParsed * parseMapKey = [[CLParsed alloc] init];
-    parseMapKey.itsCLTypeStr = CLTYPE_LIST_MAP_KEY;//This assignment could drop
+    parseMapKey.itsCLType = [[CLType alloc] init];
+    parseMapKey.itsCLType.itsType = CLTYPE_LIST_MAP_KEY;//This assignment could drop
     parseMapKey.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapKey1 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"contract_package_hash"];
     CLParsed * mapKey2 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"event_type"];
@@ -357,7 +377,8 @@
     [parseMapKey.arrayValue addObject:mapKey4];
     //Value generation
     CLParsed * parseMapValue = [[CLParsed alloc] init];
-    parseMapValue.itsCLTypeStr = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
+    parseMapValue.itsCLType = [[CLType alloc] init];
+    parseMapValue.itsCLType.itsType = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
     parseMapValue.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapValue1 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"d32DE152c0bBFDcAFf5b2a6070Cd729Fc0F3eaCF300a6b5e2abAB035027C49bc"];
     CLParsed * mapValue2 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"sync"];
@@ -378,7 +399,8 @@
     //please refer to execution_results item 30 to see the real data
     //Key generation
     CLParsed * parseMapKey2 = [[CLParsed alloc] init];
-    parseMapKey2.itsCLTypeStr = CLTYPE_LIST_MAP_KEY;//This assignment could drop
+    parseMapKey2.itsCLType = [[CLType alloc] init];
+    parseMapKey2.itsCLType.itsType = CLTYPE_LIST_MAP_KEY;//This assignment could drop
     parseMapKey2.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapKey21 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"contract_package_hash"];
     CLParsed * mapKey22 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"event_type"];
@@ -394,7 +416,8 @@
     [parseMapKey2.arrayValue addObject:mapKey26];
     //Value generation
     CLParsed * parseMapValue2 = [[CLParsed alloc] init];
-    parseMapValue2.itsCLTypeStr = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
+    parseMapValue2.itsCLType = [[CLType alloc] init];
+    parseMapValue2.itsCLType.itsType = CLTYPE_LIST_MAP_VALUE;//This assignment could drop
     parseMapValue2.arrayValue = [[NSMutableArray alloc] init];
     CLParsed * mapValue21 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"26526c30383e5c02d684ac68d7845e576a87166926f7500bdaa303cdab52aea7"];
     CLParsed * mapValue22 = [CLParsed clParsedWithType:CLTYPE_STRING andValue:@"transfer"];
@@ -417,20 +440,23 @@
     //Test for CLValue ByteArray serialization
     
     CLParsed * parseByteArray = [[CLParsed alloc] init];
-    parseByteArray.itsCLTypeStr = CLTYPE_BYTEARRAY;
+    parseByteArray.itsCLType = [[CLType alloc] init];
+    parseByteArray.itsCLType.itsType = CLTYPE_BYTEARRAY;
     parseByteArray.itsValueStr = @"006d0be2fb64bcc8d170443fbadc885378fdd1c71975e2ddd349281dd9cc59cc";
     NSString * byteArraySerialization = [CLParseSerializeHelper serializeFromCLParseByteArray:parseByteArray];
     XCTAssert([byteArraySerialization isEqualToString:@"006d0be2fb64bcc8d170443fbadc885378fdd1c71975e2ddd349281dd9cc59cc"]);
     
     //Test for CLValue Result serialization
     CLParsed * parseResult = [[CLParsed alloc] init];
-    parseResult.itsCLTypeStr = CLTYPE_RESULT;
+    parseResult.itsCLType = [[CLType alloc] init];
+    parseResult.itsCLType.itsType = CLTYPE_RESULT;
     //For Result Ok String
     //Take this deploy address https://testnet.cspr.live/deploy/2ad794272a1a805082f171f96f1ea0e71fcac3ae6dd0c525343199b553be8a61
     //in execution_results item 16
     parseResult.itsValueStr = CLPARSED_RESULT_OK;
     CLParsed * parseResultOk = [[CLParsed alloc] init];
-    parseResultOk.itsCLTypeStr = CLTYPE_STRING;
+    parseResultOk.itsCLType = [[CLType alloc] init];
+    parseResultOk.itsCLType.itsType = CLTYPE_STRING;
     parseResultOk.itsValueStr = @"goodresult";
     parseResult.innerParsed1 = parseResultOk;
     NSString * resultSerialization = [CLParseSerializeHelper serializeFromCLParseResult:parseResult];
@@ -439,7 +465,8 @@
     //For Result Err
     parseResult.itsValueStr = CLPARSED_RESULT_ERR;
     CLParsed * parseResultErr = [[CLParsed alloc] init];
-    parseResultErr.itsCLTypeStr = CLTYPE_U512;
+    parseResultErr.itsCLType = [[CLType alloc] init];
+    parseResultErr.itsCLType.itsType = CLTYPE_U512;
     parseResultErr.itsValueStr = @"999888666555444999887988887777666655556666777888999666999";
     parseResult.innerParsed1 = parseResultErr;
     NSString * resultSerialization2 = [CLParseSerializeHelper serializeFromCLParseResult:parseResult];
@@ -452,7 +479,8 @@
     
     parseResult.itsValueStr = CLPARSED_RESULT_ERR;
     CLParsed * parseResultErr2 = [[CLParsed alloc] init];
-    parseResultErr2.itsCLTypeStr = CLTYPE_STRING;
+    parseResultErr2.itsCLType = [[CLType alloc]init];
+    parseResultErr2.itsCLType.itsType = CLTYPE_STRING;
     parseResultErr2.itsValueStr = @"badresult";
     parseResult.innerParsed1 = parseResultErr2;
     NSString * resultSerialization3 = [CLParseSerializeHelper serializeFromCLParseResult:parseResult];
@@ -462,10 +490,12 @@
     //Test for CLValue Tuple1 serialization
 
     CLParsed * parseTuple1 = [[CLParsed alloc] init];
-    parseTuple1.itsCLTypeStr = CLTYPE_TUPLE1;
+    parseTuple1.itsCLType = [[CLType alloc] init];
+    parseTuple1.itsCLType.itsType = CLTYPE_TUPLE1;
     
     CLParsed * tuple1Inner = [[CLParsed alloc] init];
-    tuple1Inner.itsCLTypeStr = CLTYPE_I32;
+    tuple1Inner.itsCLType = [[CLType alloc] init];
+    tuple1Inner.itsCLType.itsType = CLTYPE_I32;
     tuple1Inner.itsValueStr = @"1000";
     parseTuple1.innerParsed1 = tuple1Inner;
     NSString * tuple1Serialization = [CLParseSerializeHelper serializeFromCLParseTuple1:parseTuple1];
@@ -475,14 +505,17 @@
     //Take this deploy address https://testnet.cspr.live/deploy/2ad794272a1a805082f171f96f1ea0e71fcac3ae6dd0c525343199b553be8a61
     //in execution_results item 31
     CLParsed * parseTuple2 = [[CLParsed alloc] init];
-    parseTuple2.itsCLTypeStr = CLTYPE_TUPLE2;
+    parseTuple2.itsCLType = [[CLType alloc] init];
+    parseTuple2.itsCLType.itsType = CLTYPE_TUPLE2;
     
     CLParsed * tuple2Inner1 = [[CLParsed alloc] init];
-    tuple2Inner1.itsCLTypeStr = CLTYPE_STRING;
+    tuple2Inner1.itsCLType = [[CLType alloc] init];
+    tuple2Inner1.itsCLType.itsType = CLTYPE_STRING;
     tuple2Inner1.itsValueStr = @"abc";
     parseTuple2.innerParsed1 = tuple2Inner1;
     CLParsed * tuple2Inner2 = [[CLParsed alloc] init];
-    tuple2Inner2.itsCLTypeStr = CLTYPE_U512;
+    tuple2Inner2.itsCLType = [[CLType alloc] init];
+    tuple2Inner2.itsCLType.itsType = CLTYPE_U512;
     tuple2Inner2.itsValueStr = @"1";
     parseTuple2.innerParsed2 = tuple2Inner2;
     
@@ -494,25 +527,30 @@
     //in execution_results item 36
     
     CLParsed * parseTuple3 = [[CLParsed alloc] init];
-    parseTuple3.itsCLTypeStr = CLTYPE_TUPLE2;
+    parseTuple3.itsCLType = [[CLType alloc] init];
+    parseTuple3.itsCLType.itsType = CLTYPE_TUPLE2;
     //First element: PublicKey
     CLParsed * tuple3Inner1 = [[CLParsed alloc] init];
-    tuple3Inner1.itsCLTypeStr = CLTYPE_PUBLICKEY;
+    tuple3Inner1.itsCLType = [[CLType alloc] init];
+    tuple3Inner1.itsCLType.itsType = CLTYPE_PUBLICKEY;
     tuple3Inner1.itsValueStr = @"01a018bf278f32fdb7b06226071ce399713ace78a28d43a346055060a660ba7aa9";
     parseTuple3.innerParsed1 = tuple3Inner1;
     //Second element: Option(String)
     //Option
     CLParsed * tuple3Inner2 = [[CLParsed alloc] init];
-    tuple3Inner2.itsCLTypeStr = CLTYPE_OPTION;
+    tuple3Inner2.itsCLType = [[CLType alloc] init];
+    tuple3Inner2.itsCLType.itsType = CLTYPE_OPTION;
     //String
     CLParsed * tuple3Inner2Inner = [[CLParsed alloc] init];
-    tuple3Inner2Inner.itsCLTypeStr = CLTYPE_STRING;
+    tuple3Inner2Inner.itsCLType = [[CLType alloc] init];
+    tuple3Inner2Inner.itsCLType.itsType = CLTYPE_STRING;
     tuple3Inner2Inner.itsValueStr = @"abc";
     tuple3Inner2.innerParsed1 = tuple3Inner2Inner;
     parseTuple3.innerParsed2 = tuple3Inner2;
     //Third element: U512
     CLParsed * tuple3Inner3 = [[CLParsed alloc] init];
-    tuple3Inner3.itsCLTypeStr = CLTYPE_U512;
+    tuple3Inner3.itsCLType = [[CLType alloc] init];
+    tuple3Inner3.itsCLType.itsType = CLTYPE_U512;
     tuple3Inner3.itsValueStr = @"2";
     parseTuple3.innerParsed3 = tuple3Inner3;
 
