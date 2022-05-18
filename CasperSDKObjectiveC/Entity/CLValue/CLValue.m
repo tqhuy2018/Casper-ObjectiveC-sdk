@@ -40,7 +40,7 @@
     NSString * bytesStr= [CLParseSerializeHelper serializeFromCLParse:fromCLValue.parsed];
     bytesStr = [[NSString alloc] initWithFormat:@"\"bytes\": \"%@\"",bytesStr];
     clTypeJsonString = [[NSString alloc] initWithFormat:@"\"cl_type\": %@",clTypeJsonString];
-    clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": %@",clParseJsonString];
+    clParseJsonString = [[NSString alloc] initWithFormat:@"\"parsed\": \"%@\"",clParseJsonString];
     ret = [[NSString alloc] initWithFormat:@"{%@,%@,%@}",bytesStr,clTypeJsonString,clParseJsonString];
     return ret;
 }

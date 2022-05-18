@@ -19,7 +19,7 @@
 }
 +(NSString *) toJsonString:(NamedArg*) fromNA {
     NSString * clValueStr = [CLValue toJsonString: fromNA.itsCLValue];
-    NSString * ret = [[NSString alloc] initWithFormat:@"[%@,%@]",fromNA.itsName,clValueStr];
+    NSString * ret = [[NSString alloc] initWithFormat:@"[\"%@\",%@]",fromNA.itsName,clValueStr];
     return ret;
     
 }

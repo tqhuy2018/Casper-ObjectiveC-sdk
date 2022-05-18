@@ -64,21 +64,21 @@
         ExecutableDeployItem_ModuleBytes * moduleBytes = [[ExecutableDeployItem_ModuleBytes alloc] init];
         moduleBytes = (ExecutableDeployItem_ModuleBytes*)[fromEDI.itsValue firstObject];
         NSString * runTimeArgsJsonString = [RuntimeArgs toJsonString:moduleBytes.args];
-        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"module_bytes\": \"%@\",%@",moduleBytes.module_bytes, runTimeArgsJsonString];
+        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"module_bytes\": \"%@\",%@}",moduleBytes.module_bytes, runTimeArgsJsonString];
         ret = [[NSString alloc] initWithFormat:@"{\"ModuleBytes\": %@}",jsonString];
         return ret;
     } else if([fromEDI.itsType isEqual:EDI_STORED_CONTRACT_BY_HASH]) {
         ExecutableDeployItem_StoredContractByHash * ediHash = [[ExecutableDeployItem_StoredContractByHash alloc] init];
         ediHash = (ExecutableDeployItem_StoredContractByHash*)[fromEDI.itsValue firstObject];
         NSString * runTimeArgsJsonString = [RuntimeArgs toJsonString:ediHash.args];
-        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\",%@",ediHash.itsHash, ediHash.entry_point, runTimeArgsJsonString];
+        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\",%@}",ediHash.itsHash, ediHash.entry_point, runTimeArgsJsonString];
         ret = [[NSString alloc] initWithFormat:@"{\"StoredContractByHash\": %@}",jsonString];
         return  ret;
     } else if([fromEDI.itsType isEqual:EDI_STORED_CONTRACT_BY_NAME]) {
         ExecutableDeployItem_StoredContractByName * ediName = [[ExecutableDeployItem_StoredContractByName alloc] init];
         ediName = (ExecutableDeployItem_StoredContractByName*)[fromEDI.itsValue firstObject];
         NSString * runTimeArgsJsonString = [RuntimeArgs toJsonString:ediName.args];
-        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",,\"entry_point\": \"%@\",%@",ediName.name, ediName.entry_point, runTimeArgsJsonString];
+        NSString * jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",\"entry_point\": \"%@\",%@}",ediName.name, ediName.entry_point, runTimeArgsJsonString];
         ret = [[NSString alloc] initWithFormat:@"{\"StoredContractByName\": %@}",jsonString];
         return  ret;
     } else if([fromEDI.itsType isEqual:EDI_STORED_VERSIONED_CONTRACT_BY_HASH]) {
@@ -87,9 +87,9 @@
         NSString * runTimeArgsJsonString = [RuntimeArgs toJsonString:ediVHash.args];
         NSString * jsonString = @"";
         if(ediVHash.is_version_exists) {
-            jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\", \"version\": \"%u\",%@",ediVHash.itsHash, ediVHash.entry_point, (unsigned int)ediVHash.version, runTimeArgsJsonString];
+            jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\", \"version\": \"%u\",%@}",ediVHash.itsHash, ediVHash.entry_point, (unsigned int)ediVHash.version, runTimeArgsJsonString];
         } else {
-            jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\", \"version\": null,%@",ediVHash.itsHash, ediVHash.entry_point, runTimeArgsJsonString];
+            jsonString = [[NSString alloc] initWithFormat:@"{\"hash\": \"%@\",,\"entry_point\": \"%@\", \"version\": null,%@}",ediVHash.itsHash, ediVHash.entry_point, runTimeArgsJsonString];
         }
         ret = [[NSString alloc] initWithFormat:@"{\"StoredVersionedContractByHash\": %@}",jsonString];
         return  ret;
@@ -99,9 +99,9 @@
         NSString * runTimeArgsJsonString = [RuntimeArgs toJsonString:ediVName.args];
         NSString * jsonString = @"";
         if(ediVName.is_version_exists) {
-            jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",,\"entry_point\": \"%@\", \"version\": \"%u\",%@",ediVName.name, ediVName.entry_point, (unsigned int)ediVName.version, runTimeArgsJsonString];
+            jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",,\"entry_point\": \"%@\", \"version\": \"%u\",%@}",ediVName.name, ediVName.entry_point, (unsigned int)ediVName.version, runTimeArgsJsonString];
         } else {
-            jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",,\"entry_point\": \"%@\", \"version\": null ,%@",ediVName.name, ediVName.entry_point,runTimeArgsJsonString];
+            jsonString = [[NSString alloc] initWithFormat:@"{\"name\": \"%@\",,\"entry_point\": \"%@\", \"version\": null ,%@}",ediVName.name, ediVName.entry_point,runTimeArgsJsonString];
         }
         ret = [[NSString alloc] initWithFormat:@"{\"StoredVersionedContractByName\": %@}",jsonString];
         return  ret;

@@ -31,16 +31,50 @@
 }
 -(NSString*) toPutDeployParameterStr {
     NSString * ret = @"";
-    NSString * headerStr = [[NSString alloc] initWithFormat:@"\"header\": {\"account\": \"%@\",\"timestamp\": \"\%@\",\"ttl\": \"%@\",\"gas_price\": %@","\"body_hash\": \"%@\",\"dependencies\": [],\"chain_name\": \"%@\"}",self.header.account,self.header.timestamp,self.header.ttl,self.header.gas_price,self.header.body_hash,self.header.chain_name];
+    int totalDependency = (int) [self.header.dependencies count];
+    NSString * dependencyString = @"[";
+    int counter = 0;
+    if(totalDependency > 0) {
+        for(int i = 0 ;i < totalDependency; i ++) {
+            NSString * oneD = [self.header.dependencies objectAtIndex:i];
+            if(counter < totalDependency - 1) {
+                dependencyString = [[NSString alloc] initWithFormat:@"%@\"%@\",",dependencyString,oneD];
+            } else {
+                dependencyString = [[NSString alloc] initWithFormat:@"%@\"%@\"]",dependencyString,oneD];
+            }
+        }
+        counter ++;
+    } else {
+        dependencyString = @"[]";
+    }
+   
+    NSString * headerStr1 = [[NSString alloc] initWithFormat:@"\"header\": {\"account\":\"%@\",\"timestamp\": \"%@\",\"ttl\": \"%@\",",self.header.account,self.header.timestamp,self.header.ttl];
+     NSString * headerStr2 = [[NSString alloc] initWithFormat:@"\"gas_price\": %llu,\"body_hash\": \"%@\",\"dependencies\": %@,\"chain_name\": \"%@\"}",self.header.gas_price,self.header.body_hash,dependencyString,self.header.chain_name];
+    NSString * headerStr = [[NSString alloc] initWithFormat:@"%@%@",headerStr1,headerStr2];
+    NSLog(@"header Str is:%@",headerStr);
     NSString * paymentEDIStr = [ExecutableDeployItem toJsonString:self.payment];
     NSString * paymentStr = [[NSString alloc] initWithFormat:@"\"payment\": %@",paymentEDIStr];
     NSString * sessionEDIStr = [ExecutableDeployItem toJsonString:self.session];
     NSString * sessionStr = [[NSString alloc] initWithFormat:@"\"session\": %@",sessionEDIStr];
+    NSLog(@"payment string is:%@",paymentStr);
+    NSLog(@"session string is:%@",sessionStr);
     int totalApproval = (int) [self.approvals count];
-    NSString * approvalStr = @"";
+    NSLog(@"Total approvals:%i",totalApproval);
+    NSString * approvalStr = @"\"approvals\": [";
+    counter = 0;
     for(int i = 0 ; i < totalApproval ; i ++ ) {
-        
+        Approval * oneApproval = [self.approvals objectAtIndex:i];
+        NSString * oneApprovalStr = [[NSString alloc] initWithFormat:@"{\"signer\": \"%@\",\"signature\":\"%@\"}",oneApproval.signer,oneApproval.signature];
+        if(counter < totalApproval - 1) {
+            approvalStr = [[NSString alloc] initWithFormat:@"%@%@,",approvalStr,oneApprovalStr];
+        } else {
+            approvalStr = [[NSString alloc] initWithFormat:@"%@%@]",approvalStr,oneApprovalStr];
+        }
     }
+    NSLog(@"Approval string is:%@",approvalStr);
+    NSString * hashStr = [[NSString alloc] initWithFormat:@"\"hash\": \"%@\"",self.itsHash];
+    NSString * deployJsonStr = [[NSString alloc] initWithFormat:@"{\"id\": 1,\"method\": \"account_put_deploy\",\"jsonrpc\": \"2.0\",\"params\": [{%@,%@,%@,%@,%@}]}",headerStr,paymentStr,sessionStr,approvalStr,hashStr];
+    NSLog(@"Full put deploy string is:%@",deployJsonStr);
     return ret;
 }
 @end

@@ -125,6 +125,7 @@
 		9097335327F2C1EA009C18BF /* NumberSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335227F2C1EA009C18BF /* NumberSerialize.m */; };
 		9097335527F2C553009C18BF /* Serialization_CLTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */; };
 		9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */; };
+		90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AF7244283494C4007754B9 /* PutDeployTest.m */; };
 		90B41426280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
 		90B41427280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
@@ -343,6 +344,7 @@
 		9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLTypeTest.m; sourceTree = "<group>"; };
 		9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLValueTest.m; sourceTree = "<group>"; };
 		90A8CCF327F4607400852F43 /* QuotientNRemainder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotientNRemainder.h; sourceTree = "<group>"; };
+		90AF7244283494C4007754B9 /* PutDeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployTest.m; sourceTree = "<group>"; };
 		90B41424280AEA1E00B21DFC /* CasperSDKObjectiveCTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CasperSDKObjectiveCTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		90B41425280AEA1E00B21DFC /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionEffect.h; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */,
 				9075817027F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m */,
 				9075817C27F869D900D5022F /* Serialization_DeployTest.m */,
+				90AF7244283494C4007754B9 /* PutDeployTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -1086,6 +1089,7 @@
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
 				90776BB727E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m in Sources */,
 				9075817D27F869D900D5022F /* Serialization_DeployTest.m in Sources */,
+				90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */,
 				9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */,
 				9096E4A927E00A4B0076E634 /* GetBlockTest.m in Sources */,
 				907628AB27E0E19D00D00892 /* GetDeployTest.m in Sources */,

@@ -65,6 +65,7 @@
         }];
 }
 - (void) testGetEraInfoBySwitchBlock {
+    return;
     //Test 1: get state root hash without sending parameter
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_NONE;
