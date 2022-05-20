@@ -7,7 +7,7 @@
  */
 @interface Bid:NSObject
 @property NSString * bonding_purse;
-@property uint8 delegation_rate;
+@property uint delegation_rate;
 @property bool inactive;
 ///list of Delegator
 @property NSMutableArray * delegators;

@@ -58,6 +58,7 @@
 		9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079790E27DC96BB00B69B4E /* GetStateRootHashTest.m */; };
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
+		907A11BB28373E20002476F1 /* CasperCryptoHandlePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 907A11BA28373E20002476F1 /* CasperCryptoHandlePackage */; };
 		908198B528329D4F00F35F2B /* PutDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908198B428329D4F00F35F2B /* PutDeployParams.m */; };
 		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
 		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
@@ -374,6 +375,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907A11BB28373E20002476F1 /* CasperCryptoHandlePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,6 +891,9 @@
 			dependencies = (
 			);
 			name = CasperSDKObjectiveC;
+			packageProductDependencies = (
+				907A11BA28373E20002476F1 /* CasperCryptoHandlePackage */,
+			);
 			productName = CasperSDKObjectiveC;
 			productReference = 9095581527D833D0001AE414 /* CasperSDKObjectiveC.framework */;
 			productType = "com.apple.product-type.framework";
@@ -939,6 +944,9 @@
 				Base,
 			);
 			mainGroup = 9095580B27D833D0001AE414;
+			packageReferences = (
+				907A11B928373E20002476F1 /* XCRemoteSwiftPackageReference "CasperCryptoHandlePackage" */,
+			);
 			productRefGroup = 9095581627D833D0001AE414 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1113,6 +1121,8 @@
 		9095582727D833D0001AE414 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1146,8 +1156,10 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1162,11 +1174,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1175,6 +1188,8 @@
 		9095582827D833D0001AE414 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1208,8 +1223,10 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1218,10 +1235,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1399,6 +1417,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		907A11B928373E20002476F1 /* XCRemoteSwiftPackageReference "CasperCryptoHandlePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hienbui9999/CasperCryptoHandlePackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		907A11BA28373E20002476F1 /* CasperCryptoHandlePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907A11B928373E20002476F1 /* XCRemoteSwiftPackageReference "CasperCryptoHandlePackage" */;
+			productName = CasperCryptoHandlePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9095580C27D833D0001AE414 /* Project object */;
 }

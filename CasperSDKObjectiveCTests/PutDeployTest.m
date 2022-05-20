@@ -11,12 +11,24 @@
 #import "NamedArg.h"
 #import "CLType.h"
 #import "CLValue.h"
+#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperCryptoHandlePackage/CasperCryptoHandlePackage-Swift.h>
+//#import "CasperSDKObjectiveC-swift.h"
+@import CasperCryptoHandlePackage;
 @interface PutDeployTest : XCTestCase
 
 @end
 
 @implementation PutDeployTest
 - (void) testPutDeploy {
+   /* TestCall * a = [[TestCall alloc] init];
+    [a TestFunc];
+    Sample1 * sample = [[Sample1 alloc] init];
+    [sample  sayHello];
+    [sample sayHello2WithNewName:@"Nguyen Van A" newAge:50];
+    [a TestParameterWithPara1:@"Ba Thuoc" para2:20 para3:sample];
+   // Ed25519 * ed = [[Ed25519Handle alloc] init];
+   //[ed testCall];*/
     Deploy * deploy = [[Deploy alloc] init];
     // Setup for Header
     DeployHeader * dh = [[DeployHeader alloc] init];
@@ -161,6 +173,7 @@
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
     deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
+    NSString * bodyHash = [deploy getBodyHash];
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
 }
 @end
