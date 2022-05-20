@@ -59,6 +59,10 @@
 		9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */; };
 		9079791927DCBD0900B69B4E /* GetStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079791827DCBD0900B69B4E /* GetStatusResult.m */; };
 		907A11BB28373E20002476F1 /* CasperCryptoHandlePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 907A11BA28373E20002476F1 /* CasperCryptoHandlePackage */; };
+		907A11BF28378F89002476F1 /* Ed25519Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11BE28378F89002476F1 /* Ed25519Crypto.m */; };
+		907A11C028378F89002476F1 /* Ed25519Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11BE28378F89002476F1 /* Ed25519Crypto.m */; };
+		907A11C32837A5EC002476F1 /* Ed25519KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */; };
+		907A11C42837A5EC002476F1 /* Ed25519KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */; };
 		908198B528329D4F00F35F2B /* PutDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908198B428329D4F00F35F2B /* PutDeployParams.m */; };
 		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
 		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
@@ -220,6 +224,10 @@
 		9079791427DCB1CE00B69B4E /* GetPeerResultTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeerResultTest.m; sourceTree = "<group>"; };
 		9079791727DCBCFC00B69B4E /* GetStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStatusResult.h; sourceTree = "<group>"; };
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
+		907A11BD28378E9F002476F1 /* Ed25519Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ed25519Crypto.h; sourceTree = "<group>"; };
+		907A11BE28378F89002476F1 /* Ed25519Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ed25519Crypto.m; sourceTree = "<group>"; };
+		907A11C12837A5AB002476F1 /* Ed25519KeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ed25519KeyPair.h; sourceTree = "<group>"; };
+		907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ed25519KeyPair.m; sourceTree = "<group>"; };
 		908198B428329D4F00F35F2B /* PutDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployParams.m; sourceTree = "<group>"; };
 		908198B628329D6400F35F2B /* PutDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployParams.h; sourceTree = "<group>"; };
 		9089362E27E86D560075035F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -488,6 +496,17 @@
 			path = GetStatus;
 			sourceTree = "<group>";
 		};
+		907A11BC28378E61002476F1 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				907A11BD28378E9F002476F1 /* Ed25519Crypto.h */,
+				907A11BE28378F89002476F1 /* Ed25519Crypto.m */,
+				907A11C12837A5AB002476F1 /* Ed25519KeyPair.h */,
+				907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		908198B328329CE200F35F2B /* PutDeploy */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +714,7 @@
 		9095583527D8AE1A001AE414 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				907A11BC28378E61002476F1 /* Crypto */,
 				908198B328329CE200F35F2B /* PutDeploy */,
 				9075817227F7B2DB00D5022F /* Serialization */,
 				9092BAC827EAB8AB00CBF99F /* OtherClasses */,
@@ -989,6 +1009,7 @@
 				90955F1327E14C6900F0FE7A /* CLType.m in Sources */,
 				90776BB527E80392000CF3AF /* StoredValue.m in Sources */,
 				90769C0727E5957A003552D8 /* VestingSchedule.m in Sources */,
+				907A11BF28378F89002476F1 /* Ed25519Crypto.m in Sources */,
 				9075817527F7B36B00D5022F /* ExecutableDeployItemSerializationHelper.m in Sources */,
 				9095D98827DE111500D58545 /* BigNumber.m in Sources */,
 				907628A327E0DA2E00D00892 /* ExecutableDeployItem_StoredVersionedContractByName.m in Sources */,
@@ -1051,6 +1072,7 @@
 				9089364527E895BC0075035F /* Contract.m in Sources */,
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
 				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
+				907A11C32837A5EC002476F1 /* Ed25519KeyPair.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
 				909424F627EA23AF00351197 /* GetBalanceResult.m in Sources */,
 				909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */,
@@ -1088,6 +1110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				909424D927E97E7500351197 /* GetItemTest.m in Sources */,
+				907A11C42837A5EC002476F1 /* Ed25519KeyPair.m in Sources */,
 				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				909424F827EA24E600351197 /* GetBalanceTest.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
@@ -1097,6 +1120,7 @@
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
 				90776BB727E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m in Sources */,
 				9075817D27F869D900D5022F /* Serialization_DeployTest.m in Sources */,
+				907A11C028378F89002476F1 /* Ed25519Crypto.m in Sources */,
 				90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */,
 				9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */,
 				9096E4A927E00A4B0076E634 /* GetBlockTest.m in Sources */,
