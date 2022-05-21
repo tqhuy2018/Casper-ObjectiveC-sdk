@@ -187,8 +187,8 @@
     NSLog(@"Deploy hash is:%@",deployHash);
     NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);
     NSString * signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:keyPair.privateKeyStr];
-    [ed25519 writePrivateKeyToPemFile:@"Ed25519PrivateKey1.pem"];
-    [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
+    [ed25519 generateAndWritePrivateKeyToPemFile:@"Ed25519PrivateKey1.pem"];
+    [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519111.pem"];
     NSLog(@"Signature is: %@",signature); //should add 01 prefix
     Boolean isCorrect = [ed25519 verifyMessage:signature withPublicKey:keyPair.publicKeyStr forOriginalMessage:deployHash];
     if(isCorrect) {
