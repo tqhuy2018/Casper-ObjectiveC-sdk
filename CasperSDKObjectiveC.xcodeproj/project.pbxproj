@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9041130E2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */; };
+		9041130F2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */; };
+		904113102838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */; };
+		904113112838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */; };
+		904113162838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */; };
+		904113172838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */; };
+		904113182838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */; };
+		904113192838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */; };
 		9072960727E5DE7800D0DEFE /* Delegator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960627E5DE7800D0DEFE /* Delegator.m */; };
 		9072960A27E5E70800D0DEFE /* Bid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960927E5E70800D0DEFE /* Bid.m */; };
 		9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960B27E5ED1800D0DEFE /* EraInfo.m */; };
@@ -152,6 +160,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPrivateKeyEd25519.pem; sourceTree = "<group>"; };
+		9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPublicKeyEd25519.pem; sourceTree = "<group>"; };
+		9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPublicKeyEd25519.pem; sourceTree = "<group>"; };
+		9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPrivateKeyEd25519.pem; sourceTree = "<group>"; };
+		904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPrivateKeySecp256k1.pem; sourceTree = "<group>"; };
+		904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPublicKeySecp256k1.pem; sourceTree = "<group>"; };
+		904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPublicKeySecp256k1.pem; sourceTree = "<group>"; };
+		904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPrivateKeySecp256k1.pem; sourceTree = "<group>"; };
 		9072960527E5DC8F00D0DEFE /* Delegator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Delegator.h; sourceTree = "<group>"; };
 		9072960627E5DE7800D0DEFE /* Delegator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Delegator.m; sourceTree = "<group>"; };
 		9072960827E5E6FE00D0DEFE /* Bid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bid.h; sourceTree = "<group>"; };
@@ -398,6 +414,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		904113072838D7BB003CCA63 /* PemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				904113092838D9E4003CCA63 /* Secp256k1 */,
+				904113082838D9D4003CCA63 /* Ed25519 */,
+			);
+			path = PemFiles;
+			sourceTree = "<group>";
+		};
+		904113082838D9D4003CCA63 /* Ed25519 */ = {
+			isa = PBXGroup;
+			children = (
+				9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */,
+				9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */,
+				9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */,
+				9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */,
+			);
+			path = Ed25519;
+			sourceTree = "<group>";
+		};
+		904113092838D9E4003CCA63 /* Secp256k1 */ = {
+			isa = PBXGroup;
+			children = (
+				904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */,
+				904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */,
+				904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */,
+				904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */,
+			);
+			path = Secp256k1;
+			sourceTree = "<group>";
+		};
 		9075817227F7B2DB00D5022F /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +546,7 @@
 		907A11BC28378E61002476F1 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				904113072838D7BB003CCA63 /* PemFiles */,
 				907A11BD28378E9F002476F1 /* Ed25519Crypto.h */,
 				907A11BE28378F89002476F1 /* Ed25519Crypto.m */,
 				907A11C12837A5AB002476F1 /* Ed25519KeyPair.h */,
@@ -982,6 +1030,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9041130E2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem in Resources */,
+				904113102838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem in Resources */,
+				904113192838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem in Resources */,
+				904113172838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem in Resources */,
+				904113162838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem in Resources */,
+				904113112838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem in Resources */,
+				9041130F2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem in Resources */,
+				904113182838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
