@@ -177,12 +177,25 @@
     deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
     NSString * bodyHash = [deploy getBodyHash];
     dh.body_hash = bodyHash;
+    NSString * deployHash = [deploy getDeployHash];
+    //deploy.hash = DeploySerialization.getHeaderHash(fromDeployHeader: deployHeader)
    /* Ed25519Cryto * ed25519 = [[Ed25519Cryto alloc] init];
     KeyPairClass * kpc = [ed25519 generateKeyPair];
     NSLog(@"Private key is:%@, public key is:%@",kpc.privateKeyInStr,kpc.publicKeyInStr);*/
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     Ed25519KeyPair * keyPair = [ed25519 generateKey];
+    NSLog(@"Deploy hash is:%@",deployHash);
     NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);
+    NSString * signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:keyPair.privateKeyStr];
+    
+    NSLog(@"Signature is: %@",signature); //should add 01 prefix
+    Boolean isCorrect = [ed25519 verifyMessage:signature withPublicKey:keyPair.publicKeyStr forOriginalMessage:deployHash];
+    if(isCorrect) {
+        NSLog(@"Verify success!!!!");
+    } else {
+        NSLog(@"Verify fail!!!!");
+    }
+    NSLog(@"Signature is: %@",signature);
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
 }
 @end

@@ -8,6 +8,9 @@
 -(void) writePrivateKeyToPemFile:(NSString*) fileName;
 //This function generate the key pair, encapsulated in Ed25519KeyPair object
 -(Ed25519KeyPair *) generateKey;
+-(Boolean) readKeyFromPemFile:(NSString*) fileName;
+-(NSString*) signMessageWithValue:(NSString*) messageToSign withPrivateKey:(NSString*) privateKeyStr;
+-(Boolean) verifyMessage:(NSString*) signedMessage withPublicKey:(NSString*) publicKeyStr forOriginalMessage:(NSString*) originalMessage;
 @end
 
 #endif
