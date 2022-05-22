@@ -14,37 +14,72 @@
 #import "Ed25519Crypto.h"
 #import "Ed25519KeyPair.h"
 #import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
-//#import <CasperCryptoHandlePackage/CasperCryptoHandlePackage-Swift.h>
-//#import "CasperSDKObjectiveC-swift.h"
+#import "CasperErrorMessage.h"
+#import "PutDeployResult.h"
 @import CasperCryptoHandlePackage;
 @interface PutDeployTest : XCTestCase
 
 @end
 
 @implementation PutDeployTest
+
+- (void) putDeploy:(Deploy*) deploy withCallIndex:(NSString*) callIndex {
+    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"put deploy"];
+    NSString * casperURL =  URL_TEST_NET;
+   // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
+    NSString * deployJsonString = [deploy toPutDeployParameterStr];
+    NSLog(@"Put deploy, deploy hash is:%@",deploy.itsHash);
+    NSLog(@"Put deploy full is:%@",deployJsonString);
+    NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    request.HTTPMethod = @"POST";
+    [request setURL:[NSURL URLWithString:casperURL]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:jsonData];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [requestExpectation fulfill];
+        NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
+        [cem fromJsonToErrorObject:forJSONObject];
+        if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
+            PutDeployResult * ret = [[PutDeployResult alloc] init];
+            ret = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject[@"result"]];
+            NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
+            if([callIndex isEqualToString:@"call1"]) {
+                
+            } else  if([callIndex isEqualToString:@"call2"]) {
+                
+            }
+        } else {
+            NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
+        }
+       
+    }];
+    [task resume];
+    [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
+          //  [self closeWithCompletionHandler:nil];
+        }];
+}
+
 - (void) testPutDeploy {
-   /* TestCall * a = [[TestCall alloc] init];
-    [a TestFunc];
-    Sample1 * sample = [[Sample1 alloc] init];
-    [sample  sayHello];
-    [sample sayHello2WithNewName:@"Nguyen Van A" newAge:50];
-    [a TestParameterWithPara1:@"Ba Thuoc" para2:20 para3:sample];
-   // Ed25519 * ed = [[Ed25519Handle alloc] init];
-   //[ed testCall];*/
     Deploy * deploy = [[Deploy alloc] init];
     // Setup for Header
     DeployHeader * dh = [[DeployHeader alloc] init];
-    dh.account = @"0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b";
-    dh.timestamp = @"2022-05-18T07:49:43.637Z";
+    NSString * account = @"01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3";
+    dh.account = account;
+    dh.timestamp = @"2022-05-22T08:13:49.424Z";
     dh.ttl = @"1h 30m";
     dh.gas_price = 1;
     
     dh.dependencies = [[NSMutableArray alloc] init];
     //[dh.dependencies addObject:@"0101010101010101010101010101010101010101010101010101010101010101"];
     dh.chain_name = @"casper-test";
-    dh.body_hash = @"798a65dae48dbefb398ba2f0916fa5591950768b7a467ca609a9a631caf13001";
+    //dh.body_hash = @"798a65dae48dbefb398ba2f0916fa5591950768b7a467ca609a9a631caf13001";
     deploy.header = dh;
-    deploy.itsHash = @"1cdb7d55641a70e19e5fa0293a4e13bb47a55c5838e8935143a054fd23ce1b12";
+    //deploy.itsHash = @"1cdb7d55641a70e19e5fa0293a4e13bb47a55c5838e8935143a054fd23ce1b12";
     // Setup for payment
     ExecutableDeployItem * payment = [[ExecutableDeployItem alloc] init];
     payment.itsType = EDI_MODULEBYTES;
@@ -163,40 +198,42 @@
     [raSession.listArgs addObject:oneNASession2];
     [raSession.listArgs addObject:oneNASession3];
     [raSession.listArgs addObject:oneNASession4];
-    [raSession.listArgs addObject:oneNASession5];
+   // [raSession.listArgs addObject:oneNASession5];
     ediSession.args = raSession;
     [session.itsValue addObject:ediSession];
     deploy.session = session;
     // Setup approvals
     NSMutableArray * listApprovals = [[NSMutableArray alloc] init];
-    Approval * oneA = [[Approval alloc] init];
-    oneA.signer = @"01d9bf2148748a85c89da5aad8ee0b0fc2d105fd39d41a4c796536354f0ae2900c";
-    oneA.signature = @"012dbf03817a51794a8e19e0724884075e6d1fbec326b766ecfa6658b41f81290da85e23b24e88b1c8d9761185c961daee1adab0649912a6477bcd2e69bd91bd08";
-    [listApprovals addObject:oneA];
-    deploy.approvals = listApprovals;
-    deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
+   
+   // oneA.signature = @"012dbf03817a51794a8e19e0724884075e6d1fbec326b766ecfa6658b41f81290da85e23b24e88b1c8d9761185c961daee1adab0649912a6477bcd2e69bd91bd08";
+    
+    //deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
     NSString * bodyHash = [deploy getBodyHash];
     dh.body_hash = bodyHash;
     NSString * deployHash = [deploy getDeployHash];
+    deploy.itsHash = deployHash;
     //deploy.hash = DeploySerialization.getHeaderHash(fromDeployHeader: deployHeader)
    /* Ed25519Cryto * ed25519 = [[Ed25519Cryto alloc] init];
     KeyPairClass * kpc = [ed25519 generateKeyPair];
     NSLog(@"Private key is:%@, public key is:%@",kpc.privateKeyInStr,kpc.publicKeyInStr);*/
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
-    Ed25519KeyPair * keyPair = [ed25519 generateKey];
+    //Ed25519KeyPair * keyPair = [ed25519 generateKey];
     NSLog(@"Deploy hash is:%@",deployHash);
-    NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);
-    NSString * signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:keyPair.privateKeyStr];
-    [ed25519 generateAndWritePrivateKeyToPemFile:@"Ed25519PrivateKey1.pem"];
-    [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519111.pem"];
+    //NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);
+   // [ed25519 readPublicKeyFromPemFile:@"ReadSwiftPublicKeyEd25519.pem"];
+    //[ed25519 generateAndWritePrivateKeyToPemFile:@"Ed25519PrivateKey1.pem"];
+    NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
+    NSLog(@"Privaet kiey is:%@",privateKeyStr);
+    NSString * signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
     NSLog(@"Signature is: %@",signature); //should add 01 prefix
-    Boolean isCorrect = [ed25519 verifyMessage:signature withPublicKey:keyPair.publicKeyStr forOriginalMessage:deployHash];
-    if(isCorrect) {
-        NSLog(@"Verify success!!!!");
-    } else {
-        NSLog(@"Verify fail!!!!");
-    }
+    signature = [[NSString alloc] initWithFormat:@"01%@",signature];
     NSLog(@"Signature is: %@",signature);
-    NSString * deployJsonString = [deploy toPutDeployParameterStr];
+    Approval * oneA = [[Approval alloc] init];
+    oneA.signer = account;
+    oneA.signature = signature;
+    [listApprovals addObject:oneA];
+    deploy.approvals = listApprovals;
+    
+    [self putDeploy:deploy withCallIndex:@"call1"];
 }
 @end

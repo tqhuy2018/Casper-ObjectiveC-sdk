@@ -80,3 +80,6 @@ NSString *const URL_MAIN_NET = @"https://node-clarity-mainnet.make.services/rpc"
 
 //PARSE FIXED PREFIX STRING, USED FOR BUILD DEPLOY JSON STRING FOR ACCOUNT_PUT_DEPLOY RPC CALL
 NSString *const PARSED_FIXED_STR = @"!!!!!___PARSED___!!!!!";
+
+//ERROR MESSAGE FOR CRYPTO
+NSString *const ERROR_STRING = @"ERROR_ERROR";

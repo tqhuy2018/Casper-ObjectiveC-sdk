@@ -63,7 +63,7 @@
     NSLog(@"payment string is:%@",paymentStr);
     NSLog(@"session string is:%@",sessionStr);
     int totalApproval = (int) [self.approvals count];
-    NSLog(@"Total approvals:%i",totalApproval);
+    //NSLog(@"Total approvals:%i",totalApproval);
     NSString * approvalStr = @"\"approvals\": [";
     counter = 0;
     
@@ -80,7 +80,7 @@
     NSString * hashStr = [[NSString alloc] initWithFormat:@"\"hash\": \"%@\"",self.itsHash];
     NSString * deployJsonStr = [[NSString alloc] initWithFormat:@"{\"id\": 1,\"method\": \"account_put_deploy\",\"jsonrpc\": \"2.0\",\"params\": [{%@,%@,%@,%@,%@}]}",headerStr,paymentStr,sessionStr,approvalStr,hashStr];
     NSLog(@"Full put deploy string is:%@",deployJsonStr);
-    return ret;
+    return deployJsonStr;
 }
 /**
  Get body hash of a deploy

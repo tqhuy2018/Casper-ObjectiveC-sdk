@@ -83,6 +83,7 @@
 		9089364827E8B0D10075035F /* EntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364727E8B0D10075035F /* EntryPoint.m */; };
 		9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364A27E8B2080075035F /* EntryPointAccess.m */; };
 		9089364E27E8B7850075035F /* Parameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364D27E8B7850075035F /* Parameter.m */; };
+		9089FE11283A2B78009FBD2D /* PutDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE10283A2B78009FBD2D /* PutDeployResult.m */; };
 		908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */; };
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
@@ -268,6 +269,8 @@
 		9089364A27E8B2080075035F /* EntryPointAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryPointAccess.m; sourceTree = "<group>"; };
 		9089364C27E8B77E0075035F /* Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parameter.h; sourceTree = "<group>"; };
 		9089364D27E8B7850075035F /* Parameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Parameter.m; sourceTree = "<group>"; };
+		9089FE0F283A2AFE009FBD2D /* PutDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployResult.h; sourceTree = "<group>"; };
+		9089FE10283A2B78009FBD2D /* PutDeployResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployResult.m; sourceTree = "<group>"; };
 		908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonExecutionResult.h; sourceTree = "<group>"; };
 		908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonExecutionResult.m; sourceTree = "<group>"; };
 		908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem.h; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 			children = (
 				908198B428329D4F00F35F2B /* PutDeployParams.m */,
 				908198B628329D6400F35F2B /* PutDeployParams.h */,
+				9089FE0F283A2AFE009FBD2D /* PutDeployResult.h */,
+				9089FE10283A2B78009FBD2D /* PutDeployResult.m */,
 			);
 			path = PutDeploy;
 			sourceTree = "<group>";
@@ -1096,6 +1101,7 @@
 				9089364227E890980075035F /* ContractVersion.m in Sources */,
 				90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */,
 				90769C0427E5917B003552D8 /* Transform_WriteBid.m in Sources */,
+				9089FE11283A2B78009FBD2D /* PutDeployResult.m in Sources */,
 				90CAF5CD27E4CE0600AAA913 /* Transform_WriteDeployInfo.m in Sources */,
 				9072960727E5DE7800D0DEFE /* Delegator.m in Sources */,
 				909424FF27EA27A000351197 /* AuctionState.m in Sources */,
