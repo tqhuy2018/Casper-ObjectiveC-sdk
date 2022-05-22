@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9041130E2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */; };
-		9041130F2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */; };
-		904113102838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */; };
-		904113112838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */; };
-		904113162838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */; };
-		904113172838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */; };
-		904113182838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */; };
-		904113192838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */; };
 		9072960727E5DE7800D0DEFE /* Delegator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960627E5DE7800D0DEFE /* Delegator.m */; };
 		9072960A27E5E70800D0DEFE /* Bid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960927E5E70800D0DEFE /* Bid.m */; };
 		9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072960B27E5ED1800D0DEFE /* EraInfo.m */; };
@@ -69,8 +61,8 @@
 		907A11BB28373E20002476F1 /* CasperCryptoHandlePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 907A11BA28373E20002476F1 /* CasperCryptoHandlePackage */; };
 		907A11BF28378F89002476F1 /* Ed25519Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11BE28378F89002476F1 /* Ed25519Crypto.m */; };
 		907A11C028378F89002476F1 /* Ed25519Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11BE28378F89002476F1 /* Ed25519Crypto.m */; };
-		907A11C32837A5EC002476F1 /* Ed25519KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */; };
-		907A11C42837A5EC002476F1 /* Ed25519KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */; };
+		907A11C32837A5EC002476F1 /* CryptoKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* CryptoKeyPair.m */; };
+		907A11C42837A5EC002476F1 /* CryptoKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 907A11C22837A5EC002476F1 /* CryptoKeyPair.m */; };
 		908198B528329D4F00F35F2B /* PutDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908198B428329D4F00F35F2B /* PutDeployParams.m */; };
 		9089363027E86D600075035F /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089362F27E86D600075035F /* Account.m */; };
 		9089363327E86F480075035F /* ActionThresholds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089363227E86F480075035F /* ActionThresholds.m */; };
@@ -84,6 +76,11 @@
 		9089364B27E8B2080075035F /* EntryPointAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364A27E8B2080075035F /* EntryPointAccess.m */; };
 		9089364E27E8B7850075035F /* Parameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089364D27E8B7850075035F /* Parameter.m */; };
 		9089FE11283A2B78009FBD2D /* PutDeployResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE10283A2B78009FBD2D /* PutDeployResult.m */; };
+		9089FE14283A36A7009FBD2D /* Secp256k1Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE13283A36A7009FBD2D /* Secp256k1Crypto.m */; };
+		9089FE16283A39AF009FBD2D /* Ed25519CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE15283A39AF009FBD2D /* Ed25519CryptoTest.m */; };
+		9089FE17283A39AF009FBD2D /* Ed25519CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE15283A39AF009FBD2D /* Ed25519CryptoTest.m */; };
+		9089FE19283A39C4009FBD2D /* Secp256k1CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE18283A39C4009FBD2D /* Secp256k1CryptoTest.m */; };
+		9089FE1A283A39C4009FBD2D /* Secp256k1CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089FE18283A39C4009FBD2D /* Secp256k1CryptoTest.m */; };
 		908A6A4E27E2281B00D850AD /* JsonExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */; };
 		908A6A5727E22BD600D850AD /* ExecutableDeployItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5627E22BD600D850AD /* ExecutableDeployItem.m */; };
 		908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A6A5927E23A9600D850AD /* GetDeployParams.m */; };
@@ -161,14 +158,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPrivateKeyEd25519.pem; sourceTree = "<group>"; };
-		9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPublicKeyEd25519.pem; sourceTree = "<group>"; };
-		9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPublicKeyEd25519.pem; sourceTree = "<group>"; };
-		9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPrivateKeyEd25519.pem; sourceTree = "<group>"; };
-		904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPrivateKeySecp256k1.pem; sourceTree = "<group>"; };
-		904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WriteSwiftPublicKeySecp256k1.pem; sourceTree = "<group>"; };
-		904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPublicKeySecp256k1.pem; sourceTree = "<group>"; };
-		904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadSwiftPrivateKeySecp256k1.pem; sourceTree = "<group>"; };
 		9072960527E5DC8F00D0DEFE /* Delegator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Delegator.h; sourceTree = "<group>"; };
 		9072960627E5DE7800D0DEFE /* Delegator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Delegator.m; sourceTree = "<group>"; };
 		9072960827E5E6FE00D0DEFE /* Bid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bid.h; sourceTree = "<group>"; };
@@ -243,8 +232,8 @@
 		9079791827DCBD0900B69B4E /* GetStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStatusResult.m; sourceTree = "<group>"; };
 		907A11BD28378E9F002476F1 /* Ed25519Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ed25519Crypto.h; sourceTree = "<group>"; };
 		907A11BE28378F89002476F1 /* Ed25519Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ed25519Crypto.m; sourceTree = "<group>"; };
-		907A11C12837A5AB002476F1 /* Ed25519KeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ed25519KeyPair.h; sourceTree = "<group>"; };
-		907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ed25519KeyPair.m; sourceTree = "<group>"; };
+		907A11C12837A5AB002476F1 /* CryptoKeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptoKeyPair.h; sourceTree = "<group>"; };
+		907A11C22837A5EC002476F1 /* CryptoKeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoKeyPair.m; sourceTree = "<group>"; };
 		908198B428329D4F00F35F2B /* PutDeployParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployParams.m; sourceTree = "<group>"; };
 		908198B628329D6400F35F2B /* PutDeployParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployParams.h; sourceTree = "<group>"; };
 		9089362E27E86D560075035F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -271,6 +260,10 @@
 		9089364D27E8B7850075035F /* Parameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Parameter.m; sourceTree = "<group>"; };
 		9089FE0F283A2AFE009FBD2D /* PutDeployResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployResult.h; sourceTree = "<group>"; };
 		9089FE10283A2B78009FBD2D /* PutDeployResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployResult.m; sourceTree = "<group>"; };
+		9089FE12283A350A009FBD2D /* Secp256k1Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Secp256k1Crypto.h; sourceTree = "<group>"; };
+		9089FE13283A36A7009FBD2D /* Secp256k1Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Secp256k1Crypto.m; sourceTree = "<group>"; };
+		9089FE15283A39AF009FBD2D /* Ed25519CryptoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ed25519CryptoTest.m; sourceTree = "<group>"; };
+		9089FE18283A39C4009FBD2D /* Secp256k1CryptoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Secp256k1CryptoTest.m; sourceTree = "<group>"; };
 		908A6A4C27E227FA00D850AD /* JsonExecutionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonExecutionResult.h; sourceTree = "<group>"; };
 		908A6A4D27E2281B00D850AD /* JsonExecutionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonExecutionResult.m; sourceTree = "<group>"; };
 		908A6A5527E22BCF00D850AD /* ExecutableDeployItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutableDeployItem.h; sourceTree = "<group>"; };
@@ -417,37 +410,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		904113072838D7BB003CCA63 /* PemFiles */ = {
-			isa = PBXGroup;
-			children = (
-				904113092838D9E4003CCA63 /* Secp256k1 */,
-				904113082838D9D4003CCA63 /* Ed25519 */,
-			);
-			path = PemFiles;
-			sourceTree = "<group>";
-		};
-		904113082838D9D4003CCA63 /* Ed25519 */ = {
-			isa = PBXGroup;
-			children = (
-				9041130D2838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem */,
-				9041130B2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem */,
-				9041130A2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem */,
-				9041130C2838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem */,
-			);
-			path = Ed25519;
-			sourceTree = "<group>";
-		};
-		904113092838D9E4003CCA63 /* Secp256k1 */ = {
-			isa = PBXGroup;
-			children = (
-				904113152838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem */,
-				904113142838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem */,
-				904113122838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem */,
-				904113132838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem */,
-			);
-			path = Secp256k1;
-			sourceTree = "<group>";
-		};
 		9075817227F7B2DB00D5022F /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,11 +511,12 @@
 		907A11BC28378E61002476F1 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				904113072838D7BB003CCA63 /* PemFiles */,
 				907A11BD28378E9F002476F1 /* Ed25519Crypto.h */,
 				907A11BE28378F89002476F1 /* Ed25519Crypto.m */,
-				907A11C12837A5AB002476F1 /* Ed25519KeyPair.h */,
-				907A11C22837A5EC002476F1 /* Ed25519KeyPair.m */,
+				907A11C12837A5AB002476F1 /* CryptoKeyPair.h */,
+				907A11C22837A5EC002476F1 /* CryptoKeyPair.m */,
+				9089FE12283A350A009FBD2D /* Secp256k1Crypto.h */,
+				9089FE13283A36A7009FBD2D /* Secp256k1Crypto.m */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -760,6 +723,8 @@
 				9075817027F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m */,
 				9075817C27F869D900D5022F /* Serialization_DeployTest.m */,
 				90AF7244283494C4007754B9 /* PutDeployTest.m */,
+				9089FE15283A39AF009FBD2D /* Ed25519CryptoTest.m */,
+				9089FE18283A39C4009FBD2D /* Secp256k1CryptoTest.m */,
 			);
 			path = CasperSDKObjectiveCTests;
 			sourceTree = "<group>";
@@ -1035,14 +1000,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9041130E2838DDD9003CCA63 /* WriteSwiftPrivateKeyEd25519.pem in Resources */,
-				904113102838DDD9003CCA63 /* WriteSwiftPublicKeyEd25519.pem in Resources */,
-				904113192838DDE5003CCA63 /* ReadSwiftPrivateKeySecp256k1.pem in Resources */,
-				904113172838DDE5003CCA63 /* WriteSwiftPublicKeySecp256k1.pem in Resources */,
-				904113162838DDE5003CCA63 /* WriteSwiftPrivateKeySecp256k1.pem in Resources */,
-				904113112838DDD9003CCA63 /* ReadSwiftPrivateKeyEd25519.pem in Resources */,
-				9041130F2838DDD9003CCA63 /* ReadSwiftPublicKeyEd25519.pem in Resources */,
-				904113182838DDE5003CCA63 /* ReadSwiftPublicKeySecp256k1.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,6 +1017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9089FE16283A39AF009FBD2D /* Ed25519CryptoTest.m in Sources */,
 				90776BAF27E80277000CF3AF /* GetEraInfoResult.m in Sources */,
 				9075817B27F8619B00D5022F /* DeploySerializeHelper.m in Sources */,
 				9091ABBB27E632A1002A51F1 /* UnbondingPurse.m in Sources */,
@@ -1128,13 +1086,14 @@
 				9095D97F27DE0F9900D58545 /* U128Class.m in Sources */,
 				908A6A5A27E23A9600D850AD /* GetDeployParams.m in Sources */,
 				9072960C27E5ED1800D0DEFE /* EraInfo.m in Sources */,
+				9089FE19283A39C4009FBD2D /* Secp256k1CryptoTest.m in Sources */,
 				9079790A27DC96AA00B69B4E /* HttpHandler.m in Sources */,
 				907978FF27DC966100B69B4E /* CasperErrorMessage.m in Sources */,
 				9096E4AD27E084890076E634 /* Utils.m in Sources */,
 				9089364527E895BC0075035F /* Contract.m in Sources */,
 				9095D97227DDF59400D58545 /* NextUpgrade.m in Sources */,
 				907628A627E0DAF300D00892 /* ExecutableDeployItem_Transfer.m in Sources */,
-				907A11C32837A5EC002476F1 /* Ed25519KeyPair.m in Sources */,
+				907A11C32837A5EC002476F1 /* CryptoKeyPair.m in Sources */,
 				9095D98227DE0FAD00D58545 /* U256Class.m in Sources */,
 				909424F627EA23AF00351197 /* GetBalanceResult.m in Sources */,
 				909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */,
@@ -1145,6 +1104,7 @@
 				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
 				9089363927E87B6D0075035F /* ContractPackage.m in Sources */,
 				9076288D27E0D3F200D00892 /* GetDeployResult.m in Sources */,
+				9089FE14283A36A7009FBD2D /* Secp256k1Crypto.m in Sources */,
 				908E6D3627E2D8F9003C17CC /* RuntimeArgs.m in Sources */,
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
 				9089364E27E8B7850075035F /* Parameter.m in Sources */,
@@ -1172,7 +1132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				909424D927E97E7500351197 /* GetItemTest.m in Sources */,
-				907A11C42837A5EC002476F1 /* Ed25519KeyPair.m in Sources */,
+				907A11C42837A5EC002476F1 /* CryptoKeyPair.m in Sources */,
 				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				909424F827EA24E600351197 /* GetBalanceTest.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
@@ -1181,6 +1141,7 @@
 				9075817127F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
 				90776BB727E837A2000CF3AF /* GetEraInfoBySwitchBlockTest.m in Sources */,
+				9089FE17283A39AF009FBD2D /* Ed25519CryptoTest.m in Sources */,
 				9075817D27F869D900D5022F /* Serialization_DeployTest.m in Sources */,
 				907A11C028378F89002476F1 /* Ed25519Crypto.m in Sources */,
 				90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */,
@@ -1190,6 +1151,7 @@
 				9094250727EA295900351197 /* GetAuctionInfoTest.m in Sources */,
 				9095D98A27DE3E1E00D58545 /* GetBlockTransfersResultTest.m in Sources */,
 				9097335527F2C553009C18BF /* Serialization_CLTypeTest.m in Sources */,
+				9089FE1A283A39C4009FBD2D /* Secp256k1CryptoTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

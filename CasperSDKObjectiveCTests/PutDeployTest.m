@@ -12,7 +12,7 @@
 #import "CLType.h"
 #import "CLValue.h"
 #import "Ed25519Crypto.h"
-#import "Ed25519KeyPair.h"
+#import "CryptoKeyPair.h"
 #import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import "CasperErrorMessage.h"
 #import "PutDeployResult.h"
@@ -56,7 +56,6 @@
         } else {
             NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
         }
-       
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
@@ -64,16 +63,18 @@
         }];
 }
 
-- (void) testPutDeploy {
+- (void) testPutDeployEd25519 {
+    return;
     Deploy * deploy = [[Deploy alloc] init];
+    Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     // Setup for Header
     DeployHeader * dh = [[DeployHeader alloc] init];
     NSString * account = @"01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3";
     dh.account = account;
-    dh.timestamp = @"2022-05-22T08:13:49.424Z";
+    dh.timestamp = [ed25519 generateTime];// @"2022-05-22T08:13:49.424Z";
+    NSLog(@"Time is:%@",dh.timestamp);
     dh.ttl = @"1h 30m";
     dh.gas_price = 1;
-    
     dh.dependencies = [[NSMutableArray alloc] init];
     //[dh.dependencies addObject:@"0101010101010101010101010101010101010101010101010101010101010101"];
     dh.chain_name = @"casper-test";
@@ -216,7 +217,7 @@
    /* Ed25519Cryto * ed25519 = [[Ed25519Cryto alloc] init];
     KeyPairClass * kpc = [ed25519 generateKeyPair];
     NSLog(@"Private key is:%@, public key is:%@",kpc.privateKeyInStr,kpc.publicKeyInStr);*/
-    Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
+    //Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     //Ed25519KeyPair * keyPair = [ed25519 generateKey];
     NSLog(@"Deploy hash is:%@",deployHash);
     //NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);

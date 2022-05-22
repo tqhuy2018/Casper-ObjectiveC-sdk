@@ -13,6 +13,7 @@
 #import "GetDictionaryItemResult.h"
 #import "GetBalanceResult.h"
 #import "GetAuctionInfoResult.h"
+#import "PutDeployResult.h"
 /**HttpHandler class - Class built for handle POST method of all RPC call
  */
 @implementation HttpHandler
@@ -34,9 +35,7 @@ static NSString* casperURL;
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
         NSDictionary * forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
         //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
@@ -74,9 +73,12 @@ static NSString* casperURL;
             } else if (rpcMethod == CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO) {
                 //Uncomment this to get auction info
                // GetAuctionInfoResult * item = [GetAuctionInfoResult fromJsonDictToGetBalanceResult:(NSDictionary *)forJSONObject];
+            } else if (rpcMethod == CASPER_RPC_METHOD_ACCOUNT_PUT_DEPLOY) {
+                //Uncomment this to get PutDeployResult object
+               // PutDeployResult * item = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject];
             }
         } else {
-            NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error caught with error message:%@ and error code:%@",cem.message,cem.code);
         }
        }];
     [task resume];
