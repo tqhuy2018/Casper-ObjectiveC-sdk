@@ -1,5 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "Utils.h"
+#import "Secp256k1Crypto.h"
+#import "Approval.h"
+#import "PutDeployRPC.h"
+#import "PutDeployParams.h"
 @implementation Utils
 ///This function change timestamp in format of "2020-11-17T00:39:24.072Z" to millisecondsSince1970 U64 number in String format like this "1605573564072"
 +(UInt64 ) fromTimeStampToU64Str:(NSString*) timeStamp {
@@ -222,4 +226,50 @@
     return 0;
 }
 
+static bool isPutDeploySuccess;
++ (bool) isPutDeploySuccess
+{ @synchronized(self) { return isPutDeploySuccess; } }
++ (void) setIsPutDeploySuccess:(bool)val
+{ @synchronized(self) { isPutDeploySuccess = val; } }
+
+static int putDeployCounter;
++ (int) putDeployCounter
+{ @synchronized(self) { return putDeployCounter; } }
++ (void) setPutDeployCounter:(int)val
+{ @synchronized(self) { putDeployCounter = val; } }
+
+static NSString* secpPrivateKeyPemStr;
++ (NSString*) secpPrivateKeyPemStr
+{ @synchronized(self) { return secpPrivateKeyPemStr; } }
++ (void) setSecpPrivateKeyPemStr:(NSString*)val
+{ @synchronized(self) { secpPrivateKeyPemStr = val; } }
+
+static Deploy* deploy;
++ (Deploy*) deploy
+{ @synchronized(self) { return deploy; } }
++ (void) setDeploy:(Deploy *) val
+{ @synchronized(self) { deploy = val; } }
+
++(void) utilsPutDeploy {
+    NSString * deployHash = Utils.deploy.itsHash;
+    Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
+    NSString * signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:Utils.secpPrivateKeyPemStr];
+    signature = [[NSString alloc] initWithFormat:@"02%@",signature];
+    Approval * oneA = [[Approval alloc] init];
+    oneA = [Utils.deploy.approvals objectAtIndex:0];
+    oneA.signature = signature;
+    [Utils.deploy.approvals removeAllObjects];
+    [Utils.deploy.approvals addObject:oneA];
+    Utils.putDeployCounter += 1;
+    if(Utils.putDeployCounter > 10) {
+        Utils.putDeployCounter = 0;
+    } else {
+        PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
+        PutDeployParams * params = [[PutDeployParams alloc] init];
+        params.deploy = Utils.deploy;
+        putDeployRPC.params = params;
+        [putDeployRPC putDeploy];
+    }
+    
+}
 @end

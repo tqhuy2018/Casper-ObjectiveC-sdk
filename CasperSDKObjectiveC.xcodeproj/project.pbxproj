@@ -136,6 +136,7 @@
 		9097335327F2C1EA009C18BF /* NumberSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335227F2C1EA009C18BF /* NumberSerialize.m */; };
 		9097335527F2C553009C18BF /* Serialization_CLTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */; };
 		9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */; };
+		90979DF1283B404A00FF8C4D /* PutDeployRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90979DF0283B404A00FF8C4D /* PutDeployRPC.m */; };
 		90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AF7244283494C4007754B9 /* PutDeployTest.m */; };
 		90B41426280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
 		90B41427280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
@@ -364,6 +365,8 @@
 		9097335227F2C1EA009C18BF /* NumberSerialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberSerialize.m; sourceTree = "<group>"; };
 		9097335427F2C553009C18BF /* Serialization_CLTypeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLTypeTest.m; sourceTree = "<group>"; };
 		9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serialization_CLValueTest.m; sourceTree = "<group>"; };
+		90979DEF283B3E8000FF8C4D /* PutDeployRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PutDeployRPC.h; sourceTree = "<group>"; };
+		90979DF0283B404A00FF8C4D /* PutDeployRPC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployRPC.m; sourceTree = "<group>"; };
 		90A8CCF327F4607400852F43 /* QuotientNRemainder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotientNRemainder.h; sourceTree = "<group>"; };
 		90AF7244283494C4007754B9 /* PutDeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployTest.m; sourceTree = "<group>"; };
 		90B41424280AEA1E00B21DFC /* CasperSDKObjectiveCTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CasperSDKObjectiveCTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -528,6 +531,8 @@
 				908198B628329D6400F35F2B /* PutDeployParams.h */,
 				9089FE0F283A2AFE009FBD2D /* PutDeployResult.h */,
 				9089FE10283A2B78009FBD2D /* PutDeployResult.m */,
+				90979DEF283B3E8000FF8C4D /* PutDeployRPC.h */,
+				90979DF0283B404A00FF8C4D /* PutDeployRPC.m */,
 			);
 			path = PutDeploy;
 			sourceTree = "<group>";
@@ -1109,6 +1114,7 @@
 				907628A927E0DE3300D00892 /* NamedArg.m in Sources */,
 				9089364E27E8B7850075035F /* Parameter.m in Sources */,
 				9095D98527DE0FC000D58545 /* U512Class.m in Sources */,
+				90979DF1283B404A00FF8C4D /* PutDeployRPC.m in Sources */,
 				90CAF5C727E4C85500AAA913 /* Transform_WriteCLValue.m in Sources */,
 				9089364827E8B0D10075035F /* EntryPoint.m in Sources */,
 				907978F327DC963E00B69B4E /* GetPeerResult.m in Sources */,

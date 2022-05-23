@@ -1,6 +1,17 @@
 #ifndef Utils_h
 #define Utils_h
+#import "Deploy.h"
+//This class gives time function and do the put deploy if the put deploy fail and need to put again
 @interface Utils:NSObject
++(Deploy *) deploy;
++ (void) setDeploy:(Deploy *)val;
++(NSString *) secpPrivateKeyPemStr;
++ (void) setSecpPrivateKeyPemStr:(NSString *)val;
++ (bool) isPutDeploySuccess;
++ (void) setIsPutDeploySuccess:(bool) val;
++(int) putDeployCounter;
++ (void) setPutDeployCounter:(int)val;
++(void) utilsPutDeploy;
 ///This function change timestamp in format of "2020-11-17T00:39:24.072Z" to millisecondsSince1970 U64 number in String format like this "1605573564072"
 +(uint64_t) fromTimeStampToU64Str:(NSString*) timeStamp;
 ///This function change time to live (ttl) in format of "1d" or "2h" or "3m" to U64 number in String format

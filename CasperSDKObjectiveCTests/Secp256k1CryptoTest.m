@@ -14,6 +14,7 @@
 @implementation Secp256k1CryptoTest
 
 - (void) testGenerateKey {
+    return;
     Secp256k1Crypto * item = [[Secp256k1Crypto alloc] init];
     CryptoKeyPair * keyPair = [item secpGenerateKey];
     [item secpGenerateAndWritePrivateKeyToPemFile:@"Secp256k1Private.pem"];

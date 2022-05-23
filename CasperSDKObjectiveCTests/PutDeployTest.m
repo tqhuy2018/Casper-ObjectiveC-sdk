@@ -12,10 +12,13 @@
 #import "CLType.h"
 #import "CLValue.h"
 #import "Ed25519Crypto.h"
+#import "Secp256k1Crypto.h"
 #import "CryptoKeyPair.h"
 #import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import "CasperErrorMessage.h"
 #import "PutDeployResult.h"
+#import "PutDeployParams.h"
+#import "PutDeployRPC.h"
 @import CasperCryptoHandlePackage;
 @interface PutDeployTest : XCTestCase
 
@@ -53,8 +56,12 @@
             } else  if([callIndex isEqualToString:@"call2"]) {
                 
             }
+            Utils.putDeployCounter = 0;
         } else {
-            NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
+            if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
+                Utils.deploy = deploy;
+                [Utils utilsPutDeploy];
+            }
         }
     }];
     [task resume];
@@ -64,13 +71,19 @@
 }
 
 - (void) testPutDeployEd25519 {
-    return;
+   // return;
     Deploy * deploy = [[Deploy alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
+    bool isEd25519 = false;
     // Setup for Header
     DeployHeader * dh = [[DeployHeader alloc] init];
-    NSString * account = @"01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3";
-    dh.account = account;
+    NSString * accountEd25519 = @"01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3";
+    NSString * accountSecp256k1 = @"0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b";
+    if(isEd25519) {
+        dh.account = accountEd25519;
+    } else {
+        dh.account = accountSecp256k1;
+    }
     dh.timestamp = [ed25519 generateTime];// @"2022-05-22T08:13:49.424Z";
     NSLog(@"Time is:%@",dh.timestamp);
     dh.ttl = @"1h 30m";
@@ -213,28 +226,37 @@
     dh.body_hash = bodyHash;
     NSString * deployHash = [deploy getDeployHash];
     deploy.itsHash = deployHash;
-    //deploy.hash = DeploySerialization.getHeaderHash(fromDeployHeader: deployHeader)
-   /* Ed25519Cryto * ed25519 = [[Ed25519Cryto alloc] init];
-    KeyPairClass * kpc = [ed25519 generateKeyPair];
-    NSLog(@"Private key is:%@, public key is:%@",kpc.privateKeyInStr,kpc.publicKeyInStr);*/
-    //Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
-    //Ed25519KeyPair * keyPair = [ed25519 generateKey];
     NSLog(@"Deploy hash is:%@",deployHash);
-    //NSLog(@"Private key is:%@, public key is:%@",keyPair.privateKeyStr,keyPair.publicKeyStr);
-   // [ed25519 readPublicKeyFromPemFile:@"ReadSwiftPublicKeyEd25519.pem"];
-    //[ed25519 generateAndWritePrivateKeyToPemFile:@"Ed25519PrivateKey1.pem"];
-    NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
-    NSLog(@"Privaet kiey is:%@",privateKeyStr);
-    NSString * signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
-    NSLog(@"Signature is: %@",signature); //should add 01 prefix
-    signature = [[NSString alloc] initWithFormat:@"01%@",signature];
-    NSLog(@"Signature is: %@",signature);
+    NSString * signature =  @"";
+    if(isEd25519) {
+        NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
+        NSLog(@"Privaet kiey is:%@",privateKeyStr);
+        signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
+        NSLog(@"Signature is: %@",signature); //should add 01 prefix
+        signature = [[NSString alloc] initWithFormat:@"01%@",signature];
+        NSLog(@"Signature is: %@",signature);
+    } else { //Sign with Secp256k1
+        Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
+        NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
+        Utils.secpPrivateKeyPemStr = privateKeyPemStr;
+        signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
+        signature = [[NSString alloc] initWithFormat:@"02%@",signature];
+        NSLog(@"Signature is: %@",signature);
+    }
     Approval * oneA = [[Approval alloc] init];
-    oneA.signer = account;
+    if(isEd25519) {
+        oneA.signer = accountEd25519;
+    } else {
+        oneA.signer = accountSecp256k1;
+    }
     oneA.signature = signature;
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
-    
-    [self putDeploy:deploy withCallIndex:@"call1"];
+    PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
+    PutDeployParams * putDeployParams = [[PutDeployParams alloc] init];
+    putDeployParams.deploy = deploy;
+    putDeployRPC.params = putDeployParams;
+    [putDeployRPC putDeploy];
+   // [self putDeploy:deploy withCallIndex:@"call1"];
 }
 @end
