@@ -138,8 +138,6 @@
 		9097335727F2C55F009C18BF /* Serialization_CLValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097335627F2C55F009C18BF /* Serialization_CLValueTest.m */; };
 		90979DF1283B404A00FF8C4D /* PutDeployRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90979DF0283B404A00FF8C4D /* PutDeployRPC.m */; };
 		90AF7245283494C4007754B9 /* PutDeployTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AF7244283494C4007754B9 /* PutDeployTest.m */; };
-		90B41426280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
-		90B41427280AEA1E00B21DFC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B41425280AEA1E00B21DFC /* Package.swift */; };
 		90CAF5BA27E4A47600AAA913 /* ExecutionEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */; };
 		90CAF5BD27E4A55A00AAA913 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BC27E4A55A00AAA913 /* Operation.m */; };
 		90CAF5C027E4A65300AAA913 /* TransformEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CAF5BF27E4A65300AAA913 /* TransformEntry.m */; };
@@ -370,7 +368,6 @@
 		90A8CCF327F4607400852F43 /* QuotientNRemainder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuotientNRemainder.h; sourceTree = "<group>"; };
 		90AF7244283494C4007754B9 /* PutDeployTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PutDeployTest.m; sourceTree = "<group>"; };
 		90B41424280AEA1E00B21DFC /* CasperSDKObjectiveCTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CasperSDKObjectiveCTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		90B41425280AEA1E00B21DFC /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		90CAF5B827E4A45B00AAA913 /* ExecutionEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExecutionEffect.h; sourceTree = "<group>"; };
 		90CAF5B927E4A47600AAA913 /* ExecutionEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecutionEffect.m; sourceTree = "<group>"; };
 		90CAF5BB27E4A55400AAA913 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
@@ -680,7 +677,6 @@
 		9095580B27D833D0001AE414 = {
 			isa = PBXGroup;
 			children = (
-				90B41425280AEA1E00B21DFC /* Package.swift */,
 				9079791227DC9F5A00B69B4E /* Docs */,
 				9095581727D833D0001AE414 /* CasperSDKObjectiveC */,
 				9095582327D833D0001AE414 /* CasperSDKObjectiveCTests */,
@@ -1104,7 +1100,6 @@
 				909424E927E9EA2B00351197 /* DictionaryIdentifier_URef.m in Sources */,
 				9089363327E86F480075035F /* ActionThresholds.m in Sources */,
 				9092A25527DF3B5500D0361C /* JsonEraEnd.m in Sources */,
-				90B41426280AEA1E00B21DFC /* Package.swift in Sources */,
 				909424D427E974CC00351197 /* GetItemParams.m in Sources */,
 				9072961227E5F9BE00D0DEFE /* Transform_WriteTransfer.m in Sources */,
 				9089363927E87B6D0075035F /* ContractPackage.m in Sources */,
@@ -1142,7 +1137,6 @@
 				909424DB27E9E4C500351197 /* GetDictionaryItemTest.m in Sources */,
 				909424F827EA24E600351197 /* GetBalanceTest.m in Sources */,
 				9079791527DCB1CE00B69B4E /* GetPeerResultTest.m in Sources */,
-				90B41427280AEA1E00B21DFC /* Package.swift in Sources */,
 				9095D97427DDFB0400D58545 /* GetStatusTest.m in Sources */,
 				9075817127F7B2A000D5022F /* Serialization_ExecutableDeployItemTest.m in Sources */,
 				9079791027DC96BB00B69B4E /* GetStateRootHashTest.m in Sources */,
@@ -1382,7 +1376,6 @@
 		9095582D27D833D0001AE414 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1413,7 +1406,6 @@
 		9095582E27D833D0001AE414 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";

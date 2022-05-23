@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "Ed25519Crypto.h"
-#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import "ConstValues.h"
 @import CasperCryptoHandlePackage;
 @implementation Ed25519Crypto

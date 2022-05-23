@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "Secp256k1Crypto.h"
-#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import "ConstValues.h"
 @import CasperCryptoHandlePackage;
 @implementation Secp256k1Crypto

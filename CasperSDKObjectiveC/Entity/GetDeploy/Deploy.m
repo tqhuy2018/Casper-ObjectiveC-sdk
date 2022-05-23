@@ -4,7 +4,7 @@
 #import "Approval.h"
 #import "DeploySerializeHelper.h"
 #import "ExecutableDeployItemSerializationHelper.h"
-#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 @import CasperCryptoHandlePackage;
 /**Class built for storing Deploy information
  */

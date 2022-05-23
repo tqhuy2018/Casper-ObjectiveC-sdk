@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "PutDeployParams.h"
-#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 @import CasperCryptoHandlePackage;
 @implementation PutDeployParams
 -(NSString*) generateParamString {

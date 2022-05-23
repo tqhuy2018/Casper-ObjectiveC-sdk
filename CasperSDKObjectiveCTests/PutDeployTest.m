@@ -14,7 +14,7 @@
 #import "Ed25519Crypto.h"
 #import "Secp256k1Crypto.h"
 #import "CryptoKeyPair.h"
-#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
+//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import "CasperErrorMessage.h"
 #import "PutDeployResult.h"
 #import "PutDeployParams.h"
