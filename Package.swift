@@ -15,16 +15,15 @@ let package = Package(
             targets: ["CasperSDKObjectiveC"]),
     ],
     dependencies: [
-        .package(name: "Blake2", url: "https://github.com/tesseract-one/Blake2.swift.git", from: "0.1.0"),
-        .package(name: "SwiftECC", url: "https://github.com/leif-ibsen/SwiftECC", from: "3.3.0"),
+        .package(name: "CasperCryptoHandlePackage", url: "https://github.com/hienbui9999/CasperCryptoHandlePackage.git", from: "0.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CasperSDKObjectiveC",
-            dependencies: ["Blake2", "SwiftECC"]
-           
+            dependencies: ["CasperSDKObjectiveC","CasperCryptoHandlePackage"],
+            path :"Source"
                 )
     ]
 )

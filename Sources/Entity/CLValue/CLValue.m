@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "CLValue.h"
 #import "CLType.h"
-#import "CLParsed.h"
+#import "CLParsed/CLParsed.h"
 #import "ConstValues.h"
 #import "CLParseSerializeHelper.h"
 /**Class built for storing the  CLValue object.
