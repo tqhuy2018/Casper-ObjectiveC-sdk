@@ -23,11 +23,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CasperSDKObjectiveC",
-            dependencies: ["Blake2", "SwiftECC","secp256k1"],
+            dependencies: ["Blake2", "SwiftECC"],
+            path :"CasperSDKObjectiveC"
            
-                ),
-        .testTarget(
-            name: "CasperSDKObjectiveCTests",
-            dependencies: ["CasperSDKObjectiveC", "Blake2", "SwiftECC","secp256k1"]),
+                )
     ]
 )
