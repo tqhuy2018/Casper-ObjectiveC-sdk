@@ -2,8 +2,8 @@
 #import "CasperSDKObjectiveC/HttpHandler.h"
 #import "CasperSDKObjectiveC/CasperErrorMessage.h"
 #import "CasperSDKObjectiveC/ConstValues.h"
-/*#import "GetStateRootHash.h"
-#import "GetPeerResult.h"
+//#import "GetStateRootHash.h"
+/*#import "GetPeerResult.h"
 #import "GetStatusResult.h"
 #import "GetDeployResult.h"
 #import "GetBlockResult.h"
@@ -42,8 +42,8 @@ static NSString* casperURL;
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             if( rpcMethod == CASPER_RPC_METHOD_GET_STATE_ROOT_HASH) {
               //Uncomment this to get state root hash
-               NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
-                NSLog(@"State root hash is:%@",stateRootHash);
+               //NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
+                NSLog(@"State root hash is:%@",forJSONObject);
             } else if (rpcMethod == CASPER_RPC_METHOD_INFO_GET_PEERS) {
                 //Uncomment this to get peer list
                // GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
