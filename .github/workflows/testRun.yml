@@ -31,4 +31,4 @@ jobs:
           scheme: ${{ 'default' }}
           platform: ${{ 'iOS Simulator' }}
         run: |
-         xcodebuild test -scheme Tests
+         xcodebuild test -scheme CasperSDKObjectiveCTests
