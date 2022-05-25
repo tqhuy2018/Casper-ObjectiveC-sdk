@@ -56,14 +56,36 @@
             } else  if([callIndex isEqualToString:@"call2"]) {
                 
             }
+            PutDeployUtils.isPutDeploySuccess = true;
             PutDeployUtils.putDeployCounter = 0;
         } else {
             if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
+                PutDeployUtils.deploy = [[Deploy alloc] init];
                 PutDeployUtils.deploy = deploy;
-                [PutDeployUtils utilsPutDeploy];
+                NSLog(@"Deploy hash when put again is:%@",PutDeployUtils.deploy.itsHash);
+                PutDeployUtils.isPutDeploySuccess = false;
             }
         }
     }];
+    if(PutDeployUtils.isPutDeploySuccess == false) {
+        //[PutDeployUtils utilsPutDeploy];
+        NSString * deployHash = PutDeployUtils.deploy.itsHash;
+        NSLog(@"Call put deploy again, deploy hash is:%@ and body hash: %@",deployHash,[PutDeployUtils.deploy getBodyHash]);
+        Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
+        NSString * signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:PutDeployUtils.secpPrivateKeyPemStr];
+        signature = [[NSString alloc] initWithFormat:@"02%@",signature];
+        Approval * oneA = [[Approval alloc] init];
+        oneA = [PutDeployUtils.deploy.approvals objectAtIndex:0];
+        oneA.signature = signature;
+        [PutDeployUtils.deploy.approvals removeAllObjects];
+        [PutDeployUtils.deploy.approvals addObject:oneA];
+        PutDeployUtils.putDeployCounter += 1;
+        if(PutDeployUtils.putDeployCounter > 7) {
+            PutDeployUtils.putDeployCounter = 0;
+        } else {
+            [self putDeploy:PutDeployUtils.deploy withCallIndex:@"call1"];
+        }
+    }
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
           //  [self closeWithCompletionHandler:nil];
@@ -252,11 +274,11 @@
     oneA.signature = signature;
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
-    PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
+    /*PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
     PutDeployParams * putDeployParams = [[PutDeployParams alloc] init];
     putDeployParams.deploy = deploy;
     putDeployRPC.params = putDeployParams;
-    [putDeployRPC putDeploy];
-   // [self putDeploy:deploy withCallIndex:@"call1"];
+    [putDeployRPC putDeploy];*/
+    [self putDeploy:deploy withCallIndex:@"call1"];
 }
 @end
