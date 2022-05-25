@@ -1,8 +1,8 @@
 
 #import <XCTest/XCTest.h>
-#import "CLType.h"
-#import "CLTypeSerializeHelper.h"
-#import "ConstValues.h"
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/CLTypeSerializeHelper.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
 @interface Serialization_CLTypeTest : XCTestCase
 
 @end

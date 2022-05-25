@@ -5,8 +5,8 @@
 //  Created by Hien on 22/05/2022.
 //
 #import <XCTest/XCTest.h>
-#import "Secp256k1Crypto.h"
-#import "CryptoKeyPair.h"
+#import <CasperSDKObjectiveC/Secp256k1Crypto.h>
+#import <CasperSDKObjectiveC/CryptoKeyPair.h>
 @interface Secp256k1CryptoTest : XCTestCase
 
 @end

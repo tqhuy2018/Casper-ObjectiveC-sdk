@@ -1,15 +1,15 @@
 #import <XCTest/XCTest.h>
-#import "Utils.h"
-#import "DeploySerializeHelper.h"
-#import "DeployHeader.h"
-#import "Deploy.h"
-#import "Approval.h"
-#import "ConstValues.h"
-#import "ExecutableDeployItem_StoredContractByName.h"
-#import "ExecutableDeployItem_Transfer.h"
-#import "NamedArg.h"
-#import "CLType.h"
-#import "CLValue.h"
+#import <CasperSDKObjectiveC/Utils.h>
+#import <CasperSDKObjectiveC/DeploySerializeHelper.h>
+#import <CasperSDKObjectiveC/DeployHeader.h>
+#import <CasperSDKObjectiveC/Deploy.h>
+#import <CasperSDKObjectiveC/Approval.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredContractByName.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_Transfer.h>
+#import <CasperSDKObjectiveC/NamedArg.h>
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/CLValue.h>
 @interface Serialization_DeployTest : XCTestCase
 
 @end

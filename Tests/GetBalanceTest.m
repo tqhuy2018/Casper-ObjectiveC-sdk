@@ -1,8 +1,8 @@
 #import <XCTest/XCTest.h>
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetBalanceParams.h"
-#import "GetBalanceResult.h"
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetBalanceParams.h>
+#import <CasperSDKObjectiveC/GetBalanceResult.h>
 @interface GetBalanceTest : XCTestCase
 
 @end

@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetItemParams.h"
-#import "GetItemResult.h"
-#import "StoredValue.h"
-#import "Transform_WriteWithdraw.h"
-#import "UnbondingPurse.h"
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetItemParams.h>
+#import <CasperSDKObjectiveC/GetItemResult.h>
+#import <CasperSDKObjectiveC/StoredValue.h>
+#import <CasperSDKObjectiveC/Transform_WriteWithdraw.h>
+#import <CasperSDKObjectiveC/UnbondingPurse.h>
 @interface GetItemTest : XCTestCase
 
 @end

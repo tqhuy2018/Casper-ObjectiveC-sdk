@@ -1,14 +1,14 @@
 #import <XCTest/XCTest.h>
 
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "CLType.h"
-#import "CLParsed.h"
-#import "GetDeployResult.h"
-#import "GetDeployParams.h"
-#import "ExecutableDeployItem.h"
-#import "ExecutableDeployItem_ModuleBytes.h"
-#import "NamedArg.h"
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/CLParsed.h>
+#import <CasperSDKObjectiveC/GetDeployResult.h>
+#import <CasperSDKObjectiveC/GetDeployParams.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_ModuleBytes.h>
+#import <CasperSDKObjectiveC/NamedArg.h>
 @interface GetDeployTest : XCTestCase
 
 @end

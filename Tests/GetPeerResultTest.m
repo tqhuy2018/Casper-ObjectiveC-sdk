@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
-#import "HttpHandler.h"
-#import "GetStateRootHash.h"
-#import "GetPeerList.h"
-#import "GetPeerResult.h"
-#import "BlockIdentifier.h"
-#import "PeerEntry.h"
-#import "ConstValues.h"
+#import <CasperSDKObjectiveC/HttpHandler.h>
+#import <CasperSDKObjectiveC/GetStateRootHash.h>
+#import <CasperSDKObjectiveC/GetPeerList.h>
+#import <CasperSDKObjectiveC/GetPeerResult.h>
+#import <CasperSDKObjectiveC/BlockIdentifier.h>
+#import <CasperSDKObjectiveC/PeerEntry.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
 @interface GetPeerResultTest : XCTestCase
 
 @end

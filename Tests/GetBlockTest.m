@@ -1,8 +1,8 @@
 #import <XCTest/XCTest.h>
-#import "BlockIdentifier.h"
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetBlockResult.h"
+#import <CasperSDKObjectiveC/BlockIdentifier.h>
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetBlockResult.h>
 @interface GetBlockTest : XCTestCase
 
 @end

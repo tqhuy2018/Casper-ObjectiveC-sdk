@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
-#import "NumberSerialize.h"
-#import "QuotientNRemainder.h"
-#import "CLParseSerializeHelper.h"
-#import "CLParsed.h"
-#import "ConstValues.h"
-#import "CLType.h"
-#import "CLValue.h"
+#import <CasperSDKObjectiveC/NumberSerialize.h>
+#import <CasperSDKObjectiveC/QuotientNRemainder.h>
+#import <CasperSDKObjectiveC/CLParseSerializeHelper.h>
+#import <CasperSDKObjectiveC/CLParsed.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/CLValue.h>
 @interface Serialization_CLValueTest : XCTestCase
 
 @end

@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
 
-#import "BlockIdentifier.h"
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetEraInfoResult.h"
-#import "EraInfo.h"
-#import "SeigniorageAllocation.h"
+#import <CasperSDKObjectiveC/BlockIdentifier.h>
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetEraInfoResult.h>
+#import <CasperSDKObjectiveC/EraInfo.h>
+#import <CasperSDKObjectiveC/SeigniorageAllocation.h>
 @interface GetEraInfoBySwitchBlockTest : XCTestCase
 
 @end

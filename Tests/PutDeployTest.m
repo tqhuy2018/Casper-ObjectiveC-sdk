@@ -1,24 +1,24 @@
 #import <XCTest/XCTest.h>
-#import "Utils.h"
-#import "DeploySerializeHelper.h"
-#import "DeployHeader.h"
-#import "Deploy.h"
-#import "Approval.h"
-#import "ConstValues.h"
-#import "ExecutableDeployItem_StoredContractByName.h"
-#import "ExecutableDeployItem_ModuleBytes.h"
-#import "ExecutableDeployItem_Transfer.h"
-#import "NamedArg.h"
-#import "CLType.h"
-#import "CLValue.h"
-#import "Ed25519Crypto.h"
-#import "Secp256k1Crypto.h"
-#import "CryptoKeyPair.h"
-//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
-#import "CasperErrorMessage.h"
-#import "PutDeployResult.h"
-#import "PutDeployParams.h"
-#import "PutDeployRPC.h"
+#import <CasperSDKObjectiveC/Utils.h>
+#import <CasperSDKObjectiveC/PutDeployUtils.h>
+#import <CasperSDKObjectiveC/DeploySerializeHelper.h>
+#import <CasperSDKObjectiveC/DeployHeader.h>
+#import <CasperSDKObjectiveC/Deploy.h>
+#import <CasperSDKObjectiveC/Approval.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredContractByName.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_ModuleBytes.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_Transfer.h>
+#import <CasperSDKObjectiveC/NamedArg.h>
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/CLValue.h>
+#import <CasperSDKObjectiveC/Ed25519Crypto.h>
+#import <CasperSDKObjectiveC/Secp256k1Crypto.h>
+#import <CasperSDKObjectiveC/CryptoKeyPair.h>
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/PutDeployResult.h>
+#import <CasperSDKObjectiveC/PutDeployParams.h>
+#import <CasperSDKObjectiveC/PutDeployRPC.h>
 @import CasperCryptoHandlePackage;
 @interface PutDeployTest : XCTestCase
 
@@ -56,11 +56,11 @@
             } else  if([callIndex isEqualToString:@"call2"]) {
                 
             }
-            Utils.putDeployCounter = 0;
+            PutDeployUtils.putDeployCounter = 0;
         } else {
             if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
-                Utils.deploy = deploy;
-                [Utils utilsPutDeploy];
+                PutDeployUtils.deploy = deploy;
+                [PutDeployUtils utilsPutDeploy];
             }
         }
     }];
@@ -238,7 +238,7 @@
     } else { //Sign with Secp256k1
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
         NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
-        Utils.secpPrivateKeyPemStr = privateKeyPemStr;
+        PutDeployUtils.secpPrivateKeyPemStr = privateKeyPemStr;
         signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
         NSLog(@"Signature is: %@",signature);

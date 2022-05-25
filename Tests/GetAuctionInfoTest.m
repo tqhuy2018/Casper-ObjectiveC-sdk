@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
 
-#import "BlockIdentifier.h"
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetAuctionInfoResult.h"
-#import "JsonEraValidators.h"
-#import "JsonValidatorWeights.h"
+#import <CasperSDKObjectiveC/BlockIdentifier.h>
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetAuctionInfoResult.h>
+#import <CasperSDKObjectiveC/JsonEraValidators.h>
+#import <CasperSDKObjectiveC/JsonValidatorWeights.h>
 @interface GetAuctionInfoTest : XCTestCase
 
 @end

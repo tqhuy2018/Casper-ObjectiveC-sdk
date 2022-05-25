@@ -1,17 +1,17 @@
 #import <XCTest/XCTest.h>
-#import "NamedArg.h"
-#import "CLValue.h"
-#import "CLType.h"
-#import "ConstValues.h"
-#import "ExecutableDeployItem.h"
-#import "ExecutableDeployItem_ModuleBytes.h"
-#import "ExecutableDeployItemSerializationHelper.h"
-#import "ExecutableDeployItem_StoredContractByHash.h"
-#import "ExecutableDeployItem_StoredContractByName.h"
-#import "ExecutableDeployItem_StoredVersionedContractByHash.h"
-#import "ExecutableDeployItem_StoredVersionedContractByName.h"
-#import "ExecutableDeployItem_Transfer.h"
-#import "RuntimeArgs.h"
+#import <CasperSDKObjectiveC/NamedArg.h>
+#import <CasperSDKObjectiveC/CLValue.h>
+#import <CasperSDKObjectiveC/CLType.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_ModuleBytes.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItemSerializationHelper.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredContractByHash.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredContractByName.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredVersionedContractByHash.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_StoredVersionedContractByName.h>
+#import <CasperSDKObjectiveC/ExecutableDeployItem_Transfer.h>
+#import <CasperSDKObjectiveC/RuntimeArgs.h>
 @interface Serialization_ExecutableDeployItemTest : XCTestCase
 
 @end

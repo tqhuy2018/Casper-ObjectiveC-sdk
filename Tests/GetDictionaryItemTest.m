@@ -1,15 +1,15 @@
 #import <XCTest/XCTest.h>
-#import "CasperErrorMessage.h"
-#import "ConstValues.h"
-#import "GetItemParams.h"
-#import "GetDictionaryItemParams.h"
-#import "GetDictionaryItemResult.h"
-#import "DictionaryIdentifier_AccountNamedKey.h"
-#import "DictionaryIdentifier_ContractNamedKey.h"
-#import "DictionaryIdentifier_URef.h"
-#import "DictionaryIdentifier_Dictionary.h"
-#import "CLValue.h"
-#import "StoredValue.h"
+#import <CasperSDKObjectiveC/CasperErrorMessage.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/GetItemParams.h>
+#import <CasperSDKObjectiveC/GetDictionaryItemParams.h>
+#import <CasperSDKObjectiveC/GetDictionaryItemResult.h>
+#import <CasperSDKObjectiveC/DictionaryIdentifier_AccountNamedKey.h>
+#import <CasperSDKObjectiveC/DictionaryIdentifier_ContractNamedKey.h>
+#import <CasperSDKObjectiveC/DictionaryIdentifier_URef.h>
+#import <CasperSDKObjectiveC/DictionaryIdentifier_Dictionary.h>
+#import <CasperSDKObjectiveC/CLValue.h>
+#import <CasperSDKObjectiveC/StoredValue.h>
 @interface GetDictionaryItemTest : XCTestCase
 
 @end

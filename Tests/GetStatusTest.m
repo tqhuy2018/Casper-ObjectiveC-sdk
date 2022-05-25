@@ -1,6 +1,6 @@
 #import <XCTest/XCTest.h>
-#import "GetStatusResult.h"
-#import "ConstValues.h"
+#import <CasperSDKObjectiveC/GetStatusResult.h>
+#import <CasperSDKObjectiveC/ConstValues.h>
 @interface GetStatusTest : XCTestCase
 
 @end
