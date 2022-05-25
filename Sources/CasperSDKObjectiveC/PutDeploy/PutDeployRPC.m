@@ -8,7 +8,7 @@
 #import <CasperSDKObjectiveC/PutDeployUtils.h>
 @implementation PutDeployRPC
 -(void) putDeploy {
-    XCTestExpectation * requestExpectation = [self expectationWithDescription:@"put deploy"];
+   // XCTestExpectation * requestExpectation = [self expectationWithDescription:@"put deploy"];
     NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSString * deployJsonString = [self.params generateParamString];
@@ -26,7 +26,7 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        [requestExpectation fulfill];
+       // [requestExpectation fulfill];
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
@@ -43,10 +43,10 @@
             }
         }
     }];
-    [task resume];
+   /* [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
           //  [self closeWithCompletionHandler:nil];
-        }];
+        }];*/
     if(PutDeployUtils.isPutDeploySuccess == false) {
         PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
         NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
