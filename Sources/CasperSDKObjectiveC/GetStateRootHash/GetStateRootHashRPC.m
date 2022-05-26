@@ -4,17 +4,17 @@
 #import <CasperSDKObjectiveC/ConstValues.h>
 @implementation GetStateRootHashRPC
 -(void) setMethodURL:(NSString*) url {
+    NSLog("About to set the method url to :%@",url);
     self.methodURL = url;
+    NSLog("Done to set the method url to :%@",url);
 }
--(NSString*) methodURL {
-    return self.methodURL;
-}
+
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
-    if(self.methodURL) {
+    /*if(self.methodURL) {
         
     } else {
         self.methodURL = URL_TEST_NET;
-    }
+    }*/
     //NSString * casperURL =  URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];

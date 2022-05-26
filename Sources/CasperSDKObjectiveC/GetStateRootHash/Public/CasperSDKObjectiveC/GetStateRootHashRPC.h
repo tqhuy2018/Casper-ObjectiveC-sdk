@@ -4,7 +4,6 @@
 @interface GetStateRootHashRPC:NSObject
 @property NSString * methodURL;
 -(void) setMethodURL:(NSString*) url;
--(NSString*) methodURL;
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
 @end
 #endif
