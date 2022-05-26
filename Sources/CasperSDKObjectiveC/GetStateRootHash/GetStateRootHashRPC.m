@@ -33,7 +33,6 @@ or:
         self.methodURL = URL_TEST_NET;
     }
     NSLog(@"Send reequest to url:%@",self.methodURL);
-    //NSString * casperURL =  URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";

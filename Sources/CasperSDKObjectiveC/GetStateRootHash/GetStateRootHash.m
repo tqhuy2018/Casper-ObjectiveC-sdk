@@ -12,8 +12,8 @@
 }
 
 
-/*+(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
++(void) getStateRootHashWithJsonParam1:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
-}*/
+}
 
 @end

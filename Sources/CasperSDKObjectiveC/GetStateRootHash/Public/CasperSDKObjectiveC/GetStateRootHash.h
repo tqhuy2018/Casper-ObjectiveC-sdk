@@ -25,7 +25,7 @@ or:
  if you wish to send the block height along with the POST method in the RPC call
  
  */
-//+(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
++(void) getStateRootHashWithJsonParam1:(NSString*) jsonString;
 @end
 
 #endif
