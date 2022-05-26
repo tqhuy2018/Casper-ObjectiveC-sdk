@@ -1,33 +1,13 @@
 #import <Foundation/Foundation.h>
-#import <CasperSDKObjectiveC/GetStateRootHashRPC.h>
-#import <CasperSDKObjectiveC/GetStateRootHash.h>
+#import <CasperSDKObjectiveC/GetPeerRPC.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
-@implementation GetStateRootHashRPC
-@synthesize casperURL;
+#import <CasperSDKObjectiveC/GetPeerResult.h>
+@implementation GetPeerRPC
 -(void) initializeWithRPCURL:(NSString*) url{
     self.casperURL = url;
     self.valueDict = [[NSMutableDictionary alloc] init];
 }
-
-/**This function initiate the process of sending POST request with given parameter in JSON string format
-The input jsonString is used to send to server as parameter of the POST request to get the result back
-The input jsonString is somehow like this:
- 
-{"params" : [],"id" : 1,"method":"chain_get_state_root_hash","jsonrpc" : "2.0"}
- if you wish to send without any param along with the RPC call
- 
-or:
- 
- {"method" : "chain_get_state_root_hash","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
- if you wish to send the block hash along with the POST method in the RPC call
- 
- or:
- 
- {"method" : "chain_get_state_root_hash","id" : 1,"params" : {"block_identifier" : {"Height" :100}},"jsonrpc" : "2.0"}
- if you wish to send the block height along with the POST method in the RPC call
- 
- */
--(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
+-(void) getPeerResultWithJsonParam:(NSString*) jsonString {
     if(self.casperURL) {
         NSLog(@"Casper url is set to this value:%@",self.casperURL);
     } else {
@@ -52,7 +32,7 @@ or:
             [cem fromJsonToErrorObject:forJSONObject];
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
-                NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
+                 GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
             } else {
                 NSLog(@"Error caught with error message:%@ and error code:%@",cem.message,cem.code);
             }
@@ -62,7 +42,7 @@ or:
        }];
     [task resume];
 }
--(void) getStateRootHashWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
+-(void) getPeerResultWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
     self.valueDict[callID] = VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
@@ -86,13 +66,12 @@ or:
             [cem fromJsonToErrorObject:forJSONObject];
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
-                NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
-                self.valueDict[callID] = stateRootHash;
+                GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
+                self.valueDict[callID] = gpr;
             } else {
                 self.valueDict[callID] = VALUE_ERROR_RPC_OBJECT;
             }
         } else {
-            NSLog(@"Error http request");
             self.valueDict[callID] = VALUE_ERROR_RPC_NETWORK;
         }
        }];
