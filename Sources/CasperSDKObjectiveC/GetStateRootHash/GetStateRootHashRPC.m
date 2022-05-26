@@ -4,9 +4,9 @@
 #import <CasperSDKObjectiveC/ConstValues.h>
 @implementation GetStateRootHashRPC
 -(void) setMethodURL:(NSString*) url {
-    NSLog("About to set the method url to :%@",url);
+    NSLog(@"About to set the method url to :%@",url);
     self.methodURL = url;
-    NSLog("Done to set the method url to :%@",url);
+    NSLog(@"Done to set the method url to :%@",url);
 }
 
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
