@@ -45,14 +45,24 @@ or:
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary * forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
-        [cem fromJsonToErrorObject:forJSONObject];
-        //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
-        if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
+        NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
+        if(httpResponse.statusCode == 200)
+        {
+            NSDictionary * forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
+            [cem fromJsonToErrorObject:forJSONObject];
+            //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
+            if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 NSLog(@"In GetState root hash RPC,State root hash is:%@",forJSONObject);
+                NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
+                NSLog(@"State root hash is:%@",stateRootHash);
+               // return stateRootHash;
+            } else {
+                NSLog(@"Error caught with error message:%@ and error code:%@",cem.message,cem.code);
+               // return @"ERROR";
+            }
         } else {
-            NSLog(@"Error caught with error message:%@ and error code:%@",cem.message,cem.code);
+            NSLog(@"Error http request");
         }
        }];
     [task resume];
