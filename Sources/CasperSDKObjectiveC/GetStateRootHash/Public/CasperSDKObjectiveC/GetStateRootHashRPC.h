@@ -22,5 +22,6 @@ or:
  
  */
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
+-(void) get2:(NSString*) jsonString;
 @end
 #endif

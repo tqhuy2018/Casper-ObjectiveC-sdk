@@ -67,5 +67,32 @@ or:
        }];
     [task resume];
 }
+-(void) get2 :(NSString*) jsonString {
+    NSError *error;
+    NSString *urlString = URL_TEST_NET;
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+
+   
+    [request setHTTPMethod:@"POST"];
+
+    [request setURL:url];
+
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+
+    NSData *postData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+
+    [request setHTTPBody:postData];
+
+    NSData *finalDataToDisplay = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+
+    NSMutableDictionary *abc = [NSJSONSerialization JSONObjectWithData: finalDataToDisplay
+                                                               options: NSJSONReadingMutableContainers
+
+                                                                error: &error];
+    NSLog(@"%@",abc);
+}
 @end
 
