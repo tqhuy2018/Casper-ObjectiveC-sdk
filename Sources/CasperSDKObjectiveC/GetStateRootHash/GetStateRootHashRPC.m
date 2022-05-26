@@ -36,7 +36,7 @@ or:
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
-    [request setURL:[NSURL URLWithString:self.methodURL]];
+    [request setURL:[NSURL URLWithString:@"https://node-clarity-testnet.make.services/rpc"]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];
