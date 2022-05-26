@@ -1,7 +1,7 @@
-#ifndef Header_h
-#define Header_h
+#ifndef GetEraInfoRPC_h
+#define GetEraInfoRPC_h
 #import <Foundation/Foundation.h>
-@interface GetEraInfoRPC
+@interface GetEraInfoRPC:NSObject
 @property NSString * casperURL;
 @property NSString * callID;
 @property NSMutableDictionary * rpcCallGotResult;
