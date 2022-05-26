@@ -87,13 +87,14 @@
                 NSLog(@"GOT RESULT OF GET PEER, :%@",forJSONObject);
                 GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
                 self.valueDict[callID] = gpr;
+                self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
             } else {
                 NSLog(@"GOt error get peer");
-                self.valueDict[callID] = RPC_VALUE_ERROR_OBJECT;
+                self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
             }
         } else {
             NSLog(@"GOt error network get peer");
-            self.valueDict[callID] = RPC_VALUE_ERROR_NETWORK;
+            self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_NETWORK;
         }
        }];
     [task resume];
