@@ -87,13 +87,13 @@ or:
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
-                self.valueDict[self.callID] = stateRootHash;
+                self.valueDict[callID] = stateRootHash;
             } else {
-                self.valueDict[self.callID] = VALUE_ERROR_RPC_OBJECT;
+                self.valueDict[callID] = VALUE_ERROR_RPC_OBJECT;
             }
         } else {
             NSLog(@"Error http request");
-            self.valueDict[self.callID] = VALUE_ERROR_RPC_NETWORK;
+            self.valueDict[callID] = VALUE_ERROR_RPC_NETWORK;
         }
        }];
     [task resume];
