@@ -1,5 +1,5 @@
-#ifndef Header_h
-#define Header_h
+#ifndef GetItemRPC_h
+#define GetItemRPC_h
 #import <Foundation/Foundation.h>
 @interface GetItemRPC:NSObject
 @property NSString * casperURL;

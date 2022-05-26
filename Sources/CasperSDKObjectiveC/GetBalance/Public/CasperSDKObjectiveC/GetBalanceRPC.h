@@ -1,7 +1,7 @@
-#ifndef Header_h
-#define Header_h
+#ifndef GetBalanceRPC_h
+#define GetBalanceRPC_h
 #import <Foundation/Foundation.h>
-@interface GetEraInfoRPC
+@interface GetBalanceRPC:NSObject
 @property NSString * casperURL;
 @property NSString * callID;
 @property NSMutableDictionary * rpcCallGotResult;
@@ -9,7 +9,7 @@
 @property NSMutableDictionary * valueDict;
 ///This is class function call the RPC method through the HttpHandler class and get the Json data back as input for the fromJsonObjToGetPeerResult function call
 -(void) initializeWithRPCURL:(NSString*) url;
--(void) getEraInfoWithJsonParam:(NSString*) jsonString;
--(void) getEraInfoWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID;
+-(void) getBalanceResultWithJsonParam:(NSString*) jsonString;
+-(void) getBalanceResultWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID;
 @end
 #endif
