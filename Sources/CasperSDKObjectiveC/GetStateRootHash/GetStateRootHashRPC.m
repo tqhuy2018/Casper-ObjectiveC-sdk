@@ -3,7 +3,7 @@
 #import <CasperSDKObjectiveC/GetStateRootHash.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
 @implementation GetStateRootHashRPC
--(void) setMethodURL:(NSString*) url {
+-(void) setMethodURLTo:(NSString*) url {
     NSLog(@"About to set the method url to :%@",url);
     self.methodURL = url;
     NSLog(@"Done to set the method url to :%@",url);

@@ -3,7 +3,7 @@
 #import <Foundation/Foundation.h>
 @interface GetStateRootHashRPC:NSObject
 @property NSString * methodURL;
--(void) setMethodURL:(NSString*) url;
+-(void) setMethodURLTo:(NSString*) url;
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
 @end
 #endif
