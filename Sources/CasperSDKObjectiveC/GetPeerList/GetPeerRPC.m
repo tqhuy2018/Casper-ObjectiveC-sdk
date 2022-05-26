@@ -9,9 +9,7 @@
 }
 -(void) getPeerResultWithJsonParam:(NSString*) jsonString {
     if(self.casperURL) {
-        NSLog(@"Casper url is set to this value:%@",self.casperURL);
     } else {
-        NSLog(@"Casper url is not set to anyvalue and aout to set to test net");
         self.casperURL = URL_TEST_NET;
     }
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
