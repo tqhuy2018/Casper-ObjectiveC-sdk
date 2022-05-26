@@ -10,9 +10,11 @@
 }
 -(void) getPeerResultWithJsonParam:(NSString*) jsonString {
     if(self.casperURL) {
+        NSLog(@"Get Peer url null");
     } else {
         self.casperURL = URL_TEST_NET;
     }
+    NSLog(@"URL FOR GET PEER:%@",self.casperURL);
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -31,6 +33,7 @@
             [cem fromJsonToErrorObject:forJSONObject];
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
+                NSLog(@"GOT RESULT OF GET PEER, :%@",forJSONObject);
                 self.rpcCallGotResult[self.callID] = RPC_VALID_RESULT;
                  GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
                 self.valueDict[self.callID] = gpr;
