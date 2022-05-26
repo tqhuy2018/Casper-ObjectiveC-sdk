@@ -63,7 +63,7 @@ or:
     [task resume];
 }
 -(void) getStateRootHashWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
-    self.valueDict[callID] = VALUE_NOT_SET;
+    self.valueDict[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
@@ -89,11 +89,11 @@ or:
                 NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
                 self.valueDict[callID] = stateRootHash;
             } else {
-                self.valueDict[callID] = VALUE_ERROR_RPC_OBJECT;
+                self.valueDict[callID] = RPC_VALUE_ERROR_OBJECT;
             }
         } else {
             NSLog(@"Error http request");
-            self.valueDict[callID] = VALUE_ERROR_RPC_NETWORK;
+            self.valueDict[callID] = RPC_VALUE_ERROR_NETWORK;
         }
        }];
     [task resume];

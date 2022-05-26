@@ -6,6 +6,7 @@
 -(void) initializeWithRPCURL:(NSString*) url{
     self.casperURL = url;
     self.valueDict = [[NSMutableDictionary alloc] init];
+    self.rpcCallGotResult = [[NSMutableDictionary alloc] init];
 }
 -(void) getPeerResultWithJsonParam:(NSString*) jsonString {
     if(self.casperURL) {
@@ -30,21 +31,22 @@
             [cem fromJsonToErrorObject:forJSONObject];
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
+                self.rpcCallGotResult[self.callID] = RPC_VALID_RESULT;
                  GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
                 self.valueDict[self.callID] = gpr;
             } else {
                 NSLog(@"Error caught with error message:%@ and error code:%@",cem.message,cem.code);
-                self.valueDict[self.callID] = VALUE_ERROR_RPC_OBJECT;
+                self.rpcCallGotResult[self.callID] = RPC_VALUE_ERROR_OBJECT;
             }
         } else {
             NSLog(@"Error http request");
-            self.valueDict[self.callID] = VALUE_ERROR_RPC_NETWORK;
+            self.rpcCallGotResult[self.callID] = RPC_VALUE_ERROR_NETWORK;
         }
        }];
     [task resume];
 }
 -(void) getPeerResultWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
-    self.valueDict[callID] = VALUE_NOT_SET;
+    self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
@@ -70,10 +72,10 @@
                 GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
                 self.valueDict[callID] = gpr;
             } else {
-                self.valueDict[callID] = VALUE_ERROR_RPC_OBJECT;
+                self.valueDict[callID] = RPC_VALUE_ERROR_OBJECT;
             }
         } else {
-            self.valueDict[callID] = VALUE_ERROR_RPC_NETWORK;
+            self.valueDict[callID] = RPC_VALUE_ERROR_NETWORK;
         }
        }];
     [task resume];
