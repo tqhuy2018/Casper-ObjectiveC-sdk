@@ -28,7 +28,7 @@
     NSLog(@"Transform_WriteBid, bonding_purse:%@",self.bonding_purse);
     NSLog(@"Transform_WriteBid, inactive:%d",self.inactive);
     NSLog(@"Transform_WriteBid, staked_amount:%@",self.staked_amount.itsValue);
-    NSLog(@"Transform_WriteBid, delegation_rate:%hhu",self.delegation_rate);
+    NSLog(@"Transform_WriteBid, delegation_rate:%u",self.delegation_rate);
     NSLog(@"Transform_WriteBid, vesting_schedule");
     [self.vesting_schedule logInfo];
     NSLog(@"Transform_WriteBid, validator_public_key:%@",self.validator_public_key);

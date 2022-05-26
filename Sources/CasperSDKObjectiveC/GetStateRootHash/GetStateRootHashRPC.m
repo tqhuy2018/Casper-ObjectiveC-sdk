@@ -10,6 +10,11 @@
     return self.methodURL;
 }
 -(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
+    if(self.methodURL) {
+        
+    } else {
+        self.methodURL = URL_TEST_NET;
+    }
     //NSString * casperURL =  URL_TEST_NET;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
