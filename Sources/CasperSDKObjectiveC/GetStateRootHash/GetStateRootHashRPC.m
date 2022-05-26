@@ -3,11 +3,12 @@
 #import <CasperSDKObjectiveC/GetStateRootHash.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
 @implementation GetStateRootHashRPC
--(void) setMethodURLTo:(NSString*) url {
-    NSLog(@"About to set the method url to :%@",url);
-    self.methodURL = url;
-    NSLog(@"Done to set the method url to :%@",url);
-}
+static NSString* casperURL;
++ (NSString*) casperURL
+{ @synchronized(self) { return casperURL; } }
++ (void) setCasperURL:(NSString*)val
+{ @synchronized(self) { casperURL = val; } }
+
 /**This function initiate the process of sending POST request with given parameter in JSON string format
 The input jsonString is used to send to server as parameter of the POST request to get the result back
 The input jsonString is somehow like this:
@@ -26,17 +27,12 @@ or:
  if you wish to send the block height along with the POST method in the RPC call
  
  */
--(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
-    if(self.methodURL) {
-        
-    } else {
-        self.methodURL = URL_TEST_NET;
-    }
++(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
     NSLog(@"Send reequest to url:%@",self.methodURL);
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
-    [request setURL:[NSURL URLWithString:@"https://node-clarity-testnet.make.services/rpc"]];
+    [request setURL:[NSURL URLWithString:GetStateRootHashRPC.casperURL]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];

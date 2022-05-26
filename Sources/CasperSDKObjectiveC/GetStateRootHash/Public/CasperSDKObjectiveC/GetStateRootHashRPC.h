@@ -2,8 +2,6 @@
 #define GetStateRootHashRPC_h
 #import <Foundation/Foundation.h>
 @interface GetStateRootHashRPC:NSObject
-@property NSString * methodURL;
--(void) setMethodURLTo:(NSString*) url;
 /**This function initiate the process of sending POST request with given parameter in JSON string format
 The input jsonString is used to send to server as parameter of the POST request to get the result back
 The input jsonString is somehow like this:
@@ -22,6 +20,6 @@ or:
  if you wish to send the block height along with the POST method in the RPC call
  
  */
--(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
++(void) getStateRootHashWithJsonParam:(NSString*) jsonString;
 @end
 #endif
