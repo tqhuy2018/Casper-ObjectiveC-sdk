@@ -31,6 +31,7 @@
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             NSString * state_root_hash = [GetStateRootHash fromJsonToStateRootHash: forJSONObject];
+            NSLog(@"State root hash is:%@",state_root_hash);
         } else {
             NSLog(@"Error get state root hash with error message:%@ and error code:%@",cem.message,cem.code);
         }
