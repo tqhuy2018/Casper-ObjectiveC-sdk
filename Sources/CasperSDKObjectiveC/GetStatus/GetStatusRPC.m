@@ -1,14 +1,14 @@
 #import <Foundation/Foundation.h>
-#import <CasperSDKObjectiveC/GetPeerRPC.h>
+#import <CasperSDKObjectiveC/GetStatusRPC.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
-#import <CasperSDKObjectiveC/GetPeerResult.h>
-@implementation GetPeerRPC
+#import <CasperSDKObjectiveC/GetStatusResult.h>
+@implementation GetStatusRPC
 -(void) initializeWithRPCURL:(NSString*) url{
     self.casperURL = url;
     self.valueDict = [[NSMutableDictionary alloc] init];
     self.rpcCallGotResult = [[NSMutableDictionary alloc] init];
 }
--(void) getPeerResultWithJsonParam:(NSString*) jsonString {
+-(void) getStatusResultWithJsonParam:(NSString*) jsonString {
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
@@ -32,8 +32,9 @@
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 self.rpcCallGotResult[self.callID] = RPC_VALID_RESULT;
-                 GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
-                self.valueDict[self.callID] = gpr;
+                GetStatusResult * gsr = [[GetStatusResult alloc] init];
+                gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
+                self.valueDict[self.callID] = gsr;
             } else {
                 self.rpcCallGotResult[self.callID] = RPC_VALUE_ERROR_OBJECT;
             }
@@ -43,7 +44,7 @@
        }];
     [task resume];
 }
--(void) getPeerResultWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
+-(void) getStatusResultWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
@@ -67,8 +68,9 @@
             [cem fromJsonToErrorObject:forJSONObject];
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
-                GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
-                self.valueDict[callID] = gpr;
+                GetStatusResult * gsr = [[GetStatusResult alloc] init];
+                gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
+                self.valueDict[callID] = gsr;
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
             } else {
                 self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
