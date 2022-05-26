@@ -92,7 +92,6 @@ or:
                 self.valueDict[callID] = RPC_VALUE_ERROR_OBJECT;
             }
         } else {
-            NSLog(@"Error http request");
             self.valueDict[callID] = RPC_VALUE_ERROR_NETWORK;
         }
        }];
