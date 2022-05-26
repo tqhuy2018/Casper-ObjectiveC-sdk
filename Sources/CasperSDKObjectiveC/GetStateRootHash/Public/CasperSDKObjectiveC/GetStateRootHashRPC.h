@@ -2,6 +2,7 @@
 #define GetStateRootHashRPC_h
 #import <Foundation/Foundation.h>
 @interface GetStateRootHashRPC:NSObject
+
 /**This function initiate the process of sending POST request with given parameter in JSON string format
 The input jsonString is used to send to server as parameter of the POST request to get the result back
 The input jsonString is somehow like this:

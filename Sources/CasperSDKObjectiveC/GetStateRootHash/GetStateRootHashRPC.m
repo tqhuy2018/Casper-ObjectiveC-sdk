@@ -28,7 +28,7 @@ or:
  
  */
 +(void) getStateRootHashWithJsonParam:(NSString*) jsonString {
-    NSLog(@"Send reequest to url:%@",self.methodURL);
+    //NSLog(@"Send reequest to url:%@",self.methodURL);
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
