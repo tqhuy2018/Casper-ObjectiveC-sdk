@@ -117,6 +117,8 @@
         NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
         PutDeployUtils.deploy = deploy;
         [PutDeployUtils utilsPutDeploy];
+    } else {
+        NSLog(@"Task done successfully, no need to do anything more");
     }
 }
 -(void) putDeployWithJsonString:(NSString*) putDeployString andCallID:(NSString*) callID {
