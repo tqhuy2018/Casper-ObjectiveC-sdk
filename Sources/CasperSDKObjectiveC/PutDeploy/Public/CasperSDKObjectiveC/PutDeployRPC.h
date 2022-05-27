@@ -13,5 +13,6 @@
 @property PutDeployParams * params;
 -(void) initializeWithRPCURL:(NSString*) url;
 -(void) putDeploy;
+-(void) putDeployWithCallID:(NSString*) callID;
 @end
 #endif
