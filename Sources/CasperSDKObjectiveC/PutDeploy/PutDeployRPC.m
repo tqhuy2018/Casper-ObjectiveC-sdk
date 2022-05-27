@@ -101,6 +101,11 @@
                 NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
+                    [task resume];
+                     PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
+                     NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
+                     PutDeployUtils.deploy = deploy;
+                     [PutDeployUtils utilsPutDeploy];
                 } else {
                     self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
                     NSLog(@"Error put wrong value");
@@ -112,14 +117,14 @@
         }
     }];
     [task resume];
-    if(PutDeployUtils.isPutDeploySuccess == false) {
+   /* if(PutDeployUtils.isPutDeploySuccess == false) {
         PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
         NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
         PutDeployUtils.deploy = deploy;
         [PutDeployUtils utilsPutDeploy];
     } else {
         NSLog(@"Task done successfully, no need to do anything more");
-    }
+    }*/
 }
 -(void) putDeployWithJsonString:(NSString*) putDeployString andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
