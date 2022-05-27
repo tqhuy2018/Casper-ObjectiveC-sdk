@@ -15,5 +15,6 @@
 -(void) initializeWithRPCURL:(NSString*) url;
 -(void) putDeployForDeploy:(Deploy*) deploy;
 -(void) putDeployForDeploy:(Deploy*) deploy andCallID:(NSString*) callID;
+-(void) putDeployWithJsonString:(NSString*) putDeployString andCallID:(NSString*) callID;
 @end
 #endif
