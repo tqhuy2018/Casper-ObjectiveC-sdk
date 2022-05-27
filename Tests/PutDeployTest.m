@@ -53,22 +53,24 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             PutDeployResult * ret = [[PutDeployResult alloc] init];
             ret = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject[@"result"]];
-            NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
+            NSLog(@"Put deploy success with deploy hash:%@ with the counter:%d and deployHash:%@",ret.deployHash,PutDeployUtils.putDeployCounter,deploy.itsHash);
             if([callIndex isEqualToString:@"call1"]) {
-                
             } else  if([callIndex isEqualToString:@"call2"]) {
-                
             }
+            XCTAssert([ret.deployHash isEqualToString: deploy.itsHash] == true);
             PutDeployUtils.isPutDeploySuccess = true;
             PutDeployUtils.putDeployCounter = 0;
         } else {
             if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
-                
                 NSLog(@"Deploy hash when put again is:%@",PutDeployUtils.deploy.itsHash);
                 PutDeployUtils.isPutDeploySuccess = false;
             }
         }
     }];
+    [task resume];
+    [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
+          //  [self closeWithCompletionHandler:nil];
+        }];
     if(PutDeployUtils.isPutDeploySuccess == false) {
         //[PutDeployUtils utilsPutDeploy];
         NSString * deployHash = PutDeployUtils.deploy.itsHash;
@@ -82,16 +84,13 @@
         [PutDeployUtils.deploy.approvals removeAllObjects];
         [PutDeployUtils.deploy.approvals addObject:oneA];
         PutDeployUtils.putDeployCounter += 1;
-        if(PutDeployUtils.putDeployCounter > 7) {
+        if(PutDeployUtils.putDeployCounter > 10) {
             PutDeployUtils.putDeployCounter = 0;
         } else {
             [self putDeploy:PutDeployUtils.deploy withCallIndex:@"call1"];
         }
     }
-    [task resume];
-    [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
-          //  [self closeWithCompletionHandler:nil];
-        }];
+    
 }
 - (void) testPutDeploySecp256k1 {
     //return;
@@ -285,7 +284,7 @@
     [self putDeploy:deploy withCallIndex:@"call1"];
 }
 - (void) testPutDeployEd25519 {
-   // return;
+    return;
     Deploy * deploy = [[Deploy alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     bool isEd25519 = true;
