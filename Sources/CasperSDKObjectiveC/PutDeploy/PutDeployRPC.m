@@ -62,9 +62,8 @@
         self.casperURL = URL_TEST_NET;
     }
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
-   // Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
-    NSLog(@"Put deploy, deploy hash is:%@",deploy.itsHash);
+    NSLog(@"Put deploy, deploy hash is:%@ and url is:%@",deploy.itsHash,self.casperURL);
     NSLog(@"Put deploy full is:%@",deployJsonString);
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -74,7 +73,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSession * session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSLog(@"After putting,  value back is:%@",forJSONObject);
