@@ -7,10 +7,16 @@
 #import <CasperSDKObjectiveC/PutDeployResult.h>
 #import <CasperSDKObjectiveC/PutDeployUtils.h>
 @implementation PutDeployRPC
+-(void) initializeWithRPCURL:(NSString*) url{
+    self.casperURL = url;
+    self.valueDict = [[NSMutableDictionary alloc] init];
+    self.rpcCallGotResult = [[NSMutableDictionary alloc] init];
+}
 -(void) putDeploy {
-   // XCTestExpectation * requestExpectation = [self expectationWithDescription:@"put deploy"];
-    NSString * casperURL =  URL_TEST_NET;
-   // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
+    if(self.casperURL) {
+    } else {
+        self.casperURL = URL_TEST_NET;
+    }
     NSString * deployJsonString = [self.params generateParamString];
     Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
@@ -19,7 +25,7 @@
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
-    [request setURL:[NSURL URLWithString:casperURL]];
+    [request setURL:[NSURL URLWithString:self.casperURL]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];

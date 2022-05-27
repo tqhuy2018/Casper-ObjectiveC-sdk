@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 @interface GetStateRootHashRPC:NSObject
 @property NSString * casperURL;
+// This value is to check when the result of the RPC method from the POST method is ready, is valid or in error state and also hold the returned state_root_hash if the call is correct without any problem
 @property NSMutableDictionary * valueDict;
 /**This function initiate the process of sending POST request with given parameter in JSON string format
 The input jsonString is used to send to server as parameter of the POST request to get the result back
