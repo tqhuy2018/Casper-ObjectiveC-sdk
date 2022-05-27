@@ -127,7 +127,8 @@
     PutDeployUtils.isPutDeploySuccess = true;
     //NSLog(@"Put deploy, deploy hash is:%@ and url is:%@",deploy.itsHash,self.casperURL);
     NSLog(@"Put deploy full is:%@",putDeployString);
-    NSData * jsonData = [putDeployString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString * param = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_status\",\"jsonrpc\" : \"2.0\"}";
+    NSData * jsonData = [param dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
     [request setURL:[NSURL URLWithString:self.casperURL]];
@@ -145,13 +146,13 @@
             CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
             [cem fromJsonToErrorObject:forJSONObject];
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
-                PutDeployResult * ret = [[PutDeployResult alloc] init];
+                /*PutDeployResult * ret = [[PutDeployResult alloc] init];
                 ret = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject[@"result"]];
                 NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
                 PutDeployUtils.putDeployCounter = 0;
                 PutDeployUtils.isPutDeploySuccess = true;
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
-                self.valueDict[callID] = ret;
+                self.valueDict[callID] = ret;*/
             } else {
                 NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
