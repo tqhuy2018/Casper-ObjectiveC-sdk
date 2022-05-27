@@ -12,13 +12,13 @@
     self.valueDict = [[NSMutableDictionary alloc] init];
     self.rpcCallGotResult = [[NSMutableDictionary alloc] init];
 }
--(void) putDeploy {
+-(void) putDeployForDeploy:(Deploy*) deploy {
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
     }
-    NSString * deployJsonString = [self.params generateParamString];
-    Deploy * deploy = self.params.deploy;
+    NSString * deployJsonString = [deploy toPutDeployParameterStr];
+    //Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
     NSLog(@"Put deploy, deploy hash is:%@",deploy.itsHash);
     NSLog(@"Put deploy full is:%@",deployJsonString);
@@ -32,7 +32,6 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-       // [requestExpectation fulfill];
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
@@ -56,14 +55,14 @@
         [PutDeployUtils utilsPutDeploy];
     }
 }
--(void) putDeployWithCallID:(NSString*) callID {
+-(void) putDeployForDeploy:(Deploy*) deploy andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
     }
-    NSString * deployJsonString = [self.params generateParamString];
-    Deploy * deploy = self.params.deploy;
+    NSString * deployJsonString = [deploy toPutDeployParameterStr];
+   // Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
     NSLog(@"Put deploy, deploy hash is:%@",deploy.itsHash);
     NSLog(@"Put deploy full is:%@",deployJsonString);
@@ -77,8 +76,8 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-       // [requestExpectation fulfill];
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSLog(@"After putting,  value back is:%@",forJSONObject);
         CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
         [cem fromJsonToErrorObject:forJSONObject];
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {

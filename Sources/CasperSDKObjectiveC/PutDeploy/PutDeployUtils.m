@@ -47,7 +47,7 @@ static Deploy* deploy;
         PutDeployParams * params = [[PutDeployParams alloc] init];
         params.deploy = PutDeployUtils.deploy;
         putDeployRPC.params = params;
-        [putDeployRPC putDeploy];
+        [putDeployRPC putDeployForDeploy:PutDeployUtils.deploy];
     }
     
 }
