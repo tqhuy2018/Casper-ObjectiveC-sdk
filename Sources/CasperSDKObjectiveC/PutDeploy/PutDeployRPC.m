@@ -44,10 +44,16 @@
                 NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
                 PutDeployUtils.putDeployCounter = 0;
                 PutDeployUtils.isPutDeploySuccess = true;
+                [task resume];
             } else {
                 NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
+                    [task resume];
+                    PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
+                    NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
+                    PutDeployUtils.deploy = deploy;
+                    [PutDeployUtils utilsPutDeploy];
                 }
             }
         } else {
@@ -55,12 +61,6 @@
         }
     }];
     [task resume];
-    if(PutDeployUtils.isPutDeploySuccess == false) {
-        PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
-        NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
-        PutDeployUtils.deploy = deploy;
-        [PutDeployUtils utilsPutDeploy];
-    }
 }
 -(void) putDeployForDeploy:(Deploy*) deploy andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
@@ -107,7 +107,7 @@
                      PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
                      NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
                      PutDeployUtils.deploy = deploy;
-                     [PutDeployUtils utilsPutDeploy];
+                     [PutDeployUtils utilsPutDeployWithCallID:callID];
                 } else {
                     self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
                     NSLog(@"Error put wrong value");

@@ -49,6 +49,27 @@ static Deploy* deploy;
         putDeployRPC.params = params;
         [putDeployRPC putDeployForDeploy:PutDeployUtils.deploy];
     }
-    
+}
+
++(void) utilsPutDeployWithCallID:(NSString*) callID {
+    NSString * deployHash = PutDeployUtils.deploy.itsHash;
+    Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
+    NSString * signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:PutDeployUtils.secpPrivateKeyPemStr];
+    signature = [[NSString alloc] initWithFormat:@"02%@",signature];
+    Approval * oneA = [[Approval alloc] init];
+    oneA = [PutDeployUtils.deploy.approvals objectAtIndex:0];
+    oneA.signature = signature;
+    [PutDeployUtils.deploy.approvals removeAllObjects];
+    [PutDeployUtils.deploy.approvals addObject:oneA];
+    PutDeployUtils.putDeployCounter += 1;
+    if(PutDeployUtils.putDeployCounter > 10) {
+        PutDeployUtils.putDeployCounter = 0;
+    } else {
+        PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
+        PutDeployParams * params = [[PutDeployParams alloc] init];
+        params.deploy = PutDeployUtils.deploy;
+        putDeployRPC.params = params;
+        [putDeployRPC putDeployForDeploy:PutDeployUtils.deploy andCallID: callID];
+    }
 }
 @end
