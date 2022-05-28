@@ -7,6 +7,8 @@
 + (void) setDeploy:(Deploy *)val;
 +(NSString *) secpPrivateKeyPemStr;
 + (void) setSecpPrivateKeyPemStr:(NSString *)val;
++(NSString *) rpcMethodURL;
++ (void) setRpcMethodURL:(NSString *)val;
 + (bool) isPutDeploySuccess;
 + (void) setIsPutDeploySuccess:(bool) val;
 +(int) putDeployCounter;

@@ -23,6 +23,12 @@ static NSString* secpPrivateKeyPemStr;
 + (void) setSecpPrivateKeyPemStr:(NSString*)val
 { @synchronized(self) { secpPrivateKeyPemStr = val; } }
 
+static NSString* rpcMethodURL;
++ (NSString*) rpcMethodURL
+{ @synchronized(self) { return rpcMethodURL; } }
++ (void) setRpcMethodURL:(NSString*)val
+{ @synchronized(self) { rpcMethodURL = val; } }
+
 static Deploy* deploy;
 + (Deploy*) deploy
 { @synchronized(self) { return deploy; } }
@@ -47,6 +53,7 @@ static Deploy* deploy;
         PutDeployParams * params = [[PutDeployParams alloc] init];
         params.deploy = PutDeployUtils.deploy;
         putDeployRPC.params = params;
+        [putDeployRPC initializeWithRPCURL:PutDeployUtils.rpcMethodURL];
         [putDeployRPC putDeployForDeploy:PutDeployUtils.deploy];
     }
 }
@@ -69,6 +76,7 @@ static Deploy* deploy;
         PutDeployParams * params = [[PutDeployParams alloc] init];
         params.deploy = PutDeployUtils.deploy;
         putDeployRPC.params = params;
+        [putDeployRPC initializeWithRPCURL:PutDeployUtils.rpcMethodURL];
         [putDeployRPC putDeployForDeploy:PutDeployUtils.deploy andCallID: callID];
     }
 }

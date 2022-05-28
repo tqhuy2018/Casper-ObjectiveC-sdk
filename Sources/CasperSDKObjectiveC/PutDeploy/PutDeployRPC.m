@@ -17,6 +17,7 @@
     } else {
         self.casperURL = URL_TEST_NET;
     }
+    PutDeployUtils.rpcMethodURL = self.casperURL;
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
     //Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
@@ -68,6 +69,7 @@
     } else {
         self.casperURL = URL_TEST_NET;
     }
+    PutDeployUtils.rpcMethodURL = self.casperURL;
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
     PutDeployUtils.isPutDeploySuccess = true;
     NSLog(@"Put deploy, deploy hash is:%@ and url is:%@",deploy.itsHash,self.casperURL);
