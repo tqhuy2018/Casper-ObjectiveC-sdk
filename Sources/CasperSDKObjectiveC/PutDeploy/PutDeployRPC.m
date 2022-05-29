@@ -51,7 +51,7 @@
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
                     [task resume];
-                    PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
+                    //PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
                     NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
                     PutDeployUtils.deploy = deploy;
                     [PutDeployUtils utilsPutDeploy];
