@@ -5,6 +5,12 @@
 #import <CasperSDKObjectiveC/PutDeployRPC.h>
 #import <CasperSDKObjectiveC/PutDeployParams.h>
 @implementation PutDeployUtils
+static NSMutableDictionary * valueDict;
++(NSMutableDictionary*) valueDict
+{ @synchronized(self) { return valueDict; } }
++ (void) setValueDict:(NSMutableDictionary*)val
+{ @synchronized(self) { valueDict = val; } }
+
 static NSMutableDictionary * rpcCallGotResult;
 +(NSMutableDictionary*) rpcCallGotResult
 { @synchronized(self) { return rpcCallGotResult; } }
@@ -77,6 +83,7 @@ static Deploy* deploy;
     if(PutDeployUtils.putDeployCounter == 0) {
         PutDeployUtils.rpcCallGotResult = [[NSMutableDictionary alloc] init];
         PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
+        PutDeployUtils.valueDict = [[NSMutableDictionary alloc] init];
     }
     PutDeployUtils.putDeployCounter += 1;
     if(PutDeployUtils.putDeployCounter > 10) {
