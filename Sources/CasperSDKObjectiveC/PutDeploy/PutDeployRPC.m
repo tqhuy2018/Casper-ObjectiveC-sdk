@@ -94,13 +94,12 @@
                 PutDeployUtils.valueDict = [[NSMutableDictionary alloc] init];
                 PutDeployUtils.valueDict[callID] = ret;
                 PutDeployResult * ret2 = (PutDeployResult*) PutDeployUtils.valueDict[callID];
-                NSLog(@"Put deploy successful with deploy hash:%@ for callID:%@",ret2.deployHash,callID);
                 [task resume];
             } else {
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
                     [task resume];
-                     PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
+                     //PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
                      NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
                      PutDeployUtils.deploy = deploy;
                      [PutDeployUtils utilsPutDeployWithCallID:callID];
