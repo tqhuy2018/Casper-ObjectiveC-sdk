@@ -102,6 +102,24 @@ The key wrapper is used in account_put_deploy RPC method to generate approvals s
 
 ## Put deploy specification:
 
+The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
+
+- Deploy body hash - base on the serialization of deploy body, which is a string of payment serialization + deploy session serialization. Then use the blake2b256 hash over the generated serialized string to make the deploy body hash. The deploy body hash is an attribute of the deploy header.
+
+- Deploy hash: Use the blake2b256 hash over the header of the deploy.
+
+- Signature in deploy approvals is generated using the deploy hash using the key wrapper to sign over the deploy hash. You can use either Secp256k1 or Ed25519 to sign over the deploy hash, based on the account type of the deploy. If the deploy use account of type Secp256k1 then you have to sign with Secp256k1 key. If the deploy use account of type Ed25519 then you have to sign with Ed25519 key.
+
+- The whole deploy with full information is then serialized to a Json string and sent with a POST request to Casper main or test net, or localhost to call account_put_deploy RPC method.
+
+### To call the Put Deploy correctly, remember to do the following thing:
+
+- Know what your account type is, Ed25519 or Secp256k1.
+
+- Save your private key in 1 place that you can point to from code.
+
+- Choose correct path to private key to sign for the deploy hash in put deploy function.
+
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
