@@ -80,10 +80,10 @@ static Deploy* deploy;
     oneA.signature = signature;
     [PutDeployUtils.deploy.approvals removeAllObjects];
     [PutDeployUtils.deploy.approvals addObject:oneA];
-    if(PutDeployUtils.putDeployCounter == 0) {
+    /*if(PutDeployUtils.putDeployCounter == 0) {
         PutDeployUtils.rpcCallGotResult = [[NSMutableDictionary alloc] init];
         PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
-    }
+    }*/
     PutDeployUtils.putDeployCounter += 1;
     if(PutDeployUtils.putDeployCounter > 10) {
         PutDeployUtils.putDeployCounter = 0;

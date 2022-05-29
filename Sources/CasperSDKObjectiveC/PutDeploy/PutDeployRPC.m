@@ -62,6 +62,10 @@
     } else {
         self.casperURL = URL_TEST_NET;
     }
+    if(PutDeployUtils.putDeployCounter == 0) {
+        PutDeployUtils.rpcCallGotResult = [[NSMutableDictionary alloc] init];
+        PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
+    }
     PutDeployUtils.rpcMethodURL = self.casperURL;
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
     PutDeployUtils.isPutDeploySuccess = true;
