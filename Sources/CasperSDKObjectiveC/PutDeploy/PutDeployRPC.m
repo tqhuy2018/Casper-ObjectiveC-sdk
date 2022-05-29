@@ -65,6 +65,7 @@
 }
 -(void) putDeployForDeploy:(Deploy*) deploy andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
+    PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
@@ -98,6 +99,7 @@
                 PutDeployUtils.putDeployCounter = 0;
                 PutDeployUtils.isPutDeploySuccess = true;
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
+                PutDeployUtils.rpcCallGotResult[callID] = RPC_VALID_RESULT;
                 self.valueDict[callID] = ret;
                 NSLog(@"Put deploy success with rpcCallGotResult:%@",self.rpcCallGotResult[callID]);
                 [task resume];
@@ -112,11 +114,13 @@
                      [PutDeployUtils utilsPutDeployWithCallID:callID];
                 } else {
                     self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
+                    PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
                     NSLog(@"Error put wrong value");
                 }
             }
         } else {
             self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_NETWORK;
+            PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_ERROR_NETWORK;
             NSLog(@"Error because of network");
         }
     }];
