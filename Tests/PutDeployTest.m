@@ -87,7 +87,7 @@
     }
 }
 - (void) testPutDeploySecp256k1 {
-    //return;
+    return;
     Deploy * deploy = [[Deploy alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     bool isEd25519 = false;
