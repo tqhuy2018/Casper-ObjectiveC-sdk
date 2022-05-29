@@ -14,9 +14,7 @@
 }
 -(void) logInfo {
     int totalArgs = (int) self.listArgs.count;
-    NSLog(@"RuntimeArgs, total args:%i",totalArgs);
     for(int i = 0 ; i < totalArgs ;i ++) {
-        NSLog(@"RuntimeArgs, Args item index %i detail ",i);
         NamedArg * oneNA = (NamedArg*) [self.listArgs objectAtIndex:i];
         [oneNA logInfo];
     }
@@ -37,7 +35,6 @@
             counter ++;
         }
         ret = [[NSString alloc] initWithFormat:@"\"args\": %@",ret];
-        NSLog(@"Ret in RuntimeArgs is:%@",ret);
         return ret;
     }
     //if list Args empty just return []

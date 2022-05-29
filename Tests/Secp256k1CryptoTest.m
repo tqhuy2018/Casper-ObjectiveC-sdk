@@ -21,7 +21,5 @@
     NSString * privatePemStr = [item secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
     NSString * deployHash = @"94c6a55ee87c34220142560650f03bac3367f7a609221641b162ba46c80c4b48";
     NSString * signature = [item secpSignMessageWithValue:deployHash withPrivateKey:privatePemStr];
-    NSLog(@"signature is:%@",signature);
-    NSLog(@"Private ");
 }
 @end

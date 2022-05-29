@@ -291,7 +291,6 @@
         }
     }
     NSString * retStr = [[NSString alloc] initWithFormat:@"%@:%@",PARSED_FIXED_STR,fromCLParsed.itsValueStr];
-    NSLog(@"Parse value is:%@",retStr);
     return retStr;
 }
 /// Function to turn 1 CLParsed object of type CLType compound to Json string, used for account_put_deploy RPC method call.
