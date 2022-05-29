@@ -94,13 +94,14 @@
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 PutDeployResult * ret = [[PutDeployResult alloc] init];
                 ret = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject[@"result"]];
-                NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
+                NSLog(@"Put deploy success with deploy hash:%@ and callID:%@",ret.deployHash,callID);
                 PutDeployUtils.putDeployCounter = 0;
                 PutDeployUtils.isPutDeploySuccess = true;
                 PutDeployUtils.rpcCallGotResult[callID] = RPC_VALID_RESULT;
+                PutDeployUtils.valueDict = [[NSMutableDictionary alloc] init];
                 PutDeployUtils.valueDict[callID] = ret;
                 PutDeployResult * ret2 = (PutDeployResult*) PutDeployUtils.valueDict[callID];
-                NSLog(@"Put deploy success with Deploy hash 2:%@",ret2.deployHash);
+                NSLog(@"Put deploy success with Deploy hash 2:%@ and callID:%@",ret2.deployHash,callID);
                 [task resume];
             } else {
                 NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);

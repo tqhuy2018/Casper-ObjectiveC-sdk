@@ -83,7 +83,7 @@ static Deploy* deploy;
     if(PutDeployUtils.putDeployCounter == 0) {
         PutDeployUtils.rpcCallGotResult = [[NSMutableDictionary alloc] init];
         PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
-        PutDeployUtils.valueDict = [[NSMutableDictionary alloc] init];
+       // PutDeployUtils.valueDict = [[NSMutableDictionary alloc] init];
     }
     PutDeployUtils.putDeployCounter += 1;
     if(PutDeployUtils.putDeployCounter > 10) {
