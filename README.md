@@ -137,12 +137,18 @@ For example, to generate the Private and Public key, please refer to function
 
 This function use a "Ed25519CrytoSwift" class object from the Swift package "CasperCryptoHandlePackage"
 This object provides function "generateKeyPair" which return an object holding the Private and Public key pair in form of a string repesent the key bytes.
-For example the Private key is somehow like this: 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 
+For example the Private key is somehow like this in ObjectiveC: 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 
 _ And the Public key is somehow like this: 138_121_31_76_52_190_241_244_216_11_26_29_151_147_196_119_186_49_12_134_43_21_243_127_134_56_3_169_170_156_4_233 _
 
 
 
+## Sample project using the Casper ObjectiveC SDK
 
+Please refer to this address for a sample of 1 ObjectiveC project that call the Casper ObjectiveC SDK.
+
+In this project, some RPC calls are written.
+
+https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
 ## Put deploy specification:
 
