@@ -99,7 +99,8 @@
                 PutDeployUtils.isPutDeploySuccess = true;
                 PutDeployUtils.rpcCallGotResult[callID] = RPC_VALID_RESULT;
                 PutDeployUtils.valueDict[callID] = ret;
-               // NSLog(@"Put deploy success with rpcCallGotResult:%@",self.rpcCallGotResult[callID]);
+                PutDeployResult * ret2 = (PutDeployResult*) PutDeployUtils.valueDict[callID];
+                NSLog(@"Put deploy success with Deploy hash 2:%@",ret2.deployHash);
                 [task resume];
             } else {
                 NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
