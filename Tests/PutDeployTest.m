@@ -32,7 +32,6 @@
     PutDeployUtils.deploy = deploy;
     PutDeployUtils.isPutDeploySuccess =  true;
     NSString * casperURL =  URL_TEST_NET;
-   // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];

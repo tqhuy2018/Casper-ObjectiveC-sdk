@@ -1,9 +1,3 @@
-//
-//  Secp256k1CryptoTest.m
-//  CasperSDKObjectiveC
-//
-//  Created by Hien on 22/05/2022.
-//
 #import <XCTest/XCTest.h>
 #import <CasperSDKObjectiveC/Secp256k1Crypto.h>
 #import <CasperSDKObjectiveC/CryptoKeyPair.h>

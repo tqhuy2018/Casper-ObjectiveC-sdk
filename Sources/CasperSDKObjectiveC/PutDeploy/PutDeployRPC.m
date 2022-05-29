@@ -9,8 +9,6 @@
 @implementation PutDeployRPC
 -(void) initializeWithRPCURL:(NSString*) url{
     self.casperURL = url;
-    //self.valueDict = [[NSMutableDictionary alloc] init];
-    //self.rpcCallGotResult = [[NSMutableDictionary alloc] init];
 }
 -(void) putDeployForDeploy:(Deploy*) deploy {
     if(self.casperURL) {
@@ -19,7 +17,6 @@
     }
     PutDeployUtils.rpcMethodURL = self.casperURL;
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
-    //Deploy * deploy = self.params.deploy;
     PutDeployUtils.isPutDeploySuccess = true;
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
