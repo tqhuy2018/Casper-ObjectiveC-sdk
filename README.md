@@ -82,6 +82,25 @@ xcodebuild test -scheme CasperSDKObjectiveCTests
 
 There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
 
+# Information for Secp256k1, Ed25519 Key Wrapper and Put Deploy
+
+## Key wrapper specification:
+
+The Key wrapper do the following work:(for both Secp256k1 and Ed25519):
+
+- (PrivateKey,PublicKey) generation
+
+- Sign message 
+
+- Verify message
+
+- Read PrivateKey/PublicKey from PEM file
+
+- Write PrivateKey/PublicKey to PEM file
+
+The key wrapper is used in account_put_deploy RPC method to generate approvals signature based on deploy hash.
+
+## Put deploy specification:
 
 # Documentation for classes and methods
 
