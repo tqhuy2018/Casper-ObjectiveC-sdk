@@ -42,7 +42,7 @@
     return ret;
 }
 -(void) logInfo {
-    NSLog(@"ExecutableDeployItem, type:%@",self.itsType);
+    //NSLog(@"ExecutableDeployItem, type:%@",self.itsType);
     if([self.itsType isEqual:EDI_MODULEBYTES]) {
         ExecutableDeployItem_ModuleBytes * moduleBytes = [[ExecutableDeployItem_ModuleBytes alloc] init];
         moduleBytes = (ExecutableDeployItem_ModuleBytes*)[self.itsValue firstObject];

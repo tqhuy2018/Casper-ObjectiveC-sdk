@@ -56,15 +56,14 @@
     NSString * headerStr1 = [[NSString alloc] initWithFormat:@"\"header\": {\"account\":\"%@\",\"timestamp\": \"%@\",\"ttl\": \"%@\",",self.header.account,self.header.timestamp,self.header.ttl];
      NSString * headerStr2 = [[NSString alloc] initWithFormat:@"\"gas_price\": %llu,\"body_hash\": \"%@\",\"dependencies\": %@,\"chain_name\": \"%@\"}",self.header.gas_price,self.header.body_hash,dependencyString,self.header.chain_name];
     NSString * headerStr = [[NSString alloc] initWithFormat:@"%@%@",headerStr1,headerStr2];
-    NSLog(@"header Str is:%@",headerStr);
+    //NSLog(@"header Str is:%@",headerStr);
     NSString * paymentEDIStr = [ExecutableDeployItem toJsonString:self.payment];
     NSString * paymentStr = [[NSString alloc] initWithFormat:@"\"payment\": %@",paymentEDIStr];
     NSString * sessionEDIStr = [ExecutableDeployItem toJsonString:self.session];
     NSString * sessionStr = [[NSString alloc] initWithFormat:@"\"session\": %@",sessionEDIStr];
-    NSLog(@"payment string is:%@",paymentStr);
-    NSLog(@"session string is:%@",sessionStr);
+   // NSLog(@"payment string is:%@",paymentStr);
+   // NSLog(@"session string is:%@",sessionStr);
     int totalApproval = (int) [self.approvals count];
-    //NSLog(@"Total approvals:%i",totalApproval);
     NSString * approvalStr = @"\"approvals\": [";
     counter = 0;
     
@@ -77,10 +76,10 @@
             approvalStr = [[NSString alloc] initWithFormat:@"%@%@]",approvalStr,oneApprovalStr];
         }
     }
-    NSLog(@"Approval string is:%@",approvalStr);
+   // NSLog(@"Approval string is:%@",approvalStr);
     NSString * hashStr = [[NSString alloc] initWithFormat:@"\"hash\": \"%@\"",self.itsHash];
     NSString * deployJsonStr = [[NSString alloc] initWithFormat:@"{\"id\": 1,\"method\": \"account_put_deploy\",\"jsonrpc\": \"2.0\",\"params\": [{%@,%@,%@,%@,%@}]}",headerStr,paymentStr,sessionStr,approvalStr,hashStr];
-    NSLog(@"Full put deploy string is:%@",deployJsonStr);
+    //NSLog(@"Full put deploy string is:%@",deployJsonStr);
     return deployJsonStr;
 }
 /**
@@ -92,10 +91,10 @@
     NSString * paymentSerialization = [ExecutableDeployItemSerializationHelper serializeForExecutableDeployItem:self.payment];
     NSString * sessionSerialization = [ExecutableDeployItemSerializationHelper serializeForExecutableDeployItem:self.session];
     NSString * bodySerializedStr = [[NSString alloc] initWithFormat:@"%@%@",paymentSerialization,sessionSerialization];
-    NSLog(@"Body serialization:%@",bodySerializedStr);
+    //NSLog(@"Body serialization:%@",bodySerializedStr);
     Blake2Handler * bh = [[Blake2Handler alloc] init];
     NSString * blake2b = [bh getBlake2bWithSerialStr:bodySerializedStr];
-    NSLog(@"Blake2b for the body is:%@",blake2b);
+   // NSLog(@"Blake2b for the body is:%@",blake2b);
     return blake2b;
 }
 /**
