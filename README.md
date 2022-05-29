@@ -125,8 +125,21 @@ In Casper ObjectiveC SDK, the Ed25519 task is done in file "Secp256k1Crypto.m" i
 For example, to generate the Private and Public key, please refer to function 
 
  ```ObjectiveC
--(CryptoKeyPair *) generateKey
+-(CryptoKeyPair *) generateKey {
+    CryptoKeyPair * ret = [[CryptoKeyPair alloc] init];
+    Ed25519CrytoSwift * ed25519 = [[Ed25519CrytoSwift alloc] init];
+    KeyPairClass * kpc = [ed25519 generateKeyPair];
+    ret.privateKeyStr = kpc.privateKeyInStr;
+    ret.publicKeyStr = kpc.publicKeyInStr;
+    return ret;
+}
 ```
+
+This function use a "Ed25519CrytoSwift" class object from the Swift package "CasperCryptoHandlePackage"
+This object provides function "generateKeyPair" which return an object holding the Private and Public key pair in form of a string repesent the key bytes.
+For example the Private key is somehow like this: 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 
+_And the Public key is somehow like this:
+
 
 
 
