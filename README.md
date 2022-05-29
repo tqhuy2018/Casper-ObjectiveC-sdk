@@ -141,15 +141,6 @@ For example the Private key is somehow like this in ObjectiveC: 58_1_61_242_77_2
 _ And the Public key is somehow like this: 138_121_31_76_52_190_241_244_216_11_26_29_151_147_196_119_186_49_12_134_43_21_243_127_134_56_3_169_170_156_4_233 _
 
 
-
-## Sample project using the Casper ObjectiveC SDK
-
-Please refer to this address for a sample of 1 ObjectiveC project that call the Casper ObjectiveC SDK.
-
-In this project, some RPC calls are written.
-
-https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
-
 ## Put deploy specification:
 
 The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
@@ -169,6 +160,14 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 - Save your private key in 1 place that you can point to from code.
 
 - Choose correct path to private key to sign for the deploy hash in put deploy function.
+
+## Sample project using the Casper ObjectiveC SDK
+
+Please refer to this address for a sample of 1 ObjectiveC project that call the Casper ObjectiveC SDK.
+
+In this project, some RPC calls are written.
+
+https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
 # Documentation for classes and methods
 
