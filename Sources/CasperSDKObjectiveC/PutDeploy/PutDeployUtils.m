@@ -5,6 +5,12 @@
 #import <CasperSDKObjectiveC/PutDeployRPC.h>
 #import <CasperSDKObjectiveC/PutDeployParams.h>
 @implementation PutDeployUtils
+static NSMutableDictionary * rpcCallGotResult;
++(NSMutableDictionary*) rpcCallGotResult
+{ @synchronized(self) { return rpcCallGotResult; } }
++ (void) setRpcCallGotResult:(NSMutableDictionary*)val
+{ @synchronized(self) { rpcCallGotResult = val; } }
+
 static bool isPutDeploySuccess;
 + (bool) isPutDeploySuccess
 { @synchronized(self) { return isPutDeploySuccess; } }

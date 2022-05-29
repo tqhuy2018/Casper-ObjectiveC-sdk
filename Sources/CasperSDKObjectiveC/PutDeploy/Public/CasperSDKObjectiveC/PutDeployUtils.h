@@ -3,6 +3,8 @@
 #import <CasperSDKObjectiveC/Deploy.h>
 #import <Foundation/Foundation.h>
 @interface PutDeployUtils:NSObject
++(NSMutableDictionary*) rpcCallGotResult;
++(void) setRpcCallGotResult:(NSMutableDictionary *) val;
 +(Deploy *) deploy;
 + (void) setDeploy:(Deploy *)val;
 +(NSString *) secpPrivateKeyPemStr;
