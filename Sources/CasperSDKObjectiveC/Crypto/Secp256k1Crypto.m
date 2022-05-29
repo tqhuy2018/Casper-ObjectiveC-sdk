@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CasperSDKObjectiveC/Secp256k1Crypto.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
-//#import <CasperSDKObjectiveC/CasperCryptoHandlePackage-Swift.h>
 @import CasperCryptoHandlePackage;
 @implementation Secp256k1Crypto
 // This function generates the private/public key pair and assign their values in Ed25519KeyPair class object
@@ -21,7 +20,7 @@
     if([privateKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated private key - the private key string is invalid
     }
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Secp256k1/%@",fileName];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     BOOL isSuccess = [privateKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
@@ -32,7 +31,7 @@
 // This function writes an existing private key - already in Pem format -  to a Pem file
 // The private key is a string represents the private key's raw representation bytes array
 -(Boolean) secpWritePrivateKey:(NSString*) privateKeyPemStr toPemFile:(NSString*) pemFile {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Ed25519/%@",pemFile];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"$@%@",CRYPTO_PATH_SECP256K1,pemFile];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     BOOL isSuccess =  [privateKeyPemStr writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
@@ -44,7 +43,7 @@
  The private key is a string represents the private key's raw representation bytes array
  Sample value is 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 */
 -(NSString * ) secpReadPrivateKeyFromPemFile:(NSString*) fileName {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Secp256k1/%@",fileName];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     if(!fileContent) {
@@ -66,7 +65,7 @@
  The public key is a string represents the public key's raw representation bytes array
  Sample value is 138_121_31_76_52_190_241_244_216_11_26_29_151_147_196_119_186_49_12_134_43_21_243_127_134_56_3_169_170_156_4_233 */
 -(NSString*) secpReadPublicKeyFromPemFile:(NSString*) fileName {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Ed25519/%@",fileName];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     if(!fileContent) {
@@ -90,7 +89,7 @@
     if([publicKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated private key - the private key string is invalid
     }
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Secp256k1/%@",fileName];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     BOOL isSuccess = [publicKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
@@ -101,7 +100,7 @@
 /** This function writes an existing public key to a Pem file
 The public key is pem string represent the public key */
 -(Boolean) secpWritePublicKey:(NSString*) publicKeyStr toPemFile:(NSString*) pemFile {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Ed25519/%@",pemFile];
+    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,pemFile];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     BOOL isSuccess =  [publicKeyStr writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
