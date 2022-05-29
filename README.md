@@ -100,6 +100,14 @@ The Key wrapper do the following work:(for both Secp256k1 and Ed25519):
 
 The key wrapper is used in account_put_deploy RPC method to generate approvals signature based on deploy hash.
 
+The main process for these all tasked is done in Swift package at this address:
+https://github.com/hienbui9999/CasperCryptoHandlePackage
+
+This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks and provide protocol with wrapped classes for ObjectiveC to call certain crypto functions. This package also provide Blake2b256 function for ObjectiveC.
+
+
+
+
 ## Put deploy specification:
 
 The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
