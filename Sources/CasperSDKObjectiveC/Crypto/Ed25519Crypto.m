@@ -54,17 +54,14 @@
     NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Ed25519/%@",fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"File content is:%@",fileContent);
     if(!fileContent) {
         return ERROR_STRING;
     }
     fileContent = [fileContent stringByReplacingOccurrencesOfString:@"-----BEGIN PRIVATE KEY-----" withString:@""];
     fileContent = [fileContent stringByReplacingOccurrencesOfString:@"-----END PRIVATE KEY-----" withString:@""];
     fileContent = [[fileContent componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-    NSLog(@"File content again is:%@",fileContent);
     Ed25519CrytoSwift * ed25519 = [[Ed25519CrytoSwift alloc] init];
     NSString * privateKey = [ed25519 getPrivateKeyStringFromPemStringWithPemStr:fileContent];
-    NSLog(@"Private key is:%@",privateKey);
     return privateKey;
 }
 

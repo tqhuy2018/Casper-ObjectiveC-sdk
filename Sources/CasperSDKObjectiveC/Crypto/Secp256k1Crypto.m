@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import <CasperSDKObjectiveC/Secp256k1Crypto.h>
-//#import <CasperSDKObjectiveC/CasperSDKObjectiveC-Swift.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
 //#import <CasperSDKObjectiveC/CasperCryptoHandlePackage-Swift.h>
 @import CasperCryptoHandlePackage;
@@ -12,8 +11,6 @@
     KeyPairClass * kpc = [secp256k1 generateKeyPair];
     ret.privateKeyStr = kpc.privateKeyInStr;
     ret.publicKeyStr = kpc.publicKeyInStr;
-    NSLog(@"Secp256k1, private key is:%@",ret.privateKeyStr);
-    NSLog(@"Secp256k1, public key is:%@",ret.publicKeyStr);
     return ret;
 }
 // This function generates a private key then write its content to a Pem file
@@ -50,7 +47,6 @@
     NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Secp256k1/%@",fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"File content is:%@",fileContent);
     if(!fileContent) {
         return ERROR_STRING; // File url doesn't exist
     }
@@ -73,7 +69,6 @@
     NSString * filePath = [[NSString alloc] initWithFormat:@"/Users/hien/Ed25519/%@",fileName];
     NSURL * url = [NSURL fileURLWithPath:filePath];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"File content is:%@",fileContent);
     if(!fileContent) {
         return ERROR_STRING; //Error if invalid file URL
     }
@@ -135,7 +130,6 @@ The public key is pem string represent the public key */
  */
 -(NSString*) secpSignMessageWithValue:(NSString*) messageToSign withPrivateKey:(NSString*) privateKeyStr {
     Secp256k1CryptoSwift * secp = [[Secp256k1CryptoSwift alloc] init];
-    NSLog(@"Message to sign:%@ and privateKeyStr:%@",messageToSign,privateKeyStr);
     NSString * ret = [secp signMessageWithMessageToSign:messageToSign withPrivateKeyPemString:privateKeyStr];
     return ret;
 }
