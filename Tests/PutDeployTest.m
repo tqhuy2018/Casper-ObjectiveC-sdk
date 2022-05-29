@@ -34,8 +34,6 @@
     NSString * casperURL =  URL_TEST_NET;
    // casperURL = @"https://node-clarity-mainnet.make.services/rpc";
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
-    NSLog(@"Put deploy, deploy hash is:%@",deploy.itsHash);
-    NSLog(@"Put deploy full is:%@",deployJsonString);
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"POST";
@@ -72,9 +70,7 @@
           //  [self closeWithCompletionHandler:nil];
         }];
     if(PutDeployUtils.isPutDeploySuccess == false) {
-        //[PutDeployUtils utilsPutDeploy];
         NSString * deployHash = PutDeployUtils.deploy.itsHash;
-        NSLog(@"Call put deploy again, deploy hash is:%@ and body hash:%@ and private key pem string:%@",deployHash,[PutDeployUtils.deploy getBodyHash],PutDeployUtils.secpPrivateKeyPemStr);
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
         NSString * signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:PutDeployUtils.secpPrivateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
@@ -90,7 +86,6 @@
             [self putDeploy:PutDeployUtils.deploy withCallIndex:@"call1"];
         }
     }
-    
 }
 - (void) testPutDeploySecp256k1 {
     //return;
@@ -107,15 +102,11 @@
         dh.account = accountSecp256k1;
     }
     dh.timestamp = [ed25519 generateTime];// @"2022-05-22T08:13:49.424Z";
-    NSLog(@"Time is:%@",dh.timestamp);
     dh.ttl = @"1h 30m";
     dh.gas_price = 1;
     dh.dependencies = [[NSMutableArray alloc] init];
-    //[dh.dependencies addObject:@"0101010101010101010101010101010101010101010101010101010101010101"];
     dh.chain_name = @"casper-test";
-    //dh.body_hash = @"798a65dae48dbefb398ba2f0916fa5591950768b7a467ca609a9a631caf13001";
     deploy.header = dh;
-    //deploy.itsHash = @"1cdb7d55641a70e19e5fa0293a4e13bb47a55c5838e8935143a054fd23ce1b12";
     // Setup for payment
     ExecutableDeployItem * payment = [[ExecutableDeployItem alloc] init];
     payment.itsType = EDI_MODULEBYTES;
@@ -240,32 +231,21 @@
     deploy.session = session;
     // Setup approvals
     NSMutableArray * listApprovals = [[NSMutableArray alloc] init];
-   
-   // oneA.signature = @"012dbf03817a51794a8e19e0724884075e6d1fbec326b766ecfa6658b41f81290da85e23b24e88b1c8d9761185c961daee1adab0649912a6477bcd2e69bd91bd08";
-    
-    //deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
     NSString * bodyHash = [deploy getBodyHash];
     dh.body_hash = bodyHash;
     NSString * deployHash = [deploy getDeployHash];
     deploy.itsHash = deployHash;
-    NSLog(@"Deploy hash is:%@",deployHash);
     NSString * signature =  @"";
     if(isEd25519) {
         NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
-        NSLog(@"Privaet kiey is:%@",privateKeyStr);
         signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
-        NSLog(@"Signature is: %@",signature); //should add 01 prefix
         signature = [[NSString alloc] initWithFormat:@"01%@",signature];
-        NSLog(@"Signature is: %@",signature);
     } else { //Sign with Secp256k1
-        NSLog(@"Sign with Secp256k1");
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
         NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
         PutDeployUtils.secpPrivateKeyPemStr = privateKeyPemStr;
-        NSLog(@"private key pem string to putDeployUtils:%@",PutDeployUtils.secpPrivateKeyPemStr);
         signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
-        NSLog(@"Signature is: %@",signature);
     }
     Approval * oneA = [[Approval alloc] init];
     if(isEd25519) {
@@ -298,15 +278,11 @@
         dh.account = accountSecp256k1;
     }
     dh.timestamp = [ed25519 generateTime];// @"2022-05-22T08:13:49.424Z";
-    NSLog(@"Time is:%@",dh.timestamp);
     dh.ttl = @"1h 30m";
     dh.gas_price = 1;
     dh.dependencies = [[NSMutableArray alloc] init];
-    //[dh.dependencies addObject:@"0101010101010101010101010101010101010101010101010101010101010101"];
     dh.chain_name = @"casper-test";
-    //dh.body_hash = @"798a65dae48dbefb398ba2f0916fa5591950768b7a467ca609a9a631caf13001";
     deploy.header = dh;
-    //deploy.itsHash = @"1cdb7d55641a70e19e5fa0293a4e13bb47a55c5838e8935143a054fd23ce1b12";
     // Setup for payment
     ExecutableDeployItem * payment = [[ExecutableDeployItem alloc] init];
     payment.itsType = EDI_MODULEBYTES;
@@ -431,30 +407,21 @@
     deploy.session = session;
     // Setup approvals
     NSMutableArray * listApprovals = [[NSMutableArray alloc] init];
-   
-   // oneA.signature = @"012dbf03817a51794a8e19e0724884075e6d1fbec326b766ecfa6658b41f81290da85e23b24e88b1c8d9761185c961daee1adab0649912a6477bcd2e69bd91bd08";
-    
-    //deploy.itsHash = @"01da3c604f71e0e7df83ff1ab4ef15bb04de64ca02e3d2b78de6950e8b5ee187";
     NSString * bodyHash = [deploy getBodyHash];
     dh.body_hash = bodyHash;
     NSString * deployHash = [deploy getDeployHash];
     deploy.itsHash = deployHash;
-    NSLog(@"Deploy hash is:%@",deployHash);
     NSString * signature =  @"";
     if(isEd25519) {
         NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
-        NSLog(@"Privaet kiey is:%@",privateKeyStr);
         signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
-        NSLog(@"Signature is: %@",signature); //should add 01 prefix
         signature = [[NSString alloc] initWithFormat:@"01%@",signature];
-        NSLog(@"Signature is: %@",signature);
     } else { //Sign with Secp256k1
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
         NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
         PutDeployUtils.secpPrivateKeyPemStr = privateKeyPemStr;
         signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
-        NSLog(@"Signature is: %@",signature);
     }
     Approval * oneA = [[Approval alloc] init];
     if(isEd25519) {
@@ -465,11 +432,6 @@
     oneA.signature = signature;
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
-    /*PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
-    PutDeployParams * putDeployParams = [[PutDeployParams alloc] init];
-    putDeployParams.deploy = deploy;
-    putDeployRPC.params = putDeployParams;
-    [putDeployRPC putDeploy];*/
     [self putDeploy:deploy withCallIndex:@"call1"];
 }
 @end
