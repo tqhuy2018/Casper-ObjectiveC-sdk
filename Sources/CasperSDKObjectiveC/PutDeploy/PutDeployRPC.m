@@ -65,7 +65,6 @@
 }
 -(void) putDeployForDeploy:(Deploy*) deploy andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
-    PutDeployUtils.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
