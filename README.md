@@ -100,11 +100,33 @@ The Key wrapper do the following work:(for both Secp256k1 and Ed25519):
 
 The key wrapper is used in account_put_deploy RPC method to generate approvals signature based on deploy hash.
 
-The main process for these all tasked is done in Swift package at this address:
+The core Ed25519 and Secp256k1 Crypto is not avaiable in ObjectiveC native, but the taskes for these cryptos can be done by calling Swift libraries and online packages, which are encapsulated in one Swift package at this address:
+
 https://github.com/hienbui9999/CasperCryptoHandlePackage
 
 This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks and provide protocol with wrapped classes for ObjectiveC to call certain crypto functions. This package also provide Blake2b256 function for ObjectiveC.
 
+To use the functions and classes in this package, simply add the package in file "Package.swift" by this declaration:
+(Please see the Package.swift file under the Casper-ObjectiveC-sdk package)
+
+ ```ObjectiveC
+dependencies: [
+    .package(name: "CasperCryptoHandlePackage", url: "https://github.com/hienbui9999/CasperCryptoHandlePackage.git", from: "1.0.2"),
+],
+```
+
+In any ObjectiveC file, to use the Crypto function that this package provides, simply add this import at the beginning of the  ObjectiveC file.
+
+ ```ObjectiveC
+@import CasperCryptoHandlePackage;
+```
+
+In Casper ObjectiveC SDK, the Ed25519 task is done in file "Secp256k1Crypto.m" in "Crypto" folder. This file provides all functions for all the crypto tasks above.
+For example, to generate the Private and Public key, please refer to function 
+
+ ```ObjectiveC
+-(CryptoKeyPair *) generateKey
+```
 
 
 
