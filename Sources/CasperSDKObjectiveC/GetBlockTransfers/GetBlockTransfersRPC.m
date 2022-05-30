@@ -46,7 +46,6 @@
 }
 -(void) getBlockTransfersWithJsonParam2:(NSString*) jsonString andCallID:(NSString*) callID {
     self.rpcCallGotResult[callID] = RPC_VALUE_NOT_SET;
-    NSLog(@"Call id is:%@ and rpcResult:%@",callID,self.rpcCallGotResult[callID]);
     if(self.casperURL) {
     } else {
         self.casperURL = URL_TEST_NET;
@@ -67,15 +66,12 @@
             NSDictionary * forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             CasperErrorMessage * cem = [[CasperErrorMessage alloc] init];
             [cem fromJsonToErrorObject:forJSONObject];
-            NSLog(@"Result is:%@",forJSONObject);
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 GetBlockTransfersResult * item = [[GetBlockTransfersResult alloc] init];
                 item = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject];
                 self.valueDict[callID] = item;
-                NSLog(@"Block hash:%@",item.block_hash);
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
-                NSLog(@"callID: %@, self.rpcCallGotResult[callID]:%@",callID,self.rpcCallGotResult[callID]);
             } else {
                 self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
             }
