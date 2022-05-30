@@ -295,8 +295,6 @@ int maxCounter = 50;
                           selector:@selector(onTick:)
                                                  userInfo: @{@"param1":getRPC,@"param2":callID} repeats:YES];
 }
-
-
 @end
  ```
  
