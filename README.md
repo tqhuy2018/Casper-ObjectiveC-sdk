@@ -106,7 +106,17 @@ https://github.com/hienbui9999/CasperCryptoHandlePackage
 
 This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks and provide protocol with wrapped classes for ObjectiveC to call certain crypto functions. This package also provide Blake2b256 function for ObjectiveC.
 
-To use the functions and classes in this package, simply add the package in file "Package.swift" by this declaration:
+To have a simple idea of the structure of the Crypto handle in ObjectiveC, please see this image:
+
+<img width="900" alt="Screen Shot 2022-05-30 at 07 56 03" src="https://user-images.githubusercontent.com/94465107/170899445-19d24419-dc09-46c4-b163-ed8c14dc42c1.png">
+
+The structure of the system for handling Crypto in ObjectiveC is:
+There are classes for handling Crypto in Objective C, which can call from the Casper ObjectiveC SDK.
+These ObjectiveC classes use "CasperCryptoHandlePackage" - A Swift Libary for Crypto Handle.
+This Swift Libray "CasperCryptoHandlePackage" provide Ed25519 Crypto by using the built-in library Curve25519 of Apple 
+This Swift Libray "CasperCryptoHandlePackage" provide Secp256k1 Crypto by using the SwiftECC package from Github at this address: https://github.com/leif-ibsen/SwiftECC.git 
+
+In ObjectiveC SDK, to use the "CasperCryptoHandlePackage" Swift package, simply add the package in file "Package.swift" by this declaration:
 (Please see the Package.swift file under the Casper-ObjectiveC-sdk package)
 
  ```ObjectiveC
@@ -115,7 +125,7 @@ dependencies: [
 ],
 ```
 
-In any ObjectiveC file, to use the Crypto function that this package provides, simply add this import at the beginning of the  ObjectiveC file.
+In any ObjectiveC code file, to use the Crypto function that this package provides, simply add this import at the beginning of the  ObjectiveC file.
 
  ```ObjectiveC
 @import CasperCryptoHandlePackage;
