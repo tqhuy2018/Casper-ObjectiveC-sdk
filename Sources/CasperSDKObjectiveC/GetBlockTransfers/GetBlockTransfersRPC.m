@@ -71,7 +71,7 @@
             //Check if result back is not error, then parse the JSON back to get corresponding object based on the RPC method all
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 GetBlockTransfersResult * item = [[GetBlockTransfersResult alloc] init];
-                item = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject[@"result"]];
+                item = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject];
                 self.valueDict[callID] = item;
                 NSLog(@"Block hash:%@",item.block_hash);
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
