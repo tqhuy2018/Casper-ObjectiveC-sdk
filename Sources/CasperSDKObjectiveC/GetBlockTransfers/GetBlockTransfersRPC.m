@@ -73,8 +73,9 @@
                 GetBlockTransfersResult * item = [[GetBlockTransfersResult alloc] init];
                 item = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject[@"result"]];
                 self.valueDict[callID] = item;
+                NSLog(@"Block hash:%@",item.block_hash);
                 self.rpcCallGotResult[callID] = RPC_VALID_RESULT;
-                NSLog(@"self.rpcCallGotResult[callID]:%@",self.rpcCallGotResult[callID]);
+                NSLog(@"callID: %@, self.rpcCallGotResult[callID]:%@",callID,self.rpcCallGotResult[callID]);
             } else {
                 self.rpcCallGotResult[callID] = RPC_VALUE_ERROR_OBJECT;
             }
