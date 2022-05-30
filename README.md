@@ -108,7 +108,8 @@ This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks
 
 To have a simple idea of the structure of the Crypto handle in ObjectiveC, please see this image:
 
-<img width="900" alt="Screen Shot 2022-05-30 at 07 56 03" src="https://user-images.githubusercontent.com/94465107/170899445-19d24419-dc09-46c4-b163-ed8c14dc42c1.png">
+<img width="890" alt="Screen Shot 2022-05-30 at 08 07 09" src="https://user-images.githubusercontent.com/94465107/170900028-d3dff235-38b1-42e6-b8ac-e6f496f2d87d.png">
+
 
 The structure of the system for handling Crypto in ObjectiveC is:
 There are classes for handling Crypto in Objective C, which can be called from the Casper ObjectiveC SDK.
