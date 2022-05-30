@@ -161,11 +161,11 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 - Choose correct path to private key to sign for the deploy hash in put deploy function.
 
-## Sample project using the Casper ObjectiveC SDK
+## Usage how to: A sample project using the Casper ObjectiveC SDK
 
-Please refer to this address for a sample of 1 ObjectiveC project that call the Casper ObjectiveC SDK.
+Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
-In this project, some RPC calls are written.
+In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy"
 
 https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
@@ -206,6 +206,8 @@ Note: For simplicity, all the code is done within "ViewController.m" file. This 
 
 
 For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
+
+- Click the "ViewController.m" file in the left panel.
 
 
 # Documentation for classes and methods
