@@ -198,6 +198,15 @@ Now you can see the package is successfuly loaded into the project by looking at
 
 <img width="1440" alt="Screen Shot 2022-05-30 at 07 12 06" src="https://user-images.githubusercontent.com/94465107/170897308-58e7ac62-d041-4882-a239-1d220f2adc84.png">
 
+You are now ready to call Casper ObjectiveC SDK classes and functions.
+
+### A sample call for 1 RPC method.
+
+Note: For simplicity, all the code is done within "ViewController.m" file. This document is just a simple guide for how to import/use the SDK in 1 code file.
+
+
+For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
+
 
 # Documentation for classes and methods
 
