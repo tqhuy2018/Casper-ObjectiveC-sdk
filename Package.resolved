@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ASN1",
+        "repositoryURL": "https://github.com/leif-ibsen/ASN1",
+        "state": {
+          "branch": null,
+          "revision": "21499128ce5f58a73f0ff83c9a1174578cde4723",
+          "version": "2.0.1"
+        }
+      },
+      {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/leif-ibsen/BigInt",
+        "state": {
+          "branch": null,
+          "revision": "9e79977c6be2590f737c01dc891abd7283b9505c",
+          "version": "1.3.1"
+        }
+      },
+      {
+        "package": "Blake2",
+        "repositoryURL": "https://github.com/tesseract-one/Blake2.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "106f68231100021e1f745779e241f81a065ad0de",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "CasperCryptoHandlePackage",
+        "repositoryURL": "https://github.com/hienbui9999/CasperCryptoHandlePackage.git",
+        "state": {
+          "branch": null,
+          "revision": "160dd6f43a4ad3531cd947faf60172bf4b9947a3",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "SwiftECC",
+        "repositoryURL": "https://github.com/leif-ibsen/SwiftECC",
+        "state": {
+          "branch": null,
+          "revision": "3fccb04a28aa605042c21889684309a5ff98fe98",
+          "version": "3.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

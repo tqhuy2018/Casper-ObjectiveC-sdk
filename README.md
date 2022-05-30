@@ -106,7 +106,18 @@ https://github.com/hienbui9999/CasperCryptoHandlePackage
 
 This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks and provide protocol with wrapped classes for ObjectiveC to call certain crypto functions. This package also provide Blake2b256 function for ObjectiveC.
 
-To use the functions and classes in this package, simply add the package in file "Package.swift" by this declaration:
+To have a simple idea of the structure of the Crypto handle in ObjectiveC, please see this image:
+
+<img width="890" alt="Screen Shot 2022-05-30 at 08 07 09" src="https://user-images.githubusercontent.com/94465107/170900028-d3dff235-38b1-42e6-b8ac-e6f496f2d87d.png">
+
+
+The structure of the system for handling Crypto in ObjectiveC is:
+There are classes for handling Crypto in Objective C, which can be called from the Casper ObjectiveC SDK.
+These ObjectiveC classes use "CasperCryptoHandlePackage" - A Swift Libary for Crypto Handle.
+This Swift Libray "CasperCryptoHandlePackage" provide Ed25519 Crypto by using the built-in library Curve25519 of Apple 
+This Swift Libray "CasperCryptoHandlePackage" provide Secp256k1 Crypto by using the SwiftECC package from Github at this address: https://github.com/leif-ibsen/SwiftECC.git 
+
+In ObjectiveC SDK, to use the "CasperCryptoHandlePackage" Swift package, simply add the package in file "Package.swift" by this declaration:
 (Please see the Package.swift file under the Casper-ObjectiveC-sdk package)
 
  ```ObjectiveC
@@ -115,7 +126,7 @@ dependencies: [
 ],
 ```
 
-In any ObjectiveC file, to use the Crypto function that this package provides, simply add this import at the beginning of the  ObjectiveC file.
+In any ObjectiveC code file, to use the Crypto function that this package provides, simply add this import at the beginning of the  ObjectiveC file.
 
  ```ObjectiveC
 @import CasperCryptoHandlePackage;
@@ -161,15 +172,58 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 - Choose correct path to private key to sign for the deploy hash in put deploy function.
 
-## Sample project using the Casper ObjectiveC SDK
+## Usage how to: A sample project using the Casper ObjectiveC SDK
 
-Please refer to this address for a sample of 1 ObjectiveC project that call the Casper ObjectiveC SDK.
-
-In this project, some RPC calls are written.
+Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
 https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
+In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy" and the code is done within "ViewController.m" file.
 
+If you want to make a project manualy, please follow this step:
+
+In Xcode create a new App project.
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 55 42" src="https://user-images.githubusercontent.com/94465107/170896777-a7662b7f-9c80-4bd2-9494-a1d9193cd0f0.png">
+
+Choose the name and language based for the project (Of course please choose ObjectiveC as the Language)
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 56 39" src="https://user-images.githubusercontent.com/94465107/170896812-e54755b6-24cf-4075-9635-c317ddae7e8a.png">
+
+When the project is opened, Add the "Casper ObjectiveC SDK" by doing this: Click on the project name and click "Package Dependencies" as the image below
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 59 54" src="https://user-images.githubusercontent.com/94465107/170896892-42c76bb8-e27b-4f84-86ec-9169a43c83de.png">
+
+Hit the "+" button under the "Add packages here" region. A new window will appear.
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 05 53" src="https://user-images.githubusercontent.com/94465107/170896987-40f6799e-b9be-4473-8b21-5290d9126511.png">
+
+In the left panel choose "GitHub" and in the right panel at the top enter the Casper ObjectiveC SDK on Github with this link: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git"
+
+Press "Add Package" button in the bottom left region of the right panel. A new window will appear to ask you select for the library of Casper ObjectiveC SDK. Tick all the check box to load all the library if you wish to use all the function of the SDK.
+If you wish to use some functions only, such as Get Block RPC, just check for "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses" and "CasperSDKObjectiveC_GetBlock".Then hit the "Add Package" button.
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 06 34" src="https://user-images.githubusercontent.com/94465107/170897157-10aafc58-f143-4587-b051-5109ce85a621.png">
+
+Now you can see the package is successfuly loaded into the project by looking at the "Casper-ObjectiveC-sdk" line shown in the "Package Dependencies" tab, and in the left panel you can see list of imported package for the project (ASN1, BigInt, Blake2, CasperCryptoHandlePackage, CasperSDKObjectiveC, SwiftECC)
+
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 12 06" src="https://user-images.githubusercontent.com/94465107/170897308-58e7ac62-d041-4882-a239-1d220f2adc84.png">
+
+You are now ready to call Casper ObjectiveC SDK classes and functions.
+
+### A sample code for calling 1 RPC method in detail
+
+Note: For simplicity, all the code is done within "ViewController.m" file. The result is written in the log region, no visial interface is built. This document is just a simple guide for how to import/use the SDK in 1 code file.
+
+For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
+
+- Click the "ViewController.m" file in the left panel.
+Add the following import lines:
+
+ ```ObjectiveC
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetBlockTransfers;
+```
 
 # Documentation for classes and methods
 
