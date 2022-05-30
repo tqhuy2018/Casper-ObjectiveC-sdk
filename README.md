@@ -111,7 +111,7 @@ To have a simple idea of the structure of the Crypto handle in ObjectiveC, pleas
 <img width="900" alt="Screen Shot 2022-05-30 at 07 56 03" src="https://user-images.githubusercontent.com/94465107/170899445-19d24419-dc09-46c4-b163-ed8c14dc42c1.png">
 
 The structure of the system for handling Crypto in ObjectiveC is:
-There are classes for handling Crypto in Objective C, which can call from the Casper ObjectiveC SDK.
+There are classes for handling Crypto in Objective C, which can be called from the Casper ObjectiveC SDK.
 These ObjectiveC classes use "CasperCryptoHandlePackage" - A Swift Libary for Crypto Handle.
 This Swift Libray "CasperCryptoHandlePackage" provide Ed25519 Crypto by using the built-in library Curve25519 of Apple 
 This Swift Libray "CasperCryptoHandlePackage" provide Secp256k1 Crypto by using the SwiftECC package from Github at this address: https://github.com/leif-ibsen/SwiftECC.git 
