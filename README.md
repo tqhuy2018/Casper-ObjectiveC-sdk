@@ -172,7 +172,11 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 - Choose correct path to private key to sign for the deploy hash in put deploy function.
 
-## Usage how to: A sample project using the Casper ObjectiveC SDK
+## Usage how to
+
+The SDK can import from Project or Package writen in ObjectiveC.
+
+### Import and using Casper ObjectiveC SDK from ObjectiveC project 
 
 Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
@@ -314,7 +318,11 @@ This is to show that this project can call the RPC successfully.
 
 You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCasperCallObjectiveC
  
- 
+### Import and using Casper ObjectiveC SDK from ObjectiveC package
+
+Create a new ObjectiveC Package by doing these steps:
+
+
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
