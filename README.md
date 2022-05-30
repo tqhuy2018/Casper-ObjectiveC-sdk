@@ -225,6 +225,81 @@ Add the following import lines:
 @import CasperSDKObjectiveC_GetBlockTransfers;
 ```
 
+Then you can call the "chain_get_block_transfers" RPC method by this code
+
+ ```ObjectiveC
+GetBlockTransfersRPC * getRPC = [[GetBlockTransfersRPC alloc] init];
+[getRPC initializeWithRPCURL:URL_TEST_NET];
+BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_block_transfers"];
+NSString * callID = @"getBlockTransfer1";
+[getRPC getBlockTransfersWithJsonParam2:jsonString andCallID:callID];
+ ```
+ Since the POST request is asynchronous, the result will take some time to get the result. In this application a timer (NSTimer) is set to get the result when it is ready and just log it to the log screen. There is a max time of 50 seconds for waiting for the result back, defined in variable "maxCounter". It's just 1 simple way to get the result. You can implement the way to get the result back depends on how you like to handle the result (For example print it to a label or display in some region in the device screen).
+ The full code for the ViewController.m file is:
+ 
+ ```ObjectiveC
+#import "ViewController.h"
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetBlockTransfers;
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+int counterGetBlockTransfers = 0;
+int maxCounter = 50;
+
+-(void)onTick:(NSTimer *)timer {
+    GetBlockTransfersRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
+        NSLog(@"Get block transfers with network error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]) {
+        GetBlockTransfersResult * result = [[GetBlockTransfersResult alloc] init];
+        result = item.valueDict[callID];
+        NSLog(@"Get result of block transfers, block hash is:%@",result.block_hash);
+        [timer invalidate];
+        timer = nil;
+    } else {
+        NSLog(@"None value above, counter:%d and value:%@",counterGetBlockTransfers,item.rpcCallGotResult[callID]);
+    }
+    counterGetBlockTransfers ++;
+    if(counterGetBlockTransfers == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    GetBlockTransfersRPC * getRPC = [[GetBlockTransfersRPC alloc] init];
+    [getRPC initializeWithRPCURL:URL_TEST_NET];
+    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+    bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_block_transfers"];
+    NSString * callID = @"getBlockTransfer1";
+    [getRPC getBlockTransfersWithJsonParam2:jsonString andCallID:callID];
+    NSTimer * t = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTick:)
+                                                 userInfo: @{@"param1":getRPC,@"param2":callID} repeats:YES];
+}
+
+
+@end
+ ```
+ 
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
