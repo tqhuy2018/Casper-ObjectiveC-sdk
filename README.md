@@ -213,6 +213,8 @@ You are now ready to call Casper ObjectiveC SDK classes and functions.
 
 ### A sample code for calling 1 RPC method in detail
 
+Continue with the project that you have created just above.
+
 Note: For simplicity, all the code is done within "ViewController.m" file. The result is written in the log region, no visial interface is built. This document is just a simple guide for how to import/use the SDK in 1 code file.
 
 For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
@@ -297,6 +299,21 @@ int maxCounter = 50;
 }
 @end
  ```
+ 
+ To run the project, choose "Product->Run" and you will see the result in the Debug area, as shown in this image 
+ 
+ <img width="1440" alt="Screen Shot 2022-05-30 at 22 25 50" src="https://user-images.githubusercontent.com/94465107/171023432-5b1128fb-1dc3-4390-bb08-d871107a9971.png">
+
+ You can see in the Debug area the block_hash is printed out in the center bottom region of the image.
+ 
+ If you can not see the Debug area, Choose "View->Debug Area->Show Debug Area" as shown in this image.
+ 
+ <img width="1440" alt="Screen Shot 2022-05-30 at 22 27 44" src="https://user-images.githubusercontent.com/94465107/171023586-1383debb-6b77-40e1-9543-579ab24c0688.png">
+
+This is to show that this project can call the RPC successfully.
+
+You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCasperCallObjectiveC
+ 
  
 # Documentation for classes and methods
 
