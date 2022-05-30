@@ -176,9 +176,9 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
-In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy"
-
 https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
+
+In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy" and the code is done within "ViewController.m" file.
 
 If you want to make a project manualy, please follow this step:
 
@@ -211,15 +211,19 @@ Now you can see the package is successfuly loaded into the project by looking at
 
 You are now ready to call Casper ObjectiveC SDK classes and functions.
 
-### A sample call for 1 RPC method.
+### A sample code for calling 1 RPC method in detail
 
-Note: For simplicity, all the code is done within "ViewController.m" file. This document is just a simple guide for how to import/use the SDK in 1 code file.
-
+Note: For simplicity, all the code is done within "ViewController.m" file. The result is written in the log region, no visial interface is built. This document is just a simple guide for how to import/use the SDK in 1 code file.
 
 For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
 
 - Click the "ViewController.m" file in the left panel.
+Add the following import lines:
 
+ ```ObjectiveC
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetBlockTransfers;
+```
 
 # Documentation for classes and methods
 
