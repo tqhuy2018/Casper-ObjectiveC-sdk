@@ -20,8 +20,8 @@
     if([privateKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated private key - the private key string is invalid
     }
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+   // NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
+    NSURL * url = [NSURL fileURLWithPath:fileName];
     BOOL isSuccess = [privateKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;
@@ -31,8 +31,7 @@
 // This function writes an existing private key - already in Pem format -  to a Pem file
 // The private key is a string represents the private key's raw representation bytes array
 -(Boolean) secpWritePrivateKey:(NSString*) privateKeyPemStr toPemFile:(NSString*) pemFile {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"$@%@",CRYPTO_PATH_SECP256K1,pemFile];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    NSURL * url = [NSURL fileURLWithPath:pemFile];
     BOOL isSuccess =  [privateKeyPemStr writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;
@@ -43,8 +42,7 @@
  The private key is a string represents the private key's raw representation bytes array
  Sample value is 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 */
 -(NSString * ) secpReadPrivateKeyFromPemFile:(NSString*) fileName {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    NSURL * url = [NSURL fileURLWithPath:fileName];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     if(!fileContent) {
         return ERROR_STRING; // File url doesn't exist
@@ -65,8 +63,7 @@
  The public key is a string represents the public key's raw representation bytes array
  Sample value is 138_121_31_76_52_190_241_244_216_11_26_29_151_147_196_119_186_49_12_134_43_21_243_127_134_56_3_169_170_156_4_233 */
 -(NSString*) secpReadPublicKeyFromPemFile:(NSString*) fileName {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    NSURL * url = [NSURL fileURLWithPath:fileName];
     NSString * fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     if(!fileContent) {
         return ERROR_STRING; //Error if invalid file URL
@@ -89,8 +86,7 @@
     if([publicKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated private key - the private key string is invalid
     }
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    NSURL * url = [NSURL fileURLWithPath:fileName];
     BOOL isSuccess = [publicKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;
@@ -100,8 +96,8 @@
 /** This function writes an existing public key to a Pem file
 The public key is pem string represent the public key */
 -(Boolean) secpWritePublicKey:(NSString*) publicKeyStr toPemFile:(NSString*) pemFile {
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,pemFile];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    //NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,pemFile];
+    NSURL * url = [NSURL fileURLWithPath:pemFile];
     BOOL isSuccess =  [publicKeyStr writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;

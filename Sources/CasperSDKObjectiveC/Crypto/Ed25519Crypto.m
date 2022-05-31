@@ -91,7 +91,6 @@
     if([publicKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated public key - the private key string is invalid
     }
-   // NSString * filePath = [[NSString alloc] initWithFormat:@"$@%@",CRYPTO_PATH_ED25519,fileName];
     NSURL * url = [NSURL fileURLWithPath:fileName];
     BOOL isSuccess = [publicKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
@@ -102,19 +101,20 @@
 /** This function writes an existing public key to a Pem file
 The public key is a string represents the public key's raw representation bytes array */
 -(Boolean) writePublicKey:(NSString*) publicKeyStr toPemFile:(NSString*) fileName {
-    Ed25519CrytoSwift * ed25519 = [[Ed25519CrytoSwift alloc] init];
-    NSString * publicKey = [ed25519 getPublicKeyStringFromPemStringWithPemStr:publicKeyStr];
+    Ed25519CrytoSwift * ed = [[Ed25519CrytoSwift alloc] init];
+    NSLog(@"publicKeyStr is:%@",publicKeyStr);
+    NSString * publicKey = [ed getPublicKeyStringForPemFileWithPublicKeyStr:publicKeyStr];
+    NSLog(@"publicKey is:%@",publicKey);
     if([publicKey isEqualToString:ERROR_STRING]) {
+        NSLog(@"Public key generate error");
         return false; // Fail because error generated public key - the private key string is invalid
     }
-    //NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,pemFile];
     NSURL * url = [NSURL fileURLWithPath:fileName];
     BOOL isSuccess = [publicKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;
     }
     return false; // Fail because File URL does not exist
-    return false;
 }
 
 /** This function verifies the signed message with given public key and original message
