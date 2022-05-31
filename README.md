@@ -338,8 +338,29 @@ Create a new ObjectiveC Package by doing these steps:
 <img width="799" alt="Screen Shot 2022-05-31 at 07 30 59" src="https://user-images.githubusercontent.com/94465107/171071366-137902f8-caca-4a03-bb1a-81b95e902923.png">
 
 9. Now you need to import the "Casper ObjectiveC SDK" through adding "Package Dependencies"
-In the P
-11. 
+In the Project Navigator of the left panel click the Package name, Under Project click the Package name again, select tab "Package Dependencies" and click the "+" button, as shown in the image below.
+<img width="1440" alt="Screen Shot 2022-05-31 at 07 34 55" src="https://user-images.githubusercontent.com/94465107/171071800-051cbd08-7a06-43b2-b6ae-e54ae049788e.png">
+
+11. A new window will appear to let you select the "Casper ObjectiveC SDK"
+In the left panel select "GitHub", in the top right of the window you will see a text box with prompt text "Search or Enter Package URL", as shown in this image 
+<img width="1084" alt="Screen Shot 2022-05-31 at 07 56 53" src="https://user-images.githubusercontent.com/94465107/171073027-f0c92390-0e0a-4fc4-8700-cd4403e350ea.png">
+Enter the link for the "Casper ObjectiveC SDK" with this value: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image
+<img width="1080" alt="Screen Shot 2022-05-31 at 08 00 02" src="https://user-images.githubusercontent.com/94465107/171073107-66a2da0b-77ba-4b8c-a614-4448addf7bc4.png">
+Then click "Add Package" button.
+There will be process of loading the SDK, somehow like in this image
+<img width="1086" alt="Screen Shot 2022-05-31 at 08 00 50" src="https://user-images.githubusercontent.com/94465107/171073178-8059a626-1260-4007-85ff-3b07bc45af4a.png">
+Then when the process of loading the SDK is ready, you will see the selection for the SDK library. 
+Check all the checkbox if you wish to use all the SDK function, or if you need to use the "info_get_deploy" RPC, simply just choose the following checkbox: "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_GetDeploy".
+
+<img width="1440" alt="Screen Shot 2022-05-31 at 08 02 22" src="https://user-images.githubusercontent.com/94465107/171073383-7789985b-f13b-45f1-a986-86c16bd12776.png">
+
+Click "Add Package" button.
+
+Wait for a while, you will see the package fully loaded in the "Package Dependencies" section, as shown in this image
+
+<img width="376" alt="Screen Shot 2022-05-31 at 08 17 01" src="https://user-images.githubusercontent.com/94465107/171074307-27de2f0d-fe10-4cd0-a0af-acb7f56b55da.png">
+
+13. 
 
 
 # Documentation for classes and methods
