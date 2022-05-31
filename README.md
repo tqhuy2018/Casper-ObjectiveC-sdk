@@ -153,7 +153,7 @@ _ And the Public key is somehow like this: 138_121_31_76_52_190_241_244_216_11_2
 
 As long as you have the Private/Public key in that format (and correct number in the sequence), you can generate the Private/Public Ed25519 key.
 For Secp256k1, the tasks are done in file "Secp256k1Crypto" under folder "Crypto" in ""ObjectiveC. This class calls "Secp256k1CryptoSwift" from the Swift package "CasperCryptoHandlePackage" to do the task of key generation, sign/verify message.
-The Private/Public key in ObjectiveC for this
+The Private/Public key in ObjectiveC for Secp256k1 is stored in Pem String format. From that string the Public/Private Secp256k1 key is generate in  "CasperCryptoHandlePackage"
 ## Put deploy specification:
 
 The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
