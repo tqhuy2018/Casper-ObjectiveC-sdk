@@ -321,6 +321,25 @@ You can download and test the full project for this sample is in this address: h
 ### Import and using Casper ObjectiveC SDK from ObjectiveC package
 
 Create a new ObjectiveC Package by doing these steps:
+1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
+2. 
+<img width="490" alt="Screen Shot 2022-05-31 at 07 27 09" src="https://user-images.githubusercontent.com/94465107/171071279-c5543a8c-9c36-4e38-a3b1-6f00fec04102.png">
+
+3. Choose "iOS->Framework" then click "Next" as shown in this image
+
+<img width="731" alt="Screen Shot 2022-05-31 at 07 27 28" src="https://user-images.githubusercontent.com/94465107/171071298-734c1d25-b314-44c8-9dcd-67b2fcdbb0f5.png">
+
+5. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
+
+<img width="735" alt="Screen Shot 2022-05-31 at 07 30 13" src="https://user-images.githubusercontent.com/94465107/171071324-15f11ff1-b323-4d27-8c32-93d5d0a53e5c.png">
+
+7. Choose a folder for the Package project to save, click "Create", as shown in this image
+
+<img width="799" alt="Screen Shot 2022-05-31 at 07 30 59" src="https://user-images.githubusercontent.com/94465107/171071366-137902f8-caca-4a03-bb1a-81b95e902923.png">
+
+9. Now you need to import the "Casper ObjectiveC SDK" through adding "Package Dependencies"
+In the P
+11. 
 
 
 # Documentation for classes and methods
