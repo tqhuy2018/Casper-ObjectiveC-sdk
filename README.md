@@ -174,9 +174,9 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 ## Usage how to
 
-The SDK can import from Project or Package writen in ObjectiveC.
+The Casper ObjectiveC SDK can be used from Project or Package writen in ObjectiveC.
 
-### Import and using Casper ObjectiveC SDK from ObjectiveC project 
+### 1. Import and using Casper ObjectiveC SDK from ObjectiveC project 
 
 Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
@@ -318,7 +318,7 @@ This is to show that this project can call the RPC successfully.
 
 You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCasperCallObjectiveC
  
-### Import and using Casper ObjectiveC SDK from ObjectiveC package
+### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
 Create a new ObjectiveC Package by doing these steps:
 1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
@@ -360,9 +360,14 @@ Wait for a while, you will see the package fully loaded in the "Package Dependen
 
 <img width="376" alt="Screen Shot 2022-05-31 at 08 17 01" src="https://user-images.githubusercontent.com/94465107/171074307-27de2f0d-fe10-4cd0-a0af-acb7f56b55da.png">
 
-13. 
-
-
+13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
+For example this class is for calling get_deploy RPC call, then add the following import to the file
+ 
+ ```ObjectiveC
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetDeploy;
+ ```
+ 
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
