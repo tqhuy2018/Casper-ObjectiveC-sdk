@@ -151,7 +151,9 @@ This object provides function "generateKeyPair" which return an object holding t
 For example the Private key is somehow like this in ObjectiveC: 58_1_61_242_77_251_54_204_135_74_45_117_67_18_30_184_144_193_158_142_182_68_229_185_27_56_181_134_38_235_28_51 
 _ And the Public key is somehow like this: 138_121_31_76_52_190_241_244_216_11_26_29_151_147_196_119_186_49_12_134_43_21_243_127_134_56_3_169_170_156_4_233 _
 
-
+As long as you have the Private/Public key in that format (and correct number in the sequence), you can generate the Private/Public Ed25519 key.
+For Secp256k1, the tasks are done in file "Secp256k1Crypto" under folder "Crypto" in ""ObjectiveC. This class calls "Secp256k1CryptoSwift" from the Swift package "CasperCryptoHandlePackage" to do the task of key generation, sign/verify message.
+The Private/Public key in ObjectiveC for this
 ## Put deploy specification:
 
 The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
