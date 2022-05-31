@@ -97,3 +97,8 @@ NSString *const RPC_VALID_RESULT = @"RPC_VALID_RESULT";
 //CRYPTO PATH
 NSString *const CRYPTO_PATH_SECP256K1 = @"/Users/hien/Secp256k1/";
 NSString *const CRYPTO_PATH_ED25519 = @"/Users/hien/Ed25519/";
+//CRYPTO PEM FILE
+NSString *const ED25519_PRIVATE_KEY_PEMFILE = @"/Users/hien/Ed25519/ReadSwiftPrivateKeyEd25519.pem";
+NSString *const ED25519_PUBLIC_KEY_PEMFILE = @"/Users/hien/Ed25519/ReadSwiftPublicKeyEd25519.pem";
+NSString *const SECP256K1_PRIVATE_KEY_PEMFILE = @"/Users/hien/Secp256k1/ReadSwiftPrivateKeySecp256k1.pem";
+NSString *const SECP256K1_PUBLIC_KEY_PEMFILE = @"/Users/hien/Secp256k1/ReadSwiftPublicKeySecp256k1.pem";

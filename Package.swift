@@ -44,9 +44,9 @@ let package = Package(
                 ),
         .testTarget(
             name: "CasperSDKObjectiveCTests",
-            dependencies: ["CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_CLValue","CasperSDKObjectiveC_GetStateRootHash","CasperSDKObjectiveC_Crypto","CasperSDKObjectiveC_GetAuctionInfo","CasperSDKObjectiveC_GetBlock","CasperSDKObjectiveC_GetBlockTransfers","CasperSDKObjectiveC_GetDeploy","CasperSDKObjectiveC_GetDictionaryItem","CasperSDKObjectiveC_GetEraInfo","CasperSDKObjectiveC_GetItem","CasperSDKObjectiveC_GetPeerList","CasperSDKObjectiveC_GetStatus","CasperSDKObjectiveC_PutDeploy","CasperSDKObjectiveC_Serialization"],
-            path: "Tests",
-            exclude: ["Ed25519CryptoTest.m","GetAuctionInfoTest.m","GetBalanceTest.m"]
+            dependencies: ["CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_CLValue","CasperSDKObjectiveC_GetStateRootHash","CasperSDKObjectiveC_Crypto","CasperSDKObjectiveC_GetAuctionInfo","CasperSDKObjectiveC_GetBlock","CasperSDKObjectiveC_GetBlockTransfers","CasperSDKObjectiveC_GetDeploy","CasperSDKObjectiveC_GetDictionaryItem","CasperSDKObjectiveC_GetEraInfo","CasperSDKObjectiveC_GetItem","CasperSDKObjectiveC_GetPeerList","CasperSDKObjectiveC_GetStatus","CasperSDKObjectiveC_PutDeploy","CasperSDKObjectiveC_Serialization","CasperSDKObjectiveC_GetBalance"],
+            path: "Tests"
+            //exclude: ["Ed25519CryptoTest.m","GetAuctionInfoTest.m","GetBalanceTest.m"]
         ),
         .target(
             name: "CasperSDKObjectiveC_CLValue",
