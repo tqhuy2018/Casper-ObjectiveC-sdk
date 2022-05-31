@@ -9,7 +9,6 @@
 
 @implementation Ed25519CryptoTest
 -(void) testAll {
-    
     // Test 1: Key generation
     [self testKeyGeneration];
     // PRIVATE KEY LOAD FROM PEM FILE - POSITIVE PATH TEST

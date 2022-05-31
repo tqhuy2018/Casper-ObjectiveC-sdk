@@ -6,14 +6,54 @@
 @end
 
 @implementation Secp256k1CryptoTest
+-(void) testAll {
+    [self testKeyGeneration];
+}
+- (void) testKeyGeneration {
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    CryptoKeyPair * keyPair = [[CryptoKeyPair alloc] init];
+    keyPair = [secp256k1 secpGenerateKey];
+    XCTAssert(keyPair.privateKeyStr.length > 0);
+    XCTAssert(keyPair.publicKeyStr.length > 0);
+}
 
-- (void) testGenerateKey {
-    return;
-    Secp256k1Crypto * item = [[Secp256k1Crypto alloc] init];
-    CryptoKeyPair * keyPair = [item secpGenerateKey];
-    [item secpGenerateAndWritePrivateKeyToPemFile:@"Secp256k1Private.pem"];
-    NSString * privatePemStr = [item secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
-    NSString * deployHash = @"94c6a55ee87c34220142560650f03bac3367f7a609221641b162ba46c80c4b48";
-    NSString * signature = [item secpSignMessageWithValue:deployHash withPrivateKey:privatePemStr];
+-(NSString *) loadPrivateKeyFromPemFile:(NSString *) pemFile {
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    NSString * privateKeyStr = [secp256k1 secpReadPrivateKeyFromPemFile:pemFile];
+    return privateKeyStr;
+}
+-(Boolean) writePrivateKeyToPemFile:(NSString*) fileName {
+    //Generate the key pair
+    CryptoKeyPair * keyPair1 = [[CryptoKeyPair alloc] init];
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    keyPair1 = [secp256k1 secpGenerateKey];
+    //Write the key to the given fileName
+    Boolean isWriteSuccess = [secp256k1 secpWritePrivateKey: keyPair1.privateKeyStr toPemFile:fileName];
+    return isWriteSuccess;
+}
+-(NSString*) loadPublicKeyFromPemFile: (NSString * ) pemFile {
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    NSString * publicKeyStr = [secp256k1 secpReadPublicKeyFromPemFile:pemFile];
+    return publicKeyStr;
+}
+-(Boolean) writePublicKeyToPemFile:(NSString*) fileName {
+    //Generate the key pair
+    CryptoKeyPair * keyPair1 = [[CryptoKeyPair alloc] init];
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    keyPair1 = [secp256k1 secpGenerateKey];
+    //Write the key to the given fileName
+    Boolean isWriteSuccess = [secp256k1 secpWritePublicKey: keyPair1.publicKeyStr toPemFile:fileName];
+    return isWriteSuccess;
+}
+
+-(NSString*) signMessageWithMessage:(NSString*) message andPrivateKey:(NSString*) privateKeyStr {
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    NSString * signature = [secp256k1 secpSignMessageWithValue :message withPrivateKey:privateKeyStr];
+    return  signature;
+}
+-(Boolean) verifySignature:(NSString*) signature forOriginalMessage:(NSString*) message withPublicKey:(NSString*) publicKeyStr{
+    Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];
+    Boolean result = [secp256k1 secpVerifyMessage:signature withPublicKey:publicKeyStr forOriginalMessage:message];
+    return  result;
 }
 @end
