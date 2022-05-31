@@ -368,6 +368,73 @@ For example this class is for calling get_deploy RPC call, then add the followin
 @import CasperSDKObjectiveC_GetDeploy;
  ```
  
+ The content of the "SampleClass1.h" file would be somehow like this:
+ 
+```ObjectiveC
+#ifndef SampleClass1_h
+#define SampleClass1_h
+#import <Foundation/Foundation.h>
+//sample call to info_get_deploy
+@interface SampleClass1:NSObject
+-(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString*) callID;
+@end
+#endif
+ ```
+ 
+The content of the "SampleClass1.m" file would be somehow like this:
+
+```ObjectiveC
+#import <Foundation/Foundation.h>
+#import "SampleClass1.h"
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetDeploy;
+@implementation SampleClass1
+int counterGetDeploy = 0;
+int maxCounter = 50;
+-(void)onTickGetDeploy:(NSTimer *)timer {
+    GetDeployRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        NSLog(@"Get deploy with parse error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
+        NSLog(@"Get deploy with network error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]){
+        GetDeployResult * getDeployResult = item.valueDict[callID];
+        
+        [timer invalidate];
+        timer = nil;
+    }
+    counterGetDeploy ++;
+    if(counterGetDeploy == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+-(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString *)callID {
+    GetDeployRPC * getDeployRPC = [[GetDeployRPC alloc] init];
+    GetDeployParams * param = [[GetDeployParams alloc] init];
+    param.deploy_hash = deployHash;
+    NSString * jsonString = [param generatePostParam];
+    [getDeployRPC getDeployWithJsonParam2:jsonString andCallID:callID];
+    NSString * callGetDeployID = @"getDeploy1";
+    NSTimer * tGetDeploy = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTickGetDeploy:)
+                                                 userInfo: @{@"param1":getDeployRPC,@"param2":callGetDeployID} repeats:YES];
+}
+@end
+
+ ```
+ 
+ This file do the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
+ 
+ For full code of the sample please refer to this address: https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK
+ 
 # Documentation for classes and methods
 
 * [List of classes and methods](./Docs/Help.md#list-of-rpc-methods)
