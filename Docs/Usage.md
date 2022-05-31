@@ -1,705 +1,262 @@
-# ObjectiveC Casper SDK usage documentation
+## Usage how to
 
-The SDK can be used from 
-## RPC Calls
+The Casper ObjectiveC SDK can be used from Project or Package writen in ObjectiveC.
 
-The calling the RPC follow this sequence:
+### 1. Import and using Casper ObjectiveC SDK from ObjectiveC project 
 
-- Create the POST request with corresponding paramters for each methods
+Please refer to this address for a sample of 1 ObjectiveC project that calls the Casper ObjectiveC SDK.
 
-- Send the POST request to the Casper server (test net or main net or localhost) 
+https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
-- Get the Json message back from the server. The message could either be error message or the json string representing the object need to retrieve. If you send wrong parameter, such as in "chain_get_state_root_hash" RPC call, if you send BlockIdentifier with too big block height (that does not exist) then you will get error message back from Casper server. If you send correct parameter, you will get expected json message for the data you need.
+In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy" and the code is done within "ViewController.m" file.
 
-- Handle the data sent back from Casper server for the POST request. Depends on the RPC method call, the corresponding json data is sent back in type of [String:Value] form. The task of the SDK is to parse this json data and put in correct data type built for each RPC method.
+If you want to make a project manualy, please follow this step:
 
-## List of RPC methods:
+In Xcode create a new App project.
 
-1) [Get state root hash (chain_get_state_root_hash)](#i-get-state-root-hash)
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 55 42" src="https://user-images.githubusercontent.com/94465107/170896777-a7662b7f-9c80-4bd2-9494-a1d9193cd0f0.png">
 
-2) [Get peer list (info_get_peers)](#ii-get-peers-list)
+Choose the name and language based for the project (Of course please choose ObjectiveC as the Language)
 
-3) [Get Deploy (info_get_deploy)](#iii-get-deploy)
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 56 39" src="https://user-images.githubusercontent.com/94465107/170896812-e54755b6-24cf-4075-9635-c317ddae7e8a.png">
 
-4) [Get Status (info_get_status)](#iv-get-status)
+When the project is opened, Add the "Casper ObjectiveC SDK" by doing this: Click on the project name and click "Package Dependencies" as the image below
 
-5) [Get Block transfer (chain_get_block_transfers)](#v-get-block-transfers)
+<img width="1440" alt="Screen Shot 2022-05-30 at 06 59 54" src="https://user-images.githubusercontent.com/94465107/170896892-42c76bb8-e27b-4f84-86ec-9169a43c83de.png">
 
-6) [Get Block (chain_get_block)](#vi-get-block)
+Hit the "+" button under the "Add packages here" region. A new window will appear.
 
-7) [Get Era by switch block (chain_get_era_info_by_switch_block)](#vii-get-era-info-by-switch-block)
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 05 53" src="https://user-images.githubusercontent.com/94465107/170896987-40f6799e-b9be-4473-8b21-5290d9126511.png">
 
-8) [Get Item (state_get_item)](#vii-get-item)
+In the left panel choose "GitHub" and in the right panel at the top enter the Casper ObjectiveC SDK on Github with this link: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git"
 
-9) [Get Dictionary item (state_get_dictionary_item)](#ix-get-dictionaray-item)
+Press "Add Package" button in the bottom left region of the right panel. A new window will appear to ask you select for the library of Casper ObjectiveC SDK. Tick all the check box to load all the library if you wish to use all the function of the SDK.
+If you wish to use some functions only, such as Get Block RPC, just check for "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses" and "CasperSDKObjectiveC_GetBlock".Then hit the "Add Package" button.
 
-10) [Get balance (state_get_balance)](#x-get-balance)
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 06 34" src="https://user-images.githubusercontent.com/94465107/170897157-10aafc58-f143-4587-b051-5109ce85a621.png">
 
-11) [Get Auction info (state_get_auction_info)](#xi-get-auction-info)
+Now you can see the package is successfuly loaded into the project by looking at the "Casper-ObjectiveC-sdk" line shown in the "Package Dependencies" tab, and in the left panel you can see list of imported package for the project (ASN1, BigInt, Blake2, CasperCryptoHandlePackage, CasperSDKObjectiveC, SwiftECC)
 
-12) Put Deploy (account_put_deploy) 
+<img width="1440" alt="Screen Shot 2022-05-30 at 07 12 06" src="https://user-images.githubusercontent.com/94465107/170897308-58e7ac62-d041-4882-a239-1d220f2adc84.png">
 
-### I. Get State Root Hash  
+You are now ready to call Casper ObjectiveC SDK classes and functions.
 
-The task is done in file "GetStateRootHash.h" and "GetStateRootHash.m"
+### A sample code for calling 1 RPC method in detail
 
-#### 1. Method declaration
+Continue with the project that you have created just above.
 
-```ObjectiveC
-+(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
+Note: For simplicity, all the code is done within "ViewController.m" file. The result is written in the log region, no visial interface is built. This document is just a simple guide for how to import/use the SDK in 1 code file.
+
+For example if you want to call "chain_get_block_transfers" RPC. Follow this steps:
+
+- Click the "ViewController.m" file in the left panel.
+Add the following import lines:
+
+ ```ObjectiveC
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetBlockTransfers;
 ```
 
-#### 2. Input & Output: 
+Then you can call the "chain_get_block_transfers" RPC method by this code
 
-Input: NSString represents the json parameter needed to send along with the POST method to Casper server. This parameter is build based on the BlockIdentifier.
+ ```ObjectiveC
+GetBlockTransfersRPC * getRPC = [[GetBlockTransfersRPC alloc] init];
+[getRPC initializeWithRPCURL:URL_TEST_NET];
+BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+bi.blockType = USE_BLOCK_HASH;
+[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_block_transfers"];
+NSString * callID = @"getBlockTransfer1";
+[getRPC getBlockTransfersWithJsonParam2:jsonString andCallID:callID];
+ ```
+ Since the POST request is asynchronous, the result will take some time to get the result. In this application a timer (NSTimer) is set to get the result when it is ready and just log it to the log screen. There is a max time of 50 seconds for waiting for the result back, defined in variable "maxCounter". It's just 1 simple way to get the result. You can implement the way to get the result back depends on how you like to handle the result (For example print it to a label or display in some region in the device screen).
+ The full code for the ViewController.m file is:
+ 
+ ```ObjectiveC
+#import "ViewController.h"
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetBlockTransfers;
 
-When call this method to get the state root hash, you need to declare a BlockIdentifier object and then assign the height or hash or just none to the BlockIdentifier. Then the BlockIdentifier is transfer to the jsonString parameter. The whole sequence can be seen as the following code:
-1. Declare a BlockIdentifier and assign its value
-```ObjectiveC
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+int counterGetBlockTransfers = 0;
+int maxCounter = 50;
+
+-(void)onTick:(NSTimer *)timer {
+    GetBlockTransfersRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
+        NSLog(@"Get block transfers with network error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]) {
+        GetBlockTransfersResult * result = [[GetBlockTransfersResult alloc] init];
+        result = item.valueDict[callID];
+        NSLog(@"Get result of block transfers, block hash is:%@",result.block_hash);
+        [timer invalidate];
+        timer = nil;
+    } else {
+        NSLog(@"None value above, counter:%d and value:%@",counterGetBlockTransfers,item.rpcCallGotResult[callID]);
+    }
+    counterGetBlockTransfers ++;
+    if(counterGetBlockTransfers == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    GetBlockTransfersRPC * getRPC = [[GetBlockTransfersRPC alloc] init];
+    [getRPC initializeWithRPCURL:URL_TEST_NET];
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-    bi.blockType = USE_NONE;
-    
-    //or you can set the block attribute like this
-    
-    //bi.blockType = USE_BLOCK_HASH;
-   // [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-   
-   or like this
-   
-   //bi.blockType = USE_BLOCK_HEIGHT;
-   // [bi assignBlockHeigthtWithParam:12345];
-   
-   //then you generate the jsonString to call the getStateRootHashWithJsonParam function
-    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
-```
-2. Use the jsonString to call the function:
-
-```ObjectiveC
-+(void) getStateRootHashWithJsonParam:(NSString*) jsonString 
-```
-
-Output: the actual output is retrieved within the function body of getStateRootHashWithJsonParam function:
-
-```ObjectiveC
-[HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
-```
-From this the other method is called
-
-```ObjectiveC
-+(NSString*) fromJsonToStateRootHash:(NSDictionary*) nsData 
-```
-
-This function return the state_root_hash value.
-
-#### 3. The Unit test file for GetStateRootHash is in file "GetStateRootHashTest.m". 
-
-In Unit test, the GetStateRootHash is done within the following sequence:
-
-1. Declare a BlockIdentifier and assign its atributes
-
-```ObjectiveC
-    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-    bi.blockType = USE_NONE;
-    
-    //or you can set the block attribute like this
-    
-    //bi.blockType = USE_BLOCK_HASH;
-   // [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-   
-   or like this
-   
-   //bi.blockType = USE_BLOCK_HEIGHT;
-   // [bi assignBlockHeigthtWithParam:12345];
-   
-   //then you generate the jsonString to call the getStateRootHashWithJsonParam function
-    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_state_root_hash"];
-```
-2. Call the function to get the state root hash
-
-```ObjectiveC
-[self getStateRootHashWithJsonParam:jsonString];
-```
-
-### II. Get Peers List  
-
-The task is done in file "GetPeerResult.h" and "GetPeerResult.m"
-
-#### 1. Method declaration
-
-```ObjectiveC
-+(void) getPeerResultWithJsonParam:(NSString*) jsonString;
-```
-
-#### 2. Input & Output: 
-
-Input: NSString represents the json parameter needed to send along with the POST method to Casper server. This string is just simple as:
-
-```ObjectiveC
-{"params" : [],"id" : 1,"method":"info_get_peers","jsonrpc" : "2.0"}
-```
-
-The code under  function handler the getting of peerlist
-
-```ObjectiveC
-[HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_PEERS];
-```
-
-From this, in HttpHandler class, the retrieve of PeerEntry List is done with this function:
-
-```ObjectiveC
-+(GetPeerResult*) fromJsonObjToGetPeerResult:(NSDictionary*) jsonDict;
-```
-
-- Output: List of peer defined in class GetPeersResult, which contain a list of PeerEntry - a class contain of nodeId and address.
-
-#### 3. The Unit test file for GetPeerResult is in file "GetPeerResultTest.m"
-
-The steps in doing the test.
-
-1.Declare the json parameter to send to POST request
-
-```ObjectiveC
-NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_peers\",\"jsonrpc\" : \"2.0\"}";
-```
-From the POST request, the json data is retrieved and stored in forJSONObject variable.
-
-2. Get GetPeerResult from the forJSONObject variable
-
-```ObjectiveC
-GetPeerResult * gpr = [[GetPeerResult alloc] init];
-        gpr = [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
-```
-
-From this you can Log out the retrieved information, such as the following code Log out total peer and print address and node id for each peer.
-
-```ObjectiveC
-NSLog(@"Get peer result api_version:%@",gpr.api_version);
-NSLog(@"Get peer result, total peer entry:%lu",[gpr.PeersMap count]);
-NSLog(@"List of peer printed out:");
-NSInteger totalPeer = [gpr.PeersMap count];
-NSInteger  counter = 1;
-for (int i = 0 ; i < totalPeer;i ++) {
-    PeerEntry * pe = [[PeerEntry alloc] init];
-    pe = [gpr.PeersMap objectAtIndex:i];
-    NSLog(@"Peer number %lu address:%@ and node id:%@",counter,pe.address,pe.nodeID);
-    counter = counter + 1;
+    bi.blockType = USE_BLOCK_HASH;
+    [bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
+    NSString * jsonString = [bi toJsonStringWithMethodName:@"chain_get_block_transfers"];
+    NSString * callID = @"getBlockTransfer1";
+    [getRPC getBlockTransfersWithJsonParam2:jsonString andCallID:callID];
+    NSTimer * t = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTick:)
+                                                 userInfo: @{@"param1":getRPC,@"param2":callID} repeats:YES];
 }
-```
+@end
+ ```
+ 
+ To run the project, choose "Product->Run" and you will see the result in the Debug area, as shown in this image 
+ 
+ <img width="1440" alt="Screen Shot 2022-05-30 at 22 25 50" src="https://user-images.githubusercontent.com/94465107/171023432-5b1128fb-1dc3-4390-bb08-d871107a9971.png">
 
-### III. Get Deploy 
+ You can see in the Debug area the block_hash is printed out in the center bottom region of the image.
+ 
+ If you can not see the Debug area, Choose "View->Debug Area->Show Debug Area" as shown in this image.
+ 
+ <img width="1440" alt="Screen Shot 2022-05-30 at 22 27 44" src="https://user-images.githubusercontent.com/94465107/171023586-1383debb-6b77-40e1-9543-579ab24c0688.png">
 
-#### 1. Method declaration
+This is to show that this project can call the RPC successfully.
 
-The call for Get Deploy RPC method is done through this function in "GetDeployResult.m" file
+You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCasperCallObjectiveC
+ 
+### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
+
+Create a new ObjectiveC Package by doing these steps:
+1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
+2. 
+<img width="490" alt="Screen Shot 2022-05-31 at 07 27 09" src="https://user-images.githubusercontent.com/94465107/171071279-c5543a8c-9c36-4e38-a3b1-6f00fec04102.png">
+
+3. Choose "iOS->Framework" then click "Next" as shown in this image
+
+<img width="731" alt="Screen Shot 2022-05-31 at 07 27 28" src="https://user-images.githubusercontent.com/94465107/171071298-734c1d25-b314-44c8-9dcd-67b2fcdbb0f5.png">
+
+5. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
+
+<img width="735" alt="Screen Shot 2022-05-31 at 07 30 13" src="https://user-images.githubusercontent.com/94465107/171071324-15f11ff1-b323-4d27-8c32-93d5d0a53e5c.png">
+
+7. Choose a folder for the Package project to save, click "Create", as shown in this image
+
+<img width="799" alt="Screen Shot 2022-05-31 at 07 30 59" src="https://user-images.githubusercontent.com/94465107/171071366-137902f8-caca-4a03-bb1a-81b95e902923.png">
+
+9. Now you need to import the "Casper ObjectiveC SDK" through adding "Package Dependencies"
+In the Project Navigator of the left panel click the Package name, Under Project click the Package name again, select tab "Package Dependencies" and click the "+" button, as shown in the image below.
+<img width="1440" alt="Screen Shot 2022-05-31 at 07 34 55" src="https://user-images.githubusercontent.com/94465107/171071800-051cbd08-7a06-43b2-b6ae-e54ae049788e.png">
+
+11. A new window will appear to let you select the "Casper ObjectiveC SDK"
+In the left panel select "GitHub", in the top right of the window you will see a text box with prompt text "Search or Enter Package URL", as shown in this image 
+<img width="1084" alt="Screen Shot 2022-05-31 at 07 56 53" src="https://user-images.githubusercontent.com/94465107/171073027-f0c92390-0e0a-4fc4-8700-cd4403e350ea.png">
+Enter the link for the "Casper ObjectiveC SDK" with this value: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image
+<img width="1080" alt="Screen Shot 2022-05-31 at 08 00 02" src="https://user-images.githubusercontent.com/94465107/171073107-66a2da0b-77ba-4b8c-a614-4448addf7bc4.png">
+Then click "Add Package" button.
+There will be process of loading the SDK, somehow like in this image
+<img width="1086" alt="Screen Shot 2022-05-31 at 08 00 50" src="https://user-images.githubusercontent.com/94465107/171073178-8059a626-1260-4007-85ff-3b07bc45af4a.png">
+Then when the process of loading the SDK is ready, you will see the selection for the SDK library. 
+Check all the checkbox if you wish to use all the SDK function, or if you need to use the "info_get_deploy" RPC, simply just choose the following checkbox: "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_GetDeploy".
+
+<img width="1440" alt="Screen Shot 2022-05-31 at 08 02 22" src="https://user-images.githubusercontent.com/94465107/171073383-7789985b-f13b-45f1-a986-86c16bd12776.png">
+
+Click "Add Package" button.
+
+Wait for a while, you will see the package fully loaded in the "Package Dependencies" section, as shown in this image
+
+<img width="376" alt="Screen Shot 2022-05-31 at 08 17 01" src="https://user-images.githubusercontent.com/94465107/171074307-27de2f0d-fe10-4cd0-a0af-acb7f56b55da.png">
+
+13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
+For example this class is for calling get_deploy RPC call, then add the following import to the file
+ 
+ ```ObjectiveC
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetDeploy;
+ ```
+ 
+ The content of the "SampleClass1.h" file would be somehow like this:
+ 
+```ObjectiveC
+#ifndef SampleClass1_h
+#define SampleClass1_h
+#import <Foundation/Foundation.h>
+//sample call to info_get_deploy
+@interface SampleClass1:NSObject
+-(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString*) callID;
+@end
+#endif
+ ```
+ 
+The content of the "SampleClass1.m" file would be somehow like this:
 
 ```ObjectiveC
-+(void) getDeployWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_DEPLOY];
+#import <Foundation/Foundation.h>
+#import "SampleClass1.h"
+@import CasperSDKObjectiveC_CommonClasses;
+@import CasperSDKObjectiveC_GetDeploy;
+@implementation SampleClass1
+int counterGetDeploy = 0;
+int maxCounter = 50;
+-(void)onTickGetDeploy:(NSTimer *)timer {
+    GetDeployRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        NSLog(@"Get deploy with parse error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
+        NSLog(@"Get deploy with network error");
+        [timer invalidate];
+        timer = nil;
+    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]){
+        GetDeployResult * getDeployResult = item.valueDict[callID];
+        
+        [timer invalidate];
+        timer = nil;
+    }
+    counterGetDeploy ++;
+    if(counterGetDeploy == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
 }
-```
-
-From this the GetDeployResult is retrieved through this function, also in "GetDeployResult.m" file
-
-```ObjectiveC
-+(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getDeployWithParams:(NSString*) jsonString
-```
-
-Input is the string of parameter sent to Http Post request to the RPC method, which in form of
-
-```ObjectiveC
-{"id" : 1,"method" : "info_get_deploy","params" : {"deploy_hash" : "6e74f836d7b10dd5db7430497e106ddf56e30afee993dd29b85a91c1cd903583"},"jsonrpc" : "2.0"}
-```
-To generate such string, you need to use GetDeployParams class, which declared in file "GetDeployParams.h" and "GetDeployParams.m"
-
-Instantiate the GetDeployParams, then assign the deploy_hash to the object and use function generatePostParam to generate such parameter string like above.
-
-Sample  code for this process
-
-
-```ObjectiveC
-GetDeployParams * item = [[GetDeployParams alloc]init];
-item.deploy_hash = @"acb4d78cbb900fe91a896ea8a427374c5d600cd9206efae2051863316265f1b1";
-NSString * paramStr = [item generatePostParam];
-[GetDeployResult getDeployWithParams:paramStr];
-```
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetDeployResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetDeployResult*) fromJsonDictToGetDeployResult:(NSDictionary*) fromDict  
-```
-
-Input: The NSDictionaray object represents the GetDeployResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDeployResult is taken to pass to the function to get the Deploy information.
-
-Output: The GetDeployResult which contains all information of the Deploy. From this result you can retrieve information of Deploy hash, Deploy header, Deploy session, payment, ExecutionResults.
-
-### IV. Get Status
-
-#### 1. Method declaration
-
-The call for Get Status RPC method is done through this function in "GetStatusResult.m" file
-
-```ObjectiveC
-+(void) getStatusWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_STATUS];
+-(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString *)callID {
+    GetDeployRPC * getDeployRPC = [[GetDeployRPC alloc] init];
+    GetDeployParams * param = [[GetDeployParams alloc] init];
+    param.deploy_hash = deployHash;
+    NSString * jsonString = [param generatePostParam];
+    [getDeployRPC getDeployWithJsonParam2:jsonString andCallID:callID];
+    NSString * callGetDeployID = @"getDeploy1";
+    NSTimer * tGetDeploy = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTickGetDeploy:)
+                                                 userInfo: @{@"param1":getDeployRPC,@"param2":callGetDeployID} repeats:YES];
 }
-```
-
-From this the GetStatusResult is retrieved through this function, also in "GetStatusResult.m" file
-
-```ObjectiveC
-+(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getStatusWithParams:(NSString*) jsonString
-```
-
-Input: a JsonString of value 
-```ObjectiveC
-{"params" : [],"id" : 1,"method":"info_get_status","jsonrpc" : "2.0"}
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetStatusResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetStatusResult *) fromJsonDictToGetStatusResult:(NSDictionary*) jsonDict
-```
-
-Input: The NSDictionaray object represents the GetStatusResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetStatusResult is taken to pass to the function to get the status information.
-
-Output: The GetStatusResult which contains all information of the status. From this result you can retrieve information such as: api_version,chainspec_name,starting_state_root_hash,peers,last_added_block_info...
-
-### V. Get Block Transfers
-
-#### 1. Method declaration
-
-The call for Get Block Transfers RPC method is done through this function in "GetBlockTransfersResult.m" file
-
-```ObjectiveC
-+(void) getBlockTransfersWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK_TRANSFERS];
-}
-```
-
-From this the GetBlockTransfersResult is retrieved through this function, also in "GetBlockTransfersResult.m" file
-
-```ObjectiveC
-+(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getBlockTransfersWithParams:(NSString*) jsonString
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "chain_get_block_transfers","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
-
-Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
-
-Sample  code for this process
-
-```ObjectiveC
-BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-bi.blockType = USE_BLOCK_HASH;
-[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
-[GetBlockTransfersResult getBlockTransfersWithParams:paramStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBlockTransfersResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetBlockTransfersResult *) fromJsonDictToGetBlockTransfersResult:(NSDictionary*) jsonDict
-```
-
-Input: The NSDictionaray object represents the GetBlockTransfersResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockTransfersResult is taken to pass to the function to get the block transfers information.
-
-Output: The GetBlockTransfersResult which contains all information of the Block Transfers. From this result you can retrieve information such as: api_version,block_hash, list of transfers. (Transfer is wrap in class Transfer.h and all information of Transfer can retrieve from this result).
-
-### VI. Get Block 
-
-#### 1. Method declaration
-
-The call for Get Block Transfers RPC method is done through this function in "GetBlockResult.m" file
-
-```ObjectiveC
-+(void) getBlockWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
-}
-```
-
-From this the GetBlockResult is retrieved through this function, also in "GetBlockResult.m" file
-
-```ObjectiveC
-+(GetBlockResult*) fromJsonDictToGetBlockResult:(NSDictionary *) jsonDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getBlockWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "chain_get_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
-
-Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
-
-Sample  code for this process
-
-```ObjectiveC
-BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-bi.blockType = USE_BLOCK_HASH;
-[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
-[GetBlockResult getBlockWithParams:paramStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBlockResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetBlockResult *) fromJsonDictToGetBlockResult:(NSDictionary*) jsonDict
-```
-
-Input: The NSDictionaray object represents the GetBlockResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBlockResult is taken to pass to the function to get the block information.
-
-Output: The GetBlockResult which contains all information of the block. From this result you can retrieve information such as: api_version,JsonBlock object(in which you can retrieve information such as: blockHash, JsonBlockHeader,JsonBlockBody, list of proof)
-
-### VII. Get Era Info By Switch Block
-
-#### 1. Method declaration
-
-The call for Get Era Info RPC method is done through this function in "GetEraInfoResult.m" file
-
-```ObjectiveC
-+(void) getEraInfoWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
-}
-```
-
-From this the GetEraInfoResult is retrieved through this function, also in "GetEraInfoResult.m" file
-
-```ObjectiveC
-+(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getEraInfoWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "chain_get_era_info_by_switch_block","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
-
-Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
-
-Sample  code for this process
-
-```ObjectiveC
-BlockIdentifier * bi = [[BlockIdentifier alloc] init];
-bi.blockType = USE_BLOCK_HASH;
-[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
-NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
-[GetEraInfoResult getEraInfoWithParams:paramStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetEraInfoResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetEraInfoResult*) fromJsonDictToGetEraInfoResult:(NSDictionary*) fromDict 
-```
-
-Input: The NSDictionaray object represents the GetEraInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetEraInfoResult is taken to pass to the function to get the era info information.
-
-Output: The GetEraInfoResult which contains all information of the era info. From this result you can retrieve information such as: api_version, era_summary (in which you can retrieve information such as: block_hash, era_id, state_root_hash, merkle_proof, stored_value).
-
-
-### VII. Get Item
-
-#### 1. Method declaration
-
-The call for Get Item RPC method is done through this function in "GetItemResult.m" file
-
-```ObjectiveC
-+(void) getItemWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
-}
-```
-
-From this the GetItemResult is retrieved through this function, also in "GetItemResult.m" file
-
-```ObjectiveC
-+(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getItemWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_ITEM];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "state_get_item","id" : 1,"params" :{"state_root_hash" : "d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228","key":"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1","path":[]},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type GetItemParams class, which declared in file "GetItemParams.h" and "GetItemParams.m"
-
-Instantiate the GetItemParams, then assign the GetItemParams object with state_root_hash, key, and path, then use function "toJsonString" of the "GetItemParams" class to generate such parameter string like above.
-
-Sample  code for this process:
-
-```ObjectiveC
-GetItemParams * item = [[GetItemParams alloc] init];
-item.state_root_hash = @"d360e2755f7cee816cce3f0eeb2000dfa03113769743ae5481816f3983d5f228";
-item.key = @"withdraw-df067278a61946b1b1f784d16e28336ae79f48cf692b13f6e40af9c7eadb2fb1";
-NSString * paramStr = [item toJsonString];
-[GetItemResult getItemWithParams:paramStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
-```
-
-Input: The NSDictionaray object represents the GetItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetItemResult is taken to pass to the function to get the item information.
-
-Output: The GetItemResult which contains all information of the item. From this result you can retrieve information such as: api_version,merkle_proof, stored_value.
-
-### IX. Get Dictionaray Item
-
-#### 1. Method declaration
-
-The call for Get Dictionary Item RPC method is done through this function in "GetDictionaryItemResult.m" file
-
-```ObjectiveC
-+(void) getDictionaryItemWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
-}
-```
-
-From this the GetDictionaryItemResult is retrieved through this function, also in "GetDictionaryItemResult.m" file
-
-```ObjectiveC
-+(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getDictionaryItemWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "state_get_dictionary_item","id" : 1,"params" :{"state_root_hash" : "146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8","dictionary_identifier":{"AccountNamedKey":{"dictionary_name":"dict_name","key":"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877","dictionary_item_key":"abc_name"}}},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type GetDictionaryItemParams class, which declared in file "GetDictionaryItemParams.h" and "GetDictionaryItemParams.m"
-
-Instantiate the GetDictionaryItemParams, then assign the GetDictionaryItemParams object with state_root_hash and an DictionaryIdentifier value.
-The DictionaryIdentifier can be 1 among 4 possible classes defined in folder "DictionaryIdentifierEnum".
-When the state_root_hash and DictionaryIdentifier value are sets, use function "toJsonString" of the "GetDictionaryItemParams" class to generate such parameter string like above.
-
-Sample  code for this process, with DictionaryIdentifier of type AccountNamedKey
-
-```ObjectiveC
-GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
-itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
-DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
-item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
-item.dictionary_name = @"dict_name";
-item.dictionary_item_key = @"abc_name";
-itemParam.dictionaryIdentifierType = @"AccountNamedKey";
-itemParam.innerDict = [[NSMutableArray alloc] init];
-[itemParam.innerDict addObject:item];
-NSString * jsonStr = [itemParam toJsonString];
-[GetDictionaryItemResult getDictionaryItem:jsonStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetItemResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetDictionaryItemResult*) fromJsonDictToGetItemResult:(NSDictionary*) fromDict 
-```
-
-Input: The NSDictionaray object represents the GetDictionaryItemResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetDictionaryItemResult is taken to pass to the function to get the dictionary item information.
-
-Output: The GetDictionaryItemResult which contains all information of the dictionary item. From this result you can retrieve information such as: api_version,dictionary_key, merkle_proof,stored_value.
-
-### X. Get Balance
-
-#### 1. Method declaration
-
-The call for Get Balance RPC method is done through this function in "GetBalanceResult.m" file
-
-```ObjectiveC
-+(void) getBalanceWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_BALANCE];
-}
-```
-
-From this the GetBalanceResult is retrieved through this function, also in "GetBalanceResult.m" file
-
-```ObjectiveC
-+(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getBalanceWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_BALANCE];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "state_get_balance","id" : 1,"params" :{"state_root_hash" : "8b463b56f2d124f43e7c157e602e31d5d2d5009659de7f1e79afbd238cbaa189","purse_uref":"uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007"},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type GetBalanceParams class, which declared in file "GetBalanceParams.h" and "GetBalanceParams.m"
-
-Instantiate the GetBalanceParams, then assign the GetBalanceParams with state_root_hash and purse_uref then use function "toJsonString" of the "GetBalanceParams" class to generate such parameter string like above.
-
-Sample  code for this process
-
-```ObjectiveC
- GetBalanceParams * param = [[GetBalanceParams alloc] init];
- param.state_root_hash = @"8b463b56f2d124f43e7c157e602e31d5d2d5009659de7f1e79afbd238cbaa189";
- param.purse_uref = @"uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007";
- NSString * jsonStr = [param toJsonString];
- [GetBalanceResult getBalance:jsonStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetBalanceResult function, described below:
-
-* For function 
-```ObjectiveC
-+(GetBalanceResult*) fromJsonDictToGetBalanceResult:(NSDictionary*) fromDict 
-```
-
-Input: The NSDictionaray object represents the GetBalanceResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetBalanceResult is taken to pass to the function to get the balance information.
-
-Output: The GetBalanceResult which contains all information of the balance. From this result you can retrieve information such as: api_version,balance_value, merkle_proof.
-
-### XI. Get Auction Info
-
-#### 1. Method declaration
-
-The call for Get Auction RPC method is done through this function in "GetAuctionInfoResult.m" file
-
-```ObjectiveC
-+(void) getAuctionWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO];
-}
-```
-
-From this the GetAuctionInfoResult is retrieved through this function, also in "GetAuctionInfoResult.m" file
-
-```ObjectiveC
-+(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict
-```
-
-#### 2. Input & Output: 
-
-* For function 
-
-```ObjectiveC
-+(void) getAuctionWithParams:(NSString*) jsonString {
-    [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO];
-}
-```
-
-Input: a JsonString of such value:
-```ObjectiveC
-{"method" : "state_get_auction_info","id" : 1,"params" : {"block_identifier" : {"Hash" :"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"}},"jsonrpc" : "2.0"}
-```
-
-To generate such string, you need to use an object of type BlockIdentifier class, which declared in file "BlockIdentifier.h" and "BlockIdentifier.m"
-
-Instantiate the BlockIdentifier, then assign the block with block hash or block height or just assign nothing to the object and use function "toJsonStringWithMethodName" of the "BlockIdentifier" class to generate such parameter string like above.
-
-Sample  code for this process
-
-```ObjectiveC
- BlockIdentifier * bi = [[BlockIdentifier alloc] init];
- bi.blockType = USE_BLOCK_HASH;
-[bi assignBlockHashWithParam:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"];
- NSString * paramStr = [bi toJsonStringWithMethodName:@"chain_get_block"];
-[GetAuctionInfoResult getAuctionWithParams:paramStr];
-```
-
-Output: The ouput is handler in HttpHandler class and then pass to fromJsonDictToGetAuctionResult function, described below:
-
-* For function 
-
-```ObjectiveC
-+(GetAuctionInfoResult*) fromJsonDictToGetAuctionResult:(NSDictionary*) fromDict 
-```
-
-Input: The NSDictionaray object represents the GetAuctionInfoResult object. This NSDictionaray is returned from the POST method when call the RPC method. Information is sent back as JSON data and from that JSON data the NSDictionary part represents the GetAuctionInfoResult is taken to pass to the function to get the aunction information.
-
-Output: The GetAuctionInfoResult which contains all information of the aunction. From this result you can retrieve information such as: api_version,auction_state (in which you can retrieve information such as state_root_hash, block_height, list of JsonEraValidators).
+@end
+
+ ```
+ 
+ This file do the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
+ 
+ For full code of the sample please refer to this address: https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK
