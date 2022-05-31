@@ -38,8 +38,8 @@
     if([privateKey isEqualToString:ERROR_STRING]) {
         return false; // Fail because error generated private key - the private key string is invalid
     }
-    NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,pemFile];
-    NSURL * url = [NSURL fileURLWithPath:filePath];
+    //NSString * filePath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,pemFile];
+    NSURL * url = [NSURL fileURLWithPath:pemFile];
     BOOL isSuccess =  [privateKey writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if(isSuccess == YES) {
         return true;

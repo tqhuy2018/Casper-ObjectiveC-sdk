@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/leif-ibsen/BigInt",
         "state": {
           "branch": null,
-          "revision": "9e79977c6be2590f737c01dc891abd7283b9505c",
-          "version": "1.3.1"
+          "revision": "ddad1f5dae5be240f24e68080d36f95b475a45a7",
+          "version": "1.4.0"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/hienbui9999/CasperCryptoHandlePackage.git",
         "state": {
           "branch": null,
-          "revision": "160dd6f43a4ad3531cd947faf60172bf4b9947a3",
-          "version": "1.0.2"
+          "revision": "5d8f95d221913c03fd64cbd3f352cbe129c5772a",
+          "version": "1.0.3"
         }
       },
       {
