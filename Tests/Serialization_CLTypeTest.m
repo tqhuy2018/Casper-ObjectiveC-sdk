@@ -10,7 +10,6 @@
 @implementation Serialization_CLTypeTest
 
 - (void) testCLTypeSerialization {
-    return;
     CLType * typeBool = [[CLType alloc] init];
     typeBool.itsType = CLTYPE_BOOL;
     XCTAssert([[CLTypeSerializeHelper serializeForCLType:typeBool] isEqualToString:@"00"]);

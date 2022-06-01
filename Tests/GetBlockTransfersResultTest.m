@@ -62,7 +62,6 @@
         }];
 }
 - (void) testGetBlockTransfersResult {
-    return;
     //Test 1: get block transfer without sending parameter
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_NONE;

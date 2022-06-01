@@ -110,8 +110,8 @@ The public key is pem string represent the public key */
  If the message is verified successfully then the true value is returned, otherwise the false value is returned
  */
 -(Boolean) secpVerifyMessage:(NSString*) signedMessage withPublicKey:(NSString*) publicKeyStr forOriginalMessage:(NSString*) originalMessage {
-    Ed25519CrytoSwift * ed25519 = [[Ed25519CrytoSwift alloc] init];
-    Boolean result = [ed25519 verifyMessageWithSignedMessage:signedMessage publicKeyToVerifyString:publicKeyStr originalMessage:originalMessage];
+    Secp256k1CryptoSwift * secp256k1 = [[Secp256k1CryptoSwift alloc] init];
+    Boolean result = [secp256k1 verifyMessageWithPublicKeyPemString:publicKeyStr signature:signedMessage plainMessage:originalMessage];
     return result;
 }
 /** This function signs the message with given private key

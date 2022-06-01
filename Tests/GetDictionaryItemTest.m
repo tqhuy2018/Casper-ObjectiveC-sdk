@@ -91,7 +91,6 @@
         }];
 }
 - (void) testGetDictionaryItem {
-    return;
     GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
     itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
     

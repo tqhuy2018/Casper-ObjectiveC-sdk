@@ -71,7 +71,6 @@
         }];
 }
 - (void) testGetBlock {
-    return;
     //Test 1: get block without sending parameter
     //expected result: latest block state root hash
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];

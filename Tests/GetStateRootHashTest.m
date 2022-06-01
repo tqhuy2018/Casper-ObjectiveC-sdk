@@ -46,8 +46,6 @@
         }];
 }
 - (void) testGetStateRootHash {
-    return;
-    NSLog(@"M1: chain_get_state_root_hash test cases");
     //Test 1: get state root hash without sending parameter
     //expected result: latest block state root hash
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];

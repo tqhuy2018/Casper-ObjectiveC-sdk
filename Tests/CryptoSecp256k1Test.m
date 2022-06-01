@@ -91,12 +91,10 @@
     CryptoKeyPair * keyPair1 = [[CryptoKeyPair alloc] init];
     keyPair1 = [secp256k1 secpGenerateKey];
     NSString * signature = [self signMessageWithMessage:message andPrivateKey:keyPair1.privateKeyStr];
-    NSLog(@"secp256k1 signature:%@",signature);
     XCTAssert([signature length] == 128);
     //TEST VERIFY MESSAGE
     Boolean isSignatureValid = [self verifySignature:signature forOriginalMessage:message withPublicKey:keyPair1.publicKeyStr];
     XCTAssert(isSignatureValid == true);
-    
 }
 - (void) testKeyGeneration {
     Secp256k1Crypto * secp256k1 = [[Secp256k1Crypto alloc] init];

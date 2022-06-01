@@ -87,7 +87,6 @@
     }
 }
 - (void) testPutDeploySecp256k1 {
-    return;
     Deploy * deploy = [[Deploy alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     bool isEd25519 = false;
@@ -236,12 +235,16 @@
     deploy.itsHash = deployHash;
     NSString * signature =  @"";
     if(isEd25519) {
-        NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
+        NSString * fileName = @"ReadSwiftPrivateKeyEd25519.pem";
+        NSString * privateKeyPath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,fileName];
+        NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:privateKeyPath];
         signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
         signature = [[NSString alloc] initWithFormat:@"01%@",signature];
     } else { //Sign with Secp256k1
+        NSString * fileName = @"ReadSwiftPrivateKeySecp256k1.pem";
+        NSString * privateKeyPath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
-        NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
+        NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:privateKeyPath];
         PutDeployUtils.secpPrivateKeyPemStr = privateKeyPemStr;
         signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
@@ -255,15 +258,9 @@
     oneA.signature = signature;
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
-    /*PutDeployRPC * putDeployRPC = [[PutDeployRPC alloc] init];
-    PutDeployParams * putDeployParams = [[PutDeployParams alloc] init];
-    putDeployParams.deploy = deploy;
-    putDeployRPC.params = putDeployParams;
-    [putDeployRPC putDeploy];*/
-    [self putDeploy:deploy withCallIndex:@"call1"];
+    [self putDeploy:deploy withCallIndex:@"putDeploySecp256k1"];
 }
 - (void) testPutDeployEd25519 {
-    return;
     Deploy * deploy = [[Deploy alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     bool isEd25519 = true;
@@ -412,12 +409,16 @@
     deploy.itsHash = deployHash;
     NSString * signature =  @"";
     if(isEd25519) {
-        NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:@"ReadSwiftPrivateKeyEd25519.pem"];
+        NSString * fileName = @"ReadSwiftPrivateKeyEd25519.pem";
+        NSString * privateKeyPath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,fileName];
+        NSString * privateKeyStr = [ed25519 readPrivateKeyFromPemFile:privateKeyPath];
         signature = [ed25519 signMessageWithValue: deployHash withPrivateKey:privateKeyStr];
         signature = [[NSString alloc] initWithFormat:@"01%@",signature];
     } else { //Sign with Secp256k1
+        NSString * fileName = @"ReadSwiftPrivateKeySecp256k1.pem";
+        NSString * privateKeyPath = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_SECP256K1,fileName];
         Secp256k1Crypto * secp = [[Secp256k1Crypto alloc] init];
-        NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:@"ReadSwiftPrivateKeySecp256k1.pem"];
+        NSString * privateKeyPemStr = [secp secpReadPrivateKeyFromPemFile:privateKeyPath];
         PutDeployUtils.secpPrivateKeyPemStr = privateKeyPemStr;
         signature = [secp secpSignMessageWithValue:deployHash withPrivateKey:privateKeyPemStr];
         signature = [[NSString alloc] initWithFormat:@"02%@",signature];
@@ -431,6 +432,6 @@
     oneA.signature = signature;
     [listApprovals addObject:oneA];
     deploy.approvals = listApprovals;
-    [self putDeploy:deploy withCallIndex:@"call1"];
+    [self putDeploy:deploy withCallIndex:@"putDeployEd25519"];
 }
 @end
