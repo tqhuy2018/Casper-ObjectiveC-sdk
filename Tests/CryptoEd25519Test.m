@@ -56,7 +56,7 @@
     
     // PRIVATE KEY WRITE TO PEM FILE - POSITIVE PATH TEST
     //Test 8: Generate and write private key to pem file - - please choose a correct folder with file name that does not exist
-    NSString * writePrivatePemFile = @"/Users/hien/Ed25519/writePrivate1.pem";
+    NSString * writePrivatePemFile = [[NSString alloc] initWithFormat:@"%@writePrivate1.pem",CRYPTO_PATH_ED25519];
     //NSString * writePrivateKeyPemFile = [[NSString alloc] initWithFormat:@"%@%@",CRYPTO_PATH_ED25519,writePrivatePemFile];
     Boolean writePrivateResult = [self writePrivateKeyToPemFile:writePrivatePemFile];
     XCTAssert(writePrivateResult == true);
@@ -67,7 +67,7 @@
     XCTAssert(writePrivateResult2 == false);
     // PUBLIC KEY WRITE TO PEM FILE - POSITIVE PATH TEST
     //Test 10: Generate and write public key to pem file - please choose a correct folder with file name that does not exist
-    NSString * writePublicPemFile = @"/Users/hien/Ed25519/writePublic1.pem";
+    NSString * writePublicPemFile = [[NSString alloc] initWithFormat:@"%@writePublic1.pem",CRYPTO_PATH_ED25519];
     Boolean writePublicResult = [self writePublicKeyToPemFile:writePublicPemFile];
     XCTAssert(writePublicResult == true);
     // PUBLIC KEY WRITE TO PEM FILE - POSITIVE PATH TEST
