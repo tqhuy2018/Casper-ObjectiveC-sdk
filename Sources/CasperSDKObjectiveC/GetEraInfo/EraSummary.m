@@ -14,11 +14,4 @@
     ret.stored_value = [StoredValue fromJsonDictToStoredValue:fromDict[@"stored_value"]];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"EraSummary, block_hash:%@",self.block_hash);
-    NSLog(@"EraSummary, era_id:%llu",self.era_id);
-    NSLog(@"EraSummary, state_root_hash:%@",self.state_root_hash);
-    NSLog(@"EraSummary, merkle_proof length:%lu",(unsigned long)self.merkle_proof.length);
-    [self.stored_value logInfo];
-}
 @end

@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 #import <CasperSDKObjectiveC/GetStatusResult.h>
 #import <CasperSDKObjectiveC/ConstValues.h>
+#import <CasperSDKObjectiveC/PeerEntry.h>
 @interface GetStatusTest : XCTestCase
 
 @end
@@ -8,7 +9,6 @@
 @implementation GetStatusTest
 
 - (void) testGetStatus {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get status"];
     NSString * casperURL =  URL_TEST_NET;
     NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_status\",\"jsonrpc\" : \"2.0\"}";
@@ -26,10 +26,23 @@
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         GetStatusResult * gsr = [[GetStatusResult alloc] init];
         gsr = [GetStatusResult fromJsonDictToGetStatusResult:forJSONObject];
-        [gsr logInfo];
         XCTAssert([gsr.chainspec_name isEqualToString:@"casper-test"]);
         XCTAssert(gsr.peers.count > 0);
         XCTAssert(gsr.starting_state_root_hash.length > 0);
+        
+        NSInteger totalPeer = [gsr.peers count];
+        XCTAssert(totalPeer > 100);
+        NSInteger  counter = 1;
+        XCTAssert(totalPeer>0);
+        for (int i = 0 ; i < totalPeer;i ++) {
+            PeerEntry * pe = [[PeerEntry alloc] init];
+            pe = [gsr.peers objectAtIndex:i];
+            int nodeIDStrLength = (int) [pe.nodeID length];
+            int addressStrLength = (int) [pe.address length];
+            XCTAssert(addressStrLength >10);
+            XCTAssert(nodeIDStrLength == 14);
+            counter = counter + 1;
+        }
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {

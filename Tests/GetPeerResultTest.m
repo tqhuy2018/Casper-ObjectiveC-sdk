@@ -12,7 +12,6 @@
 
 @implementation GetPeerResultTest
 - (void) testGetPeerList {
-    return;
     XCTestExpectation * requestExpectation = [self expectationWithDescription:@"get peer list"];
     NSString * casperURL =  URL_TEST_NET;
     NSString *jsonString = @"{\"params\" : [],\"id\" : 1,\"method\":\"info_get_peers\",\"jsonrpc\" : \"2.0\"}";
@@ -30,17 +29,14 @@
         NSDictionary *forJSONObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         GetPeerResult * gpr = [[GetPeerResult alloc] init];
         gpr = [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];
-        NSLog(@"M1: info_get_peers test cases");
-        NSLog(@"Get peer result api_version:%@",gpr.api_version);
-        NSLog(@"Get peer result, total peer entry:%lu",[gpr.PeersMap count]);
-        NSLog(@"List of peer printed out:");
+        XCTAssert(gpr.api_version.length > 4);
         NSInteger totalPeer = [gpr.PeersMap count];
+        XCTAssert(totalPeer > 100);
         NSInteger  counter = 1;
         XCTAssert(totalPeer>0);
         for (int i = 0 ; i < totalPeer;i ++) {
             PeerEntry * pe = [[PeerEntry alloc] init];
             pe = [gpr.PeersMap objectAtIndex:i];
-            NSLog(@"Peer number %lu address:%@ and node id:%@",counter,pe.address,pe.nodeID);
             int nodeIDStrLength = (int) [pe.nodeID length];
             int addressStrLength = (int) [pe.address length];
             XCTAssert(addressStrLength >10);
@@ -50,7 +46,6 @@
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
-          //  [self closeWithCompletionHandler:nil];
         }];
 }
 @end

@@ -57,15 +57,5 @@ The input jsonString is somehow like this:
 +(void) getStatusWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_INFO_GET_STATUS];
 }
--(void) logInfo {
-    NSLog(@"Get status result, starting_state_root_hash:%@",self.starting_state_root_hash);
-    if(self.is_our_public_signing_key_exists) {
-        NSLog(@"Get status result, our_public_signing_key:%@",self.our_public_signing_key);
-    }
-    NSLog(@"Get status result, total peer:%lu",(unsigned long)self.peers.count);
-    if(self.is_last_added_block_info_exists) {
-        NSLog(@"Get status result, last_added_block_info hash:%@",self.last_added_block_info.itsHash);
-        NSLog(@"Get status result, last_added_block_info creator:%@",self.last_added_block_info.creator);
-    }
-}
+
 @end

@@ -25,8 +25,4 @@
     ret.access = [EntryPointAccess fromJsonDictToEntryPointAccess:fromDict[@"access"]];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"Entry Point, name: %@",self.name);
-    NSLog(@"Entry Point, entry_point_type: %@",self.entry_point_type);
-}
 @end

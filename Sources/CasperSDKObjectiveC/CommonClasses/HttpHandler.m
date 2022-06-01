@@ -24,6 +24,7 @@ static NSString* casperURL;
 { @synchronized(self) { casperURL = val; } }
 ///Function where all the RPC call is handled, with the send of parameter to the POST method and the handle of JSON data back from the server
 +(void) handleRequestWithParam:(NSString*) jsonString andRPCMethod:(NSString*) rpcMethod {
+    return;
     HttpHandler.casperURL =  @"https://node-clarity-testnet.make.services/rpc";
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];

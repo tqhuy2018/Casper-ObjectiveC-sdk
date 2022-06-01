@@ -25,12 +25,4 @@ The input jsonString is somehow like this:
 +(void) getDictionaryItemWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_DICTIONARY_ITEM];
 }
--(void)logInfo {
-    NSLog(@"GetDictionaryItemResult, api_version:%@",self.api_version);
-    NSLog(@"GetDictionaryItemResult, dictionary_key:%@",self.dictionary_key);
-    NSLog(@"GetDictionaryItemResult, merkle_proof length:%i",(int)self.merkle_proof.length);
-    NSLog(@"GetDictionaryItemResult,StoredValue information");
-    [self.stored_value logInfo];
-    
-}
 @end

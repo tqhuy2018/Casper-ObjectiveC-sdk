@@ -9,7 +9,6 @@
 
 @implementation Secp256k1CryptoTest
 -(void) testAll {
-    return;
     [self testKeyGeneration];
     // PRIVATE KEY LOAD FROM PEM FILE - POSITIVE PATH TEST
     //Test 2: Load private key from pem file - positive path - give the right pem file location/name with right pem file format.

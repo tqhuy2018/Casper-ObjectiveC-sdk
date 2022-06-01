@@ -13,7 +13,6 @@ The following has to be implemented
 ///The inner value of the StoredValue, which can hold 1 among 9 possible value of the enum
 @property NSMutableArray * innerValue;
 +(StoredValue *) fromJsonDictToStoredValue:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

@@ -15,7 +15,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to EntryPoint object
  */
 +(EntryPoint*) fromJsonDictToEntryPoint:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 

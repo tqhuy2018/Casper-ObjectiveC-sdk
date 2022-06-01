@@ -11,9 +11,4 @@
     ret.protocol_version_major = (unsigned int)[(NSString*) fromDict[@"protocol_version_major"] intValue];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"DisabledVersion, contract_version:%u",self.contract_version);
-    NSLog(@"DisabledVersion, protocol_version_major:%u",(unsigned int)self.protocol_version_major);
-}
-
 @end

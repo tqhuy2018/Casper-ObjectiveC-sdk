@@ -32,7 +32,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetEraInfoResult * item = [[GetEraInfoResult alloc] init];
             item = [GetEraInfoResult fromJsonDictToGetEraInfoResult:(NSDictionary *)forJSONObject[@"result"]];
-            [item logInfo];
             if([callIndex isEqualToString:@"call1"]) {
                 XCTAssert(item.is_era_summary_existed == false);
             } else if([callIndex isEqualToString:@"call3"]) {
@@ -50,14 +49,12 @@
                 XCTAssert([sa.amount.itsValue isEqualToString:@"87735183835"]);
             }
         } else {
-            NSLog(@"Error get era info with error message:%@ and error code:%@",cem.message,cem.code);
             if ([callIndex isEqualToString:@"call4"]) {
                 XCTAssert([cem.message isEqualToString:@"block not known"]);
             } else if ([callIndex isEqualToString:@"call5"]) {
                 XCTAssert([cem.message isEqualToString:@"block not known"]);
             }
         }
-       
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
@@ -65,7 +62,6 @@
         }];
 }
 - (void) testGetEraInfoBySwitchBlock {
-    return;
     //Test 1: get state root hash without sending parameter
     BlockIdentifier * bi = [[BlockIdentifier alloc] init];
     bi.blockType = USE_NONE;
@@ -98,6 +94,4 @@
     NSString * jsonString5 = [bi toJsonStringWithMethodName:@"chain_get_era_info_by_switch_block"];
     [self getEraInfo: jsonString5 withCallIndex:@"call5"];
 }
-
-
 @end

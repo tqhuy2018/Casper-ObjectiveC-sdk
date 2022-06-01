@@ -47,37 +47,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"ContractPackage, access_key:%@",self.access_key);
-    if(self.disabled_versions.count>0) {
-        NSLog(@"ContractPackage, disabled_versions information:");
-        int totalDV = (int) self.disabled_versions.count;
-        for(int i = 0 ;i < totalDV;i ++) {
-            DisabledVersion * oneDV = (DisabledVersion*) [self.disabled_versions objectAtIndex:i];
-            [oneDV logInfo];
-        }
-    } else {
-        NSLog(@"ContractPackage, disabled_versions empty");
-    }
-    if(self.groups.count>0) {
-        NSLog(@"ContractPackage, groups information:");
-        int totalG = (int) self.groups.count;
-        for(int i = 0 ;i < totalG;i ++) {
-            Groups * oneG = (Groups*) [self.groups objectAtIndex:i];
-            [oneG logInfo];
-        }
-    } else {
-        NSLog(@"ContractPackage, groups empty");
-    }
-    if(self.versions.count>0) {
-        NSLog(@"ContractPackage, versions information:");
-        int totalV = (int) self.versions.count;
-        for(int i = 0 ;i < totalV;i ++) {
-            ContractVersion * oneCV = (ContractVersion*) [self.versions objectAtIndex:i];
-            [oneCV logInfo];
-        }
-    } else {
-        NSLog(@"ContractPackage, versions empty");
-    }
-}
 @end

@@ -38,12 +38,4 @@ The input jsonString is somehow like this:
 +(void) getEraInfoWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_ERA_BY_SWITCH_BLOCK];
 }
--(void)logInfo {
-    NSLog(@"GetEraInfoResult, api_version:%@",self.api_version);
-    if(self.is_era_summary_existed) {
-        [self.era_summary logInfo];
-    } else {
-        NSLog(@"GetEraInfoResult, era_summary does not exists");
-    }
-}
 @end

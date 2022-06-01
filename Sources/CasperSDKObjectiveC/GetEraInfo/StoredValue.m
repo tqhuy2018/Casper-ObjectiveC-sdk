@@ -83,45 +83,4 @@ The following has to be implemented
     }
     return ret;
 }
-/*
--(void) logInfo {
-    if ([self.itsType isEqualToString: @"EraInfo"]) {
-        EraInfo * era = (EraInfo*)[self.innerValue objectAtIndex:0];
-        [era logInfo];
-    } else if ([self.itsType isEqualToString: @"CLValue"]) {
-        CLValue * clValue = [[CLValue alloc] init];
-        clValue = (CLValue*) [self.innerValue objectAtIndex:0];
-        [clValue logInfo];
-    }  else if ([self.itsType isEqualToString: @"Account"]) {
-        Account * item = [[Account alloc] init];
-        item = (Account*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    }  else if ([self.itsType isEqualToString: @"ContractWasm"]) {
-        NSLog(@"StoredValue of ContractWasm, value: %@",[self.innerValue objectAtIndex:0]);
-    } else if ([self.itsType isEqualToString: @"ContractPackage"]) {
-        ContractPackage * item = [[ContractPackage alloc] init];
-        item = (ContractPackage*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.itsType isEqualToString: @"Transfer"]) {
-        Transfer * item = [[Transfer alloc] init];
-        item = (Transfer*) [self.innerValue objectAtIndex:0];
-    } else if ([self.itsType isEqualToString: @"DeployInfo"]) {
-        DeployInfo * item = [[DeployInfo alloc] init];
-        item = (DeployInfo*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.itsType isEqualToString: @"Bid"]) {
-        Bid * item = [[Bid alloc] init];
-        item = (Bid*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.itsType isEqualToString: @"Withdraw"]) {
-        Transform_WriteWithdraw * item = [[Transform_WriteWithdraw alloc] init];
-        item = (Transform_WriteWithdraw*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.itsType isEqualToString: @"Contract"]) {
-        Contract * item = [[Contract alloc] init];
-        item = (Contract*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
-    }
-}*/
-
 @end

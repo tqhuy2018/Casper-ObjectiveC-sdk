@@ -20,7 +20,6 @@ The input jsonString is somehow like this:
  
  */
 +(void) getDictionaryItemWithParams:(NSString*) jsonString;
--(void)logInfo;
 @end
 
 #endif

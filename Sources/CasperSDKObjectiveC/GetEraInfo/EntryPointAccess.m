@@ -25,18 +25,5 @@
     }
     return ret;
 }
--(void) logInfo {
-    if (self.is_type_public) {
-        NSLog(@"EntryPointAccess is of type Public");
-    } else {
-        NSLog(@"EntryPointAccess, of type Groups");
-        int totalGroup = (int)self.Groups.count;
-        NSLog(@"EntryPointAccess, total Group:%i",totalGroup);
-        if(totalGroup >0) {
-            for(int i = 0 ; i < totalGroup ; i ++) {
-                NSLog(@"EntryPointAccess, group number %i, value:%@",i,(NSString*) [self.Groups objectAtIndex:i ]);
-            }
-        }
-    }
-}
+
 @end

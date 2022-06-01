@@ -37,7 +37,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetDictionaryItemResult * item = [[GetDictionaryItemResult alloc] init];
             item = [GetDictionaryItemResult fromJsonDictToGetItemResult:(NSDictionary *)forJSONObject[@"result"]];
-            [item logInfo];
             if( [callIndex isEqualToString:@"call1"]) {
                 XCTAssert([item.dictionary_key isEqualToString:@"dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373"]);
                 XCTAssert(item.merkle_proof.length == 30330);
@@ -76,14 +75,12 @@
                 XCTAssert([clValue.cl_type.itsType isEqualToString:@"String"]);
             }
         } else {
-            NSLog(@"Error get dictionary item with error message:%@ and error code:%@",cem.message,cem.code);
             if( [callIndex isEqualToString:@"call5"]) {
                 XCTAssert([cem.message isEqualToString:@"Invalid params"]);
             } else if( [callIndex isEqualToString:@"call6"]) {
                 XCTAssert([cem.message isEqualToString:@"Failed to parse Dictionary key"]);
             }
         }
-       
     }];
     [task resume];
     [self waitForExpectationsWithTimeout:100 handler:^(NSError *error) {
@@ -91,10 +88,8 @@
         }];
 }
 - (void) testGetDictionaryItem {
-    return;
     GetDictionaryItemParams * itemParam = [[GetDictionaryItemParams alloc] init];
     itemParam.state_root_hash = @"146b860f82359ced6e801cbad31015b5a9f9eb147ab2a449fd5cdb950e961ca8";
-    
     //Test 1: Parameter DictionaryIdentifier of type AccountNamedKey
     DictionaryIdentifier_AccountNamedKey * item = [[DictionaryIdentifier_AccountNamedKey alloc] init];
     item.key = @"account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877";
@@ -160,7 +155,5 @@
     [itemParam.innerDict addObject:itemD1];
     NSString * jsonStrD1 = [itemParam toJsonString];
     [self getDictionaryItem:jsonStrD1 withCallIndex:@"call6"];
-    
 }
-
 @end

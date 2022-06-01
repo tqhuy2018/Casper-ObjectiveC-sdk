@@ -44,27 +44,5 @@
     ret.action_thresholds.deployment = (int) [atDict[@"deployment"] intValue];
     ret.action_thresholds.key_management = (int) [atDict[@"key_management"] intValue];
     return ret;
-   
-}
--(void) logInfo {
-    NSLog(@"-----Stored value, Account information----");
-    NSLog(@"Stored value, Account, account_hash:%@",self.account_hash);
-    NSLog(@"Stored value, Account, main_purse:%@",self.main_purse);
-    int totalNamedKey = (int) self.named_keys.count;
-    NSLog(@"Stored value, Account, total NamedKey:%i",totalNamedKey);
-    if(totalNamedKey > 0) {
-        for(int i = 0; i < totalNamedKey ;i ++) {
-            NamedKey * oneNK = (NamedKey*) [self.named_keys objectAtIndex:i];
-        }
-    }
-    int totalAK = (int) self.associated_keys.count;
-    NSLog(@"Stored value, Account, total AssociatedKey:%i",totalAK);
-    if(totalAK > 0) {
-        for(int i = 0; i < totalAK ;i ++) {
-            AssociatedKey * oneAK = (AssociatedKey*) [self.associated_keys objectAtIndex:i];
-        }
-    }
-    NSLog(@"Stored value, Account,ActionThresholds,deployment:%i",self.action_thresholds.deployment);
-    NSLog(@"Stored value, Account,ActionThresholds,key_management:%i",self.action_thresholds.key_management);
 }
 @end

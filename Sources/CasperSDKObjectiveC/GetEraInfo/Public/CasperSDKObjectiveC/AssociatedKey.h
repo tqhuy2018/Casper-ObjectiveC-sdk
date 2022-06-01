@@ -6,7 +6,6 @@
 @interface AssociatedKey : NSObject
 @property UInt8 weight;
 @property NSString * account_hash;
--(void) logInfo;
 @end
 
 #endif

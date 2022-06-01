@@ -9,7 +9,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DisabledVersion object
  */
 +(DisabledVersion*) fromJsonDictToDisabledVersion:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

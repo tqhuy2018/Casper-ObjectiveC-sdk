@@ -32,7 +32,6 @@ The input jsonString is somehow like this:
  
  */
 +(void) getStatusWithParams:(NSString*) jsonString;
--(void) logInfo;
 @end
 
 #endif

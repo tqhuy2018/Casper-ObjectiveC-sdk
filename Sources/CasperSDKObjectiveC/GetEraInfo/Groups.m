@@ -19,15 +19,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"Groups, group:%@",self.group);
-    int totalKey = (int) self.keys.count;
-    NSLog(@"Groups, total keys:%i",totalKey);
-    if(totalKey >0) {
-        NSLog(@"Groups first key information");
-        NSString * oneKey = (NSString*) [self.keys objectAtIndex:0];
-        NSLog(@"Groups, key 0 is:%@",oneKey);
-    }
-}
-
 @end
