@@ -159,18 +159,43 @@ The Private/Public key in ObjectiveC for Secp256k1 is stored in Pem String forma
 ## Test for Crypto functions
 
 The Ed25519 test is written in file "CryptoEd25519Test.m" under "Tests" folder.
+
 The Secp256k1 test is written in file "CryptoSecp256k1Test.m" under "Tests" folder.
+
 There are several things you need to do first in order to make the test run correctly.
+
 First you have to choose 1 folder in your Mac device to read/write the Public/Private key for both Ed25519 and Secp256k1 when build/run the Package from Xcode. You if do not do this step. The test will sure fail.
+
 Under folder "Users" in your Mac create 1 folder with name "CasperObjectiveCCryptoTest", then under that newly created folder create two more folder "Ed25519" and "Secp256k1"
+
 After this step finish, you will have 2 folder which are:
+
 "Users/CasperObjectiveCCryptoTest/Ed25519" and "Users/CasperObjectiveCCryptoTest/Secp256k1"
+
 Copy 2 files: "ReadSwiftPrivateKeyEd25519.pem" and "ReadSwiftPublicKeyEd25519.pem" to folder "Users/CasperObjectiveCCryptoTest/Ed25519"
+
 Copy 2 files: "ReadSwiftPrivateKeySecp256k1.pem" and "ReadSwiftPublicKeySecp256k1.pem" to folder "Users/CasperObjectiveCCryptoTest/Secp256k1", somehow the structure of the folder is like this
 
 <img width="1232" alt="Screen Shot 2022-06-01 at 10 24 23" src="https://user-images.githubusercontent.com/94465107/171321860-3bb780ee-334e-43d8-b533-3ad31ad22a42.png">
 
 <img width="1240" alt="Screen Shot 2022-06-01 at 10 25 09" src="https://user-images.githubusercontent.com/94465107/171321878-13482457-1dfe-47c1-9276-d898a0205a7e.png">
+
+In Xcode, open file "ConstValues.m" under folder "Sources/CasperSDKObjectiveC/CommonClasses" go to the end of the file, change the value of the variables that fit your folder path that you have created, somehow like this:
+
+ ```ObjectiveC
+ //CRYPTO PATH
+NSString *const CRYPTO_PATH_SECP256K1 = @"/Users/CasperObjectiveCCryptoTest/Secp256k1/";
+NSString *const CRYPTO_PATH_ED25519 = @"/Users/CasperObjectiveCCryptoTest/Ed25519/";
+//CRYPTO PEM FILE
+NSString *const ED25519_PRIVATE_KEY_PEMFILE = @"/Users/CasperObjectiveCCryptoTest/Ed25519/ReadSwiftPrivateKeyEd25519.pem";
+NSString *const ED25519_PUBLIC_KEY_PEMFILE = @"/Users/CasperObjectiveCCryptoTest/Ed25519/ReadSwiftPublicKeyEd25519.pem";
+NSString *const SECP256K1_PRIVATE_KEY_PEMFILE = @"/Users/CasperObjectiveCCryptoTest/Secp256k1/ReadSwiftPrivateKeySecp256k1.pem";
+NSString *const SECP256K1_PUBLIC_KEY_PEMFILE = @"/Users/CasperObjectiveCCryptoTest/Secp256k1/ReadSwiftPublicKeySecp256k1.pem";
+```
+
+You can see this image to see what the values in the file are:
+
+<img width="1440" alt="Screen Shot 2022-06-01 at 10 43 55" src="https://user-images.githubusercontent.com/94465107/171323409-7b551661-bdd2-4bed-a098-78562fe83a0b.png">
 
 
 ## Put deploy specification:
