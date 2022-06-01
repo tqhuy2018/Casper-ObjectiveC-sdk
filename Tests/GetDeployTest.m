@@ -275,13 +275,20 @@
                 XCTAssert(ret.deploy.header.gas_price == 1);
                 XCTAssert([ret.deploy.header.timestamp isEqualToString:@"2022-01-17T11:11:08.508Z"]);
                 XCTAssert([ret.deploy.header.ttl isEqualToString:@"30m"]);
-                //assert for deploy payment
+                //assertion for deploy payment
                 XCTAssert([ret.deploy.payment.itsType isEqualToString:EDI_MODULEBYTES]);
                 ExecutableDeployItem_ModuleBytes * payment = (ExecutableDeployItem_ModuleBytes*) [ret.deploy.payment.itsValue objectAtIndex:0];
                 XCTAssert([payment.module_bytes isEqualToString:@""]);
                 NamedArg * na = [payment.args.listArgs objectAtIndex:0];
                 XCTAssert([na.itsName isEqualToString:@"amount"]);
                 
+                //assertion for deploy session
+                XCTAssert([ret.deploy.session.itsType isEqualToString:EDI_STORED_CONTRACT_BY_HASH]);
+                ExecutableDeployItem_StoredContractByHash * session = (ExecutableDeployItem_StoredContractByHash*) [ret.deploy.session.itsValue objectAtIndex:0];
+                XCTAssert([session.itsHash isEqualToString:@"07eaeb63bc4b406cd83351a1217ebfa4a89f13ae55dd309811e99a042fb3919a"]);
+                XCTAssert([session.entry_point isEqualToString:@"mint"]);
+                NamedArg * naSession = [session.args.listArgs objectAtIndex:0];
+                XCTAssert([na.itsName isEqualToString:@"amount"]);
                 //Approvals assertion
                 XCTAssert([ret.deploy.approvals count] == 1);
                 Approval * approval = (Approval*) [ret.deploy.approvals objectAtIndex:0];
