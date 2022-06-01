@@ -16,7 +16,6 @@
     int totalArgs = (int) self.listArgs.count;
     for(int i = 0 ; i < totalArgs ;i ++) {
         NamedArg * oneNA = (NamedArg*) [self.listArgs objectAtIndex:i];
-        [oneNA logInfo];
     }
 }
 +(NSString *) toJsonString: (RuntimeArgs *) fromRA {

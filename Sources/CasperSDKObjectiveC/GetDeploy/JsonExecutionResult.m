@@ -31,6 +31,7 @@
         ret.is_ExecutionResult_success = false;
         NSDictionary * resultDict = (NSDictionary*) result[@"Failure"];
         ret.error_message = (NSString*) resultDict[@"error_message"];
+        ret.cost = [U512Class fromStrToClass:(NSString *) resultDict[@"cost"]];
         //get transfers
         NSArray * transfers = (NSArray*) resultDict[@"transfers"];
         int totalTransfer = (int) transfers.count;
@@ -46,6 +47,7 @@
     }
     return ret;
 }
+/*
 -(void) logInfo {
     NSLog(@"JsonExecutionResult, block_hash:%@",self.block_hash);
     if(self.is_ExecutionResult_success == true) {
@@ -70,4 +72,5 @@
 
     }
 }
+ */
 @end

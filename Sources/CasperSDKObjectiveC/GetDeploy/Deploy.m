@@ -100,14 +100,5 @@
     NSString * blake2b = [bh getBlake2bWithSerialStr:headerSerialized];
     return blake2b;
 }
-/*
--(void) logInfo {
-    NSLog(@"Deploy, hash:%@",self.itsHash);
-    NSLog(@"Deploy header log:");
-    [self.header logInfo];
-    NSLog(@"Deploy payment log:");
-    [self.payment logInfo];
-    NSLog(@"Deploy session log:");
-    [self.session logInfo];
-}*/
+
 @end

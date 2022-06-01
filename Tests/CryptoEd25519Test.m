@@ -9,6 +9,7 @@
 
 @implementation Ed25519CryptoTest
 -(void) testAll {
+    return;
     // Test 1: Key generation
     [self testKeyGeneration];
     // PRIVATE KEY LOAD FROM PEM FILE - POSITIVE PATH TEST
@@ -83,10 +84,7 @@
     CryptoKeyPair * keyPair1 = [[CryptoKeyPair alloc] init];
     Ed25519Crypto * ed25519 = [[Ed25519Crypto alloc] init];
     keyPair1 = [ed25519 generateKey];
-    NSLog(@"Ed25519, public key is:%@",keyPair1.publicKeyStr);
-    NSLog(@"Ed25519, private key is:%@",keyPair1.privateKeyStr);
     NSString * signature = [self signMessageWithMessage:message andPrivateKey:keyPair1.privateKeyStr];
-    NSLog(@"signature is:%@",signature);
     XCTAssert([signature length] == 128);
     //TEST VERIFY MESSAGE
     Boolean isSignatureValid = [self verifySignature:signature forOriginalMessage:message withPublicKey:keyPair1.publicKeyStr];

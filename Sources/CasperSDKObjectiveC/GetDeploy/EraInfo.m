@@ -20,13 +20,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    int totalSeigniorageAllocation = (int) self.seigniorage_allocations.count;
-    NSLog(@"EraInfo, total SeigniorageAllocation:%i",totalSeigniorageAllocation);
-    if (totalSeigniorageAllocation>0) {
-        NSLog(@"EraInfo, information for first SeigniorageAllocation item");
-        SeigniorageAllocation * oneItem = (SeigniorageAllocation*) [self.seigniorage_allocations objectAtIndex:0];
-        [oneItem logInfo];
-    }
-}
 @end

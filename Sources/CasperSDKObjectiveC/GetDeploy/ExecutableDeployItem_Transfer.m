@@ -8,7 +8,8 @@
     ret.args = [RuntimeArgs fromJsonArrayToRuntimeArg:listArgs];
     return ret;
 }
+/*
 -(void) logInfo {
     [self.args logInfo];
-}
+}*/
 @end

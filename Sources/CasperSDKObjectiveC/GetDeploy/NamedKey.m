@@ -11,8 +11,5 @@
     ret.name = (NSString*) fromDict[@"name"];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"NamedKey key:%@",self.key);
-    NSLog(@"NamedKey name:%@",self.name);
-}
+
 @end

@@ -12,12 +12,7 @@
     ret.itsCLValue = [CLValue fromJsonDictToCLValue:clValueDict];
     return  ret;
 }
-/*
--(void) logInfo {
-    NSLog(@"NamedArg, name:%@",self.itsName);
-    NSLog(@"NamedArg, CLValue:");
-    [self.itsCLValue logInfo];
-}*/
+
 +(NSString *) toJsonString:(NamedArg*) fromNA {
     NSString * clValueStr = [CLValue toJsonString: fromNA.itsCLValue];
     NSString * ret = [[NSString alloc] initWithFormat:@"[\"%@\",%@]",fromNA.itsName,clValueStr];

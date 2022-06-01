@@ -93,35 +93,5 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"TransformEntry, key:%@",self.key);
-    NSLog(@"TransformEntry,type:%@",self.transformType);
-    //Log for Transform of complex result
-    if ([self.transformType isEqualToString:TRANSFORM_FAILURE]) {
-        NSLog(@"TransformEntry_Failure, string:%@",(NSString*) [self.transform objectAtIndex:0]);
-    } else if([self.transformType isEqualToString:TRANSFORM_ADD_KEYS]) {
-        Transform_AddKeys * item = (Transform_AddKeys*) [self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if([self.transformType isEqualToString:TRANSFORM_WRITE_BID]) {
-        Transform_WriteBid * item = (Transform_WriteBid*) [self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.transformType isEqualToString:TRANSFORM_WRITE_CLVALUE]) {
-        Transform_WriteCLValue * item = (Transform_WriteCLValue*) [self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.transformType isEqualToString:TRANSFORM_WRITE_WITHDRAW]) {
-        Transform_WriteWithdraw * item = (Transform_WriteWithdraw*) [self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if([self.transformType isEqualToString:TRANSFORM_WRITE_ERA_INFO]) {
-        Transform_WriteEraInfo * item = (Transform_WriteEraInfo*)[self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if([self.transformType isEqualToString:TRANSFORM_WRITE_TRANSFER]) {
-        Transform_WriteTransfer * item = (Transform_WriteTransfer*)[self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if([self.transformType isEqualToString:TRANSFORM_WRITE_DEPLOY_INFO]) {
-        Transform_WriteDeployInfo * item = (Transform_WriteDeployInfo*)[self.transform objectAtIndex:0];
-        [item logInfo];
-    } else if ([self.transformType isEqualToString:TRANSFORM_WRITE_ACCOUNT]) {
-        NSLog(@"TransformEntry_WriteAccount, account hash:%@",(NSString*) [self.transform objectAtIndex:0]);
-    }
-}
+
 @end

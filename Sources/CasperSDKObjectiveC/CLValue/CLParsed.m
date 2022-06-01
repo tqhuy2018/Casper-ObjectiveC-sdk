@@ -30,8 +30,22 @@
 ///Generate the CLParse object  of type primitive (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)  from the JSON object fromObj with given clType
 +(CLParsed*) fromObjToCLParsedPrimitive:(NSObject*) fromObj withCLType:(CLType *)clType{
     CLParsed * ret = [[CLParsed alloc] init];
-    ret.itsValueStr = (NSString*) fromObj;
-    ret.itsCLType = clType;
+    if([clType.itsType isEqualToString:CLTYPE_KEY]) {
+        NSDictionary * fromDict = (NSDictionary*) fromObj;
+        if(fromDict[@"Hash"]) {
+            ret.itsValueStr = fromDict[@"Hash"];
+            ret.itsCLType = clType;
+        } else if(fromDict[@"Account"]) {
+            ret.itsValueStr = fromDict[@"Account"];
+            ret.itsCLType = clType;
+        }  else if(fromDict[@"URef"]) {
+            ret.itsValueStr = fromDict[@"URef"];
+            ret.itsCLType = clType;
+        }
+    } else {
+        ret.itsValueStr = (NSString*) fromObj;
+        ret.itsCLType = clType;
+    }
     return ret;
 }
 ///Generate the CLParse object  of type compound (type with recursive CLValue inside its body, such as List, Map, Tuple , Result ,Option...)  from the JSON object fromObj with given clType

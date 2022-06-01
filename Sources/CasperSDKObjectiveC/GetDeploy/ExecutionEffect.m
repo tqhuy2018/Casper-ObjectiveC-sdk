@@ -36,24 +36,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    int totalOperation = (int) self.operations.count;
-    int totalTransform = (int) self.transforms.count;
-    if(totalOperation>0) {
-        NSLog(@"Total operation:%i",totalOperation);
-        NSLog(@"First operation information");
-        Operation * oneO = [self.operations objectAtIndex:0];
-        NSLog(@"Operation item  key:%@, kind:%@",oneO.key,oneO.kind);
-    } else {
-        NSLog(@"Operation:[]");
-    }
-    if(totalTransform >0) {
-        NSLog(@"Total transform:%i",totalTransform);
-        NSLog(@"First transform information");
-        TransformEntry * oneTE = self.transforms.firstObject;
-        [oneTE logInfo];
-    } else {
-        NSLog(@"Transform:[]");
-    }
-}
 @end

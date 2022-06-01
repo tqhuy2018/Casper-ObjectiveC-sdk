@@ -16,6 +16,7 @@
     ret.args = [RuntimeArgs fromJsonArrayToRuntimeArg:listArgs];
     return ret;
 }
+/*
 -(void) logInfo {
     NSLog(@"ExecutableDeployItem_StoredVersionedContractByHash, hash:%@",self.itsHash);
     NSLog(@"ExecutableDeployItem_StoredVersionedContractByHash, entry_point:%@",self.entry_point);
@@ -26,5 +27,5 @@
         NSLog(@"ExecutableDeployItem_StoredVersionedContractByHash, version does not exist");
     }
     [self.args logInfo];
-}
+}*/
 @end
