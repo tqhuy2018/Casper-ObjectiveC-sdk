@@ -197,6 +197,7 @@ You can see this image to see what the values in the file are:
 
 <img width="1440" alt="Screen Shot 2022-06-01 at 10 43 55" src="https://user-images.githubusercontent.com/94465107/171323409-7b551661-bdd2-4bed-a098-78562fe83a0b.png">
 
+This setup is very important because "account_put_deploy" RPC method test also need this setup to run correctly.
 
 ## Put deploy specification:
 
@@ -217,6 +218,8 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 - Save your private key in 1 place that you can point to from code.
 
 - Choose correct path to private key to sign for the deploy hash in put deploy function.
+
+See the "Test for Crypto functions" part on how to set up the Public/Private key folder for the Crypto functions.
 
 ## Usage how to
 
