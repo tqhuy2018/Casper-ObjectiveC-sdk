@@ -27,8 +27,11 @@ jobs:
         run: |
           xcodebuild -scheme CasperSDKObjectiveC build
       - name: Clean Test
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
         run: |
-         xcodebuild clean test
+         xcodebuild clean test -scheme CasperSDKObjectiveCTests
       - name: Test
         env:
           scheme: ${{ 'default' }}
