@@ -10,9 +10,10 @@
     ret.args = [RuntimeArgs fromJsonArrayToRuntimeArg:listArgs];
     return  ret;
 }
+/*
 -(void) logInfo {
     NSLog(@"ExecutableDeployItem_StoredContractByName, name:%@",self.name);
     NSLog(@"ExecutableDeployItem_StoredContractByName, entry_point:%@",self.entry_point);
     [self.args logInfo];
-}
+}*/
 @end

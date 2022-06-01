@@ -206,57 +206,6 @@
     return ret;
 }
 
--(void) logInfo {
-    if (self.itsValueStr == CLTYPE_NULL_VALUE) {
-        NSLog(@"Value of parsed:NULL");
-    }
-    else if (self.itsCLType.isCLTypePrimitive == true) {
-        NSLog(@"Value of parsed:%@",self.itsValueStr);
-    } else if (self.is_array_type == true) {
-        int totalValue = (int) self.arrayValue.count;
-        if (self.itsCLType.itsType == CLTYPE_LIST) {
-            NSLog(@"Total element in list:%i",totalValue);
-        } else if (self.itsCLType.itsType == CLTYPE_LIST_MAP_KEY) {
-            NSLog(@"Total element in key list:%i",totalValue);
-        } else if (self.itsCLType.itsType == CLTYPE_LIST_MAP_VALUE) {
-            NSLog(@"Total element in value list:%i",totalValue);
-        }
-        for(int i = 0 ; i < totalValue;i ++) {
-            CLParsed * oneParsed = [self.arrayValue objectAtIndex:i];
-            [oneParsed logInfo];
-        }
-    } else {
-        if(self.itsCLType.itsType == CLTYPE_LIST) {
-            int totalValue = (int) self.arrayValue.count;
-            NSLog(@"Total element in list:%i",totalValue);
-            for(int i = 0 ; i < totalValue;i ++) {
-                CLParsed * oneParsed = [self.arrayValue objectAtIndex:i];
-                [oneParsed logInfo];
-            }
-        } else if(self.itsCLType.itsType == CLTYPE_LIST_MAP_KEY) {
-            int totalValue = (int) self.arrayValue.count;
-            NSLog(@"Total element in list key:%i",totalValue);
-            for(int i = 0 ; i < totalValue;i ++) {
-                CLParsed * oneParsed = [self.arrayValue objectAtIndex:i];
-                [oneParsed logInfo];
-            }
-        } else if(self.itsCLType.itsType == CLTYPE_LIST_MAP_VALUE) {
-            int totalValue = (int) self.arrayValue.count;
-            NSLog(@"Total element in list value:%i",totalValue);
-            for(int i = 0 ; i < totalValue;i ++) {
-                CLParsed * oneParsed = [self.arrayValue objectAtIndex:i];
-                [oneParsed logInfo];
-            }
-        } else if (self.itsCLType.itsType == CLTYPE_MAP) {
-            NSLog(@"CLParsed Map, Key information:");
-            [self.innerParsed1 logInfo];
-            NSLog(@"CLParsed Map, Value information:");
-            [self.innerParsed2 logInfo];
-        } else if (self.itsCLType.itsType == CLTYPE_OPTION) {
-            NSLog(@"Option value");
-        }
-    }
-}
 -(id)init {
     if ( self = [super init] ) {
         self.is_innerParsed1_exists = false;

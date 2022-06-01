@@ -22,10 +22,4 @@ The input jsonString is somehow like this:
 +(void) getAuctionWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_AUCTION_INFO];
 }
-///This function log all the information of the GetAuctionInfoResult object
--(void) logInfo {
-    NSLog(@"GetAuctionInfoResult, api_version:%@",self.api_version);
-    [self.auction_state  logInfo];
-}
-
 @end

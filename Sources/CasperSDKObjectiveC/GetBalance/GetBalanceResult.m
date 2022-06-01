@@ -24,9 +24,4 @@ The input jsonString is somehow like this:
 +(void) getBalanceWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_STATE_GET_BALANCE];
 }
--(void) logInfo {
-    NSLog(@"GetBalanceResult, api_version:%@",self.api_version);
-    NSLog(@"GetBalanceResult, balance_value:%@",self.balance_value.itsValue);
-    NSLog(@"GetBalanceResult, merkle_proof length:%i",(int)self.merkle_proof.length);
-}
 @end

@@ -9,7 +9,6 @@
 @property NSString * entry_point;
 @property RuntimeArgs * args;
 +(ExecutableDeployItem_StoredVersionedContractByHash*) fromJsonDictToObj:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

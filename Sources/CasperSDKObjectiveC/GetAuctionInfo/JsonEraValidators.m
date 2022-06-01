@@ -21,14 +21,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"JsonEraValidators, era_id:%llu",self.era_id);
-    int totalVW = (int) self.validator_weights.count;
-    NSLog(@"JsonEraValidators, total JsonValidatorWeights:%i",totalVW);
-    if(totalVW>0) {
-        NSLog(@"Information for the first JsonValidatorWeight:");
-        JsonValidatorWeights * oneVW = (JsonValidatorWeights*) [self.validator_weights objectAtIndex:0];
-        [oneVW logInfo];
-    }
-}
 @end

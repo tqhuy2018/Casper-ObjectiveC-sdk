@@ -5,7 +5,6 @@
 @interface ExecutableDeployItem_Transfer:NSObject
 @property RuntimeArgs * args;
 +(ExecutableDeployItem_Transfer*) fromJsonDictToObj:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif 

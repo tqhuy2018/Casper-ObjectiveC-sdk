@@ -13,7 +13,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonBlock object
  */
 +(JsonBlock*) fromJsonDictToJsonBlock:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

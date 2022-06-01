@@ -30,7 +30,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetBlockResult * gbr = [[GetBlockResult alloc] init];
             gbr = [GetBlockResult fromJsonDictToGetBlockResult:(NSDictionary*) forJSONObject[@"result"]];
-            [gbr logInfo];
             if([callIndex isEqualToString:@"call2"]) {
                 XCTAssert([gbr.block.blockHash isEqualToString:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"]);
                 XCTAssert([gbr.block.header.parent_hash isEqualToString:@"ec18afdd3df5c1b0f3caf7f564105f3329cd7b2ef59391c4ce13f1e9173b39b4"]);

@@ -11,7 +11,6 @@
  */
 +(NamedArg *) fromJsonArrayToNamedArg:(NSArray*) fromArray;
 +(NSString *) toJsonString:(NamedArg*) fromNA;
--(void) logInfo;
 @end
 
 #endif

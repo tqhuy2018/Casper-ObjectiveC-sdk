@@ -30,7 +30,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetBlockTransfersResult * gbtr = [[GetBlockTransfersResult alloc] init];
             gbtr = [GetBlockTransfersResult fromJsonDictToGetBlockTransfersResult:forJSONObject];
-            [gbtr logInfo];
             if([callIndex isEqualToString:@"call2"]) {
                 XCTAssert([gbtr.block_hash isEqualToString:@"d16cb633eea197fec519aee2cfe050fe9a3b7e390642ccae8366455cc91c822e"]);
                 XCTAssert(gbtr.transfers.count == 0);

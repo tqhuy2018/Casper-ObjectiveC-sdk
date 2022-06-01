@@ -18,7 +18,6 @@
 @property CLParsed * parsed;
 ///Generate the CLValue object  from the dictionary object  fromDict
 +(CLValue*) fromJsonDictToCLValue:(NSDictionary*) fromDict;
--(void) logInfo;
 +(NSString *) toJsonString:(CLValue *) fromCLValue;
 @end
 

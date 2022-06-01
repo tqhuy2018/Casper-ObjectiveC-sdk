@@ -33,7 +33,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetAuctionInfoResult * item = [[GetAuctionInfoResult alloc] init];
             item = [GetAuctionInfoResult fromJsonDictToGetAuctionResult:(NSDictionary*) forJSONObject[@"result"]];
-            [item logInfo];
             if([callIndex isEqualToString:@"call2"]) {
                 XCTAssert([item.auction_state.state_root_hash isEqualToString:@"6da6cb8ff1e35656fba9a71868af803abef40dd6fce6161d2a18fe339a0525cb"]);
                 XCTAssert(item.auction_state.block_height == 602343);

@@ -37,19 +37,4 @@ The input jsonString is somehow like this:
 +(void) getBlockTransfersWithParams:(NSString*) jsonString {
     [HttpHandler handleRequestWithParam:jsonString andRPCMethod:CASPER_RPC_METHOD_CHAIN_GET_BLOCK_TRANSFERS];
 }
--(void) logInfo {
-    NSLog(@"api_version:%@",self.api_version);
-    if(self.is_block_hash_exists) {
-        NSLog(@"block hash:%@",self.block_hash);
-    }
-    if (self.is_transfers_exists) {
-        NSLog(@"total transfer:%lu",(unsigned long)self.transfers.count);
-        if (self.transfers.count != 0) {
-            for(int i = 0;i<self.transfers.count;i++) {
-                Transfer * transferi = self.transfers[i];
-                [transferi logInfo];
-            }
-        }
-    }
-}
 @end

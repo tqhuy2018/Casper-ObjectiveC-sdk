@@ -21,7 +21,6 @@ The input jsonString is somehow like this:
  
  */
 +(void) getBlockTransfersWithParams:(NSString*) jsonString;
--(void) logInfo;
 @end
 
 #endif 

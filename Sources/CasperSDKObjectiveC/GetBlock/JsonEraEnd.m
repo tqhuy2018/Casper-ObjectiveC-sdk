@@ -24,13 +24,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"EraEnd,next_era_validator_weights size:%lu",(unsigned long)self.next_era_validator_weights.count);
-    if(self.next_era_validator_weights.count>0) {
-        ValidatorWeight * firstVW = self.next_era_validator_weights.firstObject;
-        NSLog(@"EraEnd,next_era_validator_weights, first ValidatorWeight, validator:%@",firstVW.validator);
-        NSLog(@"EraEnd,next_era_validator_weights, first ValidatorWeight, weight:%@",firstVW.weight.itsValue);
-    }
-    [self.era_report logInfo];
-}
 @end

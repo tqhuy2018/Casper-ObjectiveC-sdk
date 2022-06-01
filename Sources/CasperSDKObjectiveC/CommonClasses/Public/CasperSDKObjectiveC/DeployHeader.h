@@ -14,7 +14,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to DeployHeader object
  */
 +(DeployHeader*) fromJsonDictToDeployHeader:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif 

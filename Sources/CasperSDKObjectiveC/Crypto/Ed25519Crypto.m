@@ -102,11 +102,8 @@
 The public key is a string represents the public key's raw representation bytes array */
 -(Boolean) writePublicKey:(NSString*) publicKeyStr toPemFile:(NSString*) fileName {
     Ed25519CrytoSwift * ed = [[Ed25519CrytoSwift alloc] init];
-    NSLog(@"publicKeyStr is:%@",publicKeyStr);
     NSString * publicKey = [ed getPublicKeyStringForPemFileWithPublicKeyStr:publicKeyStr];
-    NSLog(@"publicKey is:%@",publicKey);
     if([publicKey isEqualToString:ERROR_STRING]) {
-        NSLog(@"Public key generate error");
         return false; // Fail because error generated public key - the private key string is invalid
     }
     NSURL * url = [NSURL fileURLWithPath:fileName];
@@ -124,11 +121,6 @@ The public key is a string represents the public key's raw representation bytes 
 -(Boolean) verifyMessage:(NSString*) signedMessage withPublicKey:(NSString*) publicKeyStr forOriginalMessage:(NSString*) originalMessage {
     Ed25519CrytoSwift * ed25519 = [[Ed25519CrytoSwift alloc] init];
     Boolean result = [ed25519 verifyMessageWithSignedMessage:signedMessage publicKeyToVerifyString:publicKeyStr originalMessage:originalMessage];
-    if(result) {
-        NSLog(@"Verify success");
-    } else {
-        NSLog(@"Verify failed");
-    }
     return result;
 }
 /** This function signs the message with given private key

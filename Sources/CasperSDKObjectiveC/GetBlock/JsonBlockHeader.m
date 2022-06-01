@@ -27,20 +27,4 @@
     }
     return ret;
 }
--(void) logInfo{
-    NSLog(@"JsonBlockHeader, parent_hash:%@",self.parent_hash);
-    NSLog(@"JsonBlockHeader, state_root_hash:%@",self.state_root_hash);
-    NSLog(@"JsonBlockHeader,body_hash:%@",self.body_hash);
-    NSLog(@"JsonBlockHeader, random_bit:%d",self.random_bit);
-    NSLog(@"JsonBlockHeader,accumulated_seed:%@",self.accumulated_seed);
-    NSLog(@"JsonBlockHeader,timestamp:%@",self.timestamp);
-    NSLog(@"JsonBlockHeader,era_id:%llu",self.era_id);
-    NSLog(@"JsonBlockHeader,height:%llu",self.height);
-    NSLog(@"JsonBlockHeader,protocol_version:%@",self.protocol_version);
-    if(_is_era_end_exists) {
-        [self.era_end logInfo];
-    } else {
-        NSLog(@"JsonBlockHeader,era_end: <null>");
-    }
-}
 @end

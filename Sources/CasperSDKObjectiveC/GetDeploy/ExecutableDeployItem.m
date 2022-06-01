@@ -41,7 +41,9 @@
     }
     return ret;
 }
+/*
 -(void) logInfo {
+    
     //NSLog(@"ExecutableDeployItem, type:%@",self.itsType);
     if([self.itsType isEqual:EDI_MODULEBYTES]) {
         ExecutableDeployItem_ModuleBytes * moduleBytes = [[ExecutableDeployItem_ModuleBytes alloc] init];
@@ -56,7 +58,7 @@
         s = (ExecutableDeployItem_Transfer*) [self.itsValue firstObject];
         [s logInfo];
     }
-}
+}*/
 /// This function generate the Json string used for account_put_deploy RPC function call. The returned value of this function is to build up the full deploy
 +(NSString*) toJsonString:(ExecutableDeployItem*) fromEDI {
     NSString * ret = @"";

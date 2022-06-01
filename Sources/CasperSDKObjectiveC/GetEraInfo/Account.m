@@ -55,7 +55,6 @@
     if(totalNamedKey > 0) {
         for(int i = 0; i < totalNamedKey ;i ++) {
             NamedKey * oneNK = (NamedKey*) [self.named_keys objectAtIndex:i];
-            [oneNK logInfo];
         }
     }
     int totalAK = (int) self.associated_keys.count;
@@ -63,7 +62,6 @@
     if(totalAK > 0) {
         for(int i = 0; i < totalAK ;i ++) {
             AssociatedKey * oneAK = (AssociatedKey*) [self.associated_keys objectAtIndex:i];
-            [oneAK logInfo];
         }
     }
     NSLog(@"Stored value, Account,ActionThresholds,deployment:%i",self.action_thresholds.deployment);

@@ -11,9 +11,5 @@
     ret.cl_type = [CLType fromObjToCLType:fromDict[@"cl_type"]];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"Parameter, name:%@",self.name);
-    NSLog(@"Parameter, clType");
-    [self.cl_type logInfo];
-}
+
 @end

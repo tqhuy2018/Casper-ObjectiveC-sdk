@@ -83,9 +83,8 @@ The following has to be implemented
     }
     return ret;
 }
-
+/*
 -(void) logInfo {
-    NSLog(@"StoredValue log info, type:%@",self.itsType);
     if ([self.itsType isEqualToString: @"EraInfo"]) {
         EraInfo * era = (EraInfo*)[self.innerValue objectAtIndex:0];
         [era logInfo];
@@ -106,7 +105,6 @@ The following has to be implemented
     } else if ([self.itsType isEqualToString: @"Transfer"]) {
         Transfer * item = [[Transfer alloc] init];
         item = (Transfer*) [self.innerValue objectAtIndex:0];
-        [item logInfo];
     } else if ([self.itsType isEqualToString: @"DeployInfo"]) {
         DeployInfo * item = [[DeployInfo alloc] init];
         item = (DeployInfo*) [self.innerValue objectAtIndex:0];
@@ -124,6 +122,6 @@ The following has to be implemented
         item = (Contract*) [self.innerValue objectAtIndex:0];
         [item logInfo];
     }
-}
+}*/
 
 @end

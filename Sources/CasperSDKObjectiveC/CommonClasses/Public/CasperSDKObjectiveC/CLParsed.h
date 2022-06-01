@@ -53,7 +53,6 @@
 +(CLParsed*) clParsedWithType:(NSString*) type andValue:(NSString*) value;
 ///Check if the CLParse from CLType primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isPrimitive;
--(void) logInfo;
 /// Function to turn CLParsed object to Json string, used for account_put_deploy RPC method call.
 +(NSString *) toJsonString:(CLParsed *) fromCLParsed;
 /// Function to turn 1 CLParsed object of type CLType compound to Json string, used for account_put_deploy RPC method call.

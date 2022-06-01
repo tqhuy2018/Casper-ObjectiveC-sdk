@@ -20,6 +20,5 @@ The input jsonString is somehow like this:
  
  */
 +(void) getDeployWithParams:(NSString*) jsonString;
--(void) logInfo;
 @end
 #endif 

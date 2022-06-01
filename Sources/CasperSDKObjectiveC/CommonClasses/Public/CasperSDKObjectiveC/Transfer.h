@@ -22,6 +22,5 @@
 /**This function parse the Array object (as part of the JSON object taken from server RPC method call) to a list of Transfer object
  */
 +(NSMutableArray*) fromJsonDictToTransferList:(NSArray*) nsArray;
--(void) logInfo;
 @end
 #endif

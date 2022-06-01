@@ -6,7 +6,6 @@
 @property RuntimeArgs * args;//NamedArg list
 @property NSString * module_bytes;
 +(ExecutableDeployItem_ModuleBytes*) fromJsonDictToObj:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

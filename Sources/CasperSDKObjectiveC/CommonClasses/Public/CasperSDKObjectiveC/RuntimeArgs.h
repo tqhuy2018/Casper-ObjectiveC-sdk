@@ -5,7 +5,6 @@
 ///NamedArg list
 @property NSMutableArray * listArgs;
 +(RuntimeArgs*) fromJsonArrayToRuntimeArg:(NSArray*) fromArray;
--(void) logInfo;
 +(NSString *) toJsonString: (RuntimeArgs *) fromRA;
 @end
 

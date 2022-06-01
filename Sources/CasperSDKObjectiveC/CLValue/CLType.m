@@ -17,7 +17,6 @@
 +(CLType*) fromObjToCLType:(NSObject*) fromObj {
     CLType * ret = [[CLType alloc] init];
     if([fromObj isKindOfClass:[NSString class]]) {
-        //NSLog(@"cltype of primitive type:%@",(NSString*) fromObj);
         ret = [CLType fromObjToPrimitiveCLType:fromObj];
     } else  {
         ret = [CLType fromObjToCompoundCLType:(NSDictionary*) fromObj];
@@ -211,10 +210,6 @@
        
     }
     return self;
-}
--(void) logInfo {
-    NSString * type = [self getItsType];
-    NSLog(@"CLType:%@",type);
 }
 
 /// Function to turn 1 CLType object to Json string, used for account_put_deploy RPC method call.

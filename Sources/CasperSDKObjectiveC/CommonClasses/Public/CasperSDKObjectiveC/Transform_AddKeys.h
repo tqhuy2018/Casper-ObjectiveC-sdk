@@ -9,7 +9,6 @@
 /**This function parse the Array object (as part of the JSON object taken from server RPC method call) to Transform_AddKeys object
  */
 +(Transform_AddKeys*) fromJSonArrayToTransform_AddKeys:(NSArray*) fromArray;
--(void) logInfo;
 @end
 
 #endif

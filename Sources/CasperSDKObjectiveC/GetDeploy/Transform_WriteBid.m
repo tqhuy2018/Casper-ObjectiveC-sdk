@@ -11,6 +11,6 @@
 }
 -(void) logInfo {
     NSLog(@"Transform_WriteBid information:");
-    [self.bidValue logInfo];
+    //[self.bidValue logInfo];
 }
 @end

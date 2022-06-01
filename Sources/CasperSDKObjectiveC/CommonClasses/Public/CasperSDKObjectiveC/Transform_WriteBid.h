@@ -10,7 +10,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to Transform_WriteBid object
  */
 +(Transform_WriteBid*) fromJsonDictToTransform_WriteBid:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

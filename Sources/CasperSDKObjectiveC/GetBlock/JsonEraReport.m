@@ -36,21 +36,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"JsonEraReport,total equivocators:%lu",(unsigned long) self.equivocators.count);
-    NSLog(@"JsonEraReport,total inactive_validators:%lu",(unsigned long) self.inactive_validators.count);
-    NSLog(@"JsonEraReport,total reward:%lu",(unsigned long) self.rewards.count);
-    if(self.equivocators.count > 0) {
-        NSLog(@"JsonEraReport, first equivocator: %@",(NSString*) self.equivocators.firstObject);
-    }
-    if(self.inactive_validators.count > 0) {
-        NSLog(@"JsonEraReport, first inactive_validator:%@",(NSString*) self.inactive_validators.firstObject);
-    }
-    if(self.rewards.count>0) {
-        Reward * fr = [[Reward alloc] init];
-        fr = self.rewards.firstObject;
-        NSLog(@"JsonEraReport, first reward validator:%@",fr.validator);
-        NSLog(@"JsonEraReport, first reward amount:%llu",fr.amount);
-    }
-}
 @end

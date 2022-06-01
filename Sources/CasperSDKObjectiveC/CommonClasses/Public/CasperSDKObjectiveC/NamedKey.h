@@ -9,7 +9,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to NamedKey object
  */
 +(NamedKey*) fromJsonDictToNamedKey:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

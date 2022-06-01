@@ -13,6 +13,6 @@
 -(void) logInfo {
     NSLog(@"ExecutableDeployItem_StoredContractByHash, hash:%@",self.itsHash);
     NSLog(@"ExecutableDeployItem_StoredContractByHash, entry_point:%@",self.entry_point);
-    [self.args logInfo];
+    //[self.args logInfo];
 }
 @end

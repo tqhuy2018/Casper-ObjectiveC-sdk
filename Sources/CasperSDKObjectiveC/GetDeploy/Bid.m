@@ -24,6 +24,7 @@
     }
     return  ret;
 }
+/*
 -(void) logInfo {
     NSLog(@"Transform_WriteBid, bonding_purse:%@",self.bonding_purse);
     NSLog(@"Transform_WriteBid, inactive:%d",self.inactive);
@@ -36,5 +37,5 @@
     NSLog(@"Information of first delegator");
     Delegator * firstDelegator = (Delegator*) [self.delegators objectAtIndex:0];
     [firstDelegator logInfo];
-}
+}*/
 @end

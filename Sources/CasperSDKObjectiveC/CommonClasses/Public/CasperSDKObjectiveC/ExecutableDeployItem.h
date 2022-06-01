@@ -7,7 +7,6 @@
 /// This property only hold 1 item, which can be 1 among the 6 value of the enum of ExecutableDeployItem
 @property NSMutableArray * itsValue;
 +(ExecutableDeployItem*) fromJsonDictToExecutableDeployItem:(NSDictionary*) fromDict;
--(void) logInfo;
 /// This function generate the Json string used for account_put_deploy RPC function call. The returned value of this function is to build up the full deploy
 +(NSString*) toJsonString:(ExecutableDeployItem*) fromEDI;
 @end

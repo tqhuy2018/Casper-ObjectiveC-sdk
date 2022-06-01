@@ -20,7 +20,6 @@ The input jsonString is somehow like this:
  
  */
 +(void) getBalanceWithParams:(NSString*) jsonString;
--(void) logInfo;
 @end
 
 #endif

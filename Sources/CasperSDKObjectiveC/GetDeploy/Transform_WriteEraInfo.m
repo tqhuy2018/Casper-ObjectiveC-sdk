@@ -9,8 +9,5 @@
     ret.itsEraInfo = [EraInfo fromJsonArrayToEraInfo: fromDict];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"Transform_WriteEraInfo, information");
-    [self.itsEraInfo logInfo];
-}
+
 @end

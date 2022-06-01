@@ -14,6 +14,6 @@
 }
 -(void) logInfo {
     NSLog(@"Transform of type WriteCLValue, detail information:");
-    [self.itsValue logInfo];
+    //[self.itsValue logInfo];
 }
 @end

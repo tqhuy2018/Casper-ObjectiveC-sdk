@@ -11,6 +11,6 @@
 }
 -(void) logInfo {
     NSLog(@"Transform_WriteDeployInfo, information");
-    [self.itsDeployInfo logInfo];
+    //[self.itsDeployInfo logInfo];
 }
 @end

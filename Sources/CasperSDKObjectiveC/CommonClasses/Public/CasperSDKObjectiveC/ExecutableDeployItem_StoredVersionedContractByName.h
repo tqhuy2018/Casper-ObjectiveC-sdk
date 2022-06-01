@@ -9,7 +9,6 @@
 @property bool is_version_exists;
 @property RuntimeArgs * args;
 +(ExecutableDeployItem_StoredVersionedContractByName*) fromJsonDictToObj:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif 

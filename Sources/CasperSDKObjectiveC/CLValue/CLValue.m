@@ -21,13 +21,6 @@
     return ret;
 }
 
--(void) logInfo {
-    NSLog(@"CLValue bytes:%@",self.bytes);
-    NSLog(@"-----CLType info-------");
-    [self.cl_type logInfo];
-    NSLog(@"-----CLParsed info-------");
-    [self.parsed logInfo];
-}
 +(NSString *) toJsonString:(CLValue *) fromCLValue {
     NSString * ret = @"";
     NSString * clTypeJsonString = [CLType toJsonString:fromCLValue.cl_type];

@@ -6,7 +6,6 @@
 @property NSString * signer;
 +(Approval*) fromJsonDictToApproval:(NSDictionary*) fromDict;
 +(NSMutableArray*) fromArrayToListApproval:(NSArray*) fromArray;
--(void) logInfo;
 @end
 
 #endif

@@ -43,7 +43,6 @@ static NSString* casperURL;
             if( rpcMethod == CASPER_RPC_METHOD_GET_STATE_ROOT_HASH) {
               //Uncomment this to get state root hash
                //NSString * stateRootHash = [GetStateRootHash fromJsonToStateRootHash:forJSONObject];
-                NSLog(@"State root hash is:%@",forJSONObject);
             } else if (rpcMethod == CASPER_RPC_METHOD_INFO_GET_PEERS) {
                 //Uncomment this to get peer list
                // GetPeerResult * gpr =  [GetPeerResult fromJsonObjToGetPeerResult:forJSONObject];

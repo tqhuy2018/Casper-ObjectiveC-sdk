@@ -30,7 +30,6 @@
         if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
             GetBalanceResult * item = [[GetBalanceResult alloc] init];
             item = [GetBalanceResult fromJsonDictToGetBalanceResult:(NSDictionary *)forJSONObject[@"result"]];
-            [item logInfo];
             XCTAssert([item.balance_value.itsValue isEqualToString:@"522693296224"]);
             XCTAssert(item.merkle_proof.length == 31766);
         } else {

@@ -10,7 +10,5 @@
 /**Generate a JsonEraValidators from dictionary object taken from the JSON back from the server when call RPC method
  */
 +(JsonEraValidators*) fromJsonDictToJsonEraValidators:(NSDictionary*) fromDict;
--(void) logInfo;
-
 @end
 #endif 

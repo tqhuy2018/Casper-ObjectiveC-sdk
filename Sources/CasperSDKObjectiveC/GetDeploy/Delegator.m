@@ -32,6 +32,7 @@
     }
     return ret;
 }
+/*
 -(void) logInfo {
     NSLog(@"Delegator, itsPublicKey:%@",self.itsPublicKey);
     NSLog(@"Delegator, bonding_purse:%@",self.bonding_purse);
@@ -44,6 +45,6 @@
     } else {
         NSLog(@"Vesting schedule: NULL");
     }
-
 }
+ */
 @end

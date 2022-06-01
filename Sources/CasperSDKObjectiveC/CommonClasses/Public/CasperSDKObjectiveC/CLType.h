@@ -33,7 +33,6 @@
 +(CLType*) fromObjToPrimitiveCLType:(NSObject*) fromObj;
 ///Check if the  CLType is primitive, type that has no recursive CLType inside (such as bool, i32, i64, u8, u32, u64, u128, u266, u512, string, unit, publickey, key, ...)
 -(bool) isCLTypePrimitive;
--(void) logInfo;
 ///Function to get the tag for CLType
 +(NSString*) getTagForCLType:(CLType*) clType;
 /// Function to turn 1 CLType object to Json string, used for account_put_deploy RPC method call.

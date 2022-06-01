@@ -9,7 +9,6 @@
 /**This function parse the Array object (as part of the JSON object taken from server RPC method call) to EraInfo object
  */
 +(EraInfo*) fromJsonArrayToEraInfo:(NSArray*) fromArray;
--(void) logInfo;
 @end
 
 #endif

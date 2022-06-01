@@ -10,7 +10,6 @@
 /**This function parse the Array object (as part of the JSON object taken from server RPC method call) to Transform_WriteEraInfo object
  */
 +(Transform_WriteEraInfo*) fromJsonArrayToTransform_WriteEraInfo:(NSArray*) fromDict;
--(void) logInfo;
 @end
 
 #endif

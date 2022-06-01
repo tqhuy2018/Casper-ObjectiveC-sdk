@@ -28,6 +28,7 @@
     ret.ttl = fromDict[@"ttl"];
     return ret;
 }
+/*
 -(void) logInfo{
     NSLog(@"Deploy header, account:%@",self.account);
     NSLog(@"Deploy header, body_hash:%@",self.body_hash);
@@ -39,5 +40,5 @@
     NSLog(@"Deploy header, gas_price:%llu",self.gas_price);
     NSLog(@"Deploy header, timestamp:%@",self.timestamp);
     NSLog(@"Deploy header, ttl:%@",self.ttl);
-}
+}*/
 @end

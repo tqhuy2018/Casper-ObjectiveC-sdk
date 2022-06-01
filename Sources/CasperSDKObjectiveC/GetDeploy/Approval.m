@@ -1,12 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CasperSDKObjectiveC/Approval.h>
 @implementation Approval
-
--(void) logInfo {
-    NSLog(@"Approval, signer is:%@",self.signer);
-    NSLog(@"Approval, signature is:%@",self.signature);
-}
-
 +(NSMutableArray*) fromArrayToListApproval:(NSArray*) fromArray {
     NSMutableArray * ret = [[NSMutableArray alloc] init];
     int totalElement = (int) fromArray.count;

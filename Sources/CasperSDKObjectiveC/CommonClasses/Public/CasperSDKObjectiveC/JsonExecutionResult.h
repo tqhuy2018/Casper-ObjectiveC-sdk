@@ -17,7 +17,6 @@
 /**This function parse the Dictionary object (as part of the JSON object taken from server RPC method call) to JsonExecutionResult object
  */
 +(JsonExecutionResult*) fromJsonDictToJsonExecutionResult:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

@@ -10,9 +10,4 @@
     ret.itsTransfer = [Transfer fromJsonDictToTransfer:fromDict];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"Transform_WriteTransfer information");
-    [self.itsTransfer logInfo];
-}
-
 @end

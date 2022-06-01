@@ -12,8 +12,4 @@
     ret.weight = [U512Class fromStrToClass:(NSString *)fromDict[@"weight"]];
     return ret;
 }
--(void) logInfo {
-    NSLog(@"JsonValidatorWeights, public_key:%@",self.public_key);
-    NSLog(@"JsonValidatorWeights, weight:%@",self.weight.itsValue);
-}
 @end

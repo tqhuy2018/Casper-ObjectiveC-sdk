@@ -10,7 +10,6 @@
 /**Generate a JsonValidatorWeights from dictionary object taken from the JSON back from the server when call RPC method
  */
 +(JsonValidatorWeights*) fromJsonDictToJsonValidatorWeights:(NSDictionary*) fromDict;
--(void) logInfo;
 @end
 
 #endif

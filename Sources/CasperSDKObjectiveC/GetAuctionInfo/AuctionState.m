@@ -21,19 +21,4 @@
     }
     return ret;
 }
--(void) logInfo {
-    NSLog(@"AuctionState, state_root_hash :%@",self.state_root_hash);
-    NSLog(@"AuctionState, block_height :%llu",self.block_height);
-    int totalEV = (int) self.era_validators.count;
-    if(totalEV>0) {
-        NSLog(@"AuctionState, total era_validators:%i",totalEV);
-        for(int i = 0 ; i < totalEV; i ++) {
-            NSLog(@"AuctionState, era_validators item %i information",i);
-            JsonEraValidators * oneEV = (JsonEraValidators*) [self.era_validators objectAtIndex:i];
-            [oneEV logInfo];
-        }
-    } else {
-        NSLog(@"AuctionState, era_validators empty");
-    }
-}
 @end
