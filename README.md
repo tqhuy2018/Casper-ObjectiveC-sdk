@@ -155,6 +155,24 @@ As long as you have the Private/Public key in that format (and correct number in
 
 For Secp256k1, the tasks are done in file "Secp256k1Crypto" under folder "Crypto" in ""ObjectiveC. This class calls "Secp256k1CryptoSwift" from the Swift package "CasperCryptoHandlePackage" to do the task of key generation, sign/verify message.
 The Private/Public key in ObjectiveC for Secp256k1 is stored in Pem String format. From that string the Public/Private Secp256k1 key is generate in  "CasperCryptoHandlePackage"
+
+## Test for Crypto functions
+
+The Ed25519 test is written in file "CryptoEd25519Test.m" under "Tests" folder.
+The Secp256k1 test is written in file "CryptoSecp256k1Test.m" under "Tests" folder.
+There are several things you need to do first in order to make the test run correctly.
+First you have to choose 1 folder in your Mac device to read/write the Public/Private key for both Ed25519 and Secp256k1 when build/run the Package from Xcode. You if do not do this step. The test will sure fail.
+Under folder "Users" in your Mac create 1 folder with name "CasperObjectiveCCryptoTest", then under that newly created folder create two more folder "Ed25519" and "Secp256k1"
+After this step finish, you will have 2 folder which are:
+"Users/CasperObjectiveCCryptoTest/Ed25519" and "Users/CasperObjectiveCCryptoTest/Secp256k1"
+Copy 2 files: "ReadSwiftPrivateKeyEd25519.pem" and "ReadSwiftPublicKeyEd25519.pem" to folder "Users/CasperObjectiveCCryptoTest/Ed25519"
+Copy 2 files: "ReadSwiftPrivateKeySecp256k1.pem" and "ReadSwiftPublicKeySecp256k1.pem" to folder "Users/CasperObjectiveCCryptoTest/Secp256k1", somehow the structure of the folder is like this
+
+<img width="1232" alt="Screen Shot 2022-06-01 at 10 24 23" src="https://user-images.githubusercontent.com/94465107/171321860-3bb780ee-334e-43d8-b533-3ad31ad22a42.png">
+
+<img width="1240" alt="Screen Shot 2022-06-01 at 10 25 09" src="https://user-images.githubusercontent.com/94465107/171321878-13482457-1dfe-47c1-9276-d898a0205a7e.png">
+
+
 ## Put deploy specification:
 
 The put deploy RPC method implements the call "account_put_deploy". User needs to declare a deploy and assign the information for the deploy (header,payment,session,approvals). The following information is generated based on the deploy:
