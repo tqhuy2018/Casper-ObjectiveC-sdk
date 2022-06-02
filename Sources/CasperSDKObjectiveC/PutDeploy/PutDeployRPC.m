@@ -37,16 +37,13 @@
             if(cem.message == CASPER_ERROR_MESSAGE_NONE) {
                 PutDeployResult * ret = [[PutDeployResult alloc] init];
                 ret = [PutDeployResult fromJsonObjectToPutDeployResult:(NSDictionary*) forJSONObject[@"result"]];
-                NSLog(@"Put deploy success with deploy hash:%@",ret.deployHash);
                 PutDeployUtils.putDeployCounter = 0;
                 PutDeployUtils.isPutDeploySuccess = true;
                 [task resume];
             } else {
-                NSLog(@"Error put deploy with error message:%@ and error code:%@",cem.message,cem.code);
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
                     [task resume];
-                    NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
                     PutDeployUtils.deploy = deploy;
                     [PutDeployUtils utilsPutDeploy];
                 }
@@ -99,8 +96,6 @@
                 if([cem.message isEqualToString: @"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]) {
                     PutDeployUtils.isPutDeploySuccess = false;
                     [task resume];
-                     //PutDeployUtils.putDeployCounter = PutDeployUtils.putDeployCounter + 1;
-                     NSLog(@"Try to put deploy with Effort:%i",PutDeployUtils.putDeployCounter);
                      PutDeployUtils.deploy = deploy;
                      [PutDeployUtils utilsPutDeployWithCallID:callID];
                 } else {
