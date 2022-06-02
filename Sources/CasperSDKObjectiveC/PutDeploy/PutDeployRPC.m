@@ -65,7 +65,6 @@
     }
     PutDeployUtils.rpcMethodURL = self.casperURL;
     NSString * deployJsonString = [deploy toPutDeployParameterStr];
-    NSLog(@"deployString:%@",deployJsonString);
     PutDeployUtils.isPutDeploySuccess = true;
     NSData * jsonData = [deployJsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest new];
