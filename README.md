@@ -34,9 +34,9 @@ The Ed25519 test is written in file "CryptoEd25519Test.m" under "Tests" folder.
 
 The Secp256k1 test is written in file "CryptoSecp256k1Test.m" under "Tests" folder.
 
-There are several things you need to do first in order to make the test run correctly.
-
 First you have to choose 1 folder in your Mac device to read/write the Public/Private key for both Ed25519 and Secp256k1 when build/run the Package from Xcode. You if do not do this step. The test will sure fail.
+
+This step is just an example for the setting up the Pem file path and place, you can put create your own folder, put the Pem file and then point the path to the Pem file in that folder. As long as these things is set up correctly, the SDK will build and run without error. If you are not sure of what to do, just follow these steps below. 
 
 Under folder "Users" in your Mac create 1 folder with name "CasperObjectiveCCryptoTest", then under that newly created folder create two more folder "Ed25519" and "Secp256k1"
 
