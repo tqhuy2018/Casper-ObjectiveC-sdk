@@ -22,7 +22,8 @@ Download or clone the code from github, then open it with Xcode by Double click 
 
 Wait for a while for the project to fully loaded, then click on "Casper-ObjectiveC-sdk-main" item in the left panel, then select the Target for Bulding/Testing as shown in the image below: (Select the text line right above the red rectangle in this image)
 
-<img width="1440" alt="Screen Shot 2022-06-02 at 11 35 06" src="https://user-images.githubusercontent.com/94465107/171553740-ba1fdf68-865d-453d-9385-90d35a53a135.png">
+<img width="1440" alt="Screen Shot 2022-06-02 at 11 38 22" src="https://user-images.githubusercontent.com/94465107/171554236-693a1f94-eea2-45ed-bc0e-8e394b730cd9.png">
+
 
 A scroll of device list will appear. Choose 1 device, such as "Ipad 8 Generation" as shown in this iamge:
 
