@@ -39,11 +39,6 @@ You will see the Test or build log as shown in this image: (Press "Cmd + Shift +
 
 <img width="1440" alt="Screen Shot 2022-06-02 at 11 47 26" src="https://user-images.githubusercontent.com/94465107/171555258-a8a7ceed-e43f-4c27-bdc3-dd6ba47ef65e.png">
 
-### Other comments on the test implementation:
-
-
-There are logInfo function in all mandatory functions of classes, which are to show the result of the retrieving information. They will be removed in final phase of the project.(Milestone 4)
-
 # Information for Secp256k1, Ed25519 Key Wrapper and Put Deploy
 
 ## Key wrapper specification:
@@ -71,7 +66,6 @@ This package is written in Swift for handling Ed25519 and Secp256k1 crypto tasks
 To have a simple idea of the structure of the Crypto handle in ObjectiveC, please see this image:
 
 <img width="890" alt="Screen Shot 2022-05-30 at 08 07 09" src="https://user-images.githubusercontent.com/94465107/170900028-d3dff235-38b1-42e6-b8ac-e6f496f2d87d.png">
-
 
 The structure of the system for handling Crypto in ObjectiveC is:
 There are classes for handling Crypto in Objective C, which can be called from the Casper ObjectiveC SDK.
