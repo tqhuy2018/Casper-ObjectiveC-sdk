@@ -28,7 +28,6 @@ let package = Package(
         .library(name: "CasperSDKObjectiveC_GetStatus", targets: ["CasperSDKObjectiveC_GetStatus"]),
         .library(name: "CasperSDKObjectiveC_PutDeploy", targets: ["CasperSDKObjectiveC_PutDeploy"]),
         .library(name: "CasperSDKObjectiveC_Serialization", targets: ["CasperSDKObjectiveC_Serialization"]),
-        
     ],
     dependencies: [
         .package(name: "CasperCryptoHandlePackage", url: "https://github.com/hienbui9999/CasperCryptoHandlePackage.git", from: "1.0.6"),
@@ -46,7 +45,6 @@ let package = Package(
             name: "CasperSDKObjectiveCTests",
             dependencies: ["CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_CLValue","CasperSDKObjectiveC_GetStateRootHash","CasperSDKObjectiveC_Crypto","CasperSDKObjectiveC_GetAuctionInfo","CasperSDKObjectiveC_GetBlock","CasperSDKObjectiveC_GetBlockTransfers","CasperSDKObjectiveC_GetDeploy","CasperSDKObjectiveC_GetDictionaryItem","CasperSDKObjectiveC_GetEraInfo","CasperSDKObjectiveC_GetItem","CasperSDKObjectiveC_GetPeerList","CasperSDKObjectiveC_GetStatus","CasperSDKObjectiveC_PutDeploy","CasperSDKObjectiveC_Serialization","CasperSDKObjectiveC_GetBalance"],
             path: "Tests"
-            //exclude: ["Ed25519CryptoTest.m","GetAuctionInfoTest.m","GetBalanceTest.m"]
         ),
         .target(
             name: "CasperSDKObjectiveC_CLValue",
@@ -58,7 +56,6 @@ let package = Package(
             name: "CasperSDKObjectiveC_Crypto",
             dependencies: ["CasperSDKObjectiveC_CommonClasses","CasperCryptoHandlePackage"],
             path: "Sources/CasperSDKObjectiveC/Crypto",
-            //sources: ["Entity/CommonClasses"],
             publicHeadersPath: "Public"
                 ),
         .target(
