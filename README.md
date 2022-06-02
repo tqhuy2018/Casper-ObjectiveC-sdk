@@ -181,8 +181,9 @@ The put deploy RPC method implements the call "account_put_deploy". User needs t
 
 See the "Test for Crypto functions" part on how to set up the Public/Private key folder for the Crypto functions.
 
-The Test Put Deploy use the following Deploy:
-Deploy with hash "01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3" for Ed25519 encryption. A detail view of the deploy can be seen at this address: https://testnet.cspr.live/account/01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3.
+The Test Put Deploy use the following Account:
+
+1) Account with Public Key "01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3" for Ed25519 encryption. A detail view of the Account can be seen at this address: https://testnet.cspr.live/account/01d12bf1e1789974fb288ca16fba7bd48e6ad7ec523991c3f26fbb7a3b446c2ea3.
 
 In "PutDeployTest.m" file under folder "Tests" of the Casper ObjectiveC SDK , after calling this function 
  
@@ -194,7 +195,9 @@ You will see the new deploy appears in the list, as shown in this image
 
 <img width="1440" alt="Screen Shot 2022-06-01 at 11 41 38" src="https://user-images.githubusercontent.com/94465107/171329137-0f4b5766-97dc-4b54-be5d-8448fcf3262f.png">
 
-Deploy with hash "0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b" for Secp256k1 encryption. A detail view of the deploy can be seen at this address: https://testnet.cspr.live/account/0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b
+After you run the Test with the "PutDeployTest.m" file, you will see a new line appears in the Deploy list below the Account detail, which means 1 Deploy is put successfully to the system.
+
+2) Account with Public Key "0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b" for Secp256k1 encryption. A detail view of the Account can be seen at this address: https://testnet.cspr.live/account/0202572ee4c44b925477dc7cd252f678e8cc407da31b2257e70e11cf6bcb278eb04b
 
 In "PutDeployTest.m" file under folder "Tests" of the Casper ObjectiveC SDK , after calling this function 
  
@@ -206,6 +209,7 @@ You will see the new deploy appears in the list, as shown in this image
 
 <img width="1440" alt="Screen Shot 2022-06-01 at 11 43 05" src="https://user-images.githubusercontent.com/94465107/171329359-eb60f8f1-42f8-4dbb-9860-ec48c0f98241.png">
 
+After you run the Test with the "PutDeployTest.m" file, you will see a new line appears in the Deploy list below the Account detail, which means 1 Deploy is put successfully to the system.
 
 ## Usage how to
 
