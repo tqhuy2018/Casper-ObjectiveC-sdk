@@ -22,7 +22,7 @@ Wait for a while for the project to fully loaded, then click on "Casper-Objectiv
 
 <img width="1440" alt="Screen Shot 2022-06-02 at 11 38 22" src="https://user-images.githubusercontent.com/94465107/171554236-693a1f94-eea2-45ed-bc0e-8e394b730cd9.png">
 
-A scroll of device list will appear. Choose 1 device, such as "Ipad 8 Generation" as shown in this iamge:
+A scroll of device list will appear. Choose 1 device, such as "Ipad (8th Generation)" as shown in this iamge:
 
 <img width="1440" alt="Screen Shot 2022-06-02 at 11 36 54" src="https://user-images.githubusercontent.com/94465107/171553877-f111e02a-780f-4889-a4fc-5b47c31cbd98.png">
 
