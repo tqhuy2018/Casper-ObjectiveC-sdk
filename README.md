@@ -12,7 +12,7 @@ The SDK use ObjectiveC 2.0 and support device running IOS from 13.0, MacOS from 
 
 ## Build and test
 
-The package can be built an tested from Xcode IDE or Terminal in MacOS
+The package can be built an tested from Xcode IDE or built from Terminal in MacOS
 
 ### Build and test in Xcode IDE
 
@@ -20,51 +20,35 @@ To test the project you need to have a Mac with Mac OS and XCode 13 or above to 
 
 Download or clone the code from github, then open it with Xcode by Double click the "Package.swift" file.
 
-* Configure the Minimum MacOS and IOS version for Package and Test Target:
+Wait for a while for the project to fully loaded, then click on "Casper-ObjectiveC-sdk-main" item in the left panel, then select the Target for Bulding/Testing as shown in the image below: (Select the text line right above the red rectangle in this image)
 
-Check your configuration is the same as below for the SDK in Xcode.
+<img width="1440" alt="Screen Shot 2022-06-02 at 11 35 06" src="https://user-images.githubusercontent.com/94465107/171553740-ba1fdf68-865d-453d-9385-90d35a53a135.png">
 
-In TARGETS section of Xcode, choose "CasperSDKObjectiveC". Hit "Build Settings" tab in the Target menu, seach for "macOS Development Target", then choose "macOS 10.15" from the Dropdown list, like in this image:
-<img width="1126" alt="Screen Shot 2022-03-12 at 22 09 58" src="https://user-images.githubusercontent.com/94465107/158023543-d7cdff7b-98f0-45fa-b36e-a268a78f66af.png">
+A scroll of device list will appear. Choose 1 device, such as "Ipad 8 Generation" as shown in this iamge:
 
+<img width="1440" alt="Screen Shot 2022-06-02 at 11 36 54" src="https://user-images.githubusercontent.com/94465107/171553877-f111e02a-780f-4889-a4fc-5b47c31cbd98.png">
 
-In TARGETS section of Xcode, choose "CasperSDKObjectiveCTests". Hit "Build Settings" tab in the Target menu, seach for "macOS Development Target", then choose "macOS 10.15" from the Dropdown list, like in this image:
-
-<img width="1127" alt="Screen Shot 2022-03-12 at 22 10 15" src="https://user-images.githubusercontent.com/94465107/158023549-1216b6f8-7245-4ccf-a810-6f08b5d49446.png">
-
-
-* Configure "Signing & Capabilities"
-
-The default configuration for both "CasperSDKObjectiveC" and "CasperSDKObjectiveCTests" in this section is in the image below
-
-<img width="868" alt="Screen Shot 2022-03-12 at 22 05 01" src="https://user-images.githubusercontent.com/94465107/158023373-face5ad9-d00d-4a90-91df-828d4dfff34d.png">
-
-<img width="866" alt="Screen Shot 2022-03-12 at 22 05 58" src="https://user-images.githubusercontent.com/94465107/158023400-c21e1b89-20c3-4533-85ec-b6aa6c4711cd.png">
+After that, 
 
 In the menu bar of XCode, hit Product->Build to build the SDK.
-<img width="1440" alt="Screen Shot 2022-05-29 at 18 29 10" src="https://user-images.githubusercontent.com/94465107/170865676-732258d2-b6e4-43d5-a8f5-ea9362aa38d1.png">
-
+<img width="1440" alt="Screen Shot 2022-06-02 at 11 06 54" src="https://user-images.githubusercontent.com/94465107/171551060-29b509b8-db10-4708-860d-36f905367016.png">
 
 In the menu bar of XCode, hit Product->Test to test the SDK.
-<img width="1440" alt="Screen Shot 2022-05-29 at 18 15 04" src="https://user-images.githubusercontent.com/94465107/170865657-a0a6a1f5-2c36-46f5-9b31-06ea5a2e481c.png">
-
+<img width="1440" alt="Screen Shot 2022-06-02 at 11 07 18" src="https://user-images.githubusercontent.com/94465107/171551098-d78c4068-2652-4153-b2a9-707b883ed548.png">
 
 You will see the Log information about List Peer and State root hash for the 2 RPC method. (Press "Cmd + Shift + Y" to show the Log if you don't see it)
 
-### Build and test in Terminal
+### Build in Terminal
 
 You can check the build and test result from the "Actions" section of the SDK in Github. There is a ".yml" file for building and testing the sdk using Github simulator for MacOS environment, as you can see in this image.
 
-<img width="1394" alt="Screen Shot 2022-03-20 at 13 21 29" src="https://user-images.githubusercontent.com/94465107/159150799-989d786a-6f22-40a9-bbae-53c8b2916027.png">
-
+<img width="1386" alt="Screen Shot 2022-06-02 at 11 09 27" src="https://user-images.githubusercontent.com/94465107/171551287-8a592ac6-6128-481c-a5b1-1543cd319aca.png">
 
 If you want to make it locally, you still need a Mac running MacOS 10.15 (or above) and  Xcode 13.0 (or above) installed, then follow these steps:
 
 1) Download or clone the SDK from Github
- 
-2) Configure the Package in XCode to sign the SDK for one Development Team or Distribution Team
 
-3) In terminal enter the folder of the SDK. Run the following commands to build or test trom the folder root of the SDK in terminal:
+2) In terminal enter the folder of the SDK. Run the following commands to build or test trom the folder root of the SDK in terminal:
 
 To build package run this command line:
 
