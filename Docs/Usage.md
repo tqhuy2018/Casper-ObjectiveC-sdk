@@ -160,12 +160,14 @@ Here is the detail of the work:
 
 ## I. Create a new ObjectiveC Package by doing these steps:##
 1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
-2. 
-<img width="490" alt="Screen Shot 2022-05-31 at 07 27 09" src="https://user-images.githubusercontent.com/94465107/171071279-c5543a8c-9c36-4e38-a3b1-6f00fec04102.png">
 
-3. Choose "iOS->Framework" then click "Next" as shown in this image
+<img width="496" alt="Screen Shot 2022-06-03 at 10 25 01" src="https://user-images.githubusercontent.com/94465107/171780436-ff269a43-4c9c-42de-8db8-24aec803f6f8.png">
 
-<img width="731" alt="Screen Shot 2022-05-31 at 07 27 28" src="https://user-images.githubusercontent.com/94465107/171071298-734c1d25-b314-44c8-9dcd-67b2fcdbb0f5.png">
+
+2. Choose "iOS->Framework" then click "Next" as shown in this image
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 26 53" src="https://user-images.githubusercontent.com/94465107/171780567-b653c17b-5d24-4787-a489-669ee268c13e.png">
+
 
 5. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
 
