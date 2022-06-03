@@ -159,7 +159,7 @@ int maxCounter = 50;
 
 This is to show that this project can call the RPC successfully.
 
-You can download and test the full project for this sample is in this address: [https://github.com/hienbui9999/SampleCasperCallObjectiveC](https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK)
+You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
