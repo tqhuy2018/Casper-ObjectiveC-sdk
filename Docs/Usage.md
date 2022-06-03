@@ -417,16 +417,33 @@ Somehow the project will be like this when it is open again.(Ofcourse without an
 
 If you can not make it, maybe you need to restart your Mac and try to Double clicke the "Package.swift" file again when the laptop is ready.
 
+As you can see, the package is ready and there are imported package information also.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 58 51" src="https://user-images.githubusercontent.com/94465107/171789450-6fd7faea-22bc-4061-8d93-e2eb662bd99d.png">
+
+
 Next step is select a target for the package.
 
 <img width="1440" alt="Screen Shot 2022-06-03 at 11 45 30" src="https://user-images.githubusercontent.com/94465107/171787939-d147af76-b1b0-4f2a-806b-84e2b3bc3369.png">
 
  You will see a list of devices, choose 1 device such as Ipad (8th Generation).
  
- Now you can build the package 
- This file does the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 55 36" src="https://user-images.githubusercontent.com/94465107/171788831-0d9ee2f7-3b88-4e6d-9a93-fcf9b05979ce.png">
+
+ Now you can build the package. Hit "Product->Build"
  
- One sample of ObjectiveC Package that call function GetStateRootHash is at this address:
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 56 01" src="https://user-images.githubusercontent.com/94465107/171788898-adf047f2-3314-40ed-917b-05a9109e9fde.png">
+ 
+ This package should be built without any error.
+
+### Make the package callable from Github
+
+To make the already build package above available in Github and can be call from other ObjectiveC, do the following steps:
+
+ 
+ ### Package source code
+ 
+ The sample code for the package is at this address:
  
  https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
  
