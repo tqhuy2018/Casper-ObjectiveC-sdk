@@ -46,7 +46,7 @@ If you wish to use some functions only, such as Get Block RPC, just check for "C
 
 Now you can see the package is successfuly loaded into the project by looking at the "Casper-ObjectiveC-sdk" line shown in the "Package Dependencies" tab, and in the left panel you can see list of imported package for the project (ASN1, BigInt, Blake2, CasperCryptoHandlePackage, CasperSDKObjectiveC, SwiftECC)
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 07 12 06" src="https://user-images.githubusercontent.com/94465107/170897308-58e7ac62-d041-4882-a239-1d220f2adc84.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 42 45" src="https://user-images.githubusercontent.com/94465107/171830912-ac3d32a7-7026-4d5c-ab74-8eccecbf62d2.png">
 
 You are now ready to call Casper ObjectiveC SDK classes and functions.
 
