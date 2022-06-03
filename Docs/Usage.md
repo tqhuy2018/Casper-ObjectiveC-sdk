@@ -293,77 +293,137 @@ Enter the following content for the Header file
 #endif 
  ```
 
-13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
-For example this class is for calling get_deploy RPC call, then add the following import to the file
- 
+Next step is to add an ObjectiveC file in "Core" folder.
+
+Right click on the "Core" folder and choose "New file..."
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 25 39" src="https://user-images.githubusercontent.com/94465107/171786095-b7c70006-1ea9-49cd-bd50-efdc44a2de97.png">
+
+In the next window, choose "Objective-C file"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 25 56" src="https://user-images.githubusercontent.com/94465107/171786130-a24a907e-9133-46c9-ba5b-ced2c592d421.png">
+
+Give the file a name, in this case "StateRootHashHandler"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 27 34" src="https://user-images.githubusercontent.com/94465107/171786227-d7b84c28-ab94-4d05-bbae-c2622f77a5f7.png">
+
+Then click "Next"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 27 43" src="https://user-images.githubusercontent.com/94465107/171786268-a9850c56-682b-4189-8f86-1ef7a45914a0.png">
+
+Check all the check box in the "Target" section then click "Create".
+
+Add the following content to the newly created "StateRootHashHandler.m" file
+
  ```ObjectiveC
+#import "SamplePackageToCallCasperSDKObjectiveC/StateRootHashHandler.h"
 @import CasperSDKObjectiveC_CommonClasses;
-@import CasperSDKObjectiveC_GetDeploy;
+@import CasperSDKObjectiveC_GetStateRootHash;
+@implementation StateRootHashHandler
+int counterStateRootHash = 0;
+int maxCounter = 50;
+-(void)onTick:(NSTimer *)timer {
+    GetStateRootHashRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.valueDict[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.valueDict[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        NSLog(@"Get state root hash error");
+        [timer invalidate];
+        timer = nil;
+    }else {
+        NSLog(@"Find state root hash:%@",item.valueDict[callID]);
+        self.stateRootHash = item.valueDict[callID];
+        [timer invalidate];
+        timer = nil;
+    }
+    counterStateRootHash ++;
+    if(counterStateRootHash == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+-(void) getStateRootHashWithCallID:(NSString*) callID {
+    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+    bi.blockType = USE_NONE;
+    GetStateRootHashRPC * item = [[GetStateRootHashRPC alloc] init];
+    [item initializeWithRPCURL:URL_TEST_NET];
+    NSString * jsonString = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
+    [item getStateRootHashWithJsonParam:jsonString];
+    //NSString * callID = @"getStateRootHash1";
+    [item getStateRootHashWithJsonParam2:jsonString andCallID:callID];
+    NSTimer * t = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTick:)
+                                                 userInfo: @{@"param1":item,@"param2":callID} repeats:YES];
+}
+
+@end
  ```
  
- The content of the "SampleClass1.h" file would be somehow like this:
+ Somehow you will see some errors appear, but it is not a problem because we have not done with the setup yet.
  
-```ObjectiveC
-#ifndef SampleClass1_h
-#define SampleClass1_h
+ Create 1 more folder with name "Full" and add more sub folder to it with quite the same steps for "Core" folder, until you have the structure like this:(See the left panel to view the folders and files structure).
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 51 13" src="https://user-images.githubusercontent.com/94465107/171788411-609e0d89-d245-42b9-be28-0f2587075c2f.png">
+
+In file "GetStatusHandler.h" under folder "Full/Public/SamplePackageToCallCasperSDKObjectiveC" enter the following content:
+
+
+ ```ObjectiveC
+ #ifndef GetStatusHandler_h
+#define GetStatusHandler_h
+
 #import <Foundation/Foundation.h>
-//sample call to info_get_deploy
-@interface SampleClass1:NSObject
--(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString*) callID;
+
+@interface GetStatusHandler : NSObject
+
+-(void) sayHello;
+
 @end
 #endif
+ 
  ```
  
-The content of the "SampleClass1.m" file would be somehow like this:
+ In file "GetStatusHandler.m" under folder "Full" enter the following content:
 
-```ObjectiveC
-#import <Foundation/Foundation.h>
-#import "SampleClass1.h"
-@import CasperSDKObjectiveC_CommonClasses;
-@import CasperSDKObjectiveC_GetDeploy;
-@implementation SampleClass1
-int counterGetDeploy = 0;
-int maxCounter = 50;
--(void)onTickGetDeploy:(NSTimer *)timer {
-    GetDeployRPC * item = [[timer userInfo] objectForKey:@"param1"];
-    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
-    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
-        NSLog(@"Get deploy with parse error");
-        [timer invalidate];
-        timer = nil;
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
-        NSLog(@"Get deploy with network error");
-        [timer invalidate];
-        timer = nil;
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]){
-        GetDeployResult * getDeployResult = item.valueDict[callID];
-        
-        [timer invalidate];
-        timer = nil;
-    }
-    counterGetDeploy ++;
-    if(counterGetDeploy == maxCounter) {
-        [timer invalidate];
-        timer = nil;
-    }
-}
--(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString *)callID {
-    GetDeployRPC * getDeployRPC = [[GetDeployRPC alloc] init];
-    GetDeployParams * param = [[GetDeployParams alloc] init];
-    param.deploy_hash = deployHash;
-    NSString * jsonString = [param generatePostParam];
-    [getDeployRPC getDeployWithJsonParam2:jsonString andCallID:callID];
-    NSString * callGetDeployID = @"getDeploy1";
-    NSTimer * tGetDeploy = [NSTimer scheduledTimerWithTimeInterval: 1.0
-                          target: self
-                          selector:@selector(onTickGetDeploy:)
-                                                 userInfo: @{@"param1":getDeployRPC,@"param2":callGetDeployID} repeats:YES];
+
+ ```ObjectiveC
+ 
+ #import "SamplePackageToCallCasperSDKObjectiveC/GetStatusHandler.h"
+@implementation GetStatusHandler
+-(void) sayHello {
+    NSLog(@"Say hello again called");
 }
 @end
 
- ```
+  ```
+ Delete the unnecessary files and folders by selecting them, right click and choose Delete.
  
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 34 36" src="https://user-images.githubusercontent.com/94465107/171787356-e56c4ff8-9fbf-4c9f-8d0d-0e12df5b2ade.png">
+ 
+ Somehow the project now will look like the image below, still with errors.
+
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 34 52" src="https://user-images.githubusercontent.com/94465107/171787399-c5e0dcf8-f850-4d59-8fa6-62cb477d0267.png">
+
+Close the project and quit Xcode.
+
+Back to the project folder, this time Double click the file "Package.swift" to open the Project again in Xcode.
+
+<img width="975" alt="Screen Shot 2022-06-03 at 11 41 48" src="https://user-images.githubusercontent.com/94465107/171787567-8a653ddd-01ac-4b7d-9d29-ce64bd3487b4.png">
+
+Somehow the project will be like this when it is open again.(Ofcourse without any error).
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 42 57" src="https://user-images.githubusercontent.com/94465107/171787633-24c2b213-9faf-4beb-9642-db152cdeb332.png">
+
+If you can not make it, maybe you need to restart your Mac and try to Double clicke the "Package.swift" file again when the laptop is ready.
+
+Next step is select a target for the package.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 45 30" src="https://user-images.githubusercontent.com/94465107/171787939-d147af76-b1b0-4f2a-806b-84e2b3bc3369.png">
+
+ You will see a list of devices, choose 1 device such as Ipad (8th Generation).
+ 
+ Now you can build the package 
  This file does the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
  
  One sample of ObjectiveC Package that call function GetStateRootHash is at this address:
