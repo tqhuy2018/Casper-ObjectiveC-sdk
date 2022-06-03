@@ -261,9 +261,37 @@ Step 1: Right click on "Sources" folder and choose "New Group"
 A new folder appears under "Sources" folder, rename it to "Core"
 
 <img width="1440" alt="Screen Shot 2022-06-03 at 11 13 05" src="https://user-images.githubusercontent.com/94465107/171784938-f4399483-74f8-473f-89c8-463a53892493.png">
+Continue to create 1 more folder with name "Public" under "Core" and 1 more folder with name "SamplePackageToCallCasperSDKObjectiveC" under "Public" folder.
+Some how the structure will be like this:
 
-Repeat the same steps to create 1 more folder "Full".
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 18 48" src="https://user-images.githubusercontent.com/94465107/171785342-212b4adb-e3b8-45f7-8347-350a16d7e4aa.png">
 
+Under folder "SamplePackageToCallCasperSDKObjectiveC" create new header file with name "StateRootHashHandler.h" by Right click the "SamplePackageToCallCasperSDKObjectiveC" folder add choose "New file..."
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 20 04" src="https://user-images.githubusercontent.com/94465107/171785627-9811cfe9-9cec-4484-8470-98afa1beb750.png">
+
+Choose "Header file"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 18 05" src="https://user-images.githubusercontent.com/94465107/171785406-be23ad6d-b16b-4ae6-a97c-b836b03dd619.png">
+
+Give the name "StateRootHashHandler" for the header file, make sure the "Target" check boxes are all checked.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 21 42" src="https://user-images.githubusercontent.com/94465107/171785754-096911b5-06ce-41e1-a882-e5e97dbeb2cc.png">
+
+Then click "Create" button.
+
+Enter the following content for the Header file
+ 
+ ```ObjectiveC
+#ifndef StateRootHashHandler_h
+#define StateRootHashHandler_h
+#import <Foundation/Foundation.h>
+@interface StateRootHashHandler:NSObject
+@property NSString * stateRootHash;
+-(void) getStateRootHashWithCallID:(NSString*) callID;
+@end
+#endif 
+ ```
 
 13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
 For example this class is for calling get_deploy RPC call, then add the following import to the file
