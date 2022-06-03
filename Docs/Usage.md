@@ -150,13 +150,13 @@ You can download and test the full project for this sample is in this address: h
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
-In brief, this manual intend to do 2 things:
+In brief, this manual intends to do 2 things:
 
- Create 1 ObjectiveC Package that use "Casper ObjectiveC SDK" class and functions, sample code can be found at this address:
+ 1 - Create 1 ObjectiveC Package that use "Casper ObjectiveC SDK" class and functions, sample code can be found at this address:
  
  https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
  
- Create 1 ObjectiveC Project that call to that ObjectiveC Package above, sample code can be found at this address:
+ 2 - Create 1 ObjectiveC App Project that call to that ObjectiveC Package above, sample code can be found at this address:
  
  https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
 
@@ -476,6 +476,14 @@ The source is put to Github nicely. You can see the source at this address if yo
 https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK_1
 
 You can now call this Package from other ObjectiveC project/package.
+
+## II.  2 - Create 1 ObjectiveC App Project that call to the ObjectiveC Package
+
+Please refer to the example at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
+ 
+ There is manual of how to use this App Project also. This is a very simple App Project, all you need to do is just download it, open it and then build/run the project.
 
  ### Package source code
  
