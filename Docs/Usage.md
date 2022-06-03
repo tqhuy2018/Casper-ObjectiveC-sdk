@@ -242,28 +242,28 @@ let package = Package(
     ]
 )
  ```
+You will see some errors appear, but it is not a problem
 
-In the Project Navigator of the left panel click the Package name, Under Project click the Package name again, select tab "Package Dependencies" and click the "+" button, as shown in the image below.
-<img width="1440" alt="Screen Shot 2022-05-31 at 07 34 55" src="https://user-images.githubusercontent.com/94465107/171071800-051cbd08-7a06-43b2-b6ae-e54ae049788e.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 03 01" src="https://user-images.githubusercontent.com/94465107/171783753-0ffda327-1793-4a4e-a289-19658af0af7d.png">
 
-11. A new window will appear to let you select the "Casper ObjectiveC SDK"
-In the left panel select "GitHub", in the top right of the window you will see a text box with prompt text "Search or Enter Package URL", as shown in this image 
-<img width="1084" alt="Screen Shot 2022-05-31 at 07 56 53" src="https://user-images.githubusercontent.com/94465107/171073027-f0c92390-0e0a-4fc4-8700-cd4403e350ea.png">
-Enter the link for the "Casper ObjectiveC SDK" with this value: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image
-<img width="1080" alt="Screen Shot 2022-05-31 at 08 00 02" src="https://user-images.githubusercontent.com/94465107/171073107-66a2da0b-77ba-4b8c-a614-4448addf7bc4.png">
-Then click "Add Package" button.
-There will be process of loading the SDK, somehow like in this image
-<img width="1086" alt="Screen Shot 2022-05-31 at 08 00 50" src="https://user-images.githubusercontent.com/94465107/171073178-8059a626-1260-4007-85ff-3b07bc45af4a.png">
-Then when the process of loading the SDK is ready, you will see the selection for the SDK library. 
-Check all the checkbox if you wish to use all the SDK function, or if you need to use the "info_get_deploy" RPC, simply just choose the following checkbox: "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_GetDeploy".
+You need to change the structure of the files in the Package to make it a real ObjectiveC library.
 
-<img width="1440" alt="Screen Shot 2022-05-31 at 08 02 22" src="https://user-images.githubusercontent.com/94465107/171073383-7789985b-f13b-45f1-a986-86c16bd12776.png">
+First change the name of the folder "PackageToCallCasperObjectiveCSDK" to "Sources" as shown in this image:
 
-Click "Add Package" button.
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 10 14" src="https://user-images.githubusercontent.com/94465107/171784838-eee1d19e-2c01-44c8-a4ed-61c5b3d9cc4e.png">
 
-Wait for a while, you will see the package fully loaded in the "Package Dependencies" section, as shown in this image
+Under the folder "Sources" create 1 folder with name "Core" by doing the 2 steps below.
 
-<img width="376" alt="Screen Shot 2022-05-31 at 08 17 01" src="https://user-images.githubusercontent.com/94465107/171074307-27de2f0d-fe10-4cd0-a0af-acb7f56b55da.png">
+Step 1: Right click on "Sources" folder and choose "New Group"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 12 50" src="https://user-images.githubusercontent.com/94465107/171784896-0b55b7e1-2e23-4cfd-976f-fad79a9e0b23.png">
+
+A new folder appears under "Sources" folder, rename it to "Core"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 13 05" src="https://user-images.githubusercontent.com/94465107/171784938-f4399483-74f8-473f-89c8-463a53892493.png">
+
+Repeat the same steps to create 1 more folder "Full".
+
 
 13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
 For example this class is for calling get_deploy RPC call, then add the following import to the file
