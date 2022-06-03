@@ -26,13 +26,18 @@ Choose the name and language based for the project (Of course please choose Obje
 
 When the project is opened, Add the "Casper ObjectiveC SDK" by doing this: Click on the project name and click "Package Dependencies" as the image below
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 06 59 54" src="https://user-images.githubusercontent.com/94465107/170896892-42c76bb8-e27b-4f84-86ec-9169a43c83de.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 34 48" src="https://user-images.githubusercontent.com/94465107/171829742-1afdb56f-bcb2-497d-be59-f0960ea0e37c.png">
 
 Hit the "+" button under the "Add packages here" region. A new window will appear.
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 07 05 53" src="https://user-images.githubusercontent.com/94465107/170896987-40f6799e-b9be-4473-8b21-5290d9126511.png">
+Enter the text box with this value "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image:
 
-In the left panel choose "GitHub" and in the right panel at the top enter the Casper ObjectiveC SDK on Github with this link: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git"
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 37 55" src="https://user-images.githubusercontent.com/94465107/171830229-231b741e-79e6-49f1-99f5-8fd063f46a4c.png">
+
+There will be a loading of the package 
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 39 51" src="https://user-images.githubusercontent.com/94465107/171830347-1df47453-88e9-49be-ab39-ba7e89e500c3.png">
+
 
 Press "Add Package" button in the bottom left region of the right panel. A new window will appear to ask you select for the library of Casper ObjectiveC SDK. Tick all the check box to load all the library if you wish to use all the function of the SDK.
 If you wish to use some functions only, such as Get Block RPC, just check for "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses" and "CasperSDKObjectiveC_GetBlock".Then hit the "Add Package" button.
