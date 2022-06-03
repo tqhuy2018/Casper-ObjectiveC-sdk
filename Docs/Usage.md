@@ -148,11 +148,11 @@ You can download and test the full project for this sample is in this address: h
 
 In brief, this manual intend to do 2 things:
 
- Create 1 ObjectiveC Package, sample code can be found at this address:
+ Create 1 ObjectiveC Package that use "Casper ObjectiveC SDK" class and functions, sample code can be found at this address:
  
  https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
  
- Create 1 ObjectiveC Project that call to that Package ObjectiveCPackageCallCasperSDK, sample code can be found at this address:
+ Create 1 ObjectiveC Project that call to that ObjectiveC Package above, sample code can be found at this address:
  
  https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
 
