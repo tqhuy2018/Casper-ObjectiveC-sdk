@@ -146,7 +146,19 @@ You can download and test the full project for this sample is in this address: h
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
-Create a new ObjectiveC Package by doing these steps:
+In brief, this manual intend to do 2 things:
+
+ Create 1 ObjectiveC Package, sample code can be found at this address:
+ 
+ https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
+ 
+ Create 1 ObjectiveC Project that call to that Package ObjectiveCPackageCallCasperSDK, sample code can be found at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
+
+Here is the detail of the work: 
+
+## I. Create a new ObjectiveC Package by doing these steps:##
 1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
 2. 
 <img width="490" alt="Screen Shot 2022-05-31 at 07 27 09" src="https://user-images.githubusercontent.com/94465107/171071279-c5543a8c-9c36-4e38-a3b1-6f00fec04102.png">
@@ -262,3 +274,7 @@ int maxCounter = 50;
  One sample of ObjectiveC Package that call function GetStateRootHash is at this address:
  
  https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
+ 
+ And a sample ObjectiveC that use that Package can be found at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
