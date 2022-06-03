@@ -14,7 +14,7 @@ https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
 In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy" and the code is done within "ViewController.m" file.
 
-If you want to make a project manualy, please follow this step:
+If you want to make a Project totaly new from the beginning that use the Casper ObjectiveC SDK, please follow this step:
 
 In Xcode create a new App project.
 
