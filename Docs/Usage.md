@@ -159,7 +159,9 @@ int maxCounter = 50;
 
 This is to show that this project can call the RPC successfully.
 
-You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
+You can download and test a full App Project in this address: https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
+
+Remember with this App Project when call for account_put_deploy RPC you need to set up the path for the Pem key for both Ed25519 and Secp256k1 Crypto.
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
