@@ -156,9 +156,10 @@ In brief, this manual intend to do 2 things:
  
  https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
 
-Here is the detail of the work: 
+Here is the detail of the work:
 
-## I. Create a new ObjectiveC Package by doing these steps:##
+## I. Create a new ObjectiveC Package by doing these steps:
+
 1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
 
 <img width="496" alt="Screen Shot 2022-06-03 at 10 25 01" src="https://user-images.githubusercontent.com/94465107/171780436-ff269a43-4c9c-42de-8db8-24aec803f6f8.png">
