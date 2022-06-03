@@ -259,4 +259,6 @@ int maxCounter = 50;
  
  This file does the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
  
- For full code of the sample please refer to this address: https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK
+ One sample of ObjectiveC Package that call function GetStateRootHash is at this address:
+ 
+ https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
