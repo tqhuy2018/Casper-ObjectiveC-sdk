@@ -440,7 +440,39 @@ Next step is select a target for the package.
 
 To make the already build package above available in Github and can be call from other ObjectiveC, do the following steps:
 
- 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 12 02 53" src="https://user-images.githubusercontent.com/94465107/171789953-ef95f91a-e39a-4cef-882e-f2a63402a218.png">
+
+Add the project to Github
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 07 12" src="https://user-images.githubusercontent.com/94465107/171790116-417fd101-0c9f-4a92-b34e-352d35183f26.png">
+
+Click "Create"
+
+Your project is now in Github.
+
+Still in Xcode choose "Source Control->Commit"
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 09 48" src="https://user-images.githubusercontent.com/94465107/171790366-43d63ec1-1adc-408a-9503-57dc49fffec9.png">
+
+Commit the code to Github
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 10 49" src="https://user-images.githubusercontent.com/94465107/171790410-c519456f-b3bd-4fb8-94b8-2728e03e062c.png">
+
+(In this sample hit the button "Commit 9 files")
+
+Then in Xcode again hit "Source Control->Push"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 15 35" src="https://user-images.githubusercontent.com/94465107/171790867-30bcfded-b1d1-4d16-a64c-730353d018ca.png">
+
+And then press "Push"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 15 58" src="https://user-images.githubusercontent.com/94465107/171790897-fe9b0f49-7ce4-43d2-b15f-9f9bf297eb1b.png">
+
+The source is put to Github nicely. You can see the source at this address if you follow exactly the same steps above.
+
+https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK_1
+
+You can now call this Package from other ObjectiveC project/package.
+
  ### Package source code
  
  The sample code for the package is at this address:
