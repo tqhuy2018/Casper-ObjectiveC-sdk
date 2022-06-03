@@ -139,7 +139,15 @@ int maxCounter = 50;
 @end
  ```
  
- To run the project, choose "Product->Run" and you will see the result in the Debug area, as shown in this image 
+ To run the project: First select the Target device for the Project.
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 17 43 18" src="https://user-images.githubusercontent.com/94465107/171839477-75f076de-fbc0-465e-bcfa-0aa958b60688.png">
+
+ Choose 1 device simulator, for example "Ipad (8th Generation)"
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 17 43 05" src="https://user-images.githubusercontent.com/94465107/171839537-66cfec18-3728-4d99-ac80-008cefe88896.png">
+
+ Then choose "Product->Run" (or press Cmd + R)  and you will see the result in the Debug area, as shown in this image 
  
  <img width="1440" alt="Screen Shot 2022-05-30 at 22 25 50" src="https://user-images.githubusercontent.com/94465107/171023432-5b1128fb-1dc3-4390-bb08-d871107a9971.png">
 
