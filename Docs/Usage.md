@@ -1,6 +1,9 @@
 ## Usage how to
-
 The Casper ObjectiveC SDK can be used from Project or Package writen in ObjectiveC.
+
+1. [Import and using Casper ObjectiveC SDK from ObjectiveC project](./Docs/Usage.md#1-import-and-using-casper-objectivec-sdk-from-objectivec-project)
+
+2. [Import and using Casper ObjectiveC SDK from ObjectiveC package](./Docs/Usage.md#2-import-and-using-casper-objectivec-sdk-from-objectivec-package)
 
 ### 1. Import and using Casper ObjectiveC SDK from ObjectiveC project 
 
