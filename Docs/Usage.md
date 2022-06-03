@@ -170,15 +170,79 @@ Here is the detail of the work:
 <img width="1440" alt="Screen Shot 2022-06-03 at 10 26 53" src="https://user-images.githubusercontent.com/94465107/171780567-b653c17b-5d24-4787-a489-669ee268c13e.png">
 
 
-5. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
+3. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
 
 <img width="735" alt="Screen Shot 2022-05-31 at 07 30 13" src="https://user-images.githubusercontent.com/94465107/171071324-15f11ff1-b323-4d27-8c32-93d5d0a53e5c.png">
 
-7. Choose a folder for the Package project to save, click "Create", as shown in this image
+4. Choose a folder for the Package project to save, click "Create", as shown in this image
 
 <img width="799" alt="Screen Shot 2022-05-31 at 07 30 59" src="https://user-images.githubusercontent.com/94465107/171071366-137902f8-caca-4a03-bb1a-81b95e902923.png">
 
-9. Now you need to import the "Casper ObjectiveC SDK" through adding "Package Dependencies"
+5. Create the "Package.swift" file to make this package an ObjectiveC libary
+
+Right click the project name, Choose "New file..."
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 52 54" src="https://user-images.githubusercontent.com/94465107/171782886-6e055996-9f21-4e09-9948-6b15dbcd0cf5.png">
+
+Choose "Swift file" then click "Next" button
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 53 03" src="https://user-images.githubusercontent.com/94465107/171782980-d63d6c79-83ee-4ea8-b15a-d0d589771ce7.png">
+
+Enter "Package" as name for the new file, tick all the checkbox for Target.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 55 27" src="https://user-images.githubusercontent.com/94465107/171783034-cc680845-a8d2-4f6c-be5d-18350bf31652.png">
+
+Then select "Create Bridging Header"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 56 47" src="https://user-images.githubusercontent.com/94465107/171783158-ad55d741-a521-47df-8e42-3bbb62ef388f.png">
+
+Copy the following content to the newly created "Package.swift" file
+
+ ```ObjectiveC
+// swift-tools-version:5.5
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+import PackageDescription
+
+let package = Package(
+    name: "SamplePackageToCallCasperSDKObjectiveC",
+    platforms: [
+        .iOS(.v13), .tvOS(.v12), .watchOS(.v5), .macOS(.v10_15)
+        ],
+    products: [
+        .library(
+            name: "LibAll",
+            targets: ["LibCoreTarget", "LibFullTarget"]
+        ),
+        .library(
+            name: "LibCore",
+            targets: ["LibCoreTarget"]
+        ),
+        .library(
+            name: "LibFull",
+            targets: ["LibFullTarget"]
+        )
+    ],
+    dependencies: [
+        .package(name: "CasperSDKObjectiveC", url: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", from: "1.0.0")
+    ],
+    targets: [
+        .target(
+            name: "LibCoreTarget",
+            dependencies: ["CasperSDKObjectiveC"],
+            path: "Sources/Core",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "LibFullTarget",
+            dependencies: ["LibCoreTarget"],
+            path: "Sources/Full",
+            publicHeadersPath: "Public"
+        )
+       
+    ]
+)
+ ```
+
 In the Project Navigator of the left panel click the Package name, Under Project click the Package name again, select tab "Package Dependencies" and click the "+" button, as shown in the image below.
 <img width="1440" alt="Screen Shot 2022-05-31 at 07 34 55" src="https://user-images.githubusercontent.com/94465107/171071800-051cbd08-7a06-43b2-b6ae-e54ae049788e.png">
 
