@@ -16,7 +16,7 @@ The package is built an tested in Xcode IDE
 
 To test the project you need to have a Mac with Mac OS and XCode 13 or above to build and run the test.
 
-Download or clone the code from github, then open it with Xcode by Double click the "Package.swift" file.
+Download or clone the code from Github, then open it with Xcode by Double click the "Package.swift" file.
 
 Wait for a while for the project to fully loaded, then click on "Casper-ObjectiveC-sdk-main" item in the left panel, then select the Target for Bulding/Testing as shown in the image below: (Select the text line right above the red rectangle in this image)
 
