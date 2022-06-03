@@ -161,7 +161,7 @@ This is to show that this project can call the RPC successfully.
 
 You can download and test a full App Project in this address: https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
-Remember with this App Project when call for account_put_deploy RPC you need to set up the path for the Pem key for both Ed25519 and Secp256k1 Crypto.
+Remember with this App Project when call for account_put_deploy RPC you need to set up the path for the Pem key for both Ed25519 and Secp256k1 Crypto. Please read the Readme information carefully of how to use this sample project.
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
