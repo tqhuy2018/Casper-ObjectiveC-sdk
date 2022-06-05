@@ -145,8 +145,8 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
     int remainder = 0;
     if (strLength < 2) {
         int value = (int) [fromNumberInStr integerValue];
-        NSString * valueHexa = [NumberSerialize from10To16:value];
-        ret = valueHexa;
+        //NSString * valueHexa = [NumberSerialize from10To16:value];
+        //ret = valueHexa;
         retQR.quotient = @"0";
         retQR.remainder = value;
         return retQR;
@@ -296,7 +296,7 @@ This class also handle the serialization of small number like u8, i32,i64,u32,u6
 }
 ///Function to do the work of reversing a string, used to get the correct order of the result of decimal to hexa
 +(NSString*) stringReversed:(NSString*) fromString {
-    NSMutableString *reversedString = [NSMutableString string];
+    NSMutableString * reversedString = [NSMutableString string];
     NSInteger charIndex = [fromString length];
     while (charIndex > 0) {
         charIndex--;

@@ -101,6 +101,16 @@
 ///For type of account hash: "00" + value drop the prefix "account-hash-"
 ///For type hash: "01" + value drop the prefix "hash-"
 ///For type URef: same like CLValue of CLType URef serialization
+/// Sample value and serialization:
+/// For URef
+/// "uref-be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c6-007" will has the serialization with value
+/// "be1dc0fd639a3255c1e3e5e2aa699df66171e40fa9450688c5d718b470e057c607"
+/// For Account
+/// "account-hash-d0bc9cA1353597c4004B8F881b397a89c1779004F5E547e04b57c2e7967c6269" will has the serialization with value
+/// "d0bc9cA1353597c4004B8F881b397a89c1779004F5E547e04b57c2e7967c6269"
+/// For Hash
+/// "hash-8cf5e4acf51f54eb59291599187838dc3bc234089c46fc6ca8ad17e762ae4401" will has the serialization with value
+/// "8cf5e4acf51f54eb59291599187838dc3bc234089c46fc6ca8ad17e762ae4401"
 +(NSString*) serializeFromCLParseKey:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     NSString * keyStr = fromCLParse.itsValueStr;
@@ -158,6 +168,12 @@
 }
 
 ///This function serialize  CLValue of type  List
+/// The rule is:
+/// If the List is empty, just return empty string ""
+/// If the List is not empty, then first take the length of the List, let say it totalElement
+/// Get the prefix as U32 Serialization for totalElement: prefix = U32.serialization(totalElement)
+/// Get through the List element from one to one, get the Serialization of each element and concatenate them
+/// Add the prefix to the concatenation from the List element serialization, that the result need to return.
 +(NSString*) serializeFromCLParseList:(CLParsed*) fromCLParse {
     NSString * ret = @"";
     int totalElement = (int) [fromCLParse.arrayValue count];
@@ -296,6 +312,13 @@
     }
     return ret;
 }
+/** Serialize for CLParse in general
+ The flow is quite simple:
+ If the CLParse is of type Primitive, such as Bool, U8, U32 ... - CLParse that does not contain recursive type inside it, then call  function
+ serializeFromCLParsePrimitive to get the CLParse serialization value.
+ If the CLParse is of type Compound, such as List, Option, Map ... - CLParse that contains recursive type inside it, then call  function
+ serializeFromCLParseCompound to get the CLParse serialization value.
+*/
 +(NSString*) serializeFromCLParse:(CLParsed*) fromCLParse{
     NSString * ret = @"";
     if ([fromCLParse isPrimitive] == true) {
