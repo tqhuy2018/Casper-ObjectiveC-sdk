@@ -1,6 +1,10 @@
 ## Usage how to
 
-The Casper ObjectiveC SDK can be used from Project or Package writen in ObjectiveC.
+The Casper ObjectiveC SDK can be used from App Project or Package writen in ObjectiveC.
+
+1. [Import and using Casper ObjectiveC SDK from ObjectiveC App project](Usage.md#1-import-and-using-casper-objectivec-sdk-from-objectivec-project)
+
+2. [Import and using Casper ObjectiveC SDK from ObjectiveC package](Usage.md#2-import-and-using-casper-objectivec-sdk-from-objectivec-package)
 
 ### 1. Import and using Casper ObjectiveC SDK from ObjectiveC project 
 
@@ -10,7 +14,7 @@ https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
 
 In this project, some RPC calls are written: "chain_get_state_root_hash", "info_get_peers" and "account_put_deploy" and the code is done within "ViewController.m" file.
 
-If you want to make a project manualy, please follow this step:
+If you want to make a Project totaly new from the beginning that use the Casper ObjectiveC SDK, please follow this step:
 
 In Xcode create a new App project.
 
@@ -22,13 +26,18 @@ Choose the name and language based for the project (Of course please choose Obje
 
 When the project is opened, Add the "Casper ObjectiveC SDK" by doing this: Click on the project name and click "Package Dependencies" as the image below
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 06 59 54" src="https://user-images.githubusercontent.com/94465107/170896892-42c76bb8-e27b-4f84-86ec-9169a43c83de.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 34 48" src="https://user-images.githubusercontent.com/94465107/171829742-1afdb56f-bcb2-497d-be59-f0960ea0e37c.png">
 
 Hit the "+" button under the "Add packages here" region. A new window will appear.
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 07 05 53" src="https://user-images.githubusercontent.com/94465107/170896987-40f6799e-b9be-4473-8b21-5290d9126511.png">
+Enter the text box with this value "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image:
 
-In the left panel choose "GitHub" and in the right panel at the top enter the Casper ObjectiveC SDK on Github with this link: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git"
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 37 55" src="https://user-images.githubusercontent.com/94465107/171830229-231b741e-79e6-49f1-99f5-8fd063f46a4c.png">
+
+There will be a loading of the package 
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 39 51" src="https://user-images.githubusercontent.com/94465107/171830347-1df47453-88e9-49be-ab39-ba7e89e500c3.png">
+
 
 Press "Add Package" button in the bottom left region of the right panel. A new window will appear to ask you select for the library of Casper ObjectiveC SDK. Tick all the check box to load all the library if you wish to use all the function of the SDK.
 If you wish to use some functions only, such as Get Block RPC, just check for "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses" and "CasperSDKObjectiveC_GetBlock".Then hit the "Add Package" button.
@@ -37,7 +46,7 @@ If you wish to use some functions only, such as Get Block RPC, just check for "C
 
 Now you can see the package is successfuly loaded into the project by looking at the "Casper-ObjectiveC-sdk" line shown in the "Package Dependencies" tab, and in the left panel you can see list of imported package for the project (ASN1, BigInt, Blake2, CasperCryptoHandlePackage, CasperSDKObjectiveC, SwiftECC)
 
-<img width="1440" alt="Screen Shot 2022-05-30 at 07 12 06" src="https://user-images.githubusercontent.com/94465107/170897308-58e7ac62-d041-4882-a239-1d220f2adc84.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 16 42 45" src="https://user-images.githubusercontent.com/94465107/171830912-ac3d32a7-7026-4d5c-ab74-8eccecbf62d2.png">
 
 You are now ready to call Casper ObjectiveC SDK classes and functions.
 
@@ -130,7 +139,15 @@ int maxCounter = 50;
 @end
  ```
  
- To run the project, choose "Product->Run" and you will see the result in the Debug area, as shown in this image 
+ To run the project: First select the Target device for the Project.
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 17 43 18" src="https://user-images.githubusercontent.com/94465107/171839477-75f076de-fbc0-465e-bcfa-0aa958b60688.png">
+
+ Choose 1 device simulator, for example "Ipad (8th Generation)"
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 17 43 05" src="https://user-images.githubusercontent.com/94465107/171839537-66cfec18-3728-4d99-ac80-008cefe88896.png">
+
+ Then choose "Product->Run" (or press Cmd + R)  and you will see the result in the Debug area, as shown in this image 
  
  <img width="1440" alt="Screen Shot 2022-05-30 at 22 25 50" src="https://user-images.githubusercontent.com/94465107/171023432-5b1128fb-1dc3-4390-bb08-d871107a9971.png">
 
@@ -142,121 +159,353 @@ int maxCounter = 50;
 
 This is to show that this project can call the RPC successfully.
 
-You can download and test the full project for this sample is in this address: https://github.com/hienbui9999/SampleCasperCallObjectiveC
+You can download and test a full App Project in this address: https://github.com/hienbui9999/SampleCallToCasperObjectiveCSDK
+
+Remember with this App Project when call for account_put_deploy RPC you need to set up the path for the Pem key for both Ed25519 and Secp256k1 Crypto. Please read the Readme information carefully of how to use this sample project.
  
 ### 2. Import and using Casper ObjectiveC SDK from ObjectiveC package
 
-Create a new ObjectiveC Package by doing these steps:
+In brief, this manual intends to do 2 things:
+
+ 1 - Create 1 ObjectiveC Package that use "Casper ObjectiveC SDK" class and functions, sample code can be found at this address:
+ 
+ https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
+ 
+ 2 - Create 1 ObjectiveC App Project that call to that ObjectiveC Package above, sample code can be found at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
+
+Here is the detail of the work:
+
+## I. Create a new ObjectiveC Package by doing these steps:
+
 1. Open Xcode and choose "Create a new Xcode project" as shown in this image:
-2. 
-<img width="490" alt="Screen Shot 2022-05-31 at 07 27 09" src="https://user-images.githubusercontent.com/94465107/171071279-c5543a8c-9c36-4e38-a3b1-6f00fec04102.png">
 
-3. Choose "iOS->Framework" then click "Next" as shown in this image
+<img width="496" alt="Screen Shot 2022-06-03 at 10 25 01" src="https://user-images.githubusercontent.com/94465107/171780436-ff269a43-4c9c-42de-8db8-24aec803f6f8.png">
 
-<img width="731" alt="Screen Shot 2022-05-31 at 07 27 28" src="https://user-images.githubusercontent.com/94465107/171071298-734c1d25-b314-44c8-9dcd-67b2fcdbb0f5.png">
 
-5. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
+2. Choose "iOS->Framework" then click "Next" as shown in this image
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 26 53" src="https://user-images.githubusercontent.com/94465107/171780567-b653c17b-5d24-4787-a489-669ee268c13e.png">
+
+
+3. Choose a name for the package, for example "PackageToCallCasperObjectiveCSDK". Make sure "Language" is "Objective-C", then click "Next", as shown in this image:
 
 <img width="735" alt="Screen Shot 2022-05-31 at 07 30 13" src="https://user-images.githubusercontent.com/94465107/171071324-15f11ff1-b323-4d27-8c32-93d5d0a53e5c.png">
 
-7. Choose a folder for the Package project to save, click "Create", as shown in this image
+4. Choose a folder for the Package project to save, click "Create", as shown in this image
 
 <img width="799" alt="Screen Shot 2022-05-31 at 07 30 59" src="https://user-images.githubusercontent.com/94465107/171071366-137902f8-caca-4a03-bb1a-81b95e902923.png">
 
-9. Now you need to import the "Casper ObjectiveC SDK" through adding "Package Dependencies"
-In the Project Navigator of the left panel click the Package name, Under Project click the Package name again, select tab "Package Dependencies" and click the "+" button, as shown in the image below.
-<img width="1440" alt="Screen Shot 2022-05-31 at 07 34 55" src="https://user-images.githubusercontent.com/94465107/171071800-051cbd08-7a06-43b2-b6ae-e54ae049788e.png">
+5. Create the "Package.swift" file to make this package an ObjectiveC libary
 
-11. A new window will appear to let you select the "Casper ObjectiveC SDK"
-In the left panel select "GitHub", in the top right of the window you will see a text box with prompt text "Search or Enter Package URL", as shown in this image 
-<img width="1084" alt="Screen Shot 2022-05-31 at 07 56 53" src="https://user-images.githubusercontent.com/94465107/171073027-f0c92390-0e0a-4fc4-8700-cd4403e350ea.png">
-Enter the link for the "Casper ObjectiveC SDK" with this value: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", as shown in this image
-<img width="1080" alt="Screen Shot 2022-05-31 at 08 00 02" src="https://user-images.githubusercontent.com/94465107/171073107-66a2da0b-77ba-4b8c-a614-4448addf7bc4.png">
-Then click "Add Package" button.
-There will be process of loading the SDK, somehow like in this image
-<img width="1086" alt="Screen Shot 2022-05-31 at 08 00 50" src="https://user-images.githubusercontent.com/94465107/171073178-8059a626-1260-4007-85ff-3b07bc45af4a.png">
-Then when the process of loading the SDK is ready, you will see the selection for the SDK library. 
-Check all the checkbox if you wish to use all the SDK function, or if you need to use the "info_get_deploy" RPC, simply just choose the following checkbox: "CasperSDKObjectiveC", "CasperSDKObjectiveC_CommonClasses","CasperSDKObjectiveC_GetDeploy".
+Right click the project name, Choose "New file..."
 
-<img width="1440" alt="Screen Shot 2022-05-31 at 08 02 22" src="https://user-images.githubusercontent.com/94465107/171073383-7789985b-f13b-45f1-a986-86c16bd12776.png">
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 52 54" src="https://user-images.githubusercontent.com/94465107/171782886-6e055996-9f21-4e09-9948-6b15dbcd0cf5.png">
 
-Click "Add Package" button.
+Choose "Swift file" then click "Next" button
 
-Wait for a while, you will see the package fully loaded in the "Package Dependencies" section, as shown in this image
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 53 03" src="https://user-images.githubusercontent.com/94465107/171782980-d63d6c79-83ee-4ea8-b15a-d0d589771ce7.png">
 
-<img width="376" alt="Screen Shot 2022-05-31 at 08 17 01" src="https://user-images.githubusercontent.com/94465107/171074307-27de2f0d-fe10-4cd0-a0af-acb7f56b55da.png">
+Enter "Package" as name for the new file, tick all the checkbox for Target.
 
-13. Create a class, for example "SampleClass1.h" and "SampleClass1.m"
-For example this class is for calling get_deploy RPC call, then add the following import to the file
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 55 27" src="https://user-images.githubusercontent.com/94465107/171783034-cc680845-a8d2-4f6c-be5d-18350bf31652.png">
+
+Then select "Create Bridging Header"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 10 56 47" src="https://user-images.githubusercontent.com/94465107/171783158-ad55d741-a521-47df-8e42-3bbb62ef388f.png">
+
+Copy the following content to the newly created "Package.swift" file
+
+ ```ObjectiveC
+// swift-tools-version:5.5
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+import PackageDescription
+
+let package = Package(
+    name: "SamplePackageToCallCasperSDKObjectiveC",
+    platforms: [
+        .iOS(.v13), .tvOS(.v12), .watchOS(.v5), .macOS(.v10_15)
+        ],
+    products: [
+        .library(
+            name: "LibAll",
+            targets: ["LibCoreTarget", "LibFullTarget"]
+        ),
+        .library(
+            name: "LibCore",
+            targets: ["LibCoreTarget"]
+        ),
+        .library(
+            name: "LibFull",
+            targets: ["LibFullTarget"]
+        )
+    ],
+    dependencies: [
+        .package(name: "CasperSDKObjectiveC", url: "https://github.com/tqhuy2018/Casper-ObjectiveC-sdk.git", from: "1.0.0")
+    ],
+    targets: [
+        .target(
+            name: "LibCoreTarget",
+            dependencies: ["CasperSDKObjectiveC"],
+            path: "Sources/Core",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "LibFullTarget",
+            dependencies: ["LibCoreTarget"],
+            path: "Sources/Full",
+            publicHeadersPath: "Public"
+        )
+       
+    ]
+)
+ ```
+You will see some errors appear, but it is not a problem
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 03 01" src="https://user-images.githubusercontent.com/94465107/171783753-0ffda327-1793-4a4e-a289-19658af0af7d.png">
+
+You need to change the structure of the files in the Package to make it a real ObjectiveC library.
+
+First change the name of the folder "PackageToCallCasperObjectiveCSDK" to "Sources" as shown in this image:
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 10 14" src="https://user-images.githubusercontent.com/94465107/171784838-eee1d19e-2c01-44c8-a4ed-61c5b3d9cc4e.png">
+
+Under the folder "Sources" create 1 folder with name "Core" by doing the 2 steps below.
+
+Step 1: Right click on "Sources" folder and choose "New Group"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 12 50" src="https://user-images.githubusercontent.com/94465107/171784896-0b55b7e1-2e23-4cfd-976f-fad79a9e0b23.png">
+
+A new folder appears under "Sources" folder, rename it to "Core"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 13 05" src="https://user-images.githubusercontent.com/94465107/171784938-f4399483-74f8-473f-89c8-463a53892493.png">
+Continue to create 1 more folder with name "Public" under "Core" and 1 more folder with name "SamplePackageToCallCasperSDKObjectiveC" under "Public" folder.
+Some how the structure will be like this:
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 18 48" src="https://user-images.githubusercontent.com/94465107/171785342-212b4adb-e3b8-45f7-8347-350a16d7e4aa.png">
+
+Under folder "SamplePackageToCallCasperSDKObjectiveC" create new header file with name "StateRootHashHandler.h" by Right click the "SamplePackageToCallCasperSDKObjectiveC" folder add choose "New file..."
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 20 04" src="https://user-images.githubusercontent.com/94465107/171785627-9811cfe9-9cec-4484-8470-98afa1beb750.png">
+
+Choose "Header file"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 18 05" src="https://user-images.githubusercontent.com/94465107/171785406-be23ad6d-b16b-4ae6-a97c-b836b03dd619.png">
+
+Give the name "StateRootHashHandler" for the header file, make sure the "Target" check boxes are all checked.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 21 42" src="https://user-images.githubusercontent.com/94465107/171785754-096911b5-06ce-41e1-a882-e5e97dbeb2cc.png">
+
+Then click "Create" button.
+
+Enter the following content for the Header file
  
  ```ObjectiveC
+#ifndef StateRootHashHandler_h
+#define StateRootHashHandler_h
+#import <Foundation/Foundation.h>
+@interface StateRootHashHandler:NSObject
+@property NSString * stateRootHash;
+-(void) getStateRootHashWithCallID:(NSString*) callID;
+@end
+#endif 
+ ```
+
+Next step is to add an ObjectiveC file in "Core" folder.
+
+Right click on the "Core" folder and choose "New file..."
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 25 39" src="https://user-images.githubusercontent.com/94465107/171786095-b7c70006-1ea9-49cd-bd50-efdc44a2de97.png">
+
+In the next window, choose "Objective-C file"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 25 56" src="https://user-images.githubusercontent.com/94465107/171786130-a24a907e-9133-46c9-ba5b-ced2c592d421.png">
+
+Give the file a name, in this case "StateRootHashHandler"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 27 34" src="https://user-images.githubusercontent.com/94465107/171786227-d7b84c28-ab94-4d05-bbae-c2622f77a5f7.png">
+
+Then click "Next"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 27 43" src="https://user-images.githubusercontent.com/94465107/171786268-a9850c56-682b-4189-8f86-1ef7a45914a0.png">
+
+Check all the check box in the "Target" section then click "Create".
+
+Add the following content to the newly created "StateRootHashHandler.m" file
+
+ ```ObjectiveC
+#import "SamplePackageToCallCasperSDKObjectiveC/StateRootHashHandler.h"
 @import CasperSDKObjectiveC_CommonClasses;
-@import CasperSDKObjectiveC_GetDeploy;
+@import CasperSDKObjectiveC_GetStateRootHash;
+@implementation StateRootHashHandler
+int counterStateRootHash = 0;
+int maxCounter = 50;
+-(void)onTick:(NSTimer *)timer {
+    GetStateRootHashRPC * item = [[timer userInfo] objectForKey:@"param1"];
+    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
+    if([item.valueDict[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
+    } else if([item.valueDict[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
+        NSLog(@"Get state root hash error");
+        [timer invalidate];
+        timer = nil;
+    }else {
+        NSLog(@"Find state root hash:%@",item.valueDict[callID]);
+        self.stateRootHash = item.valueDict[callID];
+        [timer invalidate];
+        timer = nil;
+    }
+    counterStateRootHash ++;
+    if(counterStateRootHash == maxCounter) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+-(void) getStateRootHashWithCallID:(NSString*) callID {
+    BlockIdentifier * bi = [[BlockIdentifier alloc] init];
+    bi.blockType = USE_NONE;
+    GetStateRootHashRPC * item = [[GetStateRootHashRPC alloc] init];
+    [item initializeWithRPCURL:URL_TEST_NET];
+    NSString * jsonString = [bi toJsonStringWithMethodName:CASPER_RPC_METHOD_GET_STATE_ROOT_HASH];
+    [item getStateRootHashWithJsonParam:jsonString];
+    //NSString * callID = @"getStateRootHash1";
+    [item getStateRootHashWithJsonParam2:jsonString andCallID:callID];
+    NSTimer * t = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                          target: self
+                          selector:@selector(onTick:)
+                                                 userInfo: @{@"param1":item,@"param2":callID} repeats:YES];
+}
+
+@end
  ```
  
- The content of the "SampleClass1.h" file would be somehow like this:
+ Somehow you will see some errors appear, but it is not a problem because we have not done with the setup yet.
  
-```ObjectiveC
-#ifndef SampleClass1_h
-#define SampleClass1_h
+ Create 1 more folder with name "Full" and add more sub folder to it with quite the same steps for "Core" folder, until you have the structure like this:(See the left panel to view the folders and files structure).
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 51 13" src="https://user-images.githubusercontent.com/94465107/171788411-609e0d89-d245-42b9-be28-0f2587075c2f.png">
+
+In file "GetStatusHandler.h" under folder "Full/Public/SamplePackageToCallCasperSDKObjectiveC" enter the following content:
+
+
+ ```ObjectiveC
+ #ifndef GetStatusHandler_h
+#define GetStatusHandler_h
+
 #import <Foundation/Foundation.h>
-//sample call to info_get_deploy
-@interface SampleClass1:NSObject
--(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString*) callID;
+
+@interface GetStatusHandler : NSObject
+
+-(void) sayHello;
+
 @end
 #endif
+ 
  ```
  
-The content of the "SampleClass1.m" file would be somehow like this:
+ In file "GetStatusHandler.m" under folder "Full" enter the following content:
 
-```ObjectiveC
-#import <Foundation/Foundation.h>
-#import "SampleClass1.h"
-@import CasperSDKObjectiveC_CommonClasses;
-@import CasperSDKObjectiveC_GetDeploy;
-@implementation SampleClass1
-int counterGetDeploy = 0;
-int maxCounter = 50;
--(void)onTickGetDeploy:(NSTimer *)timer {
-    GetDeployRPC * item = [[timer userInfo] objectForKey:@"param1"];
-    NSString * callID = [[timer userInfo] objectForKey:@"param2"];
-    if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_NOT_SET]) {
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_OBJECT]) {
-        NSLog(@"Get deploy with parse error");
-        [timer invalidate];
-        timer = nil;
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALUE_ERROR_NETWORK]) {
-        NSLog(@"Get deploy with network error");
-        [timer invalidate];
-        timer = nil;
-    } else if([item.rpcCallGotResult[callID] isEqualToString:RPC_VALID_RESULT]){
-        GetDeployResult * getDeployResult = item.valueDict[callID];
-        
-        [timer invalidate];
-        timer = nil;
-    }
-    counterGetDeploy ++;
-    if(counterGetDeploy == maxCounter) {
-        [timer invalidate];
-        timer = nil;
-    }
-}
--(void) getDeployWithDeployHash:(NSString*) deployHash andCallID:(NSString *)callID {
-    GetDeployRPC * getDeployRPC = [[GetDeployRPC alloc] init];
-    GetDeployParams * param = [[GetDeployParams alloc] init];
-    param.deploy_hash = deployHash;
-    NSString * jsonString = [param generatePostParam];
-    [getDeployRPC getDeployWithJsonParam2:jsonString andCallID:callID];
-    NSString * callGetDeployID = @"getDeploy1";
-    NSTimer * tGetDeploy = [NSTimer scheduledTimerWithTimeInterval: 1.0
-                          target: self
-                          selector:@selector(onTickGetDeploy:)
-                                                 userInfo: @{@"param1":getDeployRPC,@"param2":callGetDeployID} repeats:YES];
+
+ ```ObjectiveC
+ 
+ #import "SamplePackageToCallCasperSDKObjectiveC/GetStatusHandler.h"
+@implementation GetStatusHandler
+-(void) sayHello {
+    NSLog(@"Say hello again called");
 }
 @end
 
- ```
+  ```
+ Delete the unnecessary files and folders by selecting them, right click and choose Delete.
  
- This file does the task of calling "info_get_deploy" RPC from the Casper ObjectiveC SDK, which can be build without error.
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 34 36" src="https://user-images.githubusercontent.com/94465107/171787356-e56c4ff8-9fbf-4c9f-8d0d-0e12df5b2ade.png">
  
- For full code of the sample please refer to this address: https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK
+ Somehow the project now will look like the image below, still with errors.
+
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 34 52" src="https://user-images.githubusercontent.com/94465107/171787399-c5e0dcf8-f850-4d59-8fa6-62cb477d0267.png">
+
+Close the project and quit Xcode.
+
+Back to the project folder, this time Double click the file "Package.swift" to open the Project again in Xcode.
+
+<img width="975" alt="Screen Shot 2022-06-03 at 11 41 48" src="https://user-images.githubusercontent.com/94465107/171787567-8a653ddd-01ac-4b7d-9d29-ce64bd3487b4.png">
+
+Somehow the project will be like this when it is open again.(Ofcourse without any error).
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 42 57" src="https://user-images.githubusercontent.com/94465107/171787633-24c2b213-9faf-4beb-9642-db152cdeb332.png">
+
+If you can not make it, maybe you need to restart your Mac and try to Double clicke the "Package.swift" file again when the laptop is ready.
+
+As you can see, the package is ready and there are imported package information also.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 58 51" src="https://user-images.githubusercontent.com/94465107/171789450-6fd7faea-22bc-4061-8d93-e2eb662bd99d.png">
+
+
+Next step is select a target for the package.
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 11 45 30" src="https://user-images.githubusercontent.com/94465107/171787939-d147af76-b1b0-4f2a-806b-84e2b3bc3369.png">
+
+ You will see a list of devices, choose 1 device such as Ipad (8th Generation).
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 55 36" src="https://user-images.githubusercontent.com/94465107/171788831-0d9ee2f7-3b88-4e6d-9a93-fcf9b05979ce.png">
+
+ Now you can build the package. Hit "Product->Build"
+ 
+ <img width="1440" alt="Screen Shot 2022-06-03 at 11 56 01" src="https://user-images.githubusercontent.com/94465107/171788898-adf047f2-3314-40ed-917b-05a9109e9fde.png">
+ 
+ This package should be built without any error.
+
+### Make the package callable from Github
+
+To make the already build package above available in Github and can be call from other ObjectiveC, do the following steps:
+
+ <img width="1440" alt="Screen Shot 2022-06-03 at 12 02 53" src="https://user-images.githubusercontent.com/94465107/171789953-ef95f91a-e39a-4cef-882e-f2a63402a218.png">
+
+Add the project to Github
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 07 12" src="https://user-images.githubusercontent.com/94465107/171790116-417fd101-0c9f-4a92-b34e-352d35183f26.png">
+
+Click "Create"
+
+Your project is now in Github.
+
+Still in Xcode choose "Source Control->Commit"
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 09 48" src="https://user-images.githubusercontent.com/94465107/171790366-43d63ec1-1adc-408a-9503-57dc49fffec9.png">
+
+Commit the code to Github
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 10 49" src="https://user-images.githubusercontent.com/94465107/171790410-c519456f-b3bd-4fb8-94b8-2728e03e062c.png">
+
+(In this sample hit the button "Commit 9 files")
+
+Then in Xcode again hit "Source Control->Push"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 15 35" src="https://user-images.githubusercontent.com/94465107/171790867-30bcfded-b1d1-4d16-a64c-730353d018ca.png">
+
+And then press "Push"
+
+<img width="1440" alt="Screen Shot 2022-06-03 at 12 15 58" src="https://user-images.githubusercontent.com/94465107/171790897-fe9b0f49-7ce4-43d2-b15f-9f9bf297eb1b.png">
+
+The source is put to Github nicely. You can see the source at this address if you follow exactly the same steps above.
+
+https://github.com/hienbui9999/PackageToCallCasperObjectiveCSDK_1
+
+You can now call this Package from other ObjectiveC project/package.
+
+## II.  2 - Create 1 ObjectiveC App Project that call to the ObjectiveC Package
+
+Please refer to the example at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2
+ 
+ There is manual of how to use this App Project also. This is a very simple App Project, all you need to do is just download it, open it and then build/run the project.
+
+ ### Package source code
+ 
+ The sample code for the package is at this address:
+ 
+ https://github.com/hienbui9999/ObjectiveCPackageCallCasperSDK
+ 
+ And a sample ObjectiveC that use that Package can be found at this address:
+ 
+ https://github.com/hienbui9999/SampleCallToObjectiveCPackage2

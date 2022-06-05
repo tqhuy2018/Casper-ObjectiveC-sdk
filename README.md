@@ -16,7 +16,7 @@ The package is built an tested in Xcode IDE
 
 To test the project you need to have a Mac with Mac OS and XCode 13 or above to build and run the test.
 
-Download or clone the code from github, then open it with Xcode by Double click the "Package.swift" file.
+Download or clone the code from Github, then open it with Xcode by Double click the "Package.swift" file.
 
 Wait for a while for the project to fully loaded, then click on "Casper-ObjectiveC-sdk-main" item in the left panel, then select the Target for Bulding/Testing as shown in the image below: (Select the text line right above the red rectangle in this image)
 
@@ -213,9 +213,9 @@ After you run the Test with the "PutDeployTest.m" file, you will see a new line 
 
 ## Usage how to
 
-The Casper ObjectiveC SDK can be used from Project or Package writen in ObjectiveC.
+The Casper ObjectiveC SDK can be used from App Project or Package writen in ObjectiveC.
 
-1. [Import and using Casper ObjectiveC SDK from ObjectiveC project](./Docs/Usage.md#1-import-and-using-casper-objectivec-sdk-from-objectivec-project)
+1. [Import and using Casper ObjectiveC SDK from ObjectiveC App project](./Docs/Usage.md#1-import-and-using-casper-objectivec-sdk-from-objectivec-project)
 
 2. [Import and using Casper ObjectiveC SDK from ObjectiveC package](./Docs/Usage.md#2-import-and-using-casper-objectivec-sdk-from-objectivec-package)
 
