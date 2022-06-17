@@ -65,8 +65,8 @@
             } else if([callIndex isEqualToString:@"negativeCall2"]) {
                 NSLog(@"Error back is code:%@ and message:%@",cem.code,cem.message);
                 long errorCode = cem.code.longLongValue;
-                XCTAssert(errorCode == -32602);
-                XCTAssert([cem.message isEqualToString:@"Invalid params"]);
+                XCTAssert(errorCode == -32008);
+                XCTAssert([cem.message isEqualToString:@"invalid deploy: the approval at index 0 is invalid: asymmetric key error: failed to verify secp256k1 signature: signature error"]);
             } else if([callIndex isEqualToString:@"negativeCall3"]) {
                 NSLog(@"Error back is code:%@ and message:%@",cem.code,cem.message);
                 long errorCode = cem.code.longLongValue;
