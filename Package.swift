@@ -49,8 +49,7 @@ let package = Package(
         .target(
             name: "CasperSDKObjectiveC_CLValue",
             dependencies: ["CasperSDKObjectiveC_CommonClasses"],
-            path: "Sources/CasperSDKObjectiveC/CLValue",
-            publicHeadersPath: "Public"
+            path: "Sources/CasperSDKObjectiveC/CLValue"
                 ),
         .target(
             name: "CasperSDKObjectiveC_Crypto",
