@@ -57,7 +57,7 @@
                 XCTAssert([gbr.block.body.proposer isEqualToString:@"0152b2b3cc1de020e0cfb5887d0fda5d99da5decaf98af90f13144e97d0e35eeaa"]);
                 XCTAssert([gbr.block.body.deploy_hashes count] == 0);
                 XCTAssert([gbr.block.body.transfer_hashes count] == 0);
-                XCTAssert([gbr.block.proofs count] == 100);
+                XCTAssert([gbr.block.proofs count] == 0);
             }
         } else {
             NSLog(@"Error get block with error message:%@ and error code:%@",cem.message,cem.code);
